@@ -1,2 +1,3 @@
 module GlobalConfigModel
 singleton GlobalConfigModel 1.0 GlobalConfigModel.qml
+singleton Session 1.0 Session.qml

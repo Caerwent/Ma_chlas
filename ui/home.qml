@@ -54,50 +54,34 @@ Item {
 
         Component {
             id: classroomDelegate
-            Item {
+            Card {
                 width: classroomGrid.cellWidth;
                 height: classroomGrid.cellHeight
-                Rectangle {
-                   anchors.fill: parent
-                    border.color:Material.primary
-                    border.width: 2*UIUtils.UI.dp
-                    radius: 10*UIUtils.UI.dp
+                selectable:true
+                padding:10
+                label:name
+                imgSource:image
+
+                onSelected:
+                {
+                    Session.classRoom = GlobalConfigModel.config.classes[classRoomIndex]
+                    if(hasChildren)
+                        App.instance.getNavigator().gotToScreen(Screens.children)
+                    else
+                        App.instance.getNavigator().gotToScreen(Screens.games)
+                }
 
 
-                    Image { source: image;
-                        anchors.horizontalCenter: parent.horizontalCenter
-
-                        width: classroomGrid.cellWidth
-                        height: classroomGrid.cellHeight
-                     sourceSize: Qt.size(width, height)}
-                  //  Label { text: name; anchors.horizontalCenter: parent.horizontalCenter }
-
-                    MouseArea {
-                           anchors.fill: parent
-                           hoverEnabled: true
-                           onEntered:{
-                               parent.border.color = Material.accent
-                           }
-
-                           onExited :{
-                               parent.border.color = Material.primary
-                           }
-                           onClicked: {
-                               if(hasChildren)
-                                   App.instance.getNavigator().gotToScreen(Screens.children,  {"classRoomIndex": classRoomIndex})
-                               else
-                                   App.instance.getNavigator().gotToScreen(Screens.games)
-                           }
-                       }
-                   }
 
             }
+
+
         }
 
         GridView {
             id: classroomGrid
             anchors.fill: parent
-            cellWidth: 100*UIUtils.UI.dp; cellHeight: 100*UIUtils.UI.dp
+            cellWidth: 150*UIUtils.UI.dp; cellHeight: 150*UIUtils.UI.dp
 flow:GridView.FlowLeftToRight
             model: classroomModel
             delegate: classroomDelegate

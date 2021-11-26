@@ -6,7 +6,6 @@ import "../dataModels"
 
 Item {
     id:childrenComponent
-    property var classRoomIndex
 
     Label {
         anchors.left: parent.left
@@ -34,9 +33,6 @@ Item {
         border.color :"transparent"
         color:Material.backgroundColor
 
-
-
-
         ListModel {
             id: childrenModel
 
@@ -46,61 +42,11 @@ Item {
 
     Component {
         id: childrenDelegate
-        Item {
+        Avatar {
             width: childrenGrid.cellWidth
             height: childrenGrid.cellHeight
-            Rectangle {
-                width: (childrenGrid.cellWidth-10*UIUtils.UI.dp)
-                height: (childrenGrid.cellWidth-10*UIUtils.UI.dp)
-                anchors.horizontalCenter: parent.horizontalCenter
-                 anchors.verticalCenter: parent.verticalCenter
-                border.color:Material.primary
-                border.width: 2*UIUtils.UI.dp
-                radius: 10*UIUtils.UI.dp
-                MouseArea {
-                       anchors.fill: parent
-                       hoverEnabled: true
-                       onEntered:{
-                           parent.border.color = Material.accent
-                       }
-
-                       onExited :{
-                           parent.border.color = Material.primary
-                       }
-                       onClicked: {
-                           App.instance.getNavigator().gotToScreen(Screens.games)
-                       }
-                   }
-            Column {
-                width: (parent.width-10*UIUtils.UI.dp)
-                height: (parent.height-10*UIUtils.UI.dp)
-                anchors.horizontalCenter: parent.horizontalCenter
-                 anchors.verticalCenter: parent.verticalCenter
-                spacing: 2*UIUtils.UI.dp
-                Label {
-                    text: name;
-                    color:Material.primary
-                    width: (parent.width-20*UIUtils.UI.dp)
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    font.pointSize: 16
-                    horizontalAlignment: Text.AlignHCenter
-
-                       wrapMode: Text.Wrap
-                }
-                Image { source: image;
-
-                    width: (parent.width-20*UIUtils.UI.dp)
-                 //   height: (childrenGrid.cellWidth-20*UIUtils.UI.dp)
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    sourceSize: Qt.size(width, height)
-                }
-
-
-
-               }
-            }
-
+            child:childRef
+            isSelectable:true
         }
     }
 
@@ -118,12 +64,12 @@ flow:GridView.FlowLeftToRight
     {
         childrenModel.clear();
         console.log("children updateFromConfig")
-                    var childrenList = GlobalConfigModel.config.classes[classRoomIndex].children
+                    var childrenList = Session.classRoom.children
                         for (var i in childrenList) {
                             childrenModel.append(
                                         {
-                                            name: childrenList[i]["name"],
-                                             image: GlobalConfigModel.config.path+childrenList[i]["image"],
+                                            indexChild:i,
+                                            childRef: childrenList[i]
                                         }
                                                   );
                         }
@@ -131,14 +77,12 @@ flow:GridView.FlowLeftToRight
 }
 
 
-    onClassRoomIndexChanged : {
-        childrenFrame.updateFromConfig()
-    }
 
 
     Component.onCompleted: {
         childrenFrame.updateFromConfig()
     }
+
 
 }
 

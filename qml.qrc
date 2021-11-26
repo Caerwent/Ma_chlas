@@ -42,5 +42,8 @@
         <file>ui/Navigator.qml</file>
         <file>ui/App.qml</file>
         <file>ui/AppWindow.qml</file>
+        <file>dataModels/Session.qml</file>
+        <file>ui/Avatar.qml</file>
+        <file>ui/Card.qml</file>
     </qresource>
 </RCC>

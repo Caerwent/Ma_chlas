@@ -4,7 +4,7 @@ import QtQuick.Window
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "."
-
+import "../dataModels"
 Window {
     color: Material.background
     visibility: "FullScreen"
@@ -53,6 +53,7 @@ Window {
                 PropertyChanges {
                     target: navigator
                     width:70*UIUtils.UI.dp
+                    state:"landscape"
                 }
                 AnchorChanges {
                     target: mainStack
@@ -71,6 +72,7 @@ Window {
                 PropertyChanges {
                     target: navigator
                     height:70*UIUtils.UI.dp
+                    state:"portrait"
                 }
                 AnchorChanges {
                     target: mainStack
@@ -133,6 +135,7 @@ Window {
     Component.onCompleted:
     {
         App.instance = applicationWindow
+        Session.screens.push(Screens.home)
     }
 
 }
