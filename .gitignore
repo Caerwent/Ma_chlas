@@ -1,0 +1,28 @@
+# built application files
+*.o
+
+
+# generated files
+bin/
+gen/
+out/
+build/
+
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IDE project files
+.pro.user
+
+# Windows thumbnail db
+.DS_Store
+
+
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandbox
+
+.directory

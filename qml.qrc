@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ui/main.qml</file>
+        <file>scripts/loadJson.js</file>
+        <file>ui/Phonem.qml</file>
+        <file>res/icons/back.svg</file>
+        <file>res/icons/reload.svg</file>
+        <file>ui/Splash.qml</file>
+        <file>res/icons/icon.svg</file>
+        <file>res/icons/exit.svg</file>
+        <file>ui/Screen1.qml</file>
+        <file>res/data/images/image1.jpg</file>
+        <file>res/data/images/image2.jpg</file>
+        <file>res/data/images/image3.jpg</file>
+        <file>res/data/images/image4.jpg</file>
+        <file>res/data/models/phonem.json</file>
+        <file>res/data/sounds/phoneme1.mp3</file>
+        <file>res/data/sounds/phoneme2.mp3</file>
+        <file>res/data/sounds/phoneme3.mp3</file>
+        <file>res/data/sounds/phoneme4.mp3</file>
+        <file>res/data/sounds/quiSon1R1.mp3</file>
+        <file>res/data/sounds/quiSon1R2.mp3</file>
+        <file>res/data/sounds/quiSon1R3.mp3</file>
+        <file>res/data/sounds/quiSon1R4.mp3</file>
+        <file>res/data/sounds/sample-3s.mp3</file>
+        <file>res/data/config.json</file>
+        <file>ui/home.qml</file>
+        <file>ui/config.qml</file>
+        <file>ui/Screens.qml</file>
+        <file>ui/qmldir</file>
+        <file>res/icons/gear.svg</file>
+        <file>dataModels/GlobalConfigModel.qml</file>
+        <file>res/global_config.json</file>
+        <file>dataModels/qmldir</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>ui/ColoredImage.qml</file>
+        <file>res/shaders/colorizeFrag.qsb</file>
+        <file>res/shaders/colorizeVert.qsb</file>
+        <file>res/data/images/class/classroom.svg</file>
+        <file>ui/Games.qml</file>
+        <file>ui/Children.qml</file>
+        <file>ui/Navigator.qml</file>
+        <file>ui/App.qml</file>
+        <file>ui/AppWindow.qml</file>
+    </qresource>
+</RCC>

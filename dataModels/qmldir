@@ -1,0 +1,2 @@
+module GlobalConfigModel
+singleton GlobalConfigModel 1.0 GlobalConfigModel.qml
