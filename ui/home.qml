@@ -36,7 +36,7 @@ Item {
     }
 
     Rectangle {
-        id: classroomFrame
+        id: groupFrame
         anchors.top: configImg.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -48,15 +48,15 @@ Item {
         border.color :"transparent"
         color:Material.backgroundColor
         ListModel {
-            id: classroomModel
+            id: groupModel
 
         }
 
         Component {
-            id: classroomDelegate
+            id: groupDelegate
             Card {
-                width: classroomGrid.cellWidth;
-                height: classroomGrid.cellHeight
+                width: groupGrid.cellWidth;
+                height: groupGrid.cellHeight
                 selectable:true
                 padding:10
                 label:name
@@ -64,11 +64,11 @@ Item {
 
                 onSelected:
                 {
-                    Session.classRoom = GlobalConfigModel.config.classes[classRoomIndex]
+                    Session.group = GlobalConfigModel.config.groups[groupIndex]
                     if(hasChildren)
                         App.instance.getNavigator().gotToScreen(Screens.children)
                     else
-                        App.instance.getNavigator().gotToScreen(Screens.games)
+                        App.instance.getNavigator().gotToScreen(Screens.activitiesGroupChoice)
                 }
 
 
@@ -79,24 +79,24 @@ Item {
         }
 
         GridView {
-            id: classroomGrid
+            id: groupGrid
             anchors.fill: parent
             cellWidth: 150*UIUtils.UI.dp; cellHeight: 150*UIUtils.UI.dp
 flow:GridView.FlowLeftToRight
-            model: classroomModel
-            delegate: classroomDelegate
+            model: groupModel
+            delegate: groupDelegate
             focus: true
         }
 
         function updateFromConfig(inputConfig)
         {
-            classroomModel.clear();
+            groupModel.clear();
             console.log("Home updateFromConfig")
-            var listData = inputConfig.classes
+            var listData = inputConfig.groups
                             for (var i in listData) {
-                                classroomModel.append(
+                                groupModel.append(
                                             {
-                                                classRoomIndex: i,
+                                                groupIndex: i,
                                                 name: listData[i]["name"],
                                                  image: inputConfig.path+listData[i]["image"],
                                                 hasChildren:listData[i]["children"]?listData[i]["children"].length>0 : false
@@ -112,7 +112,7 @@ flow:GridView.FlowLeftToRight
 
             function onConfigChanged(inputConfig) {
                 console.log("GlobalConfigModel onValueChanged")
-                classroomFrame.updateFromConfig(GlobalConfigModel.config)
+                groupFrame.updateFromConfig(GlobalConfigModel.config)
             }
         }
 

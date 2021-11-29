@@ -13,6 +13,7 @@ import "../dataModels"
 
         onIsSmallChanged: {
             card.padding = isSmall ? 2 : 10
+            card.labelSize = isSmall ? 8 : 16
         }
 
         onChildChanged:
@@ -20,13 +21,6 @@ import "../dataModels"
             label = child ? child.name : ""
             imgSource = child ? GlobalConfigModel.config.path+child.image : ""
         }
-
-        onSelected:
-        {
-            Session.child = child
-            App.instance.getNavigator().gotToScreen(Screens.games)
-        }
-
 
 
     }

@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>ui/main.qml</file>
         <file>scripts/loadJson.js</file>
-        <file>ui/Phonem.qml</file>
+        <file>ui/phono/Phonem.qml</file>
         <file>res/icons/back.svg</file>
         <file>res/icons/reload.svg</file>
         <file>ui/Splash.qml</file>
@@ -37,7 +37,7 @@
         <file>res/shaders/colorizeFrag.qsb</file>
         <file>res/shaders/colorizeVert.qsb</file>
         <file>res/data/images/class/classroom.svg</file>
-        <file>ui/Games.qml</file>
+        <file>ui/ActivitiesGroupChoice.qml</file>
         <file>ui/Children.qml</file>
         <file>ui/Navigator.qml</file>
         <file>ui/App.qml</file>
@@ -45,5 +45,23 @@
         <file>dataModels/Session.qml</file>
         <file>ui/Avatar.qml</file>
         <file>ui/Card.qml</file>
+        <file>res/data/config_activity_phonems.json</file>
+        <file>res/icons/numbers.svg</file>
+        <file>res/icons/phono.svg</file>
+        <file>dataModels/ActivityCategories.qml</file>
+        <file>ui/ActivityChoice.qml</file>
+        <file>ui/phono/CountSyllabes.qml</file>
+        <file>res/icons/countSyllabes.svg</file>
+        <file>res/data/config_activity_count_syllabes.json</file>
+        <file>res/data/config_activity_find_syllabes.json</file>
+        <file>res/icons/findSyllabes.svg</file>
+        <file>res/icons/ok.svg</file>
+        <file>ui/ActivityChoiceLevel.qml</file>
+        <file>res/icons/count1.svg</file>
+        <file>res/icons/count2.svg</file>
+        <file>res/icons/count3.svg</file>
+        <file>res/icons/count4.svg</file>
+        <file>res/icons/count5.svg</file>
+        <file>res/icons/count6.svg</file>
     </qresource>
 </RCC>

@@ -48,11 +48,13 @@ Item {
             externalConfigFile.source=settings.externalFile
 
             var response = externalConfigFile.read();
-            config= JSON.parse(response);
-            if(config.path.startsWith("."))
+            var newConfig= JSON.parse(response);
+            if(newConfig.path.startsWith("."))
             {
-                config.path="file://"+externalConfigFile.getPath()
+                newConfig.path="file://"+externalConfigFile.getPath()
             }
+            config=newConfig
+
         }
     }
 

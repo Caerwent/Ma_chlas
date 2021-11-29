@@ -8,6 +8,8 @@ Flow {
 
     id:navigator
     property var child : Session.child
+    property string activityType : Session.activityType
+    property int activityLevel: Session.activityLevel
 
     flow: Flow.LeftToRight
     anchors.margins: 10*UIUtils.UI.dp
@@ -46,7 +48,7 @@ Flow {
 
         }catch(error)
         {
-            App.instance.errorDialog.showError(qsTr("Error when displaying screen %1 : %2\n%3").arg(screenRef).arg(error).arg(error.stack))
+            App.instance.showError(qsTr("Error when displaying screen %1 : %2\n%3").arg(screenRef).arg(error).arg(error.stack))
         }
     }
 
@@ -61,7 +63,21 @@ Flow {
             Session.child=undefined
         } else if(currentItem===Screens.home)
         {
-            Session.classRoom=undefined
+            Session.group=undefined
+        }
+        else if(currentItem===Screens.activitiesGroupChoice)
+        {
+            Session.activityCategory=null
+        }
+        else if(currentItem===Screens.activityChoice)
+        {
+            Session.selectedActivities=undefined
+            Session.activityPath=null
+            Session.activityType=null
+
+        } else if(currentItem===Screens.activityChoiceLevel)
+        {
+            Session.activityLevel=0
         }
 
     }
@@ -107,10 +123,31 @@ Flow {
         visible:false
         isSmall:true
     }
+
+    Card {
+        id:activity
+        width: 60*UIUtils.UI.dp
+        height: 60*UIUtils.UI.dp
+        labelSize:8
+        visible:false
+        selectable:false
+    }
+
     onChildChanged : {
         avatar.child = Session.child
         avatar.visible = (Session.child!==undefined)
 
+    }
+
+    onActivityTypeChanged:
+    {
+        activity.imgSource = ActivityCategories.getIconFromType(activityType)
+        activity.visible = Session.activityType ? true : false
+
+    }
+
+    onActivityLevelChanged: {
+        activity.bkgColor = Session.activityLevel>0 ? ActivityCategories.getColorStringFromLevel(activityLevel) : Material.primaryColor
     }
 
     state: "landscape"

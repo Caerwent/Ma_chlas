@@ -1,0 +1,42 @@
+{
+"path":"qrc:/res/data/",
+"activities":[
+   {
+            "level":1,
+
+            "items": [
+                {
+                    "image":"images/image1.jpg",
+                    "sound":"sounds/quiSon1R1.mp3",
+                    "max":3,
+                    "value":2
+                },
+                {
+                    "image":"images/image2.jpg",
+                    "sound":"sounds/quiSon1R2.mp3",
+                    "max":3,
+                    "value":1
+                }
+             ]
+        },
+
+    {
+    "level":2,
+
+    "items": [
+        {
+            "image":"images/image3.jpg",
+            "sound":"sounds/quiSon1R3.mp3",
+            "max":2,
+            "value":2
+        },
+        {
+            "image":"images/image4.jpg",
+            "sound":"sounds/quiSon1R4.mp3",
+            "max":4,
+            "value":3
+        }
+     ]
+    }
+]
+}

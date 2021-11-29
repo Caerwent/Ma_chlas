@@ -47,6 +47,10 @@ Item {
             height: childrenGrid.cellHeight
             child:childRef
             isSelectable:true
+            onSelected: {
+                Session.child=child
+                App.instance.getNavigator().gotToScreen(Screens.activitiesGroupChoice)
+            }
         }
     }
 
@@ -64,7 +68,7 @@ flow:GridView.FlowLeftToRight
     {
         childrenModel.clear();
         console.log("children updateFromConfig")
-                    var childrenList = Session.classRoom.children
+                    var childrenList = Session.group.children
                         for (var i in childrenList) {
                             childrenModel.append(
                                         {
