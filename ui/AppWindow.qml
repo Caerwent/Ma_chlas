@@ -38,6 +38,32 @@ Window {
         }
     }
 
+    Dialog {
+        id:info
+
+        Label {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            horizontalAlignment: "AlignHCenter"
+            id:infoMessage
+
+        }
+        standardButtons: Dialog.Ok
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        onAccepted: {
+
+        }
+
+        function showMessage(amsg)
+        {
+            infoMessage.text = amsg
+            visible = true
+        }
+    }
+
     Item{
         anchors.fill: parent
         state: "landscape"

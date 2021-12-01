@@ -31,8 +31,19 @@ Flow {
                     incubator.onStatusChanged = function(incubatorStatus) {
                         if (incubatorStatus === Component.Ready) {
                             console.log ("Object", incubator.object, "is now ready!");
-                            App.instance.getStack().push(incubator.object)
-                            Session.screens.push(screenRef)
+                            if(screenRef===Screens.score)
+                            {
+                                App.instance.getStack().replace(incubator.object, StackView.PushTransition)
+                                Session.screens.pop()
+                                Session.screens.push(screenRef)
+                            }
+                            else
+                            {
+                                App.instance.getStack().push(incubator.object)
+                                 Session.screens.push(screenRef)
+                            }
+
+
                         }
                         else if(incubatorStatus === Component.Error )
                         {
@@ -41,8 +52,18 @@ Flow {
                     }
                 } else {
                     console.log ("Object", incubator.object, "is ready immediately!");
-                    Session.screens.push(screenRef)
-                    App.instance.getStack().push(incubator.object)
+
+                    if(screenRef===Screens.score)
+                    {
+                        App.instance.getStack().replace(incubator.object, StackView.PushTransition)
+                        Session.screens.pop()
+                        Session.screens.push(screenRef)
+                    }
+                    else
+                    {
+                        App.instance.getStack().push(incubator.object)
+                        Session.screens.push(screenRef)
+                    }
                 }
             }
 
@@ -78,6 +99,10 @@ Flow {
         } else if(currentItem===Screens.activityChoiceLevel)
         {
             Session.activityLevel=0
+        }
+        else if(currentItem===Screens.score)
+        {
+            Session.activityScore=0
         }
 
     }

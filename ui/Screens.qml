@@ -10,4 +10,5 @@ QtObject {
     property string activityChoice:"qrc:/ui/ActivityChoice.qml"
     property string activityChoiceLevel:"qrc:/ui/ActivityChoiceLevel.qml"
     property string countSyllabes:"qrc:/ui/phono/CountSyllabes.qml"
+    property string score:"qrc:/ui/ScoreScreen.qml"
 }

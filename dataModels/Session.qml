@@ -12,5 +12,6 @@ Item {
     property string activityType
     property string activityPath
     property int activityLevel
+    property int activityScore
     property var screens:[]
 }

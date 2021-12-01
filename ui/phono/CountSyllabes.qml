@@ -3,10 +3,22 @@ import QtQuick.Controls
 import QtMultimedia
 import UIUtils 1.0 as UIUtils
 import "."
+import ".."
 import "../../dataModels"
 
 Item {
     id:countPhonems
+    property int currentIndex
+    property int currentLevelIndex: Session.activityLevel-1
+    property var syllabe
+
+    property int respGridWith: syllabe.max*60*UIUtils.UI.dp
+    property int respGridheight: syllabe.max*60*UIUtils.UI.dp
+
+    property bool syllabeDone : false
+    property bool checkEnabled : false
+
+    property int score : 0
 
     Label {
         anchors.left: parent.left
@@ -34,137 +46,341 @@ Item {
         border.color :"transparent"
         color:Material.backgroundColor
 
-        property int currentIndex
-        property int currentLevelIndex
-        property var syllabe
 
-
-
-
-
-                Image {
-                    id: img
-                    width: 250*UIUtils.UI.dp
-                    anchors.top: parent.top
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    sourceSize: Qt.size(width, height)
-
-                    MediaPlayer {
-                        id: mediaPlayer
-                        audioOutput: AudioOutput {
+        Flow {
+            id:scoreBar
+            anchors.top: parent.top
+            anchors.topMargin: 30*UIUtils.UI.dp
+            height: 50*UIUtils.UI.dp
+            anchors.horizontalCenter: parent.horizontalCenter
+            flow:Flow.LeftToRight
+            spacing: 10*UIUtils.UI.dp
+            Repeater {
+                        id: scoreRepeater
+                        model: score
+                        delegate: ColoredImage {
+                                        id: delegate
+                                        width: 50*UIUtils.UI.dp
+                                        height: 50*UIUtils.UI.dp
+                                        source: "qrc:///res/icons/star.svg"
+                                        overlayColor: "#ED8A19"
+                                        hoverEnabled:false
 
                         }
-                        onPlaybackStateChanged: {
-                            var temp
+            }
+        }
 
-                            switch (playbackState)
-                            {
-                            case MediaPlayer.NoMedia:
-                                temp = "MediaPlayer.NoMedia"
-                                break;
 
-                            case MediaPlayer.Loading:
-                                temp = "MediaPlayer.Loading"
-                                break;
+        Image {
+            id: img
+            width: 250*UIUtils.UI.dp
+            anchors.top: scoreBar.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 30*UIUtils.UI.dp
+            sourceSize: Qt.size(width, height)
 
-                            case MediaPlayer.Loaded:
-                                temp = "MediaPlayer.Loaded"
-                                break;
+            MediaPlayer {
+                id: mediaPlayer
+                audioOutput: AudioOutput {
 
-                            case MediaPlayer.Buffering:
-                                temp = "MediaPlayer.Buffering"
-                                break;
+                }
+                onPlaybackStateChanged: {
+                    var temp
 
-                            case MediaPlayer.Stalled:
-                                temp = "MediaPlayer.Stalled"
-                                break;
+                    switch (playbackState)
+                    {
+                    case MediaPlayer.NoMedia:
+                        temp = "MediaPlayer.NoMedia"
+                        break;
 
-                            case MediaPlayer.Buffered:
-                                temp = "MediaPlayer.Buffered"
-                                break;
+                    case MediaPlayer.Loading:
+                        temp = "MediaPlayer.Loading"
+                        break;
 
-                            case MediaPlayer.EndOfMedia:
-                                temp = "MediaPlayer.EndOfMedia"
-                                break;
+                    case MediaPlayer.Loaded:
+                        temp = "MediaPlayer.Loaded"
+                        break;
 
-                            case MediaPlayer.InvalidMedia:
-                                temp = "MediaPlayer.InvalidMedia"
-                                break;
+                    case MediaPlayer.Buffering:
+                        temp = "MediaPlayer.Buffering"
+                        break;
 
-                            case MediaPlayer.UnknownStatus:
-                                temp = "MediaPlayer.UnknownStatus"
-                                break;
-                            }
+                    case MediaPlayer.Stalled:
+                        temp = "MediaPlayer.Stalled"
+                        break;
 
-                            console.log(temp)
+                    case MediaPlayer.Buffered:
+                        temp = "MediaPlayer.Buffered"
+                        break;
 
-                            /* if (playbackState === MediaPlayer.Loaded)
+                    case MediaPlayer.EndOfMedia:
+                        temp = "MediaPlayer.EndOfMedia"
+                        break;
+
+                    case MediaPlayer.InvalidMedia:
+                        temp = "MediaPlayer.InvalidMedia"
+                        break;
+
+                    case MediaPlayer.UnknownStatus:
+                        temp = "MediaPlayer.UnknownStatus"
+                        break;
+                    }
+
+                    console.log(temp)
+
+                    /* if (playbackState === MediaPlayer.Loaded)
                                     {
                                         play()
                                     }*/
-                        }
+                }
+
+            }
+
+            MouseArea {
+                id: playArea
+                anchors.fill: parent
+                onPressed: mediaPlayer.play();
+            }
+        }
+
+
+        ListModel {
+            id:responsesModel
+        }
+
+        Component {
+            id:responsesModelDelegate
+            Rectangle {
+                width: 60*UIUtils.UI.dp
+                height: 60*UIUtils.UI.dp
+                border.color :"transparent"
+                color:"transparent"
+                Rectangle {
+                    width: 50*UIUtils.UI.dp
+                    height: 50*UIUtils.UI.dp
+                    border.color :"transparent"
+                    color:"transparent"
+                    anchors.centerIn: parent
+                    Image {
+                        width: 50*UIUtils.UI.dp
+                        height: 50*UIUtils.UI.dp
+
+                        source:imgSrc
+                        sourceSize: Qt.size(width, height)
 
                     }
+                    ColoredImage {
+                        id:resultMark
+                        width: 40*UIUtils.UI.dp
+                        height: 40*UIUtils.UI.dp
+                        anchors.centerIn: parent
+                        overlayColor: isValid ? "#00FF00": "#000000"
+                        visible:checkVisibility
+                        hoverEnabled:false
+                        source:"qrc:///res/icons/ok.svg"
 
+                    }
+                    Image {
+                        id:errorMark
+                        width: 40*UIUtils.UI.dp
+                        height: 40*UIUtils.UI.dp
+                        anchors.centerIn: parent
+                        source:"qrc:///res/icons/wrong.svg"
+                        sourceSize: Qt.size(width, height)
+                        smooth: true
+                        visible: wrongResp
+                    }
                     MouseArea {
-                        id: playArea
                         anchors.fill: parent
-                        onPressed: mediaPlayer.play();
+                        onPressed:
+                        {
+                            clickResult(indexValue)
+                        }
+                    }
+                }
+            }
+        }
+
+
+        GridView {
+            id: response
+            width:respGridWith
+            height:respGridheight
+            anchors.margins: 10*UIUtils.UI.dp
+            anchors.top: img.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            cellWidth: 60*UIUtils.UI.dp; cellHeight: 60*UIUtils.UI.dp
+            flow:GridView.FlowLeftToRight
+            model: responsesModel
+            delegate: responsesModelDelegate
+        }
+
+
+
+
+
+        ColoredImage {
+            id: check
+            width: 50*UIUtils.UI.dp
+            height: 50*UIUtils.UI.dp
+            anchors.top: response.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "qrc:///res/icons/eye.svg"
+            enabled: checkEnabled
+            onClicked:{
+                checkResult()
+            }
+        }
+        ColoredImage {
+            id: star
+            width: 50*UIUtils.UI.dp
+            height: 50*UIUtils.UI.dp
+            x:check.x+check.width+10*UIUtils.UI.dp
+            y:check.y
+            visible: false
+            overlayColor: "#ED8A19"
+            hoverEnabled:false
+            source: "qrc:///res/icons/star.svg"
+            ParallelAnimation {
+                    id: startAnim
+                    NumberAnimation {
+                        target: star
+                        properties: "y"
+                        to: scoreBar.y+scoreBar.height/2
+                        duration: 400
+                    }
+                    NumberAnimation {
+                        target: star
+                        properties: "x"
+                        to: scoreBar.x+scoreBar.width/2
+                        duration: 400
+                    }
+
+                    onStopped: {
+                        star.visible=false
+                        star.x=check.x+check.width+10*UIUtils.UI.dp
+                        star.y=check.y
+                        score++
+
+                        gotToNextItem()
                     }
                 }
 
 
+        }
 
-                Flow {
-                    flow: Flow.LeftToRight
-                    anchors.margins: 10*UIUtils.UI.dp
-                    anchors.top: img.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    spacing: 10*UIUtils.UI.dp
-                    Repeater {
-                        id:counterRepeater
-                        model : syllabe.max
-                        Image {
-                            width: 50*UIUtils.UI.dp
-                            height: 50*UIUtils.UI.dp
 
-                            source:"qrc:///res/icons/count"+(index+1)+".svg"
-                            sourceSize: Qt.size(width, height)
 
+    }
+
+    onSyllabeChanged: {
+        img.source = Qt.resolvedUrl(Session.activityPath+syllabe.image);
+        img.sourceSize= Qt.size(img.width, img.height)
+        //https://www.qt.io/product/qt6/qml-book/ch11-multimedia-playing-media
+        mediaPlayer.source =Qt.resolvedUrl(Session.activityPath+syllabe.sound);
+
+    }
+
+    Component.onCompleted:
+    {
+        changeIndex(0)
+    }
+
+    function changeIndex(index)
+    {
+        currentIndex = index
+        syllabe = Session.selectedActivities[currentLevelIndex].items[currentIndex]
+        responsesModel.clear()
+        for (var i = 0; i < syllabe.max; i++)
+        {
+
+            responsesModel.append({
+                                      indexValue:i,
+                                      imgSrc:"qrc:///res/icons/count"+(i+1)+".svg",
+                                      checkVisibility:false,
+                                      isValid:false,
+                                      wrongResp:false
+                                  })
+        }
+        respGridWith= syllabe.max*response.cellWidth
+        respGridheight= ((syllabe.max/(syllabe.max*response.cellWidth)) + 1 )*response.cellHeight
+
+    }
+
+    function clickResult(indexValue)
+    {
+        if(!syllabeDone)
+        {
+        for (var i = 0; i<responsesModel.count; i++)
+        {
+            responsesModel.get(i).checkVisibility=(i===indexValue)
+        }
+        checkEnabled=true
+        }
+    }
+
+
+    function gotToNextItem()
+    {
+        if(currentIndex<(Session.selectedActivities[currentLevelIndex].items.length-1))
+        {
+            changeIndex(currentIndex+1)
+        }
+        else
+        {
+            Session.activityScore=score
+            App.instance.getNavigator().gotToScreen(Screens.score)
+
+        }
+
+    }
+
+    function checkResult()
+    {
+        console.log("checkResult")
+        if(checkEnabled)
+        {
+
+            if(syllabeDone)
+            {
+                check.source="qrc:///res/icons/eye.svg"
+                syllabeDone=false
+                checkEnabled=false
+
+                if(star.visible===true)
+                {
+                    startAnim.restart()
+                } else {
+                    gotToNextItem()
+                }
+
+            }
+            else
+            {
+
+                syllabeDone=true
+                check.source="qrc:///res/icons/next.svg"
+                for (var i = 0; i<responsesModel.count; i++)
+                {
+                    if(responsesModel.get(i).checkVisibility)
+                    {
+                        if(i===syllabe.value)
+                        {
+                            responsesModel.get(i).isValid=true
+                            star.visible=true
+                        }
+                        else
+                        {
+                            responsesModel.get(i).checkVisibility=false
+                            responsesModel.get(i).wrongResp=true
                         }
                     }
-
-
-
-
-
-
-        }
-
-        onSyllabeChanged: {
-            img.source = Qt.resolvedUrl(Session.activityPath+syllabe.image);
-            img.sourceSize= Qt.size(img.width, img.height)
-            //https://www.qt.io/product/qt6/qml-book/ch11-multimedia-playing-media
-            mediaPlayer.source =Qt.resolvedUrl(Session.activityPath+syllabe.sound);
-
-        }
-
-        onCurrentIndexChanged: {
-            syllabe = Session.selectedActivities[currentLevelIndex].items[currentIndex]
-        }
-
-        onCurrentLevelIndexChanged:
-        {
-            currentIndex = 0
-        }
-
-        Component.onCompleted:
-        {
-            childrenFrame.currentLevelIndex=0
-            currentIndex = 0
-            syllabe = Session.selectedActivities[currentLevelIndex].items[currentIndex]
-            counterRepeater.model = syllabe.max
+                    else if(i===syllabe.value)
+                    {
+                        responsesModel.get(i).checkVisibility=true
+                    }
+                }
+            }
         }
     }
 }
