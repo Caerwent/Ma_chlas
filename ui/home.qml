@@ -3,6 +3,7 @@ import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
+import UserSession 1.0
 Item {
     id:home
 
@@ -68,7 +69,10 @@ Item {
                     if(hasChildren)
                         App.instance.getNavigator().gotToScreen(Screens.children)
                     else
+                    {
                         App.instance.getNavigator().gotToScreen(Screens.activitiesGroupChoice)
+                        Session.loadUser()
+                    }
                 }
 
 

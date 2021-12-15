@@ -51,7 +51,7 @@ Item {
                 bkgColor : ActivityCategories.getColorStringFromLevel(activityLevel)
                 onSelected:
                 {
-                    Session.activityLevel = activityLevel
+                    Session.activityIndex = activityIndex
                     App.instance.getNavigator().gotToScreen(ActivityCategories.getScreenFromType(Session.activityType))
 
                 }

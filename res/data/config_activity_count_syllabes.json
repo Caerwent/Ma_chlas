@@ -17,12 +17,16 @@
                     "max":3,
                     "value":1
                 }
-             ]
+             ],
+             "nbItemsPerExercice":10,
+             "exercices":["exo1","exo2","exo3"]
+
         },
 
     {
-    "level":2,
 
+    "level":2,
+        "unlockScorePercent":80,
     "items": [
         {
             "image":"images/image3.jpg",
@@ -36,7 +40,9 @@
             "max":4,
             "value":3
         }
-     ]
+     ],
+     "nbItemsPerExercice":10,
+     "exercices":["exo1","exo2","exo3"]
     }
 ]
 }

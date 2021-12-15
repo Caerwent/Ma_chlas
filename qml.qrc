@@ -50,6 +50,7 @@
         <file>dataModels/ActivityCategories.qml</file>
         <file>ui/ActivityChoice.qml</file>
         <file>ui/phono/CountSyllabes.qml</file>
+        <file>ui/phono/CountSyllabes2.qml</file>
         <file>res/icons/countSyllabes.svg</file>
         <file>res/data/config_activity_count_syllabes.json</file>
         <file>res/data/config_activity_find_syllabes.json</file>
@@ -67,5 +68,11 @@
         <file>res/icons/next.svg</file>
         <file>res/icons/star.svg</file>
         <file>ui/ScoreScreen.qml</file>
+        <file>ui/GaugeImage.qml</file>
+        <file>res/shaders/maskSourceFrag.qsb</file>
+        <file>res/icons/starGauge.svg</file>
+        <file>ui/ScoreScreen2.qml</file>
+        <file>res/icons/default_child.svg</file>
+        <file>ui/ActivityChoiceLevel2.qml</file>
     </qresource>
 </RCC>

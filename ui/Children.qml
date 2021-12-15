@@ -48,7 +48,7 @@ Item {
             child:childRef
             isSelectable:true
             onSelected: {
-                Session.child=child
+                Session.loadUser(indexChild)
                 App.instance.getNavigator().gotToScreen(Screens.activitiesGroupChoice)
             }
         }

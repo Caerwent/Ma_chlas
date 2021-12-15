@@ -19,7 +19,9 @@ Item {
     property bool checkEnabled : false
 
     property int score : 0
+    property real scorePercent : 0
 
+    property var items
     Label {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -47,36 +49,45 @@ Item {
         color:Material.backgroundColor
 
 
-        Flow {
+        Rectangle {
+            border.color :"transparent"
+            color:Material.backgroundColor
             id:scoreBar
+            width: 80*UIUtils.UI.dp
             anchors.top: parent.top
-            anchors.topMargin: 30*UIUtils.UI.dp
-            height: 50*UIUtils.UI.dp
-            anchors.horizontalCenter: parent.horizontalCenter
-            flow:Flow.LeftToRight
-            spacing: 10*UIUtils.UI.dp
-            Repeater {
-                        id: scoreRepeater
-                        model: score
-                        delegate: ColoredImage {
-                                        id: delegate
-                                        width: 50*UIUtils.UI.dp
-                                        height: 50*UIUtils.UI.dp
-                                        source: "qrc:///res/icons/star.svg"
-                                        overlayColor: "#ED8A19"
-                                        hoverEnabled:false
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
 
-                        }
-            }
+
+
+         GaugeImage {
+             width: 80*UIUtils.UI.dp
+             height: 160*UIUtils.UI.dp
+             anchors.horizontalCenter: parent.horizontalCenter
+              anchors.verticalCenter: parent.verticalCenter
+             overlayEmptyColor: Material.backgroundDimColor
+             overlayFullColor: "#ED8A19"
+             fillPercent: scorePercent
+             source: "qrc:///res/icons/starGauge.svg"
+             hoverEnabled: false
+         }
+
         }
 
-
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: scoreBar.right
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            border.color :"transparent"
+            color:Material.backgroundColor
         Image {
             id: img
             width: 250*UIUtils.UI.dp
-            anchors.top: scoreBar.bottom
+            anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.topMargin: 30*UIUtils.UI.dp
+            anchors.leftMargin: 30*UIUtils.UI.dp
             sourceSize: Qt.size(width, height)
 
             MediaPlayer {
@@ -261,7 +272,7 @@ Item {
                         star.x=check.x+check.width+10*UIUtils.UI.dp
                         star.y=check.y
                         score++
-
+                        scorePercent=score*100/Session.selectedActivities[currentLevelIndex].items.length
                         gotToNextItem()
                     }
                 }
@@ -271,6 +282,7 @@ Item {
 
 
 
+    }
     }
 
     onSyllabeChanged: {
@@ -283,13 +295,14 @@ Item {
 
     Component.onCompleted:
     {
+        items = Session.getShuffleRandomItems()
         changeIndex(0)
     }
 
     function changeIndex(index)
     {
         currentIndex = index
-        syllabe = Session.selectedActivities[currentLevelIndex].items[currentIndex]
+        syllabe = items[currentIndex]
         responsesModel.clear()
         for (var i = 0; i < syllabe.max; i++)
         {
@@ -322,13 +335,14 @@ Item {
 
     function gotToNextItem()
     {
-        if(currentIndex<(Session.selectedActivities[currentLevelIndex].items.length-1))
+        if(currentIndex<(items.length-1))
         {
             changeIndex(currentIndex+1)
         }
         else
         {
-            Session.activityScore=score
+            Session.addScore(scorePercent)
+            Session.exerciceScore=scorePercent
             App.instance.getNavigator().gotToScreen(Screens.score)
 
         }

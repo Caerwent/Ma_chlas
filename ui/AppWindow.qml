@@ -157,6 +157,11 @@ Window {
         error.showError(amsg)
     }
 
+    function showMessage(amsg)
+    {
+        info.showMessage(amsg)
+    }
+
 
     Component.onCompleted:
     {

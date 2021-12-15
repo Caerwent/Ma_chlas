@@ -1,0 +1,42 @@
+{
+    "activities": [
+        {
+            "category": "phono",
+            "score": 37,
+            "types": [
+                {
+                    "levels": [
+                        {
+                            "level": 2,
+                            "score": 25,
+                            "scores": [
+                                {
+                                    "date": "2021 12 15 - 15:35:40",
+                                    "score": 50
+                                },
+                                {
+                                    "date": "2021 12 15 - 15:49:14",
+                                    "score": 0
+                                }
+                            ]
+                        },
+                        {
+                            "level": 1,
+                            "score": 50,
+                            "scores": [
+                                {
+                                    "date": "2021 12 15 - 15:49:07",
+                                    "score": 50
+                                }
+                            ]
+                        }
+                    ],
+                    "score": 37,
+                    "type": "countSyllabes"
+                }
+            ]
+        }
+    ],
+    "group": "My classroom",
+    "name": "boy"
+}

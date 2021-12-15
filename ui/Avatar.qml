@@ -3,6 +3,7 @@ import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
+import UserSession 1.0
 
 
     Card {
@@ -19,7 +20,13 @@ import "../dataModels"
         onChildChanged:
         {
             label = child ? child.name : ""
-            imgSource = child ? GlobalConfigModel.config.path+child.image : ""
+            if(child instanceof User)
+            {
+                imgSource = child ? child.image : ""
+            }
+            else {
+                imgSource = child ? GlobalConfigModel.config.path+child.image : ""
+            }
         }
 
 

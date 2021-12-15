@@ -7,9 +7,9 @@ import "../dataModels"
 Flow {
 
     id:navigator
-    property var child : Session.child
+    property var child : Session.user
     property string activityType : Session.activityType
-    property int activityLevel: Session.activityLevel
+    property int activityIndex: Session.activityIndex
 
     flow: Flow.LeftToRight
     anchors.margins: 10*UIUtils.UI.dp
@@ -81,7 +81,7 @@ Flow {
         var currentItem = Session.screens[Session.screens.length-1]
         if(currentItem===Screens.children)
         {
-            Session.child=undefined
+            Session.user=undefined
         } else if(currentItem===Screens.home)
         {
             Session.group=undefined
@@ -98,7 +98,8 @@ Flow {
 
         } else if(currentItem===Screens.activityChoiceLevel)
         {
-            Session.activityLevel=0
+            Session.activityIndex=-1
+            Session.exerciceIndex=-1
         }
         else if(currentItem===Screens.score)
         {
@@ -159,8 +160,8 @@ Flow {
     }
 
     onChildChanged : {
-        avatar.child = Session.child
-        avatar.visible = (Session.child!==undefined)
+        avatar.child = Session.user
+        avatar.visible = (Session.user!==undefined)
 
     }
 
@@ -171,8 +172,8 @@ Flow {
 
     }
 
-    onActivityLevelChanged: {
-        activity.bkgColor = Session.activityLevel>0 ? ActivityCategories.getColorStringFromLevel(activityLevel) : Material.primaryColor
+    onActivityIndexChanged: {
+        activity.bkgColor = Session.activityIndex>0 ? ActivityCategories.getColorStringFromLevel(Session.selectedActivities[Session.activityIndex].level) : Material.primaryColor
     }
 
     state: "landscape"

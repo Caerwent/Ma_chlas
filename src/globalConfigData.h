@@ -5,6 +5,9 @@
 #include <QJsonDocument>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+
+#include "user.h"
+
 class GlobalConfigData : public QObject
 {
     Q_OBJECT
@@ -34,6 +37,7 @@ public:
     bool isEmbedded() { return mIsEmbedded; }
     QString language() { return mLanguage; }
 
+
     static QObject *qmlInstance(QQmlEngine *engine, QJSEngine *scriptEngine)
     {
         Q_UNUSED(engine);
@@ -57,6 +61,7 @@ public slots:
         mLanguage = newValue;
         emit languageChanged(mLanguage);
     }
+
 
 signals:
     void externalConfigFileChanged(const QString& externalConfigFile);

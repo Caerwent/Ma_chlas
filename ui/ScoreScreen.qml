@@ -54,7 +54,7 @@ Item {
 
             Repeater {
                         id: scoreRepeater
-                        model: Session.selectedActivities[Session.activityLevel].items.length
+                        model: Session.selectedActivities[Session.activityIndex].items.length
                         delegate:
 
                             ColoredImage {

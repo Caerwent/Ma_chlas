@@ -18,7 +18,9 @@
                     "maxPhon":4,
                     "pos":2
                 }
-             ]
+             ],
+             "nbItemsPerExercice":10,
+             "exercices":["exo1","exo2","exo3"]
         },
 
     {
@@ -38,7 +40,9 @@
             "maxPhon":4,
             "pos":2
         }
-     ]
+     ],
+             "nbItemsPerExercice":10,
+             "exercices":["exo1","exo2","exo3"]
     }
 ]
 }

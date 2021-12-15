@@ -6,7 +6,12 @@
 #include <QQuickStyle>
 #include "src/fileio.h"
 #include "src/globalConfigData.h"
-
+#include "src/user.h"
+#include "src/TreeModel.h"
+#include "src/ActivityLevelScoreNode.h"
+#include "src/ActivityTypeScoreNode.h"
+#include "src/ActivityCategoryScoreNode.h"
+#include "src/ActivityScoreNode.h"
 
 int main(int argc, char *argv[])
 {
@@ -44,6 +49,13 @@ int main(int argc, char *argv[])
         } else {
             qWarning() << "QScreen required for ptToPx";
         }
+
+    qmlRegisterType<TreeModel>("TreeElements", 1, 0, "TreeModel");
+    qmlRegisterType<TreeNode>("TreeElements", 1, 0, "TreeElement");
+    qmlRegisterType<ActivityLevelScoreNode>("ActivityTreeElements", 1, 0, "ActivityLevelScoreNode");
+    qmlRegisterType<ActivityTypeScoreNode>("ActivityTreeElements", 1, 0, "ActivityTypeScoreNode");
+    qmlRegisterType<ActivityCategoryScoreNode>("ActivityTreeElements", 1, 0, "ActivityCategoryScoreNode");
+    qmlRegisterType<User>("UserSession", 1, 0, "User");
 
     qmlRegisterSingletonType("UIUtils", 1, 0, "UI", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QJSValue {
         Q_UNUSED(engine)
