@@ -4,6 +4,7 @@ import QtQuick
 QtObject {
     property string home: "qrc:/ui/home.qml"
     property string config: "qrc:/ui/config.qml"
+    property string configDetails: "qrc:/ui/ConfigDetails.qml"
     property string main:"qrc:/ui/main.ql"
     property string children:"qrc:/ui/Children.qml"
     property string activitiesGroupChoice:"qrc:/ui/ActivitiesGroupChoice.qml"

@@ -51,7 +51,8 @@ int main(int argc, char *argv[])
         }
 
     qmlRegisterType<TreeModel>("TreeElements", 1, 0, "TreeModel");
-    qmlRegisterType<TreeNode>("TreeElements", 1, 0, "TreeElement");
+    qmlRegisterType<TreeNode>("TreeElements", 1, 0, "TreeNode");
+    qmlRegisterType<ActivityScoreNode>("ActivityTreeElements", 1, 0, "ActivityScoreNode");
     qmlRegisterType<ActivityLevelScoreNode>("ActivityTreeElements", 1, 0, "ActivityLevelScoreNode");
     qmlRegisterType<ActivityTypeScoreNode>("ActivityTreeElements", 1, 0, "ActivityTypeScoreNode");
     qmlRegisterType<ActivityCategoryScoreNode>("ActivityTreeElements", 1, 0, "ActivityCategoryScoreNode");

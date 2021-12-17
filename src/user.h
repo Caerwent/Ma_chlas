@@ -57,7 +57,7 @@ signals:
 
     void error(const QString& msg);
 
-    void scoresChanged(const TreeModel& scores);
+    void scoresChanged(const TreeModel* scores);
 
 
 

@@ -191,6 +191,7 @@ bool User::readInternal()
                             }
                         }
                     }
+                    emit scoresChanged(mScores);
                     return true;
 
                 }  catch (const QException & exp )

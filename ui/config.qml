@@ -91,6 +91,15 @@ Component {
                     GlobalConfigModel.load()
                 }
             }
+            Button {
+                id:classDetailsBtn
+                text: qsTr("View class details")
+                visible: !GlobalConfigModel.isEmbedded
+                onClicked: {
+                    App.instance.getNavigator().gotToScreen(Screens.configDetails)
+                }
+
+            }
 
             Label {
                 text:qsTr("Mentions: ")
@@ -104,6 +113,7 @@ Component {
             configFileTxtField.text = GlobalConfigModel.externalFile
             languageCombo.currentIndex = languageCombo.indexOfValue(GlobalConfigModel.language)
         }
+
     }
 
 }
