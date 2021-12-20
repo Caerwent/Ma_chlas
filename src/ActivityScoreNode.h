@@ -8,14 +8,18 @@
 
 class ActivityScoreNode : public TreeNode
 {
+     Q_OBJECT
 public:
     Q_PROPERTY(int score READ score)
-    Q_PROPERTY(QDateTime date READ)
+    Q_PROPERTY(QDateTime date READ date)
     explicit ActivityScoreNode(QObject *parent = nullptr) : TreeNode(parent)
     {
 
     }
     ~ActivityScoreNode() {}
+    QVariant display() const Q_DECL_OVERRIDE {
+        return QVariant(mDate.toString(DATE_FORMAT).append(" ").append(QString::number(mScore)).append("%"));
+    }
      int score() { return mScore; }
      QDateTime date() { return mDate; }
      QString dateString() { return mDate.toString(DATE_FORMAT);}

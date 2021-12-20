@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
@@ -46,172 +47,157 @@ Item {
 
         }
 
-        Component {
-            id: groupDelegate
-            Text {
-
-                text:name
-                MouseArea {
-                    id:mouseArea
-
-                       anchors.fill: parent
-                       hoverEnabled: true
-                       onEntered:{
-                           parent.color = Material.accent
-                       }
-
-                       onExited :{
-                           parent.color = Material.foreground
-                       }
-
-                       onClicked: {
-                           groupList.currentIndex = index
-
-                           childrenModel.clear();
-                           var listData = GlobalConfigModel.config.groups[groupIndex].children
-                                           for (var i in listData) {
-                                               childrenModel.append(
-                                                           {
-
-                                                               name: listData[i]["name"]
-
-                                                           }
-                                                                     );
-                                           }
-                       }
-
-                   }
-            }
-        }
-
-        Component {
-            id: childDelegate
-            Text {
-                text:name
-
-                MouseArea {
-                    id:mouseArea
-
-                       anchors.fill: parent
-                       hoverEnabled: true
-                       onEntered:{
-                           parent.color = Material.accent
-                       }
-
-                       onExited :{
-                           parent.color = Material.foreground
-                       }
-
-                       onClicked: {
-                           childrenList.currentIndex = index
-                           currentUser.group=GlobalConfigModel.config.groups[groupList.currentIndex].name
-                           currentUser.name =  name
-                           currentUser.read(GlobalConfigModel.config.path)
-
-
-                       }
-                   }
-
-
-
-
-            }
-
-
-        }
-
-        ListView {
-            id: groupList
+        Flow {
+            id: selector
             anchors.top:parent.top
-            height:parent.height/2
             anchors.left:parent.left
-            width:parent.width/2
-            model: groupModel
-            delegate: groupDelegate
-            focus: true
-            highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+            anchors.right: parent.right
+            spacing: 10*UIUtils.UI.dp
+            ComboBox {
+                id: groupList
+                model: groupModel
 
+
+                width:150*UIUtils.UI.dp
+                onModelChanged:
+                {
+                    currentIndex=0
+
+                }
+                onCurrentIndexChanged:  {
+                    childrenModel.clear();
+                    var listData = GlobalConfigModel.config.groups[currentIndex].children
+                    for (var i in listData) {
+                        childrenModel.append(
+                                    {
+
+                                        text: listData[i]["name"]
+
+                                    }
+                                    );
+                    }
+                }
+            }
+            ComboBox {
+                id: childrenList
+                model: childrenModel
+                width:150*UIUtils.UI.dp
+                onCurrentIndexChanged:{
+                    currentUser.group=GlobalConfigModel.config.groups[groupList.currentIndex].name
+                    currentUser.name =  GlobalConfigModel.config.groups[groupList.currentIndex].children[currentIndex].name
+                    currentUser.read(GlobalConfigModel.config.path)
+                }
+            }
+            Button {
+                text:qsTr("Export CSV")
+                onClicked: {
+                    fileDialog.visible=true
+                }
+            }
+
+
+            FileDialog {
+                id: fileDialog
+                fileMode:FileDialog.SaveFile
+                nameFilters: ["CSV file (*.csv)"]
+                parentWindow: App.instance
+                visible:false
+                 onAccepted: {
+                     currentUser.exportCSV(fileDialog.selectedFile) }
+            }
 
 
         }
-        ListView {
-            id: childrenList
-            anchors.top:groupList.bottom
-            anchors.bottom:parent.bottom
-            anchors.left:parent.left
-            width:parent.width/2
-            model: childrenModel
-            delegate: childDelegate
-            focus: true
-            highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
 
-        }
+
+
+
 
         Rectangle {
-                   id: treePart
-                   anchors.top:parent.top
-                   anchors.bottom:parent.bottom
-                   anchors.right:parent.right
-                   anchors.left:groupList.right
+            id: treePart
+            anchors.top:selector.bottom
+            anchors.bottom:parent.bottom
+            anchors.right:parent.right
+            anchors.left:parent.left
 
-                   border {
-                       width: 1
-                       color: "gray"
-                   }
-                   clip: true
+            border.color :"transparent"
+            color:Material.backgroundColor
+            clip: true
 
-                   Flickable {
-                       id: toolbarFlickable
+            Flickable {
+                id: toolbarFlickable
 
-                       anchors.fill: parent
-                       contentHeight: scoresTree.height
-                       contentWidth: parent.width
-                       boundsBehavior: Flickable.StopAtBounds
-                       ScrollBar.vertical: ScrollBar {}
+                anchors.fill: parent
+                contentHeight: scoresTree.height
+                contentWidth: parent.width
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: ScrollBar {}
 
-                       TreeItem {
-                           id: scoresTree
+                TreeItem {
+                    id: scoresTree
 
-                           anchors {
-                               top: parent.top
-                               left: parent.left
-                               leftMargin: 5
-                               topMargin: 5
-                           }
+                    anchors {
+                        top: parent.top
+                        left: parent.left
+                        leftMargin: 5
+                        topMargin: 5
+                    }
 
-                           parentIndex: treeModel ? treeModel.index(0,0) : 0
-                           childCount: treeModel ? treeModel.rowCount(parentIndex) : 0
-                           itemLeftPadding: 0
-                       }
-                   }
-               }
+                    parentIndex: treeModel ? treeModel.index(0,0) : 0
+                    childCount: treeModel ? treeModel.rowCount(parentIndex) : 0
+                    itemLeftPadding: 0
+                }
+            }
+        }
 
 
         User {
             id:currentUser
-                onError: { msg=>
-                    App.showError(msg)
-                }
-
-                onScoresChanged : {
-                    scoresTree.treeModel = currentUser.scores
-                }
+            onError: { msg=>
+                       App.showError(msg)
             }
+
+            onScoresChanged : {
+                //currentUser.scores.setRoles(["root", "name","name", "level", "score"])
+                //groupFrame.logDebugViewmodel(0,0)
+                scoresTree.treeModel = currentUser.scores
+            }
+        }
         function updateGroupListFromConfig(inputConfig)
         {
             groupModel.clear();
             var listData = inputConfig.groups
-                            for (var i in listData) {
-                                groupModel.append(
-                                            {
-                                                groupIndex: i,
-                                                name: listData[i]["name"],
-                                                 image: inputConfig.path+listData[i]["image"],
-                                                hasChildren:listData[i]["children"]?listData[i]["children"].length>0 : false
+            for (var i in listData) {
+                groupModel.append(
+                            {text: listData[i]["name"]}
 
-                                            }
-                                                      );
-                            }
+                            );
+            }
+        }
+
+        function logDebugViewmodel(row, depth, parentIndex)
+        {
+
+            var nodeIndex = parentIndex ? currentUser.scores.index(row,0, parentIndex) : currentUser.scores.index(row,0)
+            var rowCount=currentUser.scores.rowCount(nodeIndex)
+            /*  var columnCount = currentUser.scores.columnCount(nodeIndex)
+            console.log("depth=",depth, " row=",row," nodeIndex=", nodeIndex, " row count =",rowCount, " columnCount=", columnCount)
+
+            for(var col=0;col<columnCount;col++)
+            {
+                var prop = currentUser.scores.data(nodeIndex, col)
+                if(prop!==undefined)
+                    console.log("data ",prop["name"],"=",prop["value"])
+                else
+                    console("no data")
+            }*/
+            console.log("depth=",depth, " row=",row," nodeIndex=", nodeIndex, " data=",currentUser.scores.data(nodeIndex, Qt.DisplayRole))
+
+            for(var i=0; i<rowCount; i++)
+            {
+                logDebugViewmodel(i, depth+1, nodeIndex)
+            }
+
         }
 
 

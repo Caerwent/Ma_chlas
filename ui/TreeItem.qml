@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts
-
+import QtQuick.Controls
 Item {
     id: root
 
@@ -31,7 +31,7 @@ Item {
                     id: _d
 
                     property var currentIndex: treeModel.index(index, 0, parentIndex)
-                    property var currentData: treeModel.data(currentIndex, 0)
+                    property var currentData: treeModel.data(currentIndex, Qt.DisplayRole)
                     property var itemChildCount: treeModel.rowCount(currentIndex)
                     property bool isOpen: false
                 }
@@ -50,14 +50,14 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             width: 15
                             height: 3
-                            color: "#3c85b5"
+                            color: Material.accent
                             opacity: _d.itemChildCount > 0 ? 1.0 : 0.0
 
                             Rectangle {
                                 anchors.centerIn: parent
                                 width: 3
                                 height: 15
-                                color: "#3c85b5"
+                                color: Material.accent
                                 visible: !_d.isOpen
                             }
                         }
@@ -70,19 +70,11 @@ Item {
 
                         spacing: 10
 
-                        Rectangle {
-                            anchors.verticalCenter: parent.verticalCenter
-                            width: 20
-                            height: 20
-                            color: "#3c85b5"
-                        }
-
-                        Text {
+                        Label {
                             id: contentData
-                            text:contentData.text
+                            text:_d.currentData
                             anchors.verticalCenter: parent.verticalCenter
-                            color: "#3c85b5"
-                            font.pixelSize: 20
+                            font.pixelSize: 12
                         }
                     }
 
@@ -104,9 +96,10 @@ Item {
                     visible: _d.isOpen
                     source: "TreeItem.qml"
                     onLoaded: {
+                        item.treeModel=treeModel
                         item.parentIndex = _d.currentIndex
                         item.childCount = _d.itemChildCount
-                        item.treeModel=treeModel
+
                     }
                 }
             }

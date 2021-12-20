@@ -5,6 +5,7 @@
 
 class ActivityLevelScoreNode : public TreeNode
 {
+     Q_OBJECT
 public:
     Q_PROPERTY(QString name READ name)
     Q_PROPERTY(int meanScore READ meanScore NOTIFY meanScoreChanged)
@@ -16,6 +17,11 @@ public:
 
     }
     ~ActivityLevelScoreNode() {}
+
+    QVariant display() const Q_DECL_OVERRIDE {
+        return QVariant(mName + " "+ QString::number(mLevel)+ " "+QString::number(mMeanScore)+"%");
+    }
+
     QString name() { return mName; }
      int meanScore() { return mMeanScore; }
 

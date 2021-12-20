@@ -1,4 +1,6 @@
 #include "TreeModel.h"
+#include <QMetaProperty>
+#include <QQmlPropertyMap>
 
 
 
@@ -21,12 +23,43 @@ QHash<int, QByteArray> TreeModel::roleNames() const
 QVariant TreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
+    {
+        qDebug() <<"TreeModel::data invalid index ";
         return QVariant();
+    }
 
     TreeNode *item = static_cast<TreeNode*>(index.internalPointer());
-    QByteArray roleName = m_roles[role];
-    QVariant name = item->property(roleName.data());
-    return name;
+    if(role>Qt::UserRole)
+    {
+
+        int initRole = Qt::UserRole + 1;
+        QByteArray roleName = m_roles[initRole+role];
+        qDebug() << "TreeModel::data rolename="<<roleName.data();
+        QVariant name = item->property(roleName.data());
+        return name;
+    }
+    else if (role==Qt::DisplayPropertyRole)
+    {
+        const QMetaObject* metaObj=item->metaObject();
+        if(role>metaObj->propertyCount()-metaObj->propertyOffset())
+        {
+            qDebug() <<"TreeModel::data invalid role value ";
+            return QVariant();
+        }
+        const QMetaProperty metaProp = metaObj->property(metaObj->propertyOffset()+role);
+
+        QMap<QString, QVariant> ownerData;
+        ownerData.insert("name", metaProp.name());
+        ownerData.insert("value", item->property(metaProp.name()));
+        return QVariant(ownerData);
+    }
+    else if (role ==Qt::DisplayRole)
+    {
+        return item->display();
+    }
+    else return QVariant();
+
+
 }
 
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
@@ -68,14 +101,21 @@ int TreeModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.column() > 0)
         return 0;
-    TreeNode *parentItem = getNode(parent);
-    return parentItem->count();
+     TreeNode *parentItem = getNode(parent);
+     return parentItem->count();
 }
 
 int TreeModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return 1;
+
+    // TreeNode *item = getNode(currentNode);
+
+    // const QMetaObject* metaObj=item->metaObject();
+
+    // return metaObj->propertyCount()-metaObj->propertyOffset();
+
 }
 
 QQmlListProperty<TreeNode> TreeModel::nodes()

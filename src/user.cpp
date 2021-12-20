@@ -23,11 +23,10 @@ User::User(QObject *parent) : QObject(parent)
 
 bool User::addScore(const QString& activityCategory, const QString& activityType, const int activityLevel, int score)
 {
-     qDebug() << "User::addScore " << activityCategory << " "<< activityType << " " <<activityLevel << " " <<score;
+    qDebug() << "User::addScore " << activityCategory << " "<< activityType << " " <<activityLevel << " " <<score;
     auto activitiesNodes = mScores->getNodes();
     bool found=false;
-     bool added=false;
-    foreach (TreeNode* activityNode, activitiesNodes)
+    /*   foreach (TreeNode* activityNode, activitiesNodes)
     {
 
 
@@ -39,15 +38,76 @@ bool User::addScore(const QString& activityCategory, const QString& activityType
             added=currentCategory->addScore(activityType, activityLevel, score);
             break;
         }
+    }*/
+    // cat
+    ActivityCategoryScoreNode* currentCategory;
+    foreach (TreeNode* activityNode, activitiesNodes)
+    {
+
+
+        currentCategory = static_cast<ActivityCategoryScoreNode*>(const_cast<TreeNode*>(activityNode)) ;
+        if(currentCategory->name().compare(activityCategory, Qt::CaseInsensitive)==0)
+        {
+            found=true;
+
+        }
     }
     if(!found)
     {
-        ActivityCategoryScoreNode* currentCategory = new ActivityCategoryScoreNode();
+        currentCategory = new ActivityCategoryScoreNode();
         currentCategory->setName(activityCategory);
         mScores->insertNode(currentCategory);
-        added=currentCategory->addScore(activityType, activityLevel, score);
     }
-    return added;
+    found=false;
+    // type
+    QModelIndex categoryIndex = mScores->getIndexByNode(currentCategory);
+    auto typesNodes = currentCategory->getTreeNodes();
+    ActivityTypeScoreNode* currentType;
+    foreach (TreeNode * typeNode, typesNodes)
+    {
+        currentType= static_cast<ActivityTypeScoreNode*>(const_cast<TreeNode*>(typeNode));
+
+        if(currentType->name().compare(activityType, Qt::CaseInsensitive)==0)
+        {
+            found=true;
+            break;
+        }
+    }
+    if(!found)
+    {
+        currentType = new ActivityTypeScoreNode();
+        mScores->insertNode(currentType, categoryIndex);
+        currentType->setName(activityType);
+    }
+    // level
+    found=false;
+    QModelIndex typeIndex = mScores->getIndexByNode(currentType);
+    auto levelsNodes = currentType->getTreeNodes();
+    ActivityLevelScoreNode* currentLevel;
+    foreach (TreeNode * levelNode, levelsNodes)
+    {
+        currentLevel= static_cast<ActivityLevelScoreNode*>(const_cast<TreeNode*>(levelNode));
+
+        if(currentLevel->level()==activityLevel)
+        {
+            found=true;
+            break;
+        }
+    }
+    if(!found)
+    {
+        currentLevel = new ActivityLevelScoreNode();
+        mScores->insertNode(currentLevel, typeIndex);
+        currentLevel->setLevel(activityLevel);
+    }
+    QModelIndex levelIndex = mScores->getIndexByNode(currentLevel);
+    //score
+    ActivityScoreNode* currentScore = new ActivityScoreNode();
+    mScores->insertNode(currentScore, levelIndex);
+    currentScore->setScore(score);
+    currentScore->setDate(QDateTime::currentDateTime());
+
+    return true;
 }
 
 bool User::read(const QString &path)
@@ -133,17 +193,23 @@ bool User::readInternal()
             {
                 try {
 
+                    delete mScores;
+                    mScores = new TreeModel(this);
+
                     if(json_obj.contains("activities"))
                     {
                         qDebug() << "activities found " ;
                         QJsonArray activities = json_obj["activities"].toArray();
                         foreach (const QJsonValue &  activity, activities)
                         {
-                            qDebug() << "activity " << activity.toString();
+
                             QJsonObject currActivity = activity.toObject();
                             ActivityCategoryScoreNode* activityCategory = new ActivityCategoryScoreNode(nullptr);
                             mScores->insertNode(activityCategory);
+                            QModelIndex activityIndex = mScores->getIndexByNode(activityCategory);
                             activityCategory->setName(currActivity.value("category").toString());
+                            activityCategory->setMeanScore(currActivity.value("score").toInt());
+                            qDebug() << "activity " << activityCategory->name();
                             if(currActivity.contains("types"))
                             {
                                 qDebug() << "types found " ;
@@ -152,10 +218,14 @@ bool User::readInternal()
                                 {
                                     QJsonObject currType = type.toObject();
                                     ActivityTypeScoreNode* activityType = new ActivityTypeScoreNode(nullptr);
-                                    activityCategory->insertNode(activityType);
-                                    activityType->setName(currType.value("type").toString());
-                                    activityType->setParentNode(activityCategory);
+                                    mScores->insertNode(activityType, activityIndex);
+                                    QModelIndex typeIndex = mScores->getIndexByNode(activityType);
 
+                                    //activityCategory->insertNode(activityType);
+                                    activityType->setName(currType.value("type").toString());
+                                    activityType->setMeanScore(currType.value("score").toInt());
+                                    // activityType->setParentNode(activityCategory);
+                                    qDebug() << "type " << activityType->name();
                                     if(currType.contains("levels"))
                                     {
                                         qDebug() << "levels found " ;
@@ -164,13 +234,19 @@ bool User::readInternal()
                                         {
                                             QJsonObject currLevel = level.toObject();
                                             ActivityLevelScoreNode* activityLevel = new ActivityLevelScoreNode(nullptr);
-                                            activityType->insertNode(activityLevel);
-                                            activityLevel->setParentNode(activityType);
+                                            mScores->insertNode(activityLevel, typeIndex);
+                                            QModelIndex levelIndex = mScores->getIndexByNode(activityLevel);
+
+                                            //activityType->insertNode(activityLevel);
+                                            //activityLevel->setParentNode(activityType);
                                             activityLevel->setLevel(currLevel.value("level").toInt());
+                                            activityLevel->setName("level");
+                                            qDebug() << "level " << activityLevel->level();
                                             if(currLevel.contains("locked"))
                                             {
                                                 activityLevel->setLocked(currLevel.value("locked").toBool());
                                             }
+                                            activityLevel->setMeanScore(currLevel.value("score").toInt());
                                             if(currLevel.contains("scores"))
                                             {
                                                 qDebug() << "scores found " ;
@@ -179,8 +255,10 @@ bool User::readInternal()
                                                 {
                                                     QJsonObject currScore = score.toObject();
                                                     ActivityScoreNode* activityScore = new ActivityScoreNode(nullptr);
-                                                    activityLevel->insertNode(activityScore);
-                                                    activityScore->setParentNode(activityLevel);
+                                                    mScores->insertNode(activityScore, levelIndex);
+
+                                                    //activityLevel->insertNode(activityScore);
+                                                    //activityScore->setParentNode(activityLevel);
                                                     activityScore->setDate(currScore.value("date").toString());
                                                     activityScore->setScore(currScore.value("score").toInt());
                                                 }
@@ -191,6 +269,7 @@ bool User::readInternal()
                             }
                         }
                     }
+
                     emit scoresChanged(mScores);
                     return true;
 
@@ -219,7 +298,7 @@ bool User::write()
 
     QFile file(mFilename);
     qDebug() << "write user session file " << mFilename;
-    if(!file.open(QIODevice::WriteOnly)){
+    if(!file.open(QIODevice::WriteOnly|QFile::Truncate)){
         emit error("failed to open save file");
         return false;
     }
@@ -254,8 +333,10 @@ bool User::write()
                     int meanLevelScore=0;
                     foreach (TreeNode* scoreNode, scoresNodes)
                     {
+                        qDebug() << "loop on scores ";
                         ActivityScoreNode* currentScore = static_cast<ActivityScoreNode*>(const_cast<TreeNode*>(scoreNode));
-
+qDebug() << "score " << currentScore->score();
+qDebug() << "score " << currentScore->date();
                         QJsonObject json_score;
                         meanLevelScore+=currentScore->score();
                         json_score["score"]=currentScore->score();
@@ -300,4 +381,64 @@ bool User::write()
 
 }
 
+
+bool User::exportCSV(QUrl& csvFilename)
+{
+
+
+
+    QFile file(csvFilename.toLocalFile());
+    qDebug() << "write csv file " << csvFilename;
+
+
+    //stream << value1 << "\t" << value2 << "\n"; // this writes first line with two columns
+
+
+    if(!file.open(QIODevice::WriteOnly|QFile::Truncate)){
+        emit error("failed to open save file");
+        return false;
+    }
+    else
+    {
+        QTextStream stream(&file);
+        stream << tr("group") << ";" << tr("child") <<";"<<tr("category") << ";" <<tr("type") << ";" << tr("level")  << ";" << tr("date") << ";" << tr("score")  << "\n";
+        auto activitiesNodes = mScores->getNodes();
+
+        foreach (TreeNode* activityNode, activitiesNodes)
+        {
+            ActivityCategoryScoreNode* currentCategory = static_cast<ActivityCategoryScoreNode*>(const_cast<TreeNode*>(activityNode));
+
+            auto typesNodes = currentCategory->getTreeNodes();
+
+            foreach (TreeNode* typeNode, typesNodes)
+            {
+                ActivityTypeScoreNode* currentType = static_cast<ActivityTypeScoreNode*>(const_cast<TreeNode*>(typeNode));
+
+                auto levelsNodes = currentType->getTreeNodes();
+                foreach (TreeNode* levelNode, levelsNodes)
+                {
+                    ActivityLevelScoreNode* currentLevel = static_cast<ActivityLevelScoreNode*>(const_cast<TreeNode*>(levelNode));
+
+                    auto scoresNodes = currentLevel->getTreeNodes();
+
+                    foreach (TreeNode* scoreNode, scoresNodes)
+                    {
+                        ActivityScoreNode* currentScore = static_cast<ActivityScoreNode*>(const_cast<TreeNode*>(scoreNode));
+
+                        qDebug() << currentScore->date();
+                        stream << mGroup << ";" << mName << ";" << currentCategory->name() << ";" << currentType->name() << ";" << currentLevel->level() << ";" << currentScore->dateString() << ";" << currentScore->score() << "\n";
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        file.close();
+        return true;
+    }
+
+}
 

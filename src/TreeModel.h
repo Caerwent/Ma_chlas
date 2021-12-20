@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QAbstractItemModel>
 #include "TreeNode.h"
+
 //https://riptutorial.com/qml/example/23180/creating-a-simple-model-for-treeview
 class TreeModel: public QAbstractItemModel
 {
@@ -16,6 +17,7 @@ public:
     TreeModel(QObject *parent = Q_NULLPTR);
     ~TreeModel();
 
+
     QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
     Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
@@ -26,7 +28,7 @@ public:
     QQmlListProperty<TreeNode> nodes();
 
     QVariantList roles() const;
-    void setRoles(const QVariantList &roles);
+    Q_INVOKABLE void setRoles(const QVariantList &roles);
 
     Q_INVOKABLE TreeNode * getNodeByIndex(const QModelIndex &index);
     Q_INVOKABLE QModelIndex getIndexByNode(TreeNode *node);

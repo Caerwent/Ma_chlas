@@ -3,8 +3,8 @@
 #include <QObject>
 #include <QQmlListProperty>
 #include <QModelIndex>
-
-class TreeNode : public QObject
+#include "ITreeNode.h"
+class TreeNode : public QObject, public ITreeNode
 {
     Q_OBJECT
 public:
@@ -22,6 +22,7 @@ public:
 
     Q_INVOKABLE int pos() const;
     Q_INVOKABLE int count() const;
+    QVariant display() const Q_DECL_OVERRIDE;
 
     QList<TreeNode *> getTreeNodes() { return m_nodes;}
 

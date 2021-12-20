@@ -40,6 +40,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     src/ActivityTypeScoreNode.h \
+    src/ITreeNode.h \
     src/TreeModel.h \
     src/TreeNode.h \
     src/ActivityCategoryScoreNode.h \

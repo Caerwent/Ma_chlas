@@ -92,3 +92,8 @@ int TreeNode::count() const
 {
     return m_nodes.size();
 }
+
+QVariant TreeNode::display() const
+{
+    return QVariant();
+}

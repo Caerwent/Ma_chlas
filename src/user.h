@@ -38,7 +38,7 @@ public:
     Q_INVOKABLE bool read(const QString &path);
     Q_INVOKABLE bool write();
     Q_INVOKABLE bool addScore(const QString& activityCategory, const QString& activityType, const int activityLevel, int score);
-
+    Q_INVOKABLE bool exportCSV(QUrl& csvFilename);
     QString group() { return mGroup; }
     QString name() { return mName; }
     QString image() { return mImage; }
