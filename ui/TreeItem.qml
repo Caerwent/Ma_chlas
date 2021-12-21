@@ -33,6 +33,7 @@ Item {
                     property var currentIndex: treeModel.index(index, 0, parentIndex)
                     property var currentData: treeModel.data(currentIndex, Qt.DisplayRole)
                     property var itemChildCount: treeModel.rowCount(currentIndex)
+
                     property bool isOpen: false
                 }
 

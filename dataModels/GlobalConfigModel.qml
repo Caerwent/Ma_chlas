@@ -9,6 +9,7 @@ Item {
     property bool isEmbedded:true
     property string externalFile:""
     property string language:"fr-FR"
+
     Settings {
         id: settings
         property alias isEmbedded: globalConfig.isEmbedded

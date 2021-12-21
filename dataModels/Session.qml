@@ -23,10 +23,10 @@ Item {
     function getShuffleRandomItems()
     {
         // Shuffle array
-         var shuffled = Session.selectedActivities[Session.activityIndex].items.sort(() => 0.5 - Math.random());
+        var shuffled = Session.selectedActivities[Session.activityIndex].items.sort(() => 0.5 - Math.random());
 
         // Get sub-array of first n elements after shuffled
-         var selected = shuffled.slice(0,Session.selectedActivities[Session.activityIndex].nbItemsPerExercice);
+        var selected = shuffled.slice(0,Session.selectedActivities[Session.activityIndex].nbItemsPerExercice);
         return selected
     }
 
@@ -61,7 +61,7 @@ Item {
             {
                 if(!user.write())
                 {
-                     App.showMessage(qsTr("Error when writing score"))
+                    App.showMessage(qsTr("Error when writing score"))
                 }
             }
         }
@@ -69,8 +69,79 @@ Item {
 
     User {
         id:currentUser
-            onError: { msg=>
-                App.showError(msg)
+        onError: { msg=>
+            App.showError(msg)
+        }
+
+        property int levelUnlockedWithScore: 80
+        property var scoreActivityNode
+        property var scoreTypeNode
+        property var scoreLevelNode
+
+        onScoresChanged: {
+            updateScoreActivityInfo()
+            updateTypeScoreInfo()
+            updateLevelScoreInfo()
+        }
+    }
+
+    onActivityCategoryChanged : {
+        updateScoreActivityInfo()
+    }
+
+    function updateScoreActivityInfo()
+    {
+        if(user!==undefined && user.scores!==undefined)
+        {
+            currentUser.scoreActivityNode=undefined
+            currentUser.scoreTypeNode=undefined
+            currentUser.scoreLevelNode=undefined
+            var nodes = user.scores.getNodes()
+            for( var curNode in nodes)
+            {
+                if(nodes[curNode].name===activityCategory)
+                {
+                    currentUser.scoreActivityNode=nodes[curNode]
+                }
             }
         }
+    }
+
+    onActivityTypeChanged : {
+        updateTypeScoreInfo()
+    }
+
+    function updateTypeScoreInfo()
+    {
+        if(user!==undefined && currentUser.scoreActivityNode!==undefined)
+        {
+            var nodes = currentUser.scoreActivityNode.getTreeNodes()
+            for( var curNode in nodes)
+            {
+                if(nodes[curNode].name===activityType)
+                {
+                    currentUser.scoreTypeNode=nodes[curNode]
+                }
+            }
+        }
+    }
+
+    onActivityIndexChanged : {
+        updateLevelScoreInfo()
+    }
+    function updateLevelScoreInfo()
+    {
+        if(user!==undefined && currentUser.scoreTypeNode!==undefined)
+        {
+            var nodes = currentUser.scoreTypeNode.getTreeNodes()
+            for( var curNode in nodes)
+            {
+                if(nodes[curNode].level===activityIndex)
+                {
+                    currentUser.scoreLevelNode = nodes[curNode]
+                }
+            }
+        }
+    }
+
 }

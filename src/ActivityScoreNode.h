@@ -18,7 +18,7 @@ public:
     }
     ~ActivityScoreNode() {}
     QVariant display() const Q_DECL_OVERRIDE {
-        return QVariant(mDate.toString(DATE_FORMAT).append(" ").append(QString::number(mScore)).append("%"));
+        return QVariant(mDate.toString(DATE_FORMAT).append(" - ").append(QString::number(mScore)).append("%"));
     }
      int score() { return mScore; }
      QDateTime date() { return mDate; }

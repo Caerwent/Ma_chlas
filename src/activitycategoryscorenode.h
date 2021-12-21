@@ -17,7 +17,7 @@ public:
     ~ActivityCategoryScoreNode() {}
 
     QVariant display() const Q_DECL_OVERRIDE {
-        return QVariant(QString(mName).append(" ").append(QString::number(mMeanScore)).append("%"));
+        return QVariant(QString(mName).append(" - ").append(QString::number(mMeanScore)).append("%"));
     }
     QString name() { return mName; }
      int meanScore() { return mMeanScore; }

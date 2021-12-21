@@ -158,7 +158,7 @@ Item {
             }
 
             onScoresChanged : {
-                //currentUser.scores.setRoles(["root", "name","name", "level", "score"])
+                currentUser.scores.setRoles(["locked"])
                 //groupFrame.logDebugViewmodel(0,0)
                 scoresTree.treeModel = currentUser.scores
             }

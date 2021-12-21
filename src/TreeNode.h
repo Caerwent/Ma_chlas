@@ -24,7 +24,7 @@ public:
     Q_INVOKABLE int count() const;
     QVariant display() const Q_DECL_OVERRIDE;
 
-    QList<TreeNode *> getTreeNodes() { return m_nodes;}
+    Q_INVOKABLE QList<TreeNode *> getTreeNodes() { return m_nodes;}
 
 private:
     QList<TreeNode *> m_nodes;

@@ -112,7 +112,7 @@ flow:GridView.FlowLeftToRight
 
                                     Session.selectedActivities = resp.activities ? resp.activities
                                                                .sort(function(a, b) {
-                                                                   return b.level - a.level}) : []
+                                                                   return a.level - b.level}) : []
                                     Session.activityType = activityType
                                     App.instance.getNavigator().gotToScreen(Screens.activityChoiceLevel)
                                 }

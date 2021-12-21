@@ -19,7 +19,7 @@ public:
     ~ActivityLevelScoreNode() {}
 
     QVariant display() const Q_DECL_OVERRIDE {
-        return QVariant(mName + " "+ QString::number(mLevel)+ " "+QString::number(mMeanScore)+"%");
+        return QVariant(mName + " "+ QString::number(mLevel)+ " - "+QString::number(mMeanScore)+"%");
     }
 
     QString name() { return mName; }

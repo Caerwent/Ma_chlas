@@ -76,5 +76,7 @@
         <file>ui/ActivityChoiceLevel2.qml</file>
         <file>ui/ConfigDetails.qml</file>
         <file>ui/TreeItem.qml</file>
+        <file>res/icons/locked.svg</file>
+        <file>res/icons/listen.svg</file>
     </qresource>
 </RCC>

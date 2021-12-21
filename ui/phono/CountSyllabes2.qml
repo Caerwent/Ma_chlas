@@ -90,6 +90,15 @@ Item {
             anchors.leftMargin: 30*UIUtils.UI.dp
             sourceSize: Qt.size(width, height)
 
+            ColoredImage {
+                id: listenOverlay
+                visible:false
+                anchors.fill: parent
+                anchors.margins: 10*UIUtils.UI.dp
+                source: "qrc:///res/icons/listen.svg"
+    overlayColor: Material.accentColor
+
+            }
             MediaPlayer {
                 id: mediaPlayer
                 audioOutput: AudioOutput {
@@ -151,6 +160,14 @@ Item {
                 id: playArea
                 anchors.fill: parent
                 onPressed: mediaPlayer.play();
+                hoverEnabled: true
+                onEntered:{
+                    listenOverlay.visible=true
+                }
+
+                onExited :{
+                    listenOverlay.visible=false
+                }
             }
         }
 

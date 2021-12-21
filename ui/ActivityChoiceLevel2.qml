@@ -46,11 +46,12 @@ Item {
                             Row {
                                 spacing: 5*UIUtils.UI.dp
                             property int levelRepeaterIndex :index
+                            property bool isLocked
                             anchors.left: parent.left
                             anchors.right: parent.right
                                 Repeater {
                                     id: exoRepeater
-                                    model: Session.selectedActivities[levelRepeaterIndex].exercices.length
+                                    model: Session.selectedActivities ? Session.selectedActivities[levelRepeaterIndex].exercices.length : 0
 
                                     Card {
                                         width: 150*UIUtils.UI.dp;
@@ -60,6 +61,7 @@ Item {
                                         label:Session.selectedActivities[levelRepeaterIndex].exercices[index]
                                         imgSource:ActivityCategories.getIconFromType(Session.activityType)
                                         bkgColor : ActivityCategories.getColorStringFromLevel(Session.selectedActivities[levelRepeaterIndex].level)
+                                        enabled: !isLocked
                                         onSelected:
                                         {
                                             Session.activityIndex = levelRepeaterIndex
@@ -70,15 +72,82 @@ Item {
                                         Component.onCompleted: {
                                             console.log("levelRepeaterIndex="+levelRepeaterIndex," index="+index," (level="+Session.selectedActivities[levelRepeaterIndex].level+")")
                                         }
-
+                                        Image {
+                                            id: lockedIcon
+                                            visible: isLocked
+                                            anchors.top: parent.top
+                                            anchors.left: parent.left
+                                            anchors.margins: 10*UIUtils.UI.dp
+                                            source: "qrc:///res/icons/locked.svg"
+                                            width: 40*UIUtils.UI.dp
+                                            height: 40*UIUtils.UI.dp
+                                        }
 
 
                                     }
                                 }
+                                Component.onCompleted: {
+                                    isLocked = levelRepeater.isLevelLocked(levelRepeaterIndex+1)
+                                }
+                            }
+                            Component.onCompleted:  {
+
+                               if(Session.user!==undefined)
+                               {
+                                   Session.user.onScoreTypeNodeChanged.connect(userScoresChanged)
+
+                               }
+
+
+
+                            }
+
+                            function userScoresChanged(scores)
+                            {
+                                levelRepeater.model = 0
+                                levelRepeater.model = Session.selectedActivities? Session.selectedActivities.length:0
                             }
 
 
+                            function isLevelLocked(levelIndex)
+                            {
+
+                                if(Session.user===undefined)
+                                    return false
+                                else if (levelIndex<=1)
+                                    return false
+                                else if(Session.user.scoreTypeNode!==undefined )
+                                {
+                                    var nodes = Session.user.scoreTypeNode.getTreeNodes()
+                                    var lowerLevelHasScore = false
+                                    var currentLevelLock=false
+                                    for( var curNode in nodes)
+                                    {
+                                        if(nodes[curNode].level<levelIndex)
+                                        {
+                                            var levelScores = nodes[curNode].getTreeNodes()
+                                            lowerLevelHasScore = levelScores!==undefined && levelScores.length >0
+                                            if(nodes[curNode].locked)
+                                                return true
+                                            else if (nodes[curNode].level===levelIndex-1 && nodes[curNode].meanScore <Session.user.levelUnlockedWithScore)
+                                                return true
+                                        } else if(nodes[curNode].level===levelIndex) {
+                                            currentLevelLock= nodes[curNode].locked
+                                        }
+                                    }
+                                    if(currentLevelLock)
+                                        return true
+                                    else if(!lowerLevelHasScore)
+                                        return true
+                                    else
+                                        return false
+                                }
+
+                                return true
+                            }
             }
+
+
         }
 
 
