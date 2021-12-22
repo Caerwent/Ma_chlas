@@ -33,7 +33,7 @@ public:
     Q_INVOKABLE TreeNode * getNodeByIndex(const QModelIndex &index);
     Q_INVOKABLE QModelIndex getIndexByNode(TreeNode *node);
     Q_INVOKABLE bool insertNode(TreeNode *childNode, const QModelIndex &parent = QModelIndex(), int pos = (-1));
-
+    Q_INVOKABLE QModelIndex getIndexRoot() {return getIndexByNode(m_rootNode);}
     Q_INVOKABLE QList<TreeNode*> getNodes() {return m_rootNode->getTreeNodes();}
 protected:
     TreeNode *getNode(const QModelIndex &index) const;

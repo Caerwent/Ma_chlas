@@ -83,6 +83,7 @@ Item {
                 model: childrenModel
                 width:150*UIUtils.UI.dp
                 onCurrentIndexChanged:{
+                    scoresTree.treeModel = emptyModel
                     currentUser.group=GlobalConfigModel.config.groups[groupList.currentIndex].name
                     currentUser.name =  GlobalConfigModel.config.groups[groupList.currentIndex].children[currentIndex].name
                     currentUser.read(GlobalConfigModel.config.path)
@@ -112,6 +113,13 @@ Item {
 
 
 
+        Label {
+            id: noScoreLabel
+            anchors.top:selector.bottom
+            anchors.right:parent.right
+            anchors.left:parent.left
+            text:qsTr("No score to display")
+        }
 
         Rectangle {
             id: treePart
@@ -143,13 +151,16 @@ Item {
                         topMargin: 5
                     }
 
-                    parentIndex: treeModel ? treeModel.index(0,0) : 0
-                    childCount: treeModel ? treeModel.rowCount(parentIndex) : 0
+                    parentIndex: undefined
+                    childCount: treeModel ? treeModel.rowCount() : 0
                     itemLeftPadding: 0
                 }
             }
         }
 
+        TreeModel {
+            id:emptyModel
+        }
 
         User {
             id:currentUser
@@ -158,9 +169,20 @@ Item {
             }
 
             onScoresChanged : {
-                currentUser.scores.setRoles(["locked"])
-                //groupFrame.logDebugViewmodel(0,0)
-                scoresTree.treeModel = currentUser.scores
+                if(currentUser.scores.rowCount()<=0)
+                {
+                    treePart.visible=false
+                    noScoreLabel.visible=true
+                    scoresTree.treeModel = emptyModel
+                } else
+                {
+                    treePart.visible=true
+                    noScoreLabel.visible=false
+                    currentUser.scores.setRoles(["locked"])
+                    scoresTree.treeModel = currentUser.scores
+                }
+
+
             }
         }
         function updateGroupListFromConfig(inputConfig)
@@ -174,35 +196,6 @@ Item {
                             );
             }
         }
-
-        function logDebugViewmodel(row, depth, parentIndex)
-        {
-
-            var nodeIndex = parentIndex ? currentUser.scores.index(row,0, parentIndex) : currentUser.scores.index(row,0)
-            var rowCount=currentUser.scores.rowCount(nodeIndex)
-            /*  var columnCount = currentUser.scores.columnCount(nodeIndex)
-            console.log("depth=",depth, " row=",row," nodeIndex=", nodeIndex, " row count =",rowCount, " columnCount=", columnCount)
-
-            for(var col=0;col<columnCount;col++)
-            {
-                var prop = currentUser.scores.data(nodeIndex, col)
-                if(prop!==undefined)
-                    console.log("data ",prop["name"],"=",prop["value"])
-                else
-                    console("no data")
-            }*/
-            console.log("depth=",depth, " row=",row," nodeIndex=", nodeIndex, " data=",currentUser.scores.data(nodeIndex, Qt.DisplayRole))
-
-            for(var i=0; i<rowCount; i++)
-            {
-                logDebugViewmodel(i, depth+1, nodeIndex)
-            }
-
-        }
-
-
-
-
 
         Connections {
             target: GlobalConfigModel

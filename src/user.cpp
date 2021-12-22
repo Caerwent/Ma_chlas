@@ -163,6 +163,9 @@ bool User::read(const QString &path)
         return false;
     }
 
+    delete mScores;
+    mScores = new TreeModel(this);
+
     QRegExp regexp = QRegExp("[^a-zA-Z\\d\\s]");
     QString simpleFilename=regexp.removeIn(mGroup).append("_").append(regexp.removeIn(mName)).replace(" ","_").append(".json");
 

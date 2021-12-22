@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts
 import QtQuick.Controls
+import TreeElements 1.0
 Item {
     id: root
 
@@ -30,8 +31,8 @@ Item {
                 QtObject {
                     id: _d
 
-                    property var currentIndex: treeModel.index(index, 0, parentIndex)
-                    property var currentData: treeModel.data(currentIndex, Qt.DisplayRole)
+                    property var currentIndex: parentIndex ? treeModel.index(index, 0, parentIndex) : treeModel.index(index, 0)
+                    property var currentData: currentIndex ? treeModel.data(currentIndex, Qt.DisplayRole) : ""
                     property var itemChildCount: treeModel.rowCount(currentIndex)
 
                     property bool isOpen: false
@@ -73,7 +74,7 @@ Item {
 
                         Label {
                             id: contentData
-                            text:_d.currentData
+                            text:_d.currentData ? _d.currentData :"root"
                             anchors.verticalCenter: parent.verticalCenter
                             font.pixelSize: 12
                         }
