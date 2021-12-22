@@ -95,7 +95,7 @@ bool User::addScore(const QString& activityCategory, const QString& activityType
             break;
         } else if(currentLevel->level()<activityLevel)
         {
-            insertLevelPosition=currentLevel->pos()+1;
+            insertLevelPosition=currentLevel->pos();
         }
     }
     if(!found)
@@ -113,6 +113,7 @@ bool User::addScore(const QString& activityCategory, const QString& activityType
 
 
     // recompute mean scores
+    qDebug() << "User::addScore recompute mean scores";
     int meanScore = 0;
     auto scoresNodes = currentLevel->getTreeNodes();
     foreach (TreeNode * scoreNode, scoresNodes)

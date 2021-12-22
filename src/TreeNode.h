@@ -4,6 +4,7 @@
 #include <QQmlListProperty>
 #include <QModelIndex>
 #include "ITreeNode.h"
+
 class TreeNode : public QObject, public ITreeNode
 {
     Q_OBJECT
