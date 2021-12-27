@@ -58,22 +58,15 @@ Item {
             anchors.left: parent.left
             anchors.bottom: parent.bottom
 
-            ColoredImage {
+            AudioHelp {
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.margins: 10*UIUtils.UI.dp
                 id: help
-                source: "qrc:///res/icons/help.svg"
-                width: 40*UIUtils.UI.dp
-                height: 40*UIUtils.UI.dp
+                audioFile:Session.activityAudioHelp
+                width: 60*UIUtils.UI.dp
+                height: 60*UIUtils.UI.dp
 
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-
-                    }
-                }
             }
 
          GaugeImage {

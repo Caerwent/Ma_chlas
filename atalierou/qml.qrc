@@ -79,5 +79,7 @@
         <file>res/icons/locked.svg</file>
         <file>res/icons/listen.svg</file>
         <file>res/icons/help.svg</file>
+        <file>ui/AudioHelp.qml</file>
+        <file>res/data/sounds/help_phono_countSyllabes.mp3</file>
     </qresource>
 </RCC>

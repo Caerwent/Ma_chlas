@@ -2,10 +2,36 @@
     "activities": [
         {
             "category": "phono",
-            "score": 41,
+            "score": 30,
             "types": [
                 {
                     "levels": [
+                        {
+                            "level": 1,
+                            "score": 60,
+                            "scores": [
+                                {
+                                    "date": "2021 12 21 - 17:27:41",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 22 - 16:26:49",
+                                    "score": 50
+                                },
+                                {
+                                    "date": "2021 12 22 - 16:27:00",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 27 - 14:59:47",
+                                    "score": 0
+                                },
+                                {
+                                    "date": "2021 12 27 - 15:37:48",
+                                    "score": 50
+                                }
+                            ]
+                        },
                         {
                             "level": 2,
                             "score": 0,
@@ -23,27 +49,9 @@
                                     "score": 0
                                 }
                             ]
-                        },
-                        {
-                            "level": 1,
-                            "score": 83,
-                            "scores": [
-                                {
-                                    "date": "2021 12 21 - 17:27:41",
-                                    "score": 100
-                                },
-                                {
-                                    "date": "2021 12 22 - 16:26:49",
-                                    "score": 50
-                                },
-                                {
-                                    "date": "2021 12 22 - 16:27:00",
-                                    "score": 100
-                                }
-                            ]
                         }
                     ],
-                    "score": 41,
+                    "score": 30,
                     "type": "countSyllabes"
                 }
             ]

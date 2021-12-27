@@ -105,12 +105,12 @@ flow:GridView.FlowLeftToRight
                                     Session.activityPath = resp.path
                                     if(resp.path.startsWith("."))
                                     {
-                                        Session.activityPath="file://"+GlobalConfigModel.config.path+resp.path.substring(2)
+                                        Session.activityPath=GlobalConfigModel.config.path+resp.path.substring(2)
                                     }
 
 
-
-                                    Session.selectedActivities = resp.activities ? resp.activities
+                                    Session.activityAudioHelp = resp.helpFile ? Qt.resolvedUrl(Session.activityPath+resp.helpFile) : "qrc:/res/data/sounds/help_"+Session.activityCategory+"_"+Session.activityType+".mp3"
+                                    Session.selectedActivities = resp.levels ? resp.levels
                                                                .sort(function(a, b) {
                                                                    return a.level - b.level}) : []
                                     Session.activityType = activityType

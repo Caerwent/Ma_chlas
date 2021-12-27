@@ -14,6 +14,7 @@ Item {
     property var selectedActivities
     property string activityType
     property string activityPath
+    property string activityAudioHelp
     property int activityIndex
     property int exerciceIndex
     property int exerciceScore

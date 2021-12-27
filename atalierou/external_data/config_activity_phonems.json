@@ -1,6 +1,6 @@
 {
-"path":"qrc:/res/data/",
-"activities":[
+"path":"./",
+"levels":[
    {
             "phonem":"A",
             "sound":"sounds/phoneme1.mp3",

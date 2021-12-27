@@ -1,6 +1,7 @@
 {
-"path":"qrc:/res/data/",
-"activities":[
+"path":"./",
+"helpFile":"sounds/help_phono_count_syllabes.mp3",
+"levels":[
    {
             "level":1,
 
