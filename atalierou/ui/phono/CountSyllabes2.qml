@@ -58,7 +58,23 @@ Item {
             anchors.left: parent.left
             anchors.bottom: parent.bottom
 
+            ColoredImage {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.margins: 10*UIUtils.UI.dp
+                id: help
+                source: "qrc:///res/icons/help.svg"
+                width: 40*UIUtils.UI.dp
+                height: 40*UIUtils.UI.dp
 
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+
+                    }
+                }
+            }
 
          GaugeImage {
              width: 80*UIUtils.UI.dp

@@ -78,5 +78,6 @@
         <file>ui/TreeItem.qml</file>
         <file>res/icons/locked.svg</file>
         <file>res/icons/listen.svg</file>
+        <file>res/icons/help.svg</file>
     </qresource>
 </RCC>

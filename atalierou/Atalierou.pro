@@ -23,7 +23,7 @@ SOURCES += \
 RESOURCES += qml.qrc
 
 TRANSLATIONS += \
-    Ma_chlas_fr_FR.ts
+    Atalierou_fr_FR.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
