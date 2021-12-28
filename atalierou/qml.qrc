@@ -7,7 +7,6 @@
         <file>ui/Splash.qml</file>
         <file>res/icons/icon.svg</file>
         <file>res/icons/exit.svg</file>
-        <file>ui/Screen1.qml</file>
         <file>res/data/images/image1.jpg</file>
         <file>res/data/images/image2.jpg</file>
         <file>res/data/images/image3.jpg</file>
@@ -50,13 +49,11 @@
         <file>dataModels/ActivityCategories.qml</file>
         <file>ui/ActivityChoice.qml</file>
         <file>ui/phono/CountSyllabes.qml</file>
-        <file>ui/phono/CountSyllabes2.qml</file>
         <file>res/icons/countSyllabes.svg</file>
         <file>res/data/config_activity_count_syllabes.json</file>
         <file>res/data/config_activity_find_syllabes.json</file>
         <file>res/icons/findSyllabes.svg</file>
         <file>res/icons/ok.svg</file>
-        <file>ui/ActivityChoiceLevel.qml</file>
         <file>res/icons/count1.svg</file>
         <file>res/icons/count2.svg</file>
         <file>res/icons/count3.svg</file>
@@ -67,13 +64,12 @@
         <file>res/icons/wrong.svg</file>
         <file>res/icons/next.svg</file>
         <file>res/icons/star.svg</file>
-        <file>ui/ScoreScreen.qml</file>
         <file>ui/GaugeImage.qml</file>
         <file>res/shaders/maskSourceFrag.qsb</file>
         <file>res/icons/starGauge.svg</file>
-        <file>ui/ScoreScreen2.qml</file>
+        <file>ui/ScoreScreen.qml</file>
         <file>res/icons/default_child.svg</file>
-        <file>ui/ActivityChoiceLevel2.qml</file>
+        <file>ui/ActivityChoiceLevel.qml</file>
         <file>ui/ConfigDetails.qml</file>
         <file>ui/TreeItem.qml</file>
         <file>res/icons/locked.svg</file>
@@ -81,5 +77,6 @@
         <file>res/icons/help.svg</file>
         <file>ui/AudioHelp.qml</file>
         <file>res/data/sounds/help_phono_countSyllabes.mp3</file>
+        <file>dataModels/FileFormatChecker.qml</file>
     </qresource>
 </RCC>

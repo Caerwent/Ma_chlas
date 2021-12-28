@@ -3,7 +3,8 @@ import QtQuick
 import FileIO 1.0
 import "../scripts/loadJson.js" as JsonLoader
 import Qt.labs.settings 1.0
-
+import "."
+import "../ui"
 Item {
     id:globalConfig
     property bool isEmbedded:true
@@ -51,6 +52,13 @@ Item {
 
             var response = externalConfigFile.read();
             var newConfig= JSON.parse(response);
+
+            if(! FileFormatChecker.checkFileVersion(response.fileFormatVersion, "1.0","1.0"))
+            {
+                console.error(qsTr("Incompatible file format ")+externalConfigFile.source+qsTr("\nShould be 1.0"))
+
+            }
+
             if(newConfig.path.startsWith("."))
             {
                 newConfig.path="file://"+externalConfigFile.getPath()

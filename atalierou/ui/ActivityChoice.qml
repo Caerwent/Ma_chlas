@@ -108,6 +108,11 @@ flow:GridView.FlowLeftToRight
                                         Session.activityPath=GlobalConfigModel.config.path+resp.path.substring(2)
                                     }
 
+                                    var supportedFileFormat = FileFormatChecker.getSupportedActivityFileFormatMinMaxArray(Session.activityCategory, activityType)
+                                    if(!FileFormatChecker.checkFileVersion(resp.fileFormatVersion, supportedFileFormat[0],supportedFileFormat[1]))
+                                    {
+                                        App.instance.showError(qsTr("Incompatible file format ")+GlobalConfigModel.config.path + configFile+qsTr("\nShould be between ")+supportedFileFormat[0]+qsTr(" and ")+supportedFileFormat[1])
+                                    }
 
                                     Session.activityAudioHelp = resp.helpFile ? Qt.resolvedUrl(Session.activityPath+resp.helpFile) : "qrc:/res/data/sounds/help_"+Session.activityCategory+"_"+Session.activityType+".mp3"
                                     Session.selectedActivities = resp.levels ? resp.levels

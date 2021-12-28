@@ -2,3 +2,4 @@ module GlobalConfigModel
 singleton GlobalConfigModel 1.0 GlobalConfigModel.qml
 singleton Session 1.0 Session.qml
 singleton ActivityCategories 1.0 ActivityCategories.qml
+singleton FileFormatChecker 1.0 FileFormatChecker.qml
