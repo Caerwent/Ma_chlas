@@ -85,10 +85,10 @@ private:
     QString mExternalFile;
     bool mIsEmbedded=true;
     QString mLanguage="fr";
-    QApplication* mApp;
-    QQmlEngine* mEngine;
-    QSettings* mSettings;
-    QTranslator* mTranslator;
+    QApplication* mApp = nullptr;
+    QQmlEngine* mEngine = nullptr;
+    QSettings* mSettings = nullptr;
+    QTranslator* mTranslator = nullptr;
 
 };
 #endif // GLOBALCONFIGDATA_H

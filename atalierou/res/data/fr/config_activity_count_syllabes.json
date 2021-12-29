@@ -152,7 +152,7 @@
                     "value":2
                 },{
                     "image":"../images/ballon.png",
-                    "sound":"audio/crayon.mp3",
+                    "sound":"audio/ballon.mp3",
                     "max":3,
                     "value":2
                 },{
@@ -192,12 +192,6 @@
                 {
                     "image":"../images/arbre.png",
                     "sound":"audio/arbre.mp3",
-                    "max":5,
-                    "value":2
-                },
-                {
-                    "image":"../images/avion.png",
-                    "sound":"audio/avion.mp3",
                     "max":5,
                     "value":2
                 },

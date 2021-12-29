@@ -7,7 +7,15 @@ import ".."
 import "../dataModels"
 
 Item {
+    id:audioHelp
+
     property var audioFile
+    property bool clickable:true
+    signal audioEnded
+
+    function play() {
+        helpMediaPlayer.play()
+    }
 
     ColoredImage {
         anchors.fill: parent
@@ -17,8 +25,9 @@ Item {
         height: parent.height
         MouseArea {
             anchors.fill: parent
+            enabled:audioHelp.clickable
             onClicked: {
-                helpMediaPlayer.play();
+                helpMediaPlayer.play()
             }
         }
     }
@@ -60,6 +69,7 @@ Item {
 
             case MediaPlayer.EndOfMedia:
                 temp = "MediaPlayer.EndOfMedia"
+                audioEnded()
                 break;
 
             case MediaPlayer.InvalidMedia:

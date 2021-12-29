@@ -16,6 +16,9 @@ QtObject {
         if(activityCategory==="phono" && activityType==="countSyllabes")
         {
             return ["1.0","1.0"]
+        } else if(activityCategory==="phono" && activityType==="findSoundOrSyllabe")
+        {
+            return ["1.0","1.0"]
         }
     }
 }

@@ -116,8 +116,7 @@
         <file>res/data/fr/audio/voiture.mp3</file>
         <file>res/data/fr/audio/velo.mp3</file>
         <file>res/data/fr/config_activity_count_syllabes.json</file>
-        <file>res/data/fr/config_activity_find_syllabes.json</file>
-        <file>res/data/fr/config_activity_phonems.json</file>
+        <file>res/data/fr/config_activity_find_sound.json</file>
         <file>res/data/images/abeille.png</file>
         <file>res/data/images/allumettes.png</file>
         <file>res/data/images/arbre.png</file>
@@ -173,5 +172,7 @@
         <file>res/data/images/vache.png</file>
         <file>res/data/images/velo.png</file>
         <file>res/data/images/voiture.png</file>
+        <file>ui/phono/FindSoundOrSyllabe.qml</file>
+        <file>res/data/fr/audio/help_phono_findSyllabe.mp3</file>
     </qresource>
 </RCC>

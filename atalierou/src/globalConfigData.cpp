@@ -119,7 +119,7 @@ void GlobalConfigData::loadLanguage(){
     if(mApp && mEngine && !mLanguage.isEmpty())
     {
         bool needToRetranslate = false;
-        if(mTranslator)
+        if(mTranslator!= nullptr)
         {
             mApp->removeTranslator(mTranslator);
             needToRetranslate=true;

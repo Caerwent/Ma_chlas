@@ -10,8 +10,15 @@ function loadJSON(file, callback) {
     xobj.onreadystatechange = function () {
         if (xobj.readyState === XMLHttpRequest.DONE) {
             if (xobj.status === 200) {
-                var response = JSON.parse(xobj.responseText);
-                callback(response);
+                try{
+                    var response = JSON.parse(xobj.responseText);
+                    callback(response);
+                }
+                catch(e){
+                    console.log("Error", e.name+" "+e.message);
+
+                }
+
             } else {
                 console.log("Error", xobj.statusText);
             }

@@ -14,9 +14,9 @@
         "type":"countSyllabes"
      },
         {
-           "config":"fr/config_activity_find_syllabes.json",
+           "config":"fr/config_activity_find_sound.json",
            "category":"phono",
-           "type":"findSyllabes"
+           "type":"findSoundOrSyllabe"
         }
      ]
     }

@@ -24,7 +24,7 @@
         {
            "config":"config_activity_find_syllabes.json",
            "category":"phono",
-           "type":"findSyllabes"
+           "type":"findSoundOrSyllabe"
         }
      ]
     }

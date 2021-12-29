@@ -15,7 +15,7 @@ Item {
     {
         if(type==="countSyllabes")
             return "qrc:/res/icons/countSyllabes.svg"
-        else if(type==="findSyllabes")
+        else if(type==="findSoundOrSyllabe")
             return "qrc:/res/icons/findSyllabes.svg"
         else return null
     }
@@ -24,6 +24,8 @@ Item {
     {
         if(type==="countSyllabes")
             return Screens.countSyllabes
+        else if(type==="findSoundOrSyllabe")
+            return Screens.findSoundOrSyllabe
         else return null
     }
 
