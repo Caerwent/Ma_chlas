@@ -93,11 +93,12 @@ Item {
         Image {
             id: img
             width: 250*UIUtils.UI.dp
+            height: 250*UIUtils.UI.dp
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.topMargin: 30*UIUtils.UI.dp
             anchors.leftMargin: 30*UIUtils.UI.dp
-            sourceSize: Qt.size(width, height)
+            fillMode: Image.PreserveAspectFit
 
             ColoredImage {
                 id: listenOverlay
@@ -298,7 +299,7 @@ Item {
                         star.x=check.x+check.width+10*UIUtils.UI.dp
                         star.y=check.y
                         score++
-                        scorePercent=score*100/Session.selectedActivities[currentLevelIndex].items.length
+                        scorePercent=score*100/items.length
                         gotToNextItem()
                     }
                 }
@@ -404,7 +405,7 @@ Item {
                 {
                     if(responsesModel.get(i).checkVisibility)
                     {
-                        if(i===syllabe.value)
+                        if((i+1)===syllabe.value)
                         {
                             responsesModel.get(i).isValid=true
                             star.visible=true
@@ -415,7 +416,7 @@ Item {
                             responsesModel.get(i).wrongResp=true
                         }
                     }
-                    else if(i===syllabe.value)
+                    else if((i+1)===syllabe.value)
                     {
                         responsesModel.get(i).checkVisibility=true
                     }

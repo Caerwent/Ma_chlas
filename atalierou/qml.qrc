@@ -7,20 +7,6 @@
         <file>ui/Splash.qml</file>
         <file>res/icons/icon.svg</file>
         <file>res/icons/exit.svg</file>
-        <file>res/data/images/image1.jpg</file>
-        <file>res/data/images/image2.jpg</file>
-        <file>res/data/images/image3.jpg</file>
-        <file>res/data/images/image4.jpg</file>
-        <file>res/data/models/phonem.json</file>
-        <file>res/data/sounds/phoneme1.mp3</file>
-        <file>res/data/sounds/phoneme2.mp3</file>
-        <file>res/data/sounds/phoneme3.mp3</file>
-        <file>res/data/sounds/phoneme4.mp3</file>
-        <file>res/data/sounds/quiSon1R1.mp3</file>
-        <file>res/data/sounds/quiSon1R2.mp3</file>
-        <file>res/data/sounds/quiSon1R3.mp3</file>
-        <file>res/data/sounds/quiSon1R4.mp3</file>
-        <file>res/data/sounds/sample-3s.mp3</file>
         <file>res/data/config.json</file>
         <file>ui/home.qml</file>
         <file>ui/config.qml</file>
@@ -43,15 +29,12 @@
         <file>dataModels/Session.qml</file>
         <file>ui/Avatar.qml</file>
         <file>ui/Card.qml</file>
-        <file>res/data/config_activity_phonems.json</file>
         <file>res/icons/numbers.svg</file>
         <file>res/icons/phono.svg</file>
         <file>dataModels/ActivityCategories.qml</file>
         <file>ui/ActivityChoice.qml</file>
         <file>ui/phono/CountSyllabes.qml</file>
         <file>res/icons/countSyllabes.svg</file>
-        <file>res/data/config_activity_count_syllabes.json</file>
-        <file>res/data/config_activity_find_syllabes.json</file>
         <file>res/icons/findSyllabes.svg</file>
         <file>res/icons/ok.svg</file>
         <file>res/icons/count1.svg</file>
@@ -76,7 +59,119 @@
         <file>res/icons/listen.svg</file>
         <file>res/icons/help.svg</file>
         <file>ui/AudioHelp.qml</file>
-        <file>res/data/sounds/help_phono_countSyllabes.mp3</file>
         <file>dataModels/FileFormatChecker.qml</file>
+        <file>res/data/fr/audio/abeille.mp3</file>
+        <file>res/data/fr/audio/allumette.mp3</file>
+        <file>res/data/fr/audio/arbre.mp3</file>
+        <file>res/data/fr/audio/avion.mp3</file>
+        <file>res/data/fr/audio/ballon.mp3</file>
+        <file>res/data/fr/audio/bateau.mp3</file>
+        <file>res/data/fr/audio/bus.mp3</file>
+        <file>res/data/fr/audio/camion.mp3</file>
+        <file>res/data/fr/audio/canard.mp3</file>
+        <file>res/data/fr/audio/chaise.mp3</file>
+        <file>res/data/fr/audio/chat.mp3</file>
+        <file>res/data/fr/audio/cheval.mp3</file>
+        <file>res/data/fr/audio/chien.mp3</file>
+        <file>res/data/fr/audio/ciseaux.mp3</file>
+        <file>res/data/fr/audio/clef.mp3</file>
+        <file>res/data/fr/audio/cochon.mp3</file>
+        <file>res/data/fr/audio/coquillage.mp3</file>
+        <file>res/data/fr/audio/corbeau.mp3</file>
+        <file>res/data/fr/audio/couteau.mp3</file>
+        <file>res/data/fr/audio/crayon.mp3</file>
+        <file>res/data/fr/audio/dragon.mp3</file>
+        <file>res/data/fr/audio/fantome.mp3</file>
+        <file>res/data/fr/audio/feuille.mp3</file>
+        <file>res/data/fr/audio/fusee.mp3</file>
+        <file>res/data/fr/audio/grenouille.mp3</file>
+        <file>res/data/fr/audio/help_phono_countSyllabes.mp3</file>
+        <file>res/data/fr/audio/herisson.mp3</file>
+        <file>res/data/fr/audio/lapin.mp3</file>
+        <file>res/data/fr/audio/licorne.mp3</file>
+        <file>res/data/fr/audio/lit.mp3</file>
+        <file>res/data/fr/audio/maison.mp3</file>
+        <file>res/data/fr/audio/marteau.mp3</file>
+        <file>res/data/fr/audio/moto.mp3</file>
+        <file>res/data/fr/audio/mouche.mp3</file>
+        <file>res/data/fr/audio/moulin.mp3</file>
+        <file>res/data/fr/audio/mouton.mp3</file>
+        <file>res/data/fr/audio/pirate.mp3</file>
+        <file>res/data/fr/audio/poisson.mp3</file>
+        <file>res/data/fr/audio/poubelle.mp3</file>
+        <file>res/data/fr/audio/poule.mp3</file>
+        <file>res/data/fr/audio/poussin.mp3</file>
+        <file>res/data/fr/audio/reine.mp3</file>
+        <file>res/data/fr/audio/roi.mp3</file>
+        <file>res/data/fr/audio/seau.mp3</file>
+        <file>res/data/fr/audio/serpent.mp3</file>
+        <file>res/data/fr/audio/sorciere.mp3</file>
+        <file>res/data/fr/audio/souris.mp3</file>
+        <file>res/data/fr/audio/table.mp3</file>
+        <file>res/data/fr/audio/thermometre.mp3</file>
+        <file>res/data/fr/audio/tobogan.mp3</file>
+        <file>res/data/fr/audio/toilette.mp3</file>
+        <file>res/data/fr/audio/train.mp3</file>
+        <file>res/data/fr/audio/vache.mp3</file>
+        <file>res/data/fr/audio/voiture.mp3</file>
+        <file>res/data/fr/audio/velo.mp3</file>
+        <file>res/data/fr/config_activity_count_syllabes.json</file>
+        <file>res/data/fr/config_activity_find_syllabes.json</file>
+        <file>res/data/fr/config_activity_phonems.json</file>
+        <file>res/data/images/abeille.png</file>
+        <file>res/data/images/allumettes.png</file>
+        <file>res/data/images/arbre.png</file>
+        <file>res/data/images/avion.png</file>
+        <file>res/data/images/ballon.png</file>
+        <file>res/data/images/bateau.png</file>
+        <file>res/data/images/bus.png</file>
+        <file>res/data/images/camion.png</file>
+        <file>res/data/images/canard.png</file>
+        <file>res/data/images/chaise.png</file>
+        <file>res/data/images/chat.png</file>
+        <file>res/data/images/cheval.png</file>
+        <file>res/data/images/chien.png</file>
+        <file>res/data/images/ciseaux.png</file>
+        <file>res/data/images/clef.png</file>
+        <file>res/data/images/cochon.png</file>
+        <file>res/data/images/coquillage.png</file>
+        <file>res/data/images/corbeau.png</file>
+        <file>res/data/images/couteau.png</file>
+        <file>res/data/images/crayon.png</file>
+        <file>res/data/images/dragon.png</file>
+        <file>res/data/images/escargot.png</file>
+        <file>res/data/images/fantome.png</file>
+        <file>res/data/images/feuille.png</file>
+        <file>res/data/images/fusee.png</file>
+        <file>res/data/images/grenouille.png</file>
+        <file>res/data/images/herisson.png</file>
+        <file>res/data/images/lapin.png</file>
+        <file>res/data/images/licorne.png</file>
+        <file>res/data/images/lit.png</file>
+        <file>res/data/images/maison.png</file>
+        <file>res/data/images/marteau.png</file>
+        <file>res/data/images/moto.png</file>
+        <file>res/data/images/mouche.png</file>
+        <file>res/data/images/moulin.jpg</file>
+        <file>res/data/images/mouton.png</file>
+        <file>res/data/images/pirate.png</file>
+        <file>res/data/images/poisson.png</file>
+        <file>res/data/images/poubelle.png</file>
+        <file>res/data/images/poule.png</file>
+        <file>res/data/images/poussin.png</file>
+        <file>res/data/images/reine.png</file>
+        <file>res/data/images/roi.png</file>
+        <file>res/data/images/seau.png</file>
+        <file>res/data/images/serpent.png</file>
+        <file>res/data/images/sorciere.png</file>
+        <file>res/data/images/souris.png</file>
+        <file>res/data/images/table.png</file>
+        <file>res/data/images/thermometre.png</file>
+        <file>res/data/images/tobogan.png</file>
+        <file>res/data/images/toilette.png</file>
+        <file>res/data/images/train.png</file>
+        <file>res/data/images/vache.png</file>
+        <file>res/data/images/velo.png</file>
+        <file>res/data/images/voiture.png</file>
     </qresource>
 </RCC>

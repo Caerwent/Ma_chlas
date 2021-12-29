@@ -9,12 +9,12 @@
      ],
      "activities":[
      {
-        "config":"config_activity_count_syllabes.json",
+        "config":"fr/config_activity_count_syllabes.json",
         "category":"phono",
         "type":"countSyllabes"
      },
         {
-           "config":"config_activity_find_syllabes.json",
+           "config":"fr/config_activity_find_syllabes.json",
            "category":"phono",
            "type":"findSyllabes"
         }

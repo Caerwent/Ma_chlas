@@ -2,13 +2,13 @@
     "activities": [
         {
             "category": "phono",
-            "score": 29,
+            "score": 40,
             "types": [
                 {
                     "levels": [
                         {
                             "level": 1,
-                            "score": 58,
+                            "score": 80,
                             "scores": [
                                 {
                                     "date": "2021 12 21 - 17:27:41",
@@ -33,6 +33,42 @@
                                 {
                                     "date": "2021 12 28 - 15:27:21",
                                     "score": 50
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:37:19",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:37:29",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:37:36",
+                                    "score": 50
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:37:44",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:37:52",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:38:01",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:38:10",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:38:17",
+                                    "score": 100
+                                },
+                                {
+                                    "date": "2021 12 29 - 12:38:26",
+                                    "score": 100
                                 }
                             ]
                         },
@@ -55,12 +91,12 @@
                             ]
                         }
                     ],
-                    "score": 29,
+                    "score": 40,
                     "type": "countSyllabes"
                 }
             ]
         }
     ],
-    "group": "My classroom",
+    "group": "My_classroom_boy.json",
     "name": "boy"
 }
