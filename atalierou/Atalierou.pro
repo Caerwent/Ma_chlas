@@ -3,7 +3,6 @@ QT += multimedia
 QT += svg
 QT += widgets
 QT += quickcontrols2
-QT += core5compat
 QT += core
 CONFIG += c++11
 
@@ -23,7 +22,8 @@ SOURCES += \
 RESOURCES += qml.qrc
 
 TRANSLATIONS += \
-    Atalierou_fr_FR.ts
+    Atalierou_fr.ts \
+    Atalierou_en.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
@@ -51,6 +51,8 @@ HEADERS += \
     src/user.h
 
 DISTFILES += \
+    Atalierou_en.ts \
+    Atalierou_fr.ts \
     data/config.json \
     data/images/image1.jpg \
     data/images/image2.jpg \

@@ -8,7 +8,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QException>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QtDebug>
 #include "ActivityCategoryScoreNode.h"
@@ -166,8 +166,8 @@ bool User::read(const QString &path)
     delete mScores;
     mScores = new TreeModel(this);
 
-    QRegExp regexp = QRegExp("[^a-zA-Z\\d\\s]");
-    QString simpleFilename=regexp.removeIn(mGroup).append("_").append(regexp.removeIn(mName)).replace(" ","_").append(".json");
+    QRegularExpression regexp("[^a-zA-Z\\d\\s]");
+    QString simpleFilename=mGroup.remove(regexp).append("_").append(mName.remove(regexp)).replace(" ","_").append(".json");
 
     if(path.startsWith("file://"))
     {

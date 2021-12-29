@@ -9,7 +9,7 @@ Window {
     color: Material.background
     visibility: "FullScreen"
     visible:true
-    title: qsTr("Hello World")
+    title: qsTr("Ma c'hlass atalieroù")
 
 
     Dialog {

@@ -74,11 +74,12 @@ Component {
             Flow {
                 spacing: 20*UIUtils.UI.dp
                 Label {
-                    text: qsTr("Chhose language")
+                    text: qsTr("Choose language")
                 }
                 ComboBox {
                     id: languageCombo
-                    model: Qt.locale().uiLanguages
+                    model: ["fr", "en"]
+                    currentIndex: model.indexOf(GlobalConfigModel.language)
                 }
             }
 
@@ -87,7 +88,7 @@ Component {
                 onClicked: {
                     GlobalConfigModel.isEmbedded=checkBox.checked
                     GlobalConfigModel.externalFile=configFileTxtField.text
-                    GlobalConfigModel.language=languageCombo.currentText
+                    GlobalConfigModel.language=languageCombo.currentValue
                     GlobalConfigModel.load()
                 }
             }

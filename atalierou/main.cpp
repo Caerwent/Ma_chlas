@@ -4,6 +4,8 @@
 #include <QLocale>
 #include <QTranslator>
 #include <QQuickStyle>
+#include <QSettings>
+
 #include "src/fileio.h"
 #include "src/globalConfigData.h"
 #include "src/user.h"
@@ -28,17 +30,25 @@ int main(int argc, char *argv[])
 
 
 
-    QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "Atalierou_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
-            app.installTranslator(&translator);
-            break;
-        }
-    }
+ //   QTranslator translator;
+
+
+ //       if (translator.load(":/i18n/Atalierou_en")) {
+ //           app.installTranslator(&translator);
+ //       }
+
 
     QQmlApplicationEngine engine;
+
+     QSettings settings("Ma c'hlass", "Atalieroù");
+
+    // allocate example before the engine to ensure that it outlives it
+    QScopedPointer<GlobalConfigData> instance(new GlobalConfigData);
+    instance->setApp(&app);
+    instance->setEngine(&engine);
+    instance->setSettings(&settings);
+    instance->read();
+    qmlRegisterSingletonInstance("GlobalConfigData",1,0,"GlobalConfigData", instance.get());
 
     static qreal ldp = 1.0;
     static qreal  lpt = ldp / 72.0;;
@@ -69,7 +79,6 @@ int main(int argc, char *argv[])
     });
 
 
-    qmlRegisterSingletonType<GlobalConfigData>("GlobalConfigData",1,0,"GlobalConfigData", &GlobalConfigData::qmlInstance);
 
     qmlRegisterType<FileIO,1>("FileIO",1,0,"FileIO");
 

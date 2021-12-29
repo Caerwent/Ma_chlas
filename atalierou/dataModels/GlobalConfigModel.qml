@@ -5,18 +5,33 @@ import "../scripts/loadJson.js" as JsonLoader
 import Qt.labs.settings 1.0
 import "."
 import "../ui"
+import GlobalConfigData 1.0
 Item {
     id:globalConfig
-    property bool isEmbedded:true
-    property string externalFile:""
-    property string language:"fr-FR"
+    property bool isEmbedded:GlobalConfigData.isEmbedded
+    property string externalFile:GlobalConfigData.externalConfigFile
+    property string language:GlobalConfigData.language
 
-    Settings {
+
+    onIsEmbeddedChanged: {
+        if(isEmbedded!==GlobalConfigData.isEmbedded)
+            GlobalConfigData.isEmbedded=isEmbedded
+    }
+    onExternalFileChanged: {
+        if(externalFile!==GlobalConfigData.externalConfigFile)
+            GlobalConfigData.externalConfigFile=externalFile
+    }
+    onLanguageChanged: {
+        if(language!==GlobalConfigData.language)
+            GlobalConfigData.language=language
+    }
+
+  /*  Settings {
         id: settings
         property alias isEmbedded: globalConfig.isEmbedded
         property alias externalFile: globalConfig.externalFile
         property alias language: globalConfig.language
-    }
+    }*/
 
 
     property var config
@@ -44,11 +59,11 @@ Item {
     function load()
     {
         console.log("globalConfig load")
-        if(settings.isEmbedded)
+        if(isEmbedded)
             loadEmbeddedConfig()
         else
         {
-            externalConfigFile.source=settings.externalFile
+            externalConfigFile.source=externalFile
 
             var response = externalConfigFile.read();
             var newConfig= JSON.parse(response);
@@ -67,6 +82,7 @@ Item {
 
         }
     }
+
 
 
 }

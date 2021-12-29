@@ -15,6 +15,12 @@ void GlobalConfigData::read() {
 
     //QUrl url(QStringLiteral("qrc:/res/global_config.json"));
 
+if(mSettings)
+{
+    mIsEmbedded = mSettings->value("isEmbedded", false).toBool();
+    mLanguage = mSettings->value("language", "en").toString();
+     mExternalFile = mSettings->value("externaFile", "").toString();
+}
     //QFile file(url.toLocalFile());
 QFile file(":/res/global_config.json");
     if ( file.open(QIODevice::ReadOnly|QIODevice::Text) ) {
@@ -51,6 +57,13 @@ QFile file(":/res/global_config.json");
                     mIsEmbedded = json_map["isEmbeddedConfig"].toBool();
                     mLanguage = json_map["language"].toString();
                     mExternalFile = json_map["externalConfigFile"].toString();
+                    if(mSettings)
+                    {
+                        mSettings->setValue("isEmbedded",mIsEmbedded);
+                        mSettings->setValue("language",mLanguage);
+                        mSettings->setValue("externaFile",mExternalFile);
+
+                    }
                 }  catch (const QException & exp )
                 {
                     emit error(QString(exp.what()));
@@ -63,6 +76,8 @@ QFile file(":/res/global_config.json");
         QString filename(fileInfo.absoluteFilePath());
         emit error("Unable to open the file "+ filename);
     }
+
+    loadLanguage();
 
 }
 
@@ -87,9 +102,42 @@ bool GlobalConfigData::save()
     {
         file.write(json_string.toLocal8Bit());
         file.close();
+
+        if(mSettings)
+        {
+            mSettings->setValue("isEmbedded",mIsEmbedded);
+            mSettings->setValue("language",mLanguage);
+            mSettings->setValue("externaFile",mExternalFile);
+
+        }
         return true;
     }
 
+}
+
+void GlobalConfigData::loadLanguage(){
+    if(mApp && mEngine && !mLanguage.isEmpty())
+    {
+        bool needToRetranslate = false;
+        if(mTranslator)
+        {
+            mApp->removeTranslator(mTranslator);
+            needToRetranslate=true;
+            delete mTranslator;
+        }
+        mTranslator = new QTranslator();
+        const QString baseName = "Atalierou_" + QLocale(mLanguage).name();
+        if (mTranslator->load(":/i18n/" + baseName)) {
+            if(mApp->installTranslator(mTranslator))
+            {
+                if(needToRetranslate) mEngine->retranslate();
+            } else
+            {
+                qDebug()<<"Error when installing language "<<baseName;
+                emit error("Error when installing language "+baseName);
+            }
+        }
+    }
 }
 
 

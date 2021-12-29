@@ -3,8 +3,11 @@
 
 #include <QObject>
 #include <QJsonDocument>
-#include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QApplication>
+#include <QLocale>
+#include <QTranslator>
+#include <QSettings>
 
 #include "user.h"
 
@@ -39,13 +42,13 @@ public:
 
 
     static QObject *qmlInstance(QQmlEngine *engine, QJSEngine *scriptEngine)
-    {
+      {
         Q_UNUSED(engine);
         Q_UNUSED(scriptEngine);
 
-        auto val = new GlobalConfigData;
-        val->read();
-        return val;
+          auto val = new GlobalConfigData;
+          val->read();
+          return val;
     }
 
 public slots:
@@ -60,6 +63,7 @@ public slots:
     void setLanguage(const QString& newValue) {
         mLanguage = newValue;
         emit languageChanged(mLanguage);
+        loadLanguage();
     }
 
 
@@ -71,10 +75,20 @@ signals:
 
 public :
     void read();
+
+    void setApp(QApplication* app) {mApp = app;}
+    void setEngine(QQmlEngine* engine) {mEngine = engine;}
+    void setSettings(QSettings* settings) {mSettings = settings;}
+private :
+     void loadLanguage();
 private:
     QString mExternalFile;
     bool mIsEmbedded=true;
-    QString mLanguage;
+    QString mLanguage="fr";
+    QApplication* mApp;
+    QQmlEngine* mEngine;
+    QSettings* mSettings;
+    QTranslator* mTranslator;
 
 };
 #endif // GLOBALCONFIGDATA_H

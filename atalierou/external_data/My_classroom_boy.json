@@ -2,13 +2,13 @@
     "activities": [
         {
             "category": "phono",
-            "score": 30,
+            "score": 29,
             "types": [
                 {
                     "levels": [
                         {
                             "level": 1,
-                            "score": 60,
+                            "score": 58,
                             "scores": [
                                 {
                                     "date": "2021 12 21 - 17:27:41",
@@ -28,6 +28,10 @@
                                 },
                                 {
                                     "date": "2021 12 27 - 15:37:48",
+                                    "score": 50
+                                },
+                                {
+                                    "date": "2021 12 28 - 15:27:21",
                                     "score": 50
                                 }
                             ]
@@ -51,7 +55,7 @@
                             ]
                         }
                     ],
-                    "score": 30,
+                    "score": 29,
                     "type": "countSyllabes"
                 }
             ]
