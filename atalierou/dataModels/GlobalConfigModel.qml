@@ -26,13 +26,6 @@ Item {
             GlobalConfigData.language=language
     }
 
-  /*  Settings {
-        id: settings
-        property alias isEmbedded: globalConfig.isEmbedded
-        property alias externalFile: globalConfig.externalFile
-        property alias language: globalConfig.language
-    }*/
-
 
     property var config
 

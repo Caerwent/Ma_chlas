@@ -14,7 +14,6 @@
         <file>ui/qmldir</file>
         <file>res/icons/gear.svg</file>
         <file>dataModels/GlobalConfigModel.qml</file>
-        <file>res/global_config.json</file>
         <file>dataModels/qmldir</file>
         <file>qtquickcontrols2.conf</file>
         <file>ui/ColoredImage.qml</file>

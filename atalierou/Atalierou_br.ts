@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="fr_FR">
 <context>
     <name>ActivitiesGroupChoice</name>
     <message>
         <location filename="ui/ActivitiesGroupChoice.qml" line="15"/>
         <source>Activities group choice</source>
-        <translation>Activities group choice</translation>
+        <translation>Dibab ar rummad obererezh</translation>
     </message>
 </context>
 <context>
@@ -14,24 +14,23 @@
     <message>
         <location filename="ui/ActivityChoice.qml" line="16"/>
         <source>Activity choice</source>
-        <translation>Activity choice</translation>
+        <translation>Dibab an obererezh</translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>Incompatible file format </source>
-        <translation>Incompatible file format </translation>
+        <translation>Stumm fichennaoueg fall</translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>
 Should be between </source>
-        <translation>
-        Should be between </translation>
+        <translation>A rank bezañ etre</translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source> and </source>
-        <translation> and </translation>
+        <translation>ha(g)</translation>
     </message>
 </context>
 <context>
@@ -39,7 +38,7 @@ Should be between </source>
     <message>
         <location filename="ui/ActivityChoiceLevel.qml" line="16"/>
         <source>Activity Level</source>
-        <translation>Activity Level</translation>
+        <translation>Dibab al live</translation>
     </message>
 </context>
 <context>
@@ -55,7 +54,7 @@ Should be between </source>
     <message>
         <location filename="ui/Children.qml" line="16"/>
         <source>Children</source>
-        <translation>Children</translation>
+        <translation>Dibab ar skoliad</translation>
     </message>
 </context>
 <context>
@@ -63,17 +62,17 @@ Should be between </source>
     <message>
         <location filename="ui/ConfigDetails.qml" line="20"/>
         <source>My classroom</source>
-        <translation>My classroom</translation>
+        <translation>Ma c&apos;hlass</translation>
     </message>
     <message>
         <location filename="ui/ConfigDetails.qml" line="93"/>
         <source>Export CSV</source>
-        <translation>Export CSV</translation>
+        <translation>Ezporzhiañ e CSV</translation>
     </message>
     <message>
         <location filename="ui/ConfigDetails.qml" line="121"/>
         <source>No score to display</source>
-        <translation>No score to display</translation>
+        <translation>Hollad ebet da lakaat war well</translation>
     </message>
 </context>
 <context>
@@ -81,7 +80,7 @@ Should be between </source>
     <message>
         <location filename="ui/phono/CountSyllabes.qml" line="31"/>
         <source>Count syllabes</source>
-        <translation>Count syllabes</translation>
+        <translation>Kontañ ar sillabennoù</translation>
     </message>
 </context>
 <context>
@@ -89,7 +88,7 @@ Should be between </source>
     <message>
         <location filename="ui/phono/FindSoundOrSyllabe.qml" line="31"/>
         <source>Find sound or syllabe</source>
-        <translation>Find sound or syllabe</translation>
+        <translation>Kavout ur son pe ur silabenn</translation>
     </message>
 </context>
 <context>
@@ -97,14 +96,13 @@ Should be between </source>
     <message>
         <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
         <source>Incompatible file format </source>
-        <translation>Incompatible file format </translation>
+        <translation>Stumm fichennaoueg fall</translation>
     </message>
     <message>
         <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
         <source>
 Should be 1.0</source>
-        <translation>
-        Should be 1.0</translation>
+        <translation>A rank bezañ 1.0</translation>
     </message>
 </context>
 <context>
@@ -113,8 +111,8 @@ Should be 1.0</source>
         <location filename="ui/Navigator.qml" line="72"/>
         <source>Error when displaying screen %1 : %2
 %3</source>
-        <translation>Error when displaying screen %1 : %2
-        %3</translation>
+        <translation>Fazi e-pad diskweladur ar skramm %1 : %2
+%3</translation>
     </message>
 </context>
 <context>
@@ -122,7 +120,7 @@ Should be 1.0</source>
     <message>
         <location filename="ui/ScoreScreen.qml" line="16"/>
         <source>Score</source>
-        <translation>Score</translation>
+        <translation>Hollad</translation>
     </message>
 </context>
 <context>
@@ -130,12 +128,12 @@ Should be 1.0</source>
     <message>
         <location filename="dataModels/Session.qml" line="59"/>
         <source>Error when adding score</source>
-        <translation>Error when adding score</translation>
+        <translation>Fazi e-pad ouzhpennadur an hollad</translation>
     </message>
     <message>
         <location filename="dataModels/Session.qml" line="65"/>
         <source>Error when writing score</source>
-        <translation>Error when writing score</translation>
+        <translation>Fazi e-pad savadenn an hollad</translation>
     </message>
 </context>
 <context>
@@ -143,37 +141,37 @@ Should be 1.0</source>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>group</source>
-        <translation>group</translation>
+        <translation>strollad</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>child</source>
-        <translation>child</translation>
+        <translation>skoliad</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>category</source>
-        <translation>category</translation>
+        <translation>rummad</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>type</source>
-        <translation>type</translation>
+        <translation>seurt</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>level</source>
-        <translation>level</translation>
+        <translation>live</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>date</source>
-        <translation>date</translation>
+        <translation>deiziad</translation>
     </message>
     <message>
         <location filename="src/user.cpp" line="456"/>
         <source>score</source>
-        <translation>score</translation>
+        <translation>hollad</translation>
     </message>
 </context>
 <context>
@@ -181,62 +179,62 @@ Should be 1.0</source>
     <message>
         <location filename="ui/config.qml" line="17"/>
         <source>Choose a configuration file</source>
-        <translation>Choose a configuration file</translation>
+        <translation>Dibab ur restr gefluniañ</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="18"/>
         <source>Json files (*.json)</source>
-        <translation>Json files (*.json)</translation>
+        <translation>Restr JSON (*.json)</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="31"/>
         <source>Configuration</source>
-        <translation>Configuration</translation>
+        <translation>Kefluniadur</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="47"/>
         <source>Use embedded configuration</source>
-        <translation>Use embedded configuration</translation>
+        <translation>Implijout ar restr dre ziouer</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="57"/>
         <source>Use external configuration</source>
-        <translation>Use external configuration</translation>
+        <translation>Implijour ur fichennaoueg diavez</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="64"/>
         <source>Enter a JSON configuration file</source>
-        <translation> Enter a JSON configuration file</translation>
+        <translation>Dizskrivañ ur restr gefluniañ JSON</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="68"/>
         <source>Open file...</source>
-        <translation>Open file...</translation>
+        <translation>Dibab ur restr</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="77"/>
         <source>Choose language</source>
-        <translation>Choose language</translation>
+        <translation>Dibab ar yezh</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="87"/>
         <source>Apply</source>
-        <translation>Apply</translation>
+        <translation>Lakaat e pleustr</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="97"/>
         <source>View class details</source>
-        <translation>View class details</translation>
+        <translation>Gwellet ar vunudoù evit ar strollad</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="106"/>
         <source>Mentions: </source>
-        <translation>Mentions: </translation>
+        <translation>Meneg</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="109"/>
         <source>Icons by svgrepo.com (https://www.svgrepo.com)</source>
-        <translation>Icons by svgrepo.com (https://www.svgrepo.com)</translation>
+        <translation>Skeudenn kavet war svgrepo.com (https://www.svgrepo.com)</translation>
     </message>
 </context>
 <context>
@@ -244,7 +242,8 @@ Should be 1.0</source>
     <message>
         <location filename="ui/home.qml" line="16"/>
         <source>My classroom</source>
-        <translation>My classroom</translation>
+        <translation>Ma c&apos;hlass</translation>
     </message>
 </context>
+
 </TS>

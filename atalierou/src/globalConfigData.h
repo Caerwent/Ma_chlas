@@ -33,8 +33,10 @@ public:
                NOTIFY languageChanged)
 
     explicit GlobalConfigData(QObject *parent = 0);
-
-    Q_INVOKABLE bool save();
+    ~GlobalConfigData()
+    {
+        delete mTranslator;
+    }
 
     QString externalConfigFile() { return mExternalFile; }
     bool isEmbedded() { return mIsEmbedded; }
@@ -54,14 +56,26 @@ public:
 public slots:
     void setExternalConfigFile(const QString& newValue) {
         mExternalFile = newValue;
+        if(mSettings)
+        {
+            mSettings->setValue("externaFile",  mExternalFile);
+        }
         emit externalConfigFileChanged(mExternalFile);
     }
     void setIsEmbedded(const bool newValue) {
         mIsEmbedded = newValue;
+        if(mSettings)
+        {
+           mSettings->setValue("isEmbedded",  mIsEmbedded);
+        }
         emit isEmbeddedChanged(mIsEmbedded);
     }
     void setLanguage(const QString& newValue) {
         mLanguage = newValue;
+        if(mSettings)
+        {
+           mSettings->setValue("language",  mLanguage);
+        }
         emit languageChanged(mLanguage);
         loadLanguage();
     }

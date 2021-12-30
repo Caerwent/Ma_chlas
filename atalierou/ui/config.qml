@@ -78,7 +78,7 @@ Component {
                 }
                 ComboBox {
                     id: languageCombo
-                    model: ["fr", "en"]
+                    model: ["fr", "en", "br"]
                     currentIndex: model.indexOf(GlobalConfigModel.language)
                 }
             }
