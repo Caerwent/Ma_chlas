@@ -106,8 +106,9 @@ Component {
                 text:qsTr("Mentions: ")
             }
             Label {
-                text:qsTr("Icons by svgrepo.com (https://www.svgrepo.com)")
+                text:qsTr("Icons mentions")
             }
+
         }
         Component.onCompleted: {
             checkBox.checked =GlobalConfigModel.isEmbedded

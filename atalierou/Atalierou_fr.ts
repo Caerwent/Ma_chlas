@@ -19,19 +19,19 @@
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>Incompatible file format </source>
-        <translation>Format de fichier incompatible</translation>
+        <translation>Format de fichier incompatible </translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>
 Should be between </source>
         <translation>
-Doit être compris entre</translation>
+Doit être compris entre </translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source> and </source>
-        <translation>et</translation>
+        <translation> et </translation>
     </message>
 </context>
 <context>
@@ -95,12 +95,12 @@ Doit être compris entre</translation>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>Incompatible file format </source>
-        <translation>Format de fichier incompatible</translation>
+        <translation>Format de fichier incompatible </translation>
     </message>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>
 Should be 1.0</source>
         <translation>
@@ -211,7 +211,7 @@ Doit être 1.0</translation>
     <message>
         <location filename="ui/config.qml" line="68"/>
         <source>Open file...</source>
-        <translation>Choisir un fichier</translation>
+        <translation>Choisir un fichier...</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="77"/>
@@ -231,12 +231,14 @@ Doit être 1.0</translation>
     <message>
         <location filename="ui/config.qml" line="106"/>
         <source>Mentions: </source>
-        <translation>Mentions</translation>
+        <translation>Mentions : </translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="109"/>
-        <source>Icons by svgrepo.com (https://www.svgrepo.com)</source>
-        <translation>Icônes fournies par svgrepo.com (https://www.svgrepo.com)</translation>
+        <source>Icons mentions</source>
+        <translation>Images fournies par :
+- svgrepo.com (https://www.svgrepo.com)
+- https://www.reseau-canope.fr/tes/skeudennaoueg/</translation>
     </message>
 </context>
 <context>
@@ -247,5 +249,4 @@ Doit être 1.0</translation>
         <translation>Ma classe</translation>
     </message>
 </context>
-
 </TS>

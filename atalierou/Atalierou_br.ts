@@ -19,18 +19,19 @@
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>Incompatible file format </source>
-        <translation>Stumm fichennaoueg fall</translation>
+        <translation>Stumm fichennaoueg fall </translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source>
 Should be between </source>
-        <translation>A rank bezañ etre</translation>
+        <translation>
+A rank bezañ etre </translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
         <source> and </source>
-        <translation>ha(g)</translation>
+        <translation> ha(g) </translation>
     </message>
 </context>
 <context>
@@ -94,15 +95,16 @@ Should be between </source>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>Incompatible file format </source>
-        <translation>Stumm fichennaoueg fall</translation>
+        <translation>Stumm fichennaoueg fall </translation>
     </message>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>
 Should be 1.0</source>
-        <translation>A rank bezañ 1.0</translation>
+        <translation>
+A rank bezañ 1.0</translation>
     </message>
 </context>
 <context>
@@ -209,7 +211,7 @@ Should be 1.0</source>
     <message>
         <location filename="ui/config.qml" line="68"/>
         <source>Open file...</source>
-        <translation>Dibab ur restr</translation>
+        <translation>Dibab ur restr...</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="77"/>
@@ -229,12 +231,14 @@ Should be 1.0</source>
     <message>
         <location filename="ui/config.qml" line="106"/>
         <source>Mentions: </source>
-        <translation>Meneg</translation>
+        <translation>Meneg : </translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="109"/>
-        <source>Icons by svgrepo.com (https://www.svgrepo.com)</source>
-        <translation>Skeudenn kavet war svgrepo.com (https://www.svgrepo.com)</translation>
+        <source>Icons mentions</source>
+        <translation>Skeudenn kavet war :
+- svgrepo.com (https://www.svgrepo.com)
+- https://www.reseau-canope.fr/tes/skeudennaoueg/</translation>
     </message>
 </context>
 <context>
@@ -245,5 +249,4 @@ Should be 1.0</source>
         <translation>Ma c&apos;hlass</translation>
     </message>
 </context>
-
 </TS>

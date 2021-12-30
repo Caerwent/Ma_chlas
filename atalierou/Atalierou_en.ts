@@ -26,7 +26,7 @@
         <source>
 Should be between </source>
         <translation>
-        Should be between </translation>
+Should be between </translation>
     </message>
     <message>
         <location filename="ui/ActivityChoice.qml" line="114"/>
@@ -95,16 +95,16 @@ Should be between </source>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>Incompatible file format </source>
         <translation>Incompatible file format </translation>
     </message>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="73"/>
+        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
         <source>
 Should be 1.0</source>
         <translation>
-        Should be 1.0</translation>
+Should be 1.0</translation>
     </message>
 </context>
 <context>
@@ -206,7 +206,7 @@ Should be 1.0</source>
     <message>
         <location filename="ui/config.qml" line="64"/>
         <source>Enter a JSON configuration file</source>
-        <translation> Enter a JSON configuration file</translation>
+        <translation>Enter a JSON configuration file</translation>
     </message>
     <message>
         <location filename="ui/config.qml" line="68"/>
@@ -235,8 +235,10 @@ Should be 1.0</source>
     </message>
     <message>
         <location filename="ui/config.qml" line="109"/>
-        <source>Icons by svgrepo.com (https://www.svgrepo.com)</source>
-        <translation>Icons by svgrepo.com (https://www.svgrepo.com)</translation>
+        <source>Icons mentions</source>
+        <translation>Images by :
+- svgrepo.com (https://www.svgrepo.com)
+- https://www.reseau-canope.fr/tes/skeudennaoueg/</translation>
     </message>
 </context>
 <context>
