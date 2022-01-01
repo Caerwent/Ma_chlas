@@ -1,6 +1,32 @@
 {
     "activities": [
+        {
+            "category": "phono",
+            "score": 25,
+            "types": [
+                {
+                    "levels": [
+                        {
+                            "level": 1,
+                            "score": 25,
+                            "scores": [
+                                {
+                                    "date": "2021 12 30 - 16:29:53",
+                                    "score": 0
+                                },
+                                {
+                                    "date": "2021 12 30 - 16:30:09",
+                                    "score": 50
+                                }
+                            ]
+                        }
+                    ],
+                    "score": 25,
+                    "type": "countSyllabes"
+                }
+            ]
+        }
     ],
-    "group": "My classroom",
+    "group": "My_classroom_girl.json",
     "name": "girl"
 }

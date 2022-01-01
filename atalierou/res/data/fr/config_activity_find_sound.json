@@ -10,60 +10,60 @@
                 {
                     "image":"../images/bateau.png",
                     "sound":"audio/bateau.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_a.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
                     "max":2,
                     "value":[1]
                 },
                 {
                     "image":"../images/bateau.png",
                     "sound":"audio/bateau.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
                 },
                 {
                     "image":"../images/cochon.png",
                     "sound":"audio/cochon.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[1]
                 },
                 {
                     "image":"../images/couteau.png",
                     "sound":"audio/couteau.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
                 },
                 {
                     "image":"../images/dragon.png",
                     "sound":"audio/dragon.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_a.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
                     "max":2,
                     "value":[1]
                 },
                 {
                     "image":"../images/lapin.png",
                     "sound":"audio/lapin.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_a.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
                     "max":2,
                     "value":[1]
                 },{
                     "image":"../images/tobogan.png",
                     "sound":"audio/tobogan.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":3,
                     "value":[1,2]
                 },{
                     "image":"../images/velo.png",
                     "sound":"audio/velo.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
                 },{
                     "image":"../images/moto.png",
                     "sound":"audio/moto.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[1,2]
                 },{
@@ -75,7 +75,7 @@
                 },{
                     "image":"../images/ciseaux.png",
                     "sound":"audio/ciseaux.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
                 }
@@ -94,49 +94,49 @@
                 {
                     "image":"../images/avion.png",
                     "sound":"audio/avion.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_i.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":2,
                     "value":[2]
                 },
                 {
                     "image":"../images/camion.png",
                     "sound":"audio/camion.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_i.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":2,
                     "value":[2]
                 },
                 {
                     "image":"../images/coquillage.png",
                     "sound":"audio/coquillage.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_i.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":3,
                     "value":[2]
                 },
                 {
                     "image":"../images/corbeau.png",
                     "sound":"audio/corbeau.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
                 },
                 {
                     "image":"../images/escargot.png",
                     "sound":"audio/escargot.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":3,
                     "value":[3]
                 },
                 {
                     "image":"../images/licorne.png",
                     "sound":"audio/licorne.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_i.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":2,
                     "value":[1]
                 },
                 {
                     "image":"../images/pirate.png",
                     "sound":"audio/pirate.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_i.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":2,
                     "value":[1]
                 },
@@ -150,14 +150,14 @@
                 {
                     "image":"../images/toilette.png",
                     "sound":"audio/toilette.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_oi.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_oi.mp3",
                     "max":2,
                     "value":[1]
                 },
                 {
                     "image":"../images/voiture.png",
                     "sound":"audio/voiture.mp3",
-                    "helpFile":"audio/help_phono_findSyllabes_oi.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_oi.mp3",
                     "max":2,
                     "value":[1]
                 }

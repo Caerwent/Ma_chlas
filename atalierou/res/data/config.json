@@ -2,7 +2,7 @@
 "fileFormatVersion":"1.0.0",
 "path":"qrc:/res/data/",
 "groups":[
-    {"name":"My classroom",
+    {"name":"Français",
     "image":"images/class/classroom.svg",
      "children":[
 
@@ -15,6 +15,24 @@
      },
         {
            "config":"fr/config_activity_find_sound.json",
+           "category":"phono",
+           "type":"findSoundOrSyllabe"
+        }
+     ]
+    },
+     {"name":"Brezhoneg",
+    "image":"images/class/classroom.svg",
+     "children":[
+
+     ],
+     "activities":[
+     {
+        "config":"br/config_activity_count_syllabes.json",
+        "category":"phono",
+        "type":"countSyllabes"
+     },
+        {
+           "config":"br/config_activity_find_sound.json",
            "category":"phono",
            "type":"findSoundOrSyllabe"
         }

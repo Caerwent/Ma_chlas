@@ -11,7 +11,7 @@ mkdir -p $LIBS_PATH
 mkdir -p $DISTRIB_PATH/plugins/platforms
 cp $BUILD_PATH/Atalierou $DISTRIB_PATH
 cp ./icon.png $DISTRIB_PATH
-cp ./desktop.entry $DISTRIB_PATH
+cp ./Atalierou.desktop $DISTRIB_PATH
 cp ./Atalierou.sh $DISTRIB_PATH
 cp ./qt.conf $DISTRIB_PATH
 
