@@ -21,22 +21,22 @@ L'écran d'accueil permet d'aller dans l'écran de configuration ou de choisir u
 L'icône en haut à gauche est la fonction de navigation, elle permet de sortir de l'application sur cet écran ou de revenir à l'écran précédent dans les autres cas.
 
 ### Écran de sélection de la catégorie d'activité
-![home](doc/screen_select_activity_category.png)
+![Écran de sélection de la catégorie d'activité](doc/screen_select_activity_category.png)
 Une fois le groupe choisi, l'écran suivant permet de choisir la catégorie d'activité.
 Il n'y a pour le moment que la phonologie, d'autres catégories viendront s'ajouter (dénombrement par exemple)
 
 ### Écran de sélection du type d'activité
-![home](doc/screen_select_activity_type.png)
+![Écran de sélection du type d'activité](doc/screen_select_activity_type.png)
 Une fois la catégorie choisie, l'écran suivant permet de choisir le type d'activité.
 En phonologie, l'application propose pour le moment le comptage de syllabes dans un mot ou la recherche d'un son ou d'une syllabe dans un mot.
 
 ### Écran de sélection du niveau de difficulté
-![home](doc/screen_select_activity_level.png)
+![Écran de sélection du niveau de difficulté](doc/screen_select_activity_level.png)
 Une fois l'activité choisie, l'écran suivant permet de sélectionner un exercice dans un niveau de difficulté.
 Les niveaux de difficulté sont affichés par ligne, chaque niveau de difficulté ayant une couleur propre. Dans chaque niveau, il peut y avoir plusieurs exercices. Chaque exercice ne fait que présenter de façon aléatoire un certain nombre d'éléments (10 par défaut) du jeu de données associé. Ils ne servent qu'à matérialiser des objectifs en fonction des capacités de l'élève.
 
 ### Phonologie : comptage de syllabes
-![home](doc/screen_syllabe.png)
+![Écran comptage de syllabes](doc/screen_syllabe.png)
 Les écrans d'activités se présentent tous de la façon suivante :
 
 * une icône de consigne qui joue le fichier audio rappelant la consigne de l'exercice,
@@ -45,20 +45,20 @@ Les écrans d'activités se présentent tous de la façon suivante :
 * l'icône en forme d'oeil permet à l'élève de valider son choix. tant que l'élève n'a pas valider, il peut modifier son choix.
 
 Un fois le choix validé, le résultat s'affiche :
-![home](doc/screen_syllabe_ok.png)
+![choix de l'élève correct](doc/screen_syllabe_ok.png)
 Le choix de l'élève est correct, il est marqué en vert et une étoile apparaît. L'icône permettant de voir le résultat devient une icône pour passer à l'élément suivant, au clic dessus, l'image change et l'étoile va rejoindre la jauge la faisant progresser.
 
-![home](doc/screen_syllabe_ko.png)
+![choix de l'élève incorrect](doc/screen_syllabe_ko.png)
 Le choix de l'élève est incorrect, il est remplacé par une croix rouge alors que la bonne réponse s'affiche en noir. L'icône permettant de voir le résultat devient une icône pour passer à l'élément suivant mais aucune étoile ne fait progresser la jauge.
 
 ### Phonologie : recherche de son ou de syllabe
-![home](doc/screen_find_sound.png)
+![Phonologie : recherche de son ou de syllabe](doc/screen_find_sound.png)
 La recherche de son ou de syllabe dans un mot est assez similiare au comptage de syllabes si ce n'est dans le choix que l'élève doit faire. Ici il s'agit de cocher les cases associées aux syllabes du mot qui correspondent à la consigne (soit la recherche d'une syllabe soit la recherche d'une syllabe contenant un son). 
 Il peut y avoir plusieurs choix à saisir comme sur l'exemple ci-dessus ou le son ***"o"*** est à chercher dans les syllabes du mot tobogan.
 Sur cet exemple, l'élève a choisi la première et la troisième syllabe. La première syllabe est marquée en vert car ce choix est correct, la troisième syllabe est marqué par une croix rouge car ce choix est incorrect, la deuxième syllabe est marqué en noire car c'est une réponse non trouvée.
 
 ### Écran de configuration
-![home](doc/config.png)
+![Écran de configuration](doc/config.png)
 L'écran de configuration permet de choisir l'une des 3 langues d'interface disponibles (français, anglais ou breton). Ce choix n'a que peu d'impact car l'essentiel de l'application est visuel.
 Il permet également de ne pas utiliser le jeu de données embarqué et de choisir un jeu de données personnalisé spécifié par un fichier au format JSON.
 Toute modification n'est prise en compte qu'une fois validée par le bouton "appliquer".
@@ -69,17 +69,17 @@ Un jeu de données personnalisé permet de définir des groupes et une liste d'�
 L'application gère les scores par élève et il est possible de suivre leur progression. 
 
 ### Activité par élève
-![home](doc/custom_select_child.png)
+![Liste d'élève](doc/custom_select_child.png)
 Lorsqu'une liste d'élèves est définie dans le jeu de données personnalisé, un écran de sélection de l'élève s'affiche après la sélection d'un groupe.
 
-![home](doc/custom_select_level.png)
+![Sélection du niveau](doc/custom_select_level.png)
 Sur l'écran de sélection du niveau d'une activité, le score moyen par niveau pour l'élève est affiché sous la forme d'une jauge.
 
 Le niveau suivant n'est débloqué que lorsque le score moyen du niveau précédent atteind le seuil défini par le jeu de données (80% de taux de réussite par défaut).
 
 ### Suivi de la progression par élève
 Lorsqu'un jeu de données personnalisé est sélectionné dans l'écran de configuration, un bouton apparaît permettant d'afficher l'écran de suivi des scores.
-![home](doc/config_scores.png)
+![Suivi de la progression par élève](doc/config_scores.png)
 Cet écran permet de choisir un groupe, puis dans ce groupe de choisir un ou une élève. Si l'élève a déjà réalisé au moins une activité, les scores apparaîssent, chaque score est daté ce qui permet de suivre la progression. 
 
 Le score moyen est également affiché par catégorie, par type et par niveau d'activité.
