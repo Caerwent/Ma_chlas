@@ -173,5 +173,67 @@
         <file>res/data/images/voiture.png</file>
         <file>ui/phono/FindSoundOrSyllabe.qml</file>
         <file>res/data/fr/audio/help_phono_findSyllabe.mp3</file>
+        <file>res/data/audio/help_phono_findSyllabes_a.mp3</file>
+        <file>res/data/audio/help_phono_findSyllabes_i.mp3</file>
+        <file>res/data/audio/help_phono_findSyllabes_o.mp3</file>
+        <file>res/data/audio/help_phono_findSyllabes_oi.mp3</file>
+        <file>res/data/br/audio/abeille.mp3</file>
+        <file>res/data/br/audio/allumette.mp3</file>
+        <file>res/data/br/audio/arbre.mp3</file>
+        <file>res/data/br/audio/ballon.mp3</file>
+        <file>res/data/br/audio/bateau.mp3</file>
+        <file>res/data/br/audio/bus.mp3</file>
+        <file>res/data/br/audio/camion.mp3</file>
+        <file>res/data/br/audio/canard.mp3</file>
+        <file>res/data/br/audio/chaise.mp3</file>
+        <file>res/data/br/audio/chat.mp3</file>
+        <file>res/data/br/audio/cheval.mp3</file>
+        <file>res/data/br/audio/chien.mp3</file>
+        <file>res/data/br/audio/ciseau.mp3</file>
+        <file>res/data/br/audio/clef.mp3</file>
+        <file>res/data/br/audio/cochon.mp3</file>
+        <file>res/data/br/audio/coquillage.mp3</file>
+        <file>res/data/br/audio/corbeau.mp3</file>
+        <file>res/data/br/audio/couteau.mp3</file>
+        <file>res/data/br/audio/crayon.mp3</file>
+        <file>res/data/br/audio/dragon.mp3</file>
+        <file>res/data/br/audio/fantome.mp3</file>
+        <file>res/data/br/audio/feuille.mp3</file>
+        <file>res/data/br/audio/fusee.mp3</file>
+        <file>res/data/br/audio/grenouille.mp3</file>
+        <file>res/data/br/audio/help_phono_countSyllabes.mp3</file>
+        <file>res/data/br/audio/help_phono_findSyllabe.mp3</file>
+        <file>res/data/br/audio/herisson.mp3</file>
+        <file>res/data/br/audio/lapin.mp3</file>
+        <file>res/data/br/audio/licorne.mp3</file>
+        <file>res/data/br/audio/lit.mp3</file>
+        <file>res/data/br/audio/maison.mp3</file>
+        <file>res/data/br/audio/marteau.mp3</file>
+        <file>res/data/br/audio/moto.mp3</file>
+        <file>res/data/br/audio/mouche.mp3</file>
+        <file>res/data/br/audio/moulin.mp3</file>
+        <file>res/data/br/audio/mouton.mp3</file>
+        <file>res/data/br/audio/pirate.mp3</file>
+        <file>res/data/br/audio/poisson.mp3</file>
+        <file>res/data/br/audio/poubelle.mp3</file>
+        <file>res/data/br/audio/poule.mp3</file>
+        <file>res/data/br/audio/poussin.mp3</file>
+        <file>res/data/br/audio/reine.mp3</file>
+        <file>res/data/br/audio/roi.mp3</file>
+        <file>res/data/br/audio/seau.mp3</file>
+        <file>res/data/br/audio/serpant.mp3</file>
+        <file>res/data/br/audio/sorciere.mp3</file>
+        <file>res/data/br/audio/souris.mp3</file>
+        <file>res/data/br/audio/table.mp3</file>
+        <file>res/data/br/audio/thermometre.mp3</file>
+        <file>res/data/br/audio/tobogan.mp3</file>
+        <file>res/data/br/audio/toilette.mp3</file>
+        <file>res/data/br/audio/vache.mp3</file>
+        <file>res/data/br/audio/velo.mp3</file>
+        <file>res/data/br/audio/voiture.mp3</file>
+        <file>res/data/br/config_activity_count_syllabes.json</file>
+        <file>res/data/br/config_activity_find_sound.json</file>
+        <file>res/data/br/audio/escargot.mp3</file>
+        <file>res/data/fr/audio/escargot.mp3</file>
     </qresource>
 </RCC>

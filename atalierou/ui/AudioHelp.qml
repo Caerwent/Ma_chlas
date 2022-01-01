@@ -43,45 +43,20 @@ Item {
 
             switch (playbackState)
             {
-            case MediaPlayer.NoMedia:
-                temp = "MediaPlayer.NoMedia"
+            case MediaPlayer.PlayingState:
+                temp = "MediaPlayer.PlayingState"
                 break;
 
-            case MediaPlayer.Loading:
-                temp = "MediaPlayer.Loading"
+            case MediaPlayer.PausedState:
+                temp = "MediaPlayer.PausedState"
                 break;
 
-            case MediaPlayer.Loaded:
-                temp = "MediaPlayer.Loaded"
+            case MediaPlayer.StoppedState:
+                temp = "MediaPlayer.StoppedState"
+                 audioEnded()
                 break;
-
-            case MediaPlayer.Buffering:
-                temp = "MediaPlayer.Buffering"
-                break;
-
-            case MediaPlayer.Stalled:
-                temp = "MediaPlayer.Stalled"
-                break;
-
-            case MediaPlayer.Buffered:
-                temp = "MediaPlayer.Buffered"
-                break;
-
-            case MediaPlayer.EndOfMedia:
-                temp = "MediaPlayer.EndOfMedia"
-                audioEnded()
-                break;
-
-            case MediaPlayer.InvalidMedia:
-                temp = "MediaPlayer.InvalidMedia"
-                break;
-
-            case MediaPlayer.UnknownStatus:
-                temp = "MediaPlayer.UnknownStatus"
-                break;
+            //console.log(temp)
             }
-
-            console.log(temp)
         }
 
     }

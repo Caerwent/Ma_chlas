@@ -319,10 +319,11 @@ Item {
     }
 
     onCurrentItemChanged: {
-        img.source = Qt.resolvedUrl(Session.activityPath+currentItem.image);
+        img.source = Qt.resolvedUrl(Session.activityPath+currentItem.image)
         img.sourceSize= Qt.size(img.width, img.height)
-        mediaPlayer.source =Qt.resolvedUrl(Session.activityPath+currentItem.sound);
-        helpComp.audioFile = Qt.resolvedUrl(Session.activityPath+currentItem.helpFile);
+        mediaPlayer.source =Qt.resolvedUrl(Session.activityPath+currentItem.sound)
+        helpComp.audioFile = Qt.resolvedUrl(Session.activityPath+currentItem.helpFile)
+        helpComp.play()
 
     }
 

@@ -77,7 +77,7 @@
                     "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":3,
                     "value":[2]
-                },
+                }
              ],
              "nbItemsPerExercice":10,
              "exercices":["exo1","exo2"]
