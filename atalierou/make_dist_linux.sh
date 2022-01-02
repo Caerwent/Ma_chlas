@@ -1,11 +1,24 @@
 #!/bin/sh
 
 # https://github.com/probonopd/linuxdeployqt
-# https://github.com/probonopd/FeedTheMonkey/blob/master/FeedTheMonkey.pro
-
+# make appDir structure
+# └── usr
+#     ├── bin
+#     │   └── Atalierou (compiled binary)
+#     ├── lib
+#     └── share
+#         ├── applications
+#         │   └── Atalierou.desktop (from project path)
+#         └── icons
+#             └── hicolor
+#                 └── 512x512 
+#                     └── apps 
+#                         └── Atalierou.png (from project path)
+                        
 QT_PATH=../../Qt/6.2.2/gcc_64
 BUILD_PATH=../build-Atalierou-Desktop_Qt_6_2_2_GCC_64bit-Release
 DISTRIB_PATH=../distrib/linux_x86-64
+
 rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH/usr/lib
@@ -13,9 +26,9 @@ mkdir -p $DISTRIB_PATH/usr/bin
 cp $BUILD_PATH/Atalierou $DISTRIB_PATH/usr/bin
 mkdir -p $DISTRIB_PATH/usr/share/applications
 cp ./Atalierou.desktop $DISTRIB_PATH/usr/share/applications
-cp ./Atalierou.desktop $DISTRIB_PATH/usr
-mkdir -p $DISTRIB_PATH/usr/share/icons/default/apps/512x512
-cp ./icon.png $DISTRIB_PATH/usr/share/icons/default/apps/512x512/Atalierou.png
+#cp ./Atalierou.desktop $DISTRIB_PATH/usr
+mkdir -p $DISTRIB_PATH/usr/share/icons/hicolor/512x512/apps
+cp ./icon.png $DISTRIB_PATH/usr/share/icons/hicolor/512x512/apps/Atalierou.png
 
 
 
