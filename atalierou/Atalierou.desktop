@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Ma c'hlass atalieroù
-Icon=icon.png
+Icon=Atalierou
 Exec=Atalierou
 Terminal=false
 Categories=Education
