@@ -6,6 +6,8 @@ QT += quickcontrols2
 QT += core
 CONFIG += c++11
 
+TARGET = Atalierou
+
 macx: ICON = icon.icns
 win32:RC_ICONS += icon.ico
 
@@ -37,6 +39,7 @@ QML_IMPORT_PATH =
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
 
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -54,21 +57,4 @@ HEADERS += \
     src/globalConfigData.h \
     src/user.h
 
-DISTFILES += \
-    Atalierou_en.ts \
-    Atalierou_fr.ts \
-    data/config.json \
-    data/images/image1.jpg \
-    data/images/image2.jpg \
-    data/images/image3.jpg \
-    data/images/image4.jpg \
-    data/models/phonem.json \
-    data/sounds/phoneme1.mp3 \
-    data/sounds/phoneme2.mp3 \
-    data/sounds/phoneme3.mp3 \
-    data/sounds/phoneme4.mp3 \
-    data/sounds/quiSon1R1.mp3 \
-    data/sounds/quiSon1R2.mp3 \
-    data/sounds/quiSon1R3.mp3 \
-    data/sounds/quiSon1R4.mp3 \
-    data/sounds/sample-3s.mp3
+
