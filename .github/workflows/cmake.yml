@@ -38,7 +38,7 @@ jobs:
         
     - name: qMake
       working-directory: ./atalierou 
-      run: qmake Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
+      run: ${{env.Qt6_Dir}}/bin/qmake6 Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
       
    #  - name: Configure CMake
    #    working-directory: ./atalierou 
