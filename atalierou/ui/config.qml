@@ -108,6 +108,9 @@ Component {
             Label {
                 text:qsTr("Icons mentions")
             }
+            Label {
+                text:"https://github.com/Caerwent/Ma_chlas"
+            }
 
         }
         Component.onCompleted: {

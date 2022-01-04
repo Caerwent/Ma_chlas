@@ -18,6 +18,7 @@ Item {
         anchors.leftMargin: 20*UIUtils.UI.dp
         anchors.rightMargin: 20*UIUtils.UI.dp
         font.pointSize: 20
+
     }
 
     ColoredImage {
@@ -34,6 +35,13 @@ Item {
                 App.instance.getNavigator().gotToScreen(Screens.config)
             }
         }
+
+        Accessible.role: Accessible.Button
+           Accessible.name: qsTr("Acessibility_config_name")
+           Accessible.description: qsTr("Acessibility_config_desc")
+           Accessible.onPressAction: {
+               App.instance.getNavigator().gotToScreen(Screens.config)
+           }
     }
 
     Rectangle {

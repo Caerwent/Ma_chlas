@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Ma c'hlass atalieroù
+Name=Atalieroù
 Icon=Atalierou
 Exec=Atalierou
 Terminal=false
-Categories=Education
+Categories=Education;

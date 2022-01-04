@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # https://digitalboxweb.wordpress.com/2021/01/20/distribuer-son-editeur-de-texte-multi-plateformes/
+# https://cristianadam.eu/20191222/using-github-actions-with-c-plus-plus-and-cmake/
 
 DISTRIB_PATH=../distrib/linux_x86-64
 BUILD_PATH=../build-Atalierou-Desktop_Qt_6_2_2_GCC_64bit-Release
