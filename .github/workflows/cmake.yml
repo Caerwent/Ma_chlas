@@ -18,7 +18,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-18.04]
+        # os: [windows-latest, macos-latest, ubuntu-18.04]
+        os: [windows-latest, macos-latest]
         include:
           - os: windows-latest
             shell: cmd
