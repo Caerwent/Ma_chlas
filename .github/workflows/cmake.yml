@@ -27,18 +27,21 @@ jobs:
             rmdir: rmdir /s /q
             osDest: win
             osSpec: win32-msvc
+            qtInstallHost: 'windows'
           - os: macos-latest
             shell: sh
             mkdirs: mkdir -p
             rmdir: rm -rf
             osDest: macos
             osSpec: macx-clang
-          - os: ubuntu-18.04
-            shell: sh
-            mkdirs: mkdir -p
-            rmdir: rm -rf
-            osDest: linux
-            osSpec: linux-g++
+            qtInstallHost: 'mac'
+       #   - os: ubuntu-18.04
+       #      shell: sh
+       #      mkdirs: mkdir -p
+       #      rmdir: rm -rf
+       #      osDest: linux
+       #      osSpec: linux-g++
+       #      qtInstallHost: 'linux'
            
         
     steps:
@@ -56,7 +59,7 @@ jobs:
       with:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
         version: '6.2.2'
-        host: 'windows'
+        host: ${{qtInstallHost}} 
         target: 'desktop'
         setup-python: 'false'
         
