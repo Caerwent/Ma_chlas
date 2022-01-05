@@ -62,7 +62,7 @@ jobs:
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
         setup-python: 'false'
-        modules: 'all'
+        modules: 'qtshadertools qtmultimedia qtquick3d qt5compat qtsvg qtimageformats qtbase'
         
     - name: make destination folder
       run: |
@@ -83,7 +83,9 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       working-directory: ./build/${{matrix.osDest}} 
-      run: make -f Makefile qmake_all
+      run: |
+        make -f Makefile qmake_all
+        make -f Makefile -j1
     #   run: make --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       
