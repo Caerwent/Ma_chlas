@@ -69,7 +69,7 @@ jobs:
         ${{matrix.mkdirs}} ./build/${{matrix.osDest}}
     - name: qMake
       working-directory: ./build/${{matrix.osDest}} 
-      run: ${{env.Qt6_Dir}}/bin/qmake6 -o Makefile ../../atalierou/Atalierou.pro -spec ${{matrix.osSpec}} CONFIG+=qtquickcompiler
+      run: ${{env.Qt6_DIR}}/bin/qmake6 -o Makefile ../../atalierou/Atalierou.pro -spec ${{matrix.osSpec}} CONFIG+=qtquickcompiler
       
    #  - name: Configure CMake
    #    working-directory: ./atalierou 
