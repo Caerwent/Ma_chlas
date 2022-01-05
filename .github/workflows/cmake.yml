@@ -62,7 +62,7 @@ jobs:
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
         setup-python: 'false'
-        modules: 'qtmultimedia'
+        modules: 'all'
         
     - name: make destination folder
       run: |
