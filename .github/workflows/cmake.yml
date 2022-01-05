@@ -15,8 +15,35 @@ jobs:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    runs-on: windows-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # os: [windows-latest, macos-latest, ubuntu-18.04]
+        os: [windows-latest, macos-latest]
+        include:
+          - os: windows-latest
+            shell: cmd
+            mkdirs: mkdir
+            rmdir: rmdir /s /q
+            osDest: win
+            osSpec: win32-msvc
+            qtInstallHost: 'windows'
+          - os: macos-latest
+            shell: sh
+            mkdirs: mkdir -p
+            rmdir: rm -rf
+            osDest: macos
+            osSpec: macx-clang
+            qtInstallHost: 'mac'
+       #   - os: ubuntu-18.04
+       #      shell: sh
+       #      mkdirs: mkdir -p
+       #      rmdir: rm -rf
+       #      osDest: linux
+       #      osSpec: linux-g++
+       #      qtInstallHost: 'linux'
+           
+        
     steps:
     - uses: actions/checkout@v2
     
@@ -24,7 +51,7 @@ jobs:
       id: cache-qt
       uses: actions/cache@v1  # not v2!
       with:
-        path: ../Qt
+        path: ${{github.workspace}}/Qt
         key: ${{ runner.os }}-QtCache
         
     - name: Install Qt
@@ -32,13 +59,20 @@ jobs:
       with:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
         version: '6.2.2'
-        host: 'windows'
+        host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
         setup-python: 'false'
+        modules: 'all'
+    #    modules: 'qtshadertools qtmultimedia qtquick3d qt5compat qtsvg qtimageformats qtbase'
+    
         
+    - name: make destination folder
+      run: |
+        ${{matrix.rmdir}} ./build
+        ${{matrix.mkdirs}} ./build/${{matrix.osDest}}
     - name: qMake
-      working-directory: ./atalierou 
-      run: ${{env.Qt6_Dir}}/bin/qmake6 Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
+      working-directory: ./build/${{matrix.osDest}} 
+      run: ${{env.Qt6_DIR}}/bin/qmake6 -o Makefile ../../atalierou/Atalierou.pro -spec ${{matrix.osSpec}} CONFIG+=qtquickcompiler
       
    #  - name: Configure CMake
    #    working-directory: ./atalierou 
@@ -50,8 +84,10 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      working-directory: ./atalierou 
-      run: make qmake_all
+      working-directory: ./build/${{matrix.osDest}} 
+      run: |
+        make -f Makefile qmake_all
+        make -f Makefile -j1
     #   run: make --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       
