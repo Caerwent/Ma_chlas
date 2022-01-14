@@ -24,16 +24,9 @@
                 {
                     "image":"../images/cochon.png",
                     "sound":"audio/cochon.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o_ouvert.mp3",
                     "max":2,
                     "value":[2]
-                },
-                {
-                    "image":"../images/dragon.png",
-                    "sound":"audio/dragon.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
-                    "max":3,
-                    "value":[1]
                 },
                 {
                     "image":"../images/lapin.png",
@@ -74,7 +67,7 @@
                 {
                     "image":"../images/licorne.png",
                     "sound":"audio/licorne.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o_ouvert.mp3",
                     "max":3,
                     "value":[2]
                 }
@@ -99,16 +92,9 @@
                     "value":[1]
                 },
                 {
-                    "image":"../images/velo.png",
-                    "sound":"audio/velo.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
-                    "max":2,
-                    "value":[1,2]
-                },
-                {
                     "image":"../images/escargot.png",
                     "sound":"audio/escargot.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o_ouvert.mp3",
                     "max":3,
                     "value":[3]
                 },
@@ -136,7 +122,7 @@
                 {
                     "image":"../images/sorciere.png",
                     "sound":"audio/sorciere.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_o_ouvert.mp3",
                     "max":3,
                     "value":[1]
                 },
@@ -146,13 +132,6 @@
                     "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":3,
                     "value":[1]
-                },
-                {
-                    "image":"../images/voiture.png",
-                    "sound":"audio/voiture.mp3",
-                    "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
-                    "max":2,
-                    "value":[1,2]
                 }
 
      ],
