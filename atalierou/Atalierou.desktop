@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Atalieroù
-Icon=Atalierou
+Icon=icon512
 Exec=Atalierou
 Terminal=false
 Categories=Education;

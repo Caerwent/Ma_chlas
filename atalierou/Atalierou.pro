@@ -1,7 +1,6 @@
 QT += quick
 QT += multimedia
 QT += svg
-QT += widgets
 QT += quickcontrols2
 QT += core
 CONFIG += c++11
