@@ -8,14 +8,18 @@ fi
 
 
 export ROOT_PATH=$(realpath .)
-export BUILD_PATH=$(realpath ./build-Atalierou-Desktop_Qt_6_2_2_GCC_64bit-Release)
-export DISTRIB_PATH=$(realpath ./distrib/linux_x86-64)
 export PROJECT_PATH=$(realpath ./atalierou)
 
-rm -rf $DISTRIB_PATH
-mkdir -p $DISTRIB_PATH
+export BUILD_PATH=./build-Atalierou-Desktop_Qt_6_2_2_GCC_64bit-Release
 rm -rf $BUILD_PATH
 mkdir -p $BUILD_PATH
+export BUILD_PATH=$(realpath $BUILD_PATH)
+
+export DISTRIB_PATH=./distrib/linux_x86-64
+rm -rf $DISTRIB_PATH
+mkdir -p $DISTRIB_PATH
+export DISTRIB_PATH=$(realpath ./distrib/linux_x86-64)
+
 cd $BUILD_PATH
 
 
@@ -54,5 +58,4 @@ echo ===========================================================================
 export VERSION=1.0.0
 echo "$ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH"
 $ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH 
-
 

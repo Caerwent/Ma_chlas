@@ -81,7 +81,7 @@
                     "image":"../images/roi.png",
                     "sound":"audio/roi.mp3",
                     "max":3,
-                    "value":1
+                    "value":2
                 },
                 {
                     "image":"../images/poule.png",
@@ -212,7 +212,7 @@
                     "image":"../images/mouche.png",
                     "sound":"audio/mouche.mp3",
                     "max":3,
-                    "value":2
+                    "value":3
                 },
                 {
                     "image":"../images/table.png",
@@ -247,7 +247,7 @@
                     "image":"../images/dragon.png",
                     "sound":"audio/dragon.mp3",
                     "max":5,
-                    "value":3
+                    "value":2
                 },
                 {
                     "image":"../images/fusee.png",
@@ -270,7 +270,7 @@
                     "image":"../images/velo.png",
                     "sound":"audio/velo.mp3",
                     "max":5,
-                    "value":3
+                    "value":2
                 },
         		{
                     "image":"../images/abeille.png",
