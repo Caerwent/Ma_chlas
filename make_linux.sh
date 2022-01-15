@@ -6,6 +6,12 @@ if [[ -z "${QT_PATH}" ]]; then
   echo $QT_PATH
 fi
 
+if [[ -z "${CURRENT_VERSION}" ]]; then
+  echo "No CURRENT_VERSION defined, used default value"
+  export CURRENT_VERSION=1.0.0
+  echo $CURRENT_VERSION
+fi
+
 
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
@@ -55,7 +61,7 @@ $ROOT_PATH/linuxdeploy-plugin-qt-x86_64.AppImage --appdir=$DISTRIB_PATH
 echo =========================================================================================
 echo ==================================== linuxdeploy appimage ===============================
 echo =========================================================================================
-export VERSION=1.0.0
+export VERSION=$CURRENT_VERSION
 echo "$ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH"
 $ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH 
 
