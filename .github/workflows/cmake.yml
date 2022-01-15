@@ -23,7 +23,7 @@ jobs:
         ARCH: [x86_64, i386]
         include:
            - os: ubuntu-18.04
-             build_script: make_linux.sh
+             build_script: ./make_linux.sh
              qtInstallHost: 'linux'
              artifact: Atalierou
     
@@ -50,10 +50,11 @@ jobs:
     #    modules: 'qtshadertools qtmultimedia qtquick3d qt5compat qtsvg qtimageformats qtbase'
     
     - name: launch make script
-      run: |
-        ${{matrix.build_script}}
+      working-directory: .
+      run: ${{matrix.build_script}}
     
     - name: Archive artifacts
       uses: actions/upload-artifact@v2
       with:
         name: Atalierou-1.0.0-${{matrix.ARCH}}.AppImage  
+        path: Atalierou-1.0.0-${{matrix.ARCH}}.AppImage
