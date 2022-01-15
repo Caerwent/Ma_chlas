@@ -3,15 +3,15 @@
 if [ -z "${QT_PATH}" ]; then
   echo "No QT_PATH defined, used default value"
   export QT_PATH=$(realpath ../Qt/6.2.2/gcc_64)
-  echo $QT_PATH
 fi
+echo QT_PATH=$QT_PATH
 
 if [ -z "${CURRENT_VERSION}" ]; then
   echo "No CURRENT_VERSION defined, used default value"
   export CURRENT_VERSION=1.0.0
   echo $CURRENT_VERSION
 fi
-
+echo CURRENT_VERSION=$CURRENT_VERSION
 
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
