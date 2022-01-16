@@ -80,5 +80,5 @@ jobs:
     - name: "Archive artifacts"
       uses: actions/upload-artifact@v2
       with:
-        name: Atalierou_$CURRENT_VERSION_${{matrix.ARCH}}.AppImage  
-        path: Atalierou_$CURRENT_VERSION_${{matrix.ARCH}}.AppImage
+        name: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.AppImage  
+        path: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.AppImage
