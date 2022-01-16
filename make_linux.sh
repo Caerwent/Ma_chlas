@@ -72,5 +72,6 @@ echo ===========================================================================
 export VERSION=$CURRENT_VERSION
 export OUTPUT=Atalierou_$CURRENT_VERSION_$ARCH_NAME.AppImage
 echo "$ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+echo "OUTPUT=$OUTPUT"
 $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 
