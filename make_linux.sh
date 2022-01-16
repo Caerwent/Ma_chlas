@@ -13,10 +13,18 @@ if [ -z "${CURRENT_VERSION}" ]; then
 fi
 echo CURRENT_VERSION=$CURRENT_VERSION
 
+
+if [$(getconf LONG_BIT) -eq 64]; then 
+  export ARCH_NAME=x86_64
+else
+  export ARCH_NAME=i386
+fi
+  
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
 
-export BUILD_PATH=./build-Atalierou-Desktop_Qt_6_2_2_GCC_64bit-Release
+
+export BUILD_PATH=./build-Atalierou-linux_$ARCH_NAME-Release
 rm -rf $BUILD_PATH
 mkdir -p $BUILD_PATH
 export BUILD_PATH=$(realpath $BUILD_PATH)
@@ -29,10 +37,9 @@ export DISTRIB_PATH=$(realpath ./distrib/linux_x86-64)
 cd $BUILD_PATH
 
 
-
 $QT_PATH/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
 
-make -f Makefile -j6 install DESTDIR=$DISTRIB_PATH
+make -f Makefile -j6
 
 
 cd $ROOT_PATH
@@ -47,21 +54,22 @@ export EXTRA_QT_PLUGINS="quick;quickcontrols2;qmlworkerscript;quickcontrols2impl
 echo =========================================================================================
 echo ==================================== linuxdeploy ========================================
 echo =========================================================================================
-echo "$ROOT_PATH/linuxdeploy-x86_64.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png "
-$ROOT_PATH/linuxdeploy-x86_64.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png 
+echo "$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png "
+$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png 
 
 echo =========================================================================================
 echo ==================================== linuxdeploy qt =====================================
 echo =========================================================================================
 export QML_SOURCES_PATHS=$PROJECT_PATH/ui:$PROJECT_PATH/ui/phono:$PROJECT_PATH/dataModels
-echo "$ROOT_PATH/linuxdeploy-plugin-qt-x86_64.AppImage --appdir=$DISTRIB_PATH"
-$ROOT_PATH/linuxdeploy-plugin-qt-x86_64.AppImage --appdir=$DISTRIB_PATH
+echo "$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 
 
 echo =========================================================================================
 echo ==================================== linuxdeploy appimage ===============================
 echo =========================================================================================
 export VERSION=$CURRENT_VERSION
-echo "$ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH"
-$ROOT_PATH/linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=$DISTRIB_PATH 
+export OUTPUT=Atalierou_$CURRENT_VERSION_$ARCH_NAME.AppImage
+echo "$ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+$ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 
