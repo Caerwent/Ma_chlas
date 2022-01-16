@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if [ -z "${QT_PATH}" ]; then
-  echo "No QT_PATH defined, used default value"
-  export QT_PATH=$(realpath ../Qt/6.2.2/gcc_64)
+if [ -z "${QT_DIR}" ]; then
+  echo "No QT_DIR defined, used default value"
+  export QT_DIR=$(realpath ../Qt/6.2.2/gcc_64)
 fi
-echo QT_PATH=$QT_PATH
+echo QT_DIR=$QT_DIR
 
 if [ -z "${CURRENT_VERSION}" ]; then
   echo "No CURRENT_VERSION defined, used default value"
@@ -14,7 +14,8 @@ fi
 echo CURRENT_VERSION=$CURRENT_VERSION
 
 
-if [$(getconf LONG_BIT) -eq 64]; then 
+if [ $(getconf LONG_BIT) -eq 64 ] 
+then 
   export ARCH_NAME=x86_64
 else
   export ARCH_NAME=i386
@@ -37,7 +38,7 @@ export DISTRIB_PATH=$(realpath ./distrib/linux_x86-64)
 cd $BUILD_PATH
 
 
-$QT_PATH/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
+$QT_DIR/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
 
 make -f Makefile -j6
 
@@ -46,7 +47,7 @@ cd $ROOT_PATH
 
 #https://opensourcelibs.com/lib/linuxdeploy-plugin-qt
 #https://github.com/linuxdeploy
-export QMAKE=$QT_PATH/bin/qmake
+export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
 export EXTRA_QT_PLUGINS="quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa"
