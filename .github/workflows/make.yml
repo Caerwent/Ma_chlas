@@ -72,6 +72,8 @@ jobs:
     
     - name: "launch make script"
       working-directory: .
+      env:
+        QT_DIR:${{env.Qt6_Dir}}
       run: ${{matrix.build_script}}
     
     - name: "Archive artifacts"
