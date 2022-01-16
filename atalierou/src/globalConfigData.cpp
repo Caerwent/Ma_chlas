@@ -17,8 +17,8 @@ void GlobalConfigData::read() {
 
     if(mSettings)
     {
-        mIsEmbedded = mSettings->value("isEmbedded", false).toBool();
-        mLanguage = mSettings->value("language", "en").toString();
+        mIsEmbedded = mSettings->value("isEmbedded", true).toBool();
+        mLanguage = mSettings->value("language", "fr").toString();
         mExternalFile = mSettings->value("externaFile", "").toString();
     }
     else {
