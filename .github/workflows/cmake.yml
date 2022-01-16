@@ -12,14 +12,14 @@ env:
   
 jobs:
   version:
-    name: Determine version
+    name: "Determine version"
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.get-version.outputs.version }}
       release: ${{ steps.get-version.outputs.release }}
 
     steps:
-    - name: Get version
+    - name: "Get version"
       id: get-version
       run: |
         if [[ "$IS_RELEASE" == 'true' ]]; then echo "::set-output name=version::${GITHUB_REF:11}" ; fi
@@ -52,14 +52,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Cache Qt
+    - name: "Cache Qt"
       id: cache-qt
       uses: actions/cache@v1  # not v2!
       with:
         path: ${{github.workspace}}/Qt
         key: ${{ runner.os }}-QtCache
         
-    - name: Install Qt
+    - name: "Install Qt"
       uses: jurplel/install-qt-action@v2
       with:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
@@ -70,12 +70,12 @@ jobs:
         modules: 'all'
     #    modules: 'qtshadertools qtmultimedia qtquick3d qt5compat qtsvg qtimageformats qtbase'
     
-    - name: launch make script
+    - name: "launch make script"
       working-directory: .
       run: ${{matrix.build_script}}
     
-    - name: Archive artifacts
+    - name: "Archive artifacts"
       uses: actions/upload-artifact@v2
       with:
-        name: Atalierou-$CURRENT_VERSION-${{matrix.ARCH}}.AppImage  
-        path: Atalierou-$CURRENT_VERSION-${{matrix.ARCH}}.AppImage
+        name: Atalierou_$CURRENT_VERSION_${{matrix.ARCH}}.AppImage  
+        path: Atalierou_$CURRENT_VERSION_${{matrix.ARCH}}.AppImage
