@@ -70,10 +70,11 @@ jobs:
         modules: 'all'
     #    modules: 'qtshadertools qtmultimedia qtquick3d qt5compat qtsvg qtimageformats qtbase'
     
+    
     - name: "launch make script"
       working-directory: .
       env:
-        QT_DIR:${{env.Qt6_Dir}}
+        QT_DIR: ${{env.Qt6_Dir}}
       run: ${{matrix.build_script}}
     
     - name: "Archive artifacts"
