@@ -86,5 +86,4 @@ jobs:
     - name: "Release"
       uses: softprops/action-gh-release@v1
       with:
-        draft: ${{env.IS_SNAPSHOT}}
         files: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.AppImage 
