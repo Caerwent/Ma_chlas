@@ -69,7 +69,8 @@ echo ===========================================================================
 echo ==================================== linuxdeploy appimage ===============================
 echo =========================================================================================
 export VERSION=$CURRENT_VERSION
-export OUTPUT=Atalierou_$VERSION_$ARCH_NAME.AppImage
+echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
+export OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
 echo "launch $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
 echo "OUTPUT: $OUTPUT"
 $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
