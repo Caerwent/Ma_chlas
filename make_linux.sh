@@ -29,10 +29,10 @@ rm -rf $BUILD_PATH
 mkdir -p $BUILD_PATH
 export BUILD_PATH=$(realpath $BUILD_PATH)
 
-export DISTRIB_PATH=./distrib/linux_x86-64
+export DISTRIB_PATH=./distrib/linux_$ARCH_NAME
 rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
-export DISTRIB_PATH=$(realpath ./distrib/linux_x86-64)
+export DISTRIB_PATH=$(realpath ./distrib/linux_$ARCH_NAME)
 
 cd $BUILD_PATH
 
