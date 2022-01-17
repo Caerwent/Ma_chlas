@@ -4,14 +4,13 @@ if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
   export QT_DIR=$(realpath ../Qt/6.2.2/gcc_64)
 fi
-echo QT_DIR=$QT_DIR
+echo "QT_DIR: $QT_DIR"
 
 if [ -z "${CURRENT_VERSION}" ]; then
   echo "No CURRENT_VERSION defined, used default value"
   export CURRENT_VERSION=1.0.0
-  echo $CURRENT_VERSION
 fi
-echo CURRENT_VERSION=$CURRENT_VERSION
+echo "CURRENT_VERSION: $CURRENT_VERSION"
 
 
 if [ $(getconf LONG_BIT) -eq 64 ] 
@@ -71,7 +70,7 @@ echo ==================================== linuxdeploy appimage =================
 echo =========================================================================================
 export VERSION=$CURRENT_VERSION
 export OUTPUT=Atalierou_$VERSION_$ARCH_NAME.AppImage
-echo "$ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-echo "OUTPUT=$OUTPUT"
+echo "launch $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+echo "OUTPUT: $OUTPUT"
 $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 
