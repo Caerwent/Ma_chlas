@@ -11,7 +11,10 @@ Item {
 
     property var audioFile
     property bool clickable:true
+    property alias playbackState:helpMediaPlayer.playbackState
+
     signal audioEnded
+    signal audioStart
 
     function play() {
         helpMediaPlayer.play()
@@ -45,6 +48,7 @@ Item {
             {
             case MediaPlayer.PlayingState:
                 temp = "MediaPlayer.PlayingState"
+                audioStart()
                 break;
 
             case MediaPlayer.PausedState:

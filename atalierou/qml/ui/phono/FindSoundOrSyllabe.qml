@@ -50,42 +50,65 @@ Item {
 
 
         Rectangle {
+            id:scoreBar
             border.color :"transparent"
             color:Material.backgroundColor
-            id:scoreBar
-            width: 80*UIUtils.UI.dp
+            width: 100*UIUtils.UI.dp
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.bottom: parent.bottom
 
             AudioHelp {
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.margins: 10*UIUtils.UI.dp
+
                 id: help
                 audioFile:Session.activityAudioHelp
                 width: 60*UIUtils.UI.dp
                 height: 60*UIUtils.UI.dp
-
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
                 onAudioEnded: {
                     helpComp.play()
+                }
+                onAudioStart: {
+                    startSound()
                 }
 
             }
             AudioHelp {
-                anchors.top: parent.top
-                anchors.left: parent.left
                 visible:false
                 clickable:false
                 id: helpComp
+                anchors.top: help.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                onAudioStart: {
+                    startSound()
+                }
+                onAudioEnded: {
+                    stopSound()
+                }
+            }
 
+            Image {
+                id: playSoundIndicator
+                width: 60*UIUtils.UI.dp
+                height: 60*UIUtils.UI.dp
+                anchors.top: helpComp.bottom
+                anchors.topMargin: 10*UIUtils.UI.dp
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "qrc:///res/icons/listen.svg"
+                sourceSize: Qt.size(width, height)
+                //antialiasing: true
+                smooth: true
+                opacity: 0
             }
 
          GaugeImage {
+             id:gauge
              width: 80*UIUtils.UI.dp
-             height: 160*UIUtils.UI.dp
+             height: 190*UIUtils.UI.dp
+             anchors.top: playSoundIndicator.bottom
+             anchors.topMargin: 40*UIUtils.UI.dp
              anchors.horizontalCenter: parent.horizontalCenter
-              anchors.verticalCenter: parent.verticalCenter
              overlayEmptyColor: Material.backgroundDimColor
              overlayFullColor: "#ED8A19"
              fillPercent: scorePercent
@@ -131,45 +154,21 @@ Item {
 
                     switch (playbackState)
                     {
-                    case MediaPlayer.NoMedia:
-                        temp = "MediaPlayer.NoMedia"
+                    case MediaPlayer.PlayingState:
+                        temp = "MediaPlayer.PlayingState"
+                        startSound()
                         break;
 
-                    case MediaPlayer.Loading:
-                        temp = "MediaPlayer.Loading"
+                    case MediaPlayer.PausedState:
+                        temp = "MediaPlayer.PausedState"
                         break;
 
-                    case MediaPlayer.Loaded:
-                        temp = "MediaPlayer.Loaded"
+                    case MediaPlayer.StoppedState:
+                        temp = "MediaPlayer.StoppedState"
+                         stopSound()
                         break;
-
-                    case MediaPlayer.Buffering:
-                        temp = "MediaPlayer.Buffering"
-                        break;
-
-                    case MediaPlayer.Stalled:
-                        temp = "MediaPlayer.Stalled"
-                        break;
-
-                    case MediaPlayer.Buffered:
-                        temp = "MediaPlayer.Buffered"
-                        break;
-
-                    case MediaPlayer.EndOfMedia:
-                        temp = "MediaPlayer.EndOfMedia"
-                        break;
-
-                    case MediaPlayer.InvalidMedia:
-                        temp = "MediaPlayer.InvalidMedia"
-                        break;
-
-                    case MediaPlayer.UnknownStatus:
-                        temp = "MediaPlayer.UnknownStatus"
-                        break;
+                    //console.log(temp)
                     }
-
-                    console.log(temp)
-
                 }
 
             }
@@ -290,13 +289,13 @@ Item {
                     NumberAnimation {
                         target: star
                         properties: "y"
-                        to: scoreBar.y+scoreBar.height/2
+                        to: gauge.y
                         duration: 400
                     }
                     NumberAnimation {
                         target: star
                         properties: "x"
-                        to: scoreBar.x+scoreBar.width/2
+                        to: gauge.x+gauge.width/2
                         duration: 400
                     }
 
@@ -317,6 +316,22 @@ Item {
 
     }
     }
+
+    function startSound()
+    {
+        playSoundIndicator.opacity=1
+    }
+
+    function stopSound()
+    {
+        if(mediaPlayer.playbackState!==MediaPlayer.PlayingState &&
+                help.playbackState!==MediaPlayer.PlayingState &&
+                helpComp.playbackState!==MediaPlayer.PlayingState)
+        {
+            playSoundIndicator.opacity=0
+        }
+    }
+
 
     onCurrentItemChanged: {
         img.source = Qt.resolvedUrl(Session.activityPath+currentItem.image)
