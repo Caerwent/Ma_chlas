@@ -1,6 +1,6 @@
 #!/bin/sh
 
-brew list realpath || brew install realpath
+brew list coreutils || brew install coreutils
 
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
