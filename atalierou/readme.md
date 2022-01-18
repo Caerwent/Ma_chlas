@@ -4,7 +4,7 @@
 
 **Ma c'hlass - atalieroù** signifie *Ma classe - ateliers* en Breton.
 
-Il s'agit d'un logiciel éducatif visant plutôt la maternelle avec comme objectif d'être facile à personnaliser et de pouvoir être facilement étendu par la suite avec de nouvelles activités.
+Il s'agit d'un logiciel éducatif visant plutôt la maternelle avec comme objectif d'être facile à personnaliser et de facilement pouvoir ajouter de nouvelles activités par la suite.
 
 Il n'y a pour le moment que deux types d'activités gérés :
 
@@ -13,7 +13,7 @@ Il n'y a pour le moment que deux types d'activités gérés :
 
 L'essentiel de l'application tient dans ses données. Un jeu minimum de données est embarqué de façon à pouvoir lancer et utiliser l'application immédiatement mais son principal intérêt réside en la création de jeux de données personnalisés.
 Un jeu de données consiste en une arborescence de fichiers image et audio ainsi que de fichiers de description au format JSON qui définissent les activités. Les activités sont regroupées par catégorie et sont divisées en niveaux de difficultés.
-L'application ayant été pensé pour avoir un minimum de texte avec dans tous les cas une importance mineure, les activités peuvent être dans n'importe quelle langue du moment que les fichiers audio associés sont enregistrés dans cette langue.
+L'application ayant été pensée pour avoir un minimum de texte avec dans tous les cas une importance mineure, les activités peuvent être dans n'importe quelle langue du moment que les fichiers audio associés sont enregistrés dans cette langue.
 
 ### Écran d'accueil
 ![home](doc/screen_home.png)
