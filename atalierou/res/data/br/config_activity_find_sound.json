@@ -70,6 +70,27 @@
                     "helpFile":"../audio/help_phono_findSyllabes_o_ouvert.mp3",
                     "max":3,
                     "value":[2]
+                },
+                {
+                    "image":"../images/roi.png",
+                    "sound":"audio/roi.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":2,
+                    "value":[1]
+                },
+                {
+                    "image":"../images/poubelle.png",
+                    "sound":"audio/poubelle.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":3,
+                    "value":[1]
+                },
+                {
+                    "image":"../images/ciseaux.png",
+                    "sound":"audio/ciseaux.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":3,
+                    "value":[3]
                 }
              ],
              "nbItemsPerExercice":10,
@@ -88,6 +109,13 @@
                     "image":"../images/camion.png",
                     "sound":"audio/camion.mp3",
                     "helpFile":"../audio/help_phono_findSyllabes_a.mp3",
+                    "max":2,
+                    "value":[1]
+                },
+                {
+                    "image":"../images/couteau.png",
+                    "sound":"audio/couteau.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
                     "max":2,
                     "value":[1]
                 },
@@ -127,11 +155,18 @@
                     "value":[1]
                 },
                 {
-                    "image":"../images/toilette.png",
-                    "sound":"audio/toilette.mp3",
+                    "image":"../images/toilettes.png",
+                    "sound":"audio/toilettes.mp3",
                     "helpFile":"../audio/help_phono_findSyllabes_i.mp3",
                     "max":3,
                     "value":[1]
+                },
+                {
+                    "image":"../images/toilettes.png",
+                    "sound":"audio/toilettes.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":3,
+                    "value":[3]
                 }
 
      ],

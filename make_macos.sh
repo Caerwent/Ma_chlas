@@ -43,6 +43,6 @@ make -f Makefile qmake_all
 make -f Makefile -j8
 
 
-$QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/ui -dmg
+$QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 mv Atalierou.dmg $DISTRIB_PATH/Atalierou_${CURRENT_VERSION}_macos_${ARCH_NAME}.dmg
 

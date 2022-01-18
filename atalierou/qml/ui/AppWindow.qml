@@ -134,7 +134,7 @@ Window {
 
         StackView {
             id: mainStack
-            initialItem: "qrc:/ui/home.qml"
+            initialItem: "qrc:/qml/ui/home.qml"
             anchors.right: parent.right
             anchors.bottom: navigator.bottom
 

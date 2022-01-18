@@ -54,13 +54,13 @@ export EXTRA_QT_PLUGINS="quick;quickcontrols2;qmlworkerscript;quickcontrols2impl
 echo =========================================================================================
 echo ==================================== linuxdeploy ========================================
 echo =========================================================================================
-echo "$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png "
-$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon512.png 
+echo "$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
+$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png 
 
 echo =========================================================================================
 echo ==================================== linuxdeploy qt =====================================
 echo =========================================================================================
-export QML_SOURCES_PATHS=$PROJECT_PATH/ui:$PROJECT_PATH/ui/phono:$PROJECT_PATH/dataModels
+export QML_SOURCES_PATHS=$PROJECT_PATH/qml/ui:$PROJECT_PATH/qml/ui/phono:$PROJECT_PATH/qml/dataModels
 echo "$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
 $ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 

@@ -78,6 +78,20 @@
                     "helpFile":"../audio/help_phono_findSyllabes_o.mp3",
                     "max":2,
                     "value":[2]
+                },
+                {
+                    "image":"../images/poussin.png",
+                    "sound":"audio/poussin.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":2,
+                    "value":[1]
+                },
+                {
+                    "image":"../images/mouton.png",
+                    "sound":"audio/mouton.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":2,
+                    "value":[1]
                 }
              ],
              "nbItemsPerExercice":10,
@@ -148,8 +162,8 @@
                     "value":[2]
                 },
                 {
-                    "image":"../images/toilette.png",
-                    "sound":"audio/toilette.mp3",
+                    "image":"../images/toilettes.png",
+                    "sound":"audio/toilettes.mp3",
                     "helpFile":"../audio/help_phono_findSyllabes_oi.mp3",
                     "max":2,
                     "value":[1]
@@ -160,7 +174,15 @@
                     "helpFile":"../audio/help_phono_findSyllabes_oi.mp3",
                     "max":2,
                     "value":[1]
+                },
+                {
+                    "image":"../images/grenouille.png",
+                    "sound":"audio/grenouille.mp3",
+                    "helpFile":"../audio/help_phono_findSyllabes_ou.mp3",
+                    "max":2,
+                    "value":[2]
                 }
+
 
      ],
      "nbItemsPerExercice":10,

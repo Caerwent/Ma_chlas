@@ -310,8 +310,8 @@
                     "value":3
                 },
                 {
-                    "image":"../images/toilette.png",
-                    "sound":"audio/toilette.mp3",
+                    "image":"../images/toilettes.png",
+                    "sound":"audio/toilettes.mp3",
                     "max":5,
                     "value":2
                 },

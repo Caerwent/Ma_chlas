@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<FileIO,1>("FileIO",1,0,"FileIO");
 
 
-    const QUrl url(QStringLiteral("qrc:/ui/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/qml/ui/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
