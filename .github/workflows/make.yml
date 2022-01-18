@@ -46,11 +46,11 @@ jobs:
            - os: ubuntu-latest
              build_script: ./make_linux.sh
              qtInstallHost: 'linux'
-             artifact: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.AppImage 
+             artifact_suffix: ${{matrix.ARCH}}.AppImage 
            - os: macos-latest
              build_script: ./make_macos.sh
              qtInstallHost: 'mac'
-             artifact: Atalierou_${{env.CURRENT_VERSION}}_macos_${{matrix.ARCH}}.dmg 
+             artifact_suffix: macos_${{matrix.ARCH}}.dmg 
     
     runs-on: ${{ matrix.os }}       
     steps:
@@ -84,11 +84,11 @@ jobs:
     - name: "Archive artifacts"
       uses: actions/upload-artifact@v2
       with:
-        name: ${{matrix.artifact}} 
-        path: ${{matrix.artifact}} 
+        name: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.artifact_suffix}} 
+        path: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.artifact_suffix}} 
         
     - name: "Release"
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: ${{matrix.artifact}} 
+        files: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.artifact_suffix}} 
