@@ -45,5 +45,5 @@ make -f Makefile -j8
 
 $QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 cd $ROOT_PATH
-mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_macos_${ARCH_NAME}.dmg
+mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg
 
