@@ -17,7 +17,7 @@ L'application ayant été pensé pour avoir un minimum de texte avec dans tous l
 
 ### Écran d'accueil
 ![home](doc/screen_home.png)
-L'écran d'accueil permet d'aller dans l'écran de configuration ou de choisir un groupe. Un groupe par défaut est affiché sans configuration personnalisée.
+L'écran d'accueil permet d'aller dans l'écran de configuration ou de choisir un groupe. Deux groupes par défaut sont affichés sans configuration personnalisée. Le premier propose des activités en utilisant le jeu de données intégré en français, le second utilise le jeu de données intégré en breton.
 L'icône en haut à gauche est la fonction de navigation, elle permet de sortir de l'application sur cet écran ou de revenir à l'écran précédent dans les autres cas.
 
 ### Écran de sélection de la catégorie d'activité
