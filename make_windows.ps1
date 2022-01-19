@@ -25,13 +25,13 @@ if ($null -eq $env:ARCH_NAME) {
 
 
 
-set $env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
+$env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
 
 
-set $env:BUILD_PATH=[System.IO.Path]::GetFullPath(".\build-Atalierou-windows_$env:ARCH_NAME-Release")
+$env:BUILD_PATH=[System.IO.Path]::GetFullPath(".\build-Atalierou-windows_$env:ARCH_NAME-Release")
 New-Item -Force -Path $env:BUILD_PATH -ItemType Directory
 
-set $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
+$env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
 New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
 Set-Location -Path $env:BUILD_PATH -PassThru
