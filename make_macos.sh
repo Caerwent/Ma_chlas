@@ -26,7 +26,7 @@ export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
 
 
-export BUILD_PATH=./build-Atalierou-linux_$ARCH_NAME-Release
+export BUILD_PATH=./build-Atalierou-macos_$ARCH_NAME-Release
 rm -rf $BUILD_PATH
 mkdir -p $BUILD_PATH
 export BUILD_PATH=$(realpath $BUILD_PATH)
