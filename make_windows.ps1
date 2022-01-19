@@ -37,7 +37,7 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 Set-Location -Path $env:BUILD_PATH -PassThru
 
 
-$env:QT_DIR\bin\qmake -o Makefile %PROJECT_PATH%\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
+$env:QT_DIR\bin\qmake -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
 
 $env:QT_DIR\bin\nmake -f Makefile
 
