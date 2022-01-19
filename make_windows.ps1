@@ -38,11 +38,12 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 
 
 Start-Process -Verb RunAs $env:QT_DIR\bin\qmake -Args -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
+Start-Process -FilePath "$env:QT_DIR\bin\qmake" -ArgumentList "-o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler"
 
-Start-Process -Verb RunAs $env:QT_DIR\bin\nmake -Args -f Makefile
+Start-Process -FilePath "$env:QT_DIR\bin\nmake" -ArgumentList "-f Makefile"
 
 
-Start-Process -Verb RunAs $env:QT_DIR\bin\windeployqt -Args  --release --qmldir --qmake $env:QT_DIR\bin\qmake $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe 
+Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe"
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 ​copy-item -path $env:BUILD_PATH\Atalierou.exe -destination .\Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe
