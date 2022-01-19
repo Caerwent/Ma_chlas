@@ -1,4 +1,3 @@
-#!/bin/sh
 
 if not defined QT_DIR (
   echo QT_DIR is NOT defined, used default value
