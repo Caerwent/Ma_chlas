@@ -37,7 +37,6 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 Set-Location -Path $env:BUILD_PATH -PassThru
 
 
-Start-Process -Verb RunAs $env:QT_DIR\bin\qmake -Args -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
 Start-Process -FilePath "$env:QT_DIR\bin\qmake" -ArgumentList "-o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler"
 
 Start-Process -FilePath "$env:QT_DIR\bin\nmake" -ArgumentList "-f Makefile"
