@@ -53,7 +53,7 @@ jobs:
              artifact_ext: dmg 
              qtModules: 'all'
            - os: windows-latest
-             build_script: make_windows.ps1
+             build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: exe 
              qtModules: 'qtshadertools qtmultimedia qtsvg qtimageformats qtbase qtquickControls2 qtquick qtopenGL qtwidgets qtgui qtqmlmodels qtqml qtnetwork qtcore'
