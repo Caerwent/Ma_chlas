@@ -36,13 +36,13 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
 Set-Location -Path $env:BUILD_PATH -PassThru
 
+echo launch qmake
+Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler" -Verbose
+echo launch jom
+Start-Process -FilePath "$env:QT_DIR\bin\jom.exe" -ArgumentList "-f Makefile" -Verbose
 
-Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler"
-
-Start-Process -FilePath "$env:QT_DIR\bin\jom.exe" -ArgumentList "-f Makefile"
-
-
-Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe"
+echo launch windeployqt
+Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe" -Verbose
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 ​copy-item -path $env:BUILD_PATH\Atalierou.exe -destination .\Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe
