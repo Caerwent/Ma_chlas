@@ -4,11 +4,11 @@ if not defined QT_DIR (
   set QT_DIR=../Qt/6.2.2/gcc_64
 )
 
-rem // find absolute path, save current directory and change to target directory
+::// find absolute path, save current directory and change to target directory
 pushd %QT_DIR%
-rem // Save value of CD variable (current directory)
+:: // Save value of CD variable (current directory)
 set QT_DIR=%CD%
-rem // Restore original directory
+:: // Restore original directory
 popd
 
 echo QT_DIR: %QT_DIR%
@@ -52,7 +52,7 @@ cd %BUILD_PATH%
 
 %QT_DIR%/bin/qmake -o Makefile %PROJECT_PATH%/Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
 
-nmake -f Makefile
+%QT_DIR%/bin/nmake -f Makefile
 
 
 %QT_DIR%/bin/windeployqt --release --qmldir --qmake %QT_DIR%/bin/qmake %PROJECT_PATH%/qml --verbose 2 Atalierou.exe 
