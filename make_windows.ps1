@@ -17,7 +17,7 @@ if ($null -eq $env:CURRENT_VERSION) {
 
 echo CURRENT_VERSION $env:CURRENT_VERSION
 
-if ($null -eq $env:) {
+if ($null -eq $env:ARCH_NAME) {
     echo ARCH_NAME is NOT defined, used default value
     
     $env:ARCH_NAME=x86_64
