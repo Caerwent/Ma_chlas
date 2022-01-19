@@ -2,7 +2,7 @@
 if ($null -eq $env:QT_DIR) {
     echo QT_DIR is NOT defined, used default value
     
-    $env:QT_DIR = ../Qt/6.2.2/gcc_64 
+    $env:QT_DIR = ..\Qt\6.2.2\gcc_64 
 }
 $env:QT_DIR=[System.IO.Path]::GetFullPath($env:QT_DIR)
 echo QT_DIR $Env:QT_DIR
@@ -25,25 +25,25 @@ if ($null -eq $env:ARCH_NAME) {
 
 
 
-set $env:PROJECT_PATH=[System.IO.Path]::GetFullPath("./atalierou")
+set $env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
 
 
-set $env:BUILD_PATH=[System.IO.Path]::GetFullPath("./build-Atalierou-windows_$env:ARCH_NAME-Release")
+set $env:BUILD_PATH=[System.IO.Path]::GetFullPath(".\build-Atalierou-windows_$env:ARCH_NAME-Release")
 New-Item -Force -Path $env:BUILD_PATH -ItemType Directory
 
-set $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath("./distrib/windows_$env:ARCH_NAME")
+set $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
 New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
 Set-Location -Path $env:BUILD_PATH -PassThru
 
 
-$env:QT_DIR/bin/qmake -o Makefile %PROJECT_PATH%/Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
+$env:QT_DIR\bin\qmake -o Makefile %PROJECT_PATH%\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompiler
 
-$env:QT_DIR/bin/nmake -f Makefile
+$env:QT_DIR\bin\nmake -f Makefile
 
 
-$env:QT_DIR/bin/windeployqt --release --qmldir --qmake $env:QT_DIR/bin/qmake $env:PROJECT_PATH/qml --verbose 2 Atalierou.exe 
+$env:QT_DIR\bin\windeployqt --release --qmldir --qmake $env:QT_DIR\bin\qmake $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe 
 
 Set-Location -Path $env:ROOT_PATH -PassThru
-mv $env:BUILD_PATH/Atalierou.exe Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe
+mv $env:BUILD_PATH\Atalierou.exe Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe
 
