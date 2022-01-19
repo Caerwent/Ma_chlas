@@ -44,19 +44,16 @@ jobs:
         include:
            - os: ubuntu-latest
              build_script: ./make_linux.sh
-             build_shell: sh
              qtInstallHost: 'linux'
              artifact_ext: AppImage 
              qtModules: 'all'
            - os: macos-latest
              build_script: ./make_macos.sh
-             build_shell: sh
              qtInstallHost: 'mac'
              artifact_ext: dmg 
              qtModules: 'all'
            - os: windows-latest
              build_script: make_windows.bat
-             build_shell: cmd
              qtInstallHost: 'windows'
              artifact_ext: exe 
              qtModules: 'qtshadertools qtmultimedia qtsvg qtimageformats qtbase qtquickControls2 qtquick qtopenGL qtwidgets qtgui qtqmlmodels qtqml qtnetwork qtcore'
@@ -87,7 +84,6 @@ jobs:
       env:
         QT_DIR: ${{env.Qt6_DIR}}
         ARCH_NAME: ${{matrix.ARCH}}
-      shell: ${{matrix.build_shell}}
       run: ${{matrix.build_script}}
     
     - name: "Archive artifacts"
