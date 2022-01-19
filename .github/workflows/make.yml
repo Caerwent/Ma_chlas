@@ -53,7 +53,7 @@ jobs:
              artifact_ext: dmg 
              qtModules: 'all'
            - os: windows-latest
-             build_script: cmd "make_windows.bat"
+             build_script: cmd /C make_windows.bat
              qtInstallHost: 'windows'
              artifact_ext: exe 
              qtModules: 'qtshadertools qtmultimedia qtsvg qtimageformats qtbase qtquickControls2 qtquick qtopenGL qtwidgets qtgui qtqmlmodels qtqml qtnetwork qtcore'
