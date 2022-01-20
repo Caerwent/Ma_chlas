@@ -75,7 +75,8 @@ jobs:
         version: '6.2.2'
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        arch: 'win64_msvc2019_64'
+        arch: 'win64_mingw81'
+        tools: 'qt.tools.win64_mingw810'
         setup-python: 'false'
         modules: ${{matrix.qtModules}}
     
