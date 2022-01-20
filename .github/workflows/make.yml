@@ -66,7 +66,7 @@ jobs:
       uses: actions/cache@v1  # not v2!
       with:
         path: ../Qt
-        key: ${{ runner.os }}-QtCacheMingW
+        key: ${{ runner.os }}-QtCache
         
     - name: "Install Qt"
       uses: jurplel/install-qt-action@v2
@@ -75,8 +75,7 @@ jobs:
         version: '6.2.2'
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        arch: 'tools_mingw'
-        tools: 'qt.tools.win64_mingw810'
+        arch: 'win64_msvc2019_64'
         setup-python: 'false'
         modules: ${{matrix.qtModules}}
     
