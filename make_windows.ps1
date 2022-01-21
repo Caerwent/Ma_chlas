@@ -55,14 +55,16 @@ echo "============================================="
 Start-Process -FilePath "$env:QT_DIR\Tools\mingw900_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
 Start-Process -FilePath "$env:QT_DIR\Tools\mingw900_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
 
+
+Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination $env:DISTRIB_PATH
+
 echo "============================================="
 echo "            launch windeployqt"
 echo "============================================="
 echo launch windeployqt
-Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 release\Atalierou.exe" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:DISTRIB_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
-Get-ChildItem -Path "$env:BUILD_PATH\release"
-
-Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination $(".\Atalierou_" + $env:CURRENT_VERSION + "_" + $env:ARCH_NAME+ ".exe")
+Get-ChildItem -Path "$env:DISTRIB_PATH"
+Compress-Archive -Path $env:DISTRIB_PATH\* -DestinationPath $(".\Atalierou_" + $env:CURRENT_VERSION + "_" + $env:ARCH_NAME+ ".zip")
 Get-ChildItem -Path "."
