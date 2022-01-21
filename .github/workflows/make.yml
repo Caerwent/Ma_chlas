@@ -61,24 +61,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-#    - name: "Cache Qt"
-#      id: cache-qt
-#      uses: actions/cache@v1  # not v2!
-#      with:
-#        path: ../Qt
-#        key: ${{ runner.os }}-QtCache
-        
-#    - name: "Prepare env for Windows"
-#      if: ${{ matrix.os == 'windows-latest' }}
-#      run: |
-#        Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" -ArgumentList "x86_x64" -Verbose -NoNewWindow
-#        $env:PATH="$env:PATH;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.25.28610\\bin\\Hostx86\\x64"
-#        Remove-Item "C:\Android\android-sdk" -Verbose  
+    - name: "Cache Qt"
+      id: cache-qt
+      uses: actions/cache@v1  # not v2!
+      with:
+        path: ../Qt
+        key: ${{ runner.os }}-QtCache
         
     - name: "Install Qt"
       uses: jurplel/install-qt-action@v2
       with:
-#        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
         version: '6.2.2'

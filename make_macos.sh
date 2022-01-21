@@ -38,13 +38,20 @@ export DISTRIB_PATH=$(realpath ./distrib/macos_$ARCH_NAME)
 
 cd $BUILD_PATH
 
-
+echo "============================================="
+echo "            launch qmake"
+echo "============================================="
 $QT_DIR/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec macx-clang CONFIG+=qtquickcompiler
 
+echo "============================================="
+echo "            launch make"
+echo "============================================="
 make -f Makefile qmake_all
 make -f Makefile -j8
 
-
+echo "============================================="
+echo "            launch macdeployqt"
+echo "============================================="
 $QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 cd $ROOT_PATH
 mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg
