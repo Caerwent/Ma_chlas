@@ -64,5 +64,6 @@ Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release -
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 Get-ChildItem -Path "$env:BUILD_PATH\release"
-Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination ".\Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe"
+
+Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination $(".\Atalierou_" + $env:CURRENT_VERSION + "_" + $env:ARCH_NAME+ ".exe")
 Get-ChildItem -Path "."
