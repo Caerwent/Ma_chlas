@@ -83,6 +83,7 @@ jobs:
         target: 'desktop'
         version: '6.2.2'
         setup-python: 'false'
+        aqtversion: '==2.0.5'
         modules: ${{matrix.qtModules}} 
     
     - name: "launch make script"
