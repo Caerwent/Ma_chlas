@@ -40,7 +40,8 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 # $env:PATH="$env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\bin\Hostx86\x64;$env:QT_DIR\bin\"
 
 Get-ChildItem -Path "$env:QT_DIR\bin"
-Get-ChildItem -Path "$env:QT_DIR\Tools"
+Get-ChildItem -Path "$env:QT_DIR"
+Get-ChildItem -Path "$env:QT_DIR\.."
 
 echo "============================================="
 echo "            launch qmake"

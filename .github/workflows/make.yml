@@ -85,7 +85,6 @@ jobs:
         arch: 'win64_mingw'
         setup-python: 'false'
         aqtversion: '==2.0.5'
-        tools: 'tools_mingw qt.tools.win64_mingw900'
         modules: ${{matrix.qtModules}} 
     
     - name: "launch make script"
