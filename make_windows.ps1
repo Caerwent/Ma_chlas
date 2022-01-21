@@ -36,19 +36,24 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
 Set-Location -Path $env:BUILD_PATH -PassThru
 
-Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" -ArgumentList "x86_x64" -Verbose -NoNewWindow
+Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" -ArgumentList "x86_x64" -Verbose -NoNewWindow -Wait
 $env:PATH="$env:PATH;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.25.28610\\bin\\Hostx86\\x64"
-
-echo launch qmake
-Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompile  -tp vcr" -Verbose -NoNewWindow
-# Start-Process -FilePath "$env:QT_DIR\bin\mingw_64\qmake.exe" -ArgumentList "$env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow
-echo launch make
-Start-Process -FilePath "$env:QT_DIR\bin\jom.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow
-# Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow
-# Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow
-
+echo "============================================="
+echo "            launch qmake"
+echo "============================================="
+Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompile  -tp vcr" -Verbose -NoNewWindow -Wait
+# Start-Process -FilePath "$env:QT_DIR\bin\mingw_64\qmake.exe" -ArgumentList "$env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow -Wait
+echo "============================================="
+echo "            launch make"
+echo "============================================="
+Start-Process -FilePath "$env:QT_DIR\bin\jom.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow -Wait
+# Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
+# Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
+echo "============================================="
+echo "            launch windeployqt"
+echo "============================================="
 echo launch windeployqt
-Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake.exe $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe" -Verbose -NoNewWindow
+Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake.exe $env:PROJECT_PATH\qml --verbose 2 Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 ​copy-item -path $env:BUILD_PATH\Atalierou.exe -destination .\Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe
