@@ -38,7 +38,9 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 
 # Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" -ArgumentList "x64" -Verbose -NoNewWindow -Wait
 # $env:PATH="$env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\bin\Hostx86\x64;$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
-$env:PATH="$env:PATH;$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
+$env:PATH=""$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin;$env:PATH"
+
+echo PATH $env:PATH
 
 Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
 Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
