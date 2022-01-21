@@ -23,7 +23,7 @@ if ($null -eq $env:ARCH_NAME) {
     $env:ARCH_NAME=x86_64
 }
 
-
+$env:ROOT_PATH=[System.IO.Path]::GetFullPath(".")
 
 $env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
 
