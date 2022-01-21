@@ -59,7 +59,7 @@ echo "============================================="
 echo "            launch windeployqt"
 echo "============================================="
 echo launch windeployqt
-Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake.exe $env:PROJECT_PATH\qml --verbose 2 release\Atalierou.exe" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 release\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 Get-ChildItem -Path "$env:BUILD_PATH\release"
