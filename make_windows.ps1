@@ -47,7 +47,7 @@ echo "============================================="
 echo "            launch qmake"
 echo "============================================="
 # Start-Process -FilePath "qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompile  -tp vcr" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\bin\mingw_90\qmake.exe" -ArgumentList "$env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "$env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow -Wait
 echo "============================================="
 echo "            launch make"
 echo "============================================="
