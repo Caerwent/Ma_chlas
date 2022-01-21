@@ -37,6 +37,8 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 Set-Location -Path $env:BUILD_PATH -PassThru
 
 Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" -ArgumentList "x86_x64" -Verbose -NoNewWindow
+$env:PATH="$env:PATH;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.25.28610\\bin\\Hostx86\\x64"
+
 echo launch qmake
 Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompile  -tp vcr" -Verbose -NoNewWindow
 # Start-Process -FilePath "$env:QT_DIR\bin\mingw_64\qmake.exe" -ArgumentList "$env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow
