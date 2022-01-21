@@ -40,7 +40,7 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 # $env:PATH="$env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\bin\Hostx86\x64;$env:QT_DIR\bin\"
 
 Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32"
+Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
 echo "            launch qmake"
