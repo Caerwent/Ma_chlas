@@ -46,7 +46,7 @@ Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-d -o Makefil
 echo "============================================="
 echo "            launch make"
 echo "============================================="
-Start-Process -FilePath "$env:QT_DIR\bin\jom.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\bin\nmake.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow -Wait
 # Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
 # Start-Process -FilePath "$env:QT_DIR\Tools\mingw810_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
 echo "============================================="
