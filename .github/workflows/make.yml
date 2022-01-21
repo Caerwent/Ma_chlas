@@ -56,7 +56,7 @@ jobs:
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: exe 
-             qtModules: 'qtshadertools qtmultimedia qtsvg qtimageformats'
+             qtModules: 'qtshadertools qtmultimedia qtimageformats'
     runs-on: ${{ matrix.os }}       
     steps:
     - uses: actions/checkout@v2
