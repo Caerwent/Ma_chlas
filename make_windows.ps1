@@ -40,10 +40,10 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 # $env:PATH="$env:PATH;C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\bin\Hostx86\x64;$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
 $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin;$env:PATH"
 
-echo PATH $env:PATH
+# echo PATH $env:PATH
 
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
 echo "            launch qmake"
@@ -63,5 +63,6 @@ echo launch windeployqt
 Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmldir --qmake $env:QT_DIR\bin\qmake.exe $env:PROJECT_PATH\qml --verbose 2 release\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
+Get-ChildItem -Path "$env:BUILD_PATH\release"
 Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination ".\Atalierou_$env:CURRENT_VERSION_$env:ARCH_NAME.exe"
-
+Get-ChildItem -Path "."
