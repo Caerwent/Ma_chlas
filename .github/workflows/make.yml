@@ -47,16 +47,19 @@ jobs:
              qtInstallHost: 'linux'
              artifact_ext: AppImage 
              qtModules: 'all'
+             qtArchives: 'none'
            - os: macos-latest
              build_script: ./make_macos.sh
              qtInstallHost: 'mac'
              artifact_ext: dmg 
              qtModules: 'all'
+             qtArchives: 'none'
            - os: windows-latest
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: exe 
              qtModules: 'qtshadertools qtmultimedia qtsvg qtimageformats qtbase qtquickControls2 qtquick qtopenGL qtwidgets qtgui qtqmlmodels qtqml qtnetwork qtcore'
+             qtArchives: 'qtshadertools qtmultimedia qtsvg qtimageformats qtbase qtquickControls2 qtquick qtopenGL qtwidgets qtgui qtqmlmodels qtqml qtnetwork qtcore'
     runs-on: ${{ matrix.os }}       
     steps:
     - uses: actions/checkout@v2
@@ -76,7 +79,8 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2019_64'
         setup-python: 'false'
-        modules: 'all'
+        modules: ${{matrix.qtModules}} 
+        archives: ${{matrix.qtArchives}} 
     
     - name: "launch make script"
       working-directory: .
