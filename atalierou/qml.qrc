@@ -237,5 +237,6 @@
         <file>res/data/fr/audio/escargot.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_o_ouvert.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_ou.mp3</file>
+        <file>qml/ui/phono/CountSyllabesModel.qml</file>
     </qresource>
 </RCC>
