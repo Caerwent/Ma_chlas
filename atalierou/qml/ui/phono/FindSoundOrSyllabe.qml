@@ -8,20 +8,31 @@ import "../../dataModels"
 
 Item {
     id:findSoundOrSyllabe
-    property int currentIndex
-    property int currentLevelIndex: Session.activityIndex
-    property var currentItem
 
-    property int respGridWith: syllabe.max*60*UIUtils.UI.dp
-    property int respGridheight: syllabe.max*60*UIUtils.UI.dp
 
-    property bool itemDone : false
-    property bool checkEnabled : false
+    FindSoundOrSyllabeModel {
+        id:itemModel
 
-    property int score : 0
-    property real scorePercent : 0
+        onEnded: {
+            App.instance.getNavigator().gotToScreen(Screens.score)
+        }
 
-    property var items
+        onStartStarAnimation: {
+            startAnim.restart()
+        }
+
+        onAudioHelpCompSourceChanged: {
+            helpComp.audioFile=itemModel.audioHelpCompSource
+            helpComp.play()
+        }
+
+        onCurrentItemChanged: {
+            response.width= itemModel.currentItem.max*response.cellWidth
+            response.height= ((itemModel.currentItem.max/(itemModel.currentItem.max*response.cellWidth)) + 1 )*response.cellHeight
+        }
+
+    }
+
     Label {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -61,7 +72,7 @@ Item {
             AudioHelp {
 
                 id: help
-                audioFile:Session.activityAudioHelp
+                audioFile:itemModel.audioHelpSource
                 width: 60*UIUtils.UI.dp
                 height: 60*UIUtils.UI.dp
                 anchors.top: parent.top
@@ -78,6 +89,7 @@ Item {
                 visible:false
                 clickable:false
                 id: helpComp
+
                 anchors.top: help.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
                 onAudioStart: {
@@ -102,19 +114,18 @@ Item {
                 opacity: 0
             }
 
-         GaugeImage {
-             id:gauge
-             width: 80*UIUtils.UI.dp
-             height: 190*UIUtils.UI.dp
-             anchors.top: playSoundIndicator.bottom
-             anchors.topMargin: 40*UIUtils.UI.dp
-             anchors.horizontalCenter: parent.horizontalCenter
-             overlayEmptyColor: Material.backgroundDimColor
-             overlayFullColor: "#ED8A19"
-             fillPercent: scorePercent
-             source: "qrc:///res/icons/starGauge.svg"
-             hoverEnabled: false
-         }
+            GaugeImage {
+                id:gauge
+                width: 80*UIUtils.UI.dp
+                height: 190*UIUtils.UI.dp
+                anchors.top: playSoundIndicator.bottom
+                anchors.topMargin: 40*UIUtils.UI.dp
+                anchors.horizontalCenter: parent.horizontalCenter
+                overlayEmptyColor: Material.backgroundDimColor
+                overlayFullColor: "#ED8A19"
+                fillPercent: itemModel.scorePercent
+                source: "qrc:///res/icons/starGauge.svg"
+            }
 
         }
 
@@ -125,166 +136,159 @@ Item {
             anchors.bottom: parent.bottom
             border.color :"transparent"
             color:Material.backgroundColor
-        Image {
-            id: img
-            width: 250*UIUtils.UI.dp
-            height: 250*UIUtils.UI.dp
-            anchors.top: parent.top
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 30*UIUtils.UI.dp
-            anchors.leftMargin: 30*UIUtils.UI.dp
-            fillMode: Image.PreserveAspectFit
+            Image {
+                id: img
+                width: 250*UIUtils.UI.dp
+                height: 250*UIUtils.UI.dp
+                source: itemModel.imageSource
+                sourceSize: Qt.size(img.width, img.height)
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.topMargin: 30*UIUtils.UI.dp
+                anchors.leftMargin: 30*UIUtils.UI.dp
+                fillMode: Image.PreserveAspectFit
 
-            ColoredImage {
-                id: listenOverlay
-                visible:false
-                anchors.fill: parent
-                anchors.margins: 10*UIUtils.UI.dp
-                source: "qrc:///res/icons/listen.svg"
-    overlayColor: Material.accentColor
-
-            }
-            MediaPlayer {
-                id: mediaPlayer
-                audioOutput: AudioOutput {
+                ColoredImage {
+                    id: listenOverlay
+                    visible:false
+                    anchors.fill: parent
+                    anchors.margins: 10*UIUtils.UI.dp
+                    source: "qrc:///res/icons/listen.svg"
+                    overlayColor: Material.accentColor
 
                 }
-                onPlaybackStateChanged: {
-                    var temp
+                MediaPlayer {
+                    id: mediaPlayer
+                    source:itemModel.audioSource
+                    audioOutput: AudioOutput {
 
-                    switch (playbackState)
-                    {
-                    case MediaPlayer.PlayingState:
-                        temp = "MediaPlayer.PlayingState"
-                        startSound()
-                        break;
+                    }
+                    onPlaybackStateChanged: {
+                        var temp
 
-                    case MediaPlayer.PausedState:
-                        temp = "MediaPlayer.PausedState"
-                        break;
+                        switch (playbackState)
+                        {
+                        case MediaPlayer.PlayingState:
+                            temp = "MediaPlayer.PlayingState"
+                            startSound()
+                            break;
 
-                    case MediaPlayer.StoppedState:
-                        temp = "MediaPlayer.StoppedState"
-                         stopSound()
-                        break;
-                    //console.log(temp)
+                        case MediaPlayer.PausedState:
+                            temp = "MediaPlayer.PausedState"
+                            break;
+
+                        case MediaPlayer.StoppedState:
+                            temp = "MediaPlayer.StoppedState"
+                            stopSound()
+                            break;
+                            //console.log(temp)
+                        }
+                    }
+
+                }
+
+                MouseArea {
+                    id: playArea
+                    anchors.fill: parent
+                    onPressed: mediaPlayer.play();
+                    hoverEnabled: true
+                    onEntered:{
+                        listenOverlay.visible=true
+                    }
+
+                    onExited :{
+                        listenOverlay.visible=false
                     }
                 }
-
             }
 
-            MouseArea {
-                id: playArea
-                anchors.fill: parent
-                onPressed: mediaPlayer.play();
-                hoverEnabled: true
-                onEntered:{
-                    listenOverlay.visible=true
-                }
 
-                onExited :{
-                    listenOverlay.visible=false
-                }
-            }
-        }
-
-
-        ListModel {
-            id:responsesModel
-        }
-
-        Component {
-            id:responsesModelDelegate
-            Rectangle {
-                width: 60*UIUtils.UI.dp
-                height: 60*UIUtils.UI.dp
-                border.color :"transparent"
-                color:"transparent"
+            Component {
+                id:responsesModelDelegate
                 Rectangle {
-                    width: 50*UIUtils.UI.dp
-                    height: 50*UIUtils.UI.dp
+                    width: 60*UIUtils.UI.dp
+                    height: 60*UIUtils.UI.dp
                     border.color :"transparent"
                     color:"transparent"
-                    anchors.centerIn: parent
                     Rectangle {
-                        border.color :Material.accentColor
-                        color:Material.foreground
                         width: 50*UIUtils.UI.dp
                         height: 50*UIUtils.UI.dp
-                    }
-                    ColoredImage {
-                        id:resultMark
-                        width: 40*UIUtils.UI.dp
-                        height: 40*UIUtils.UI.dp
+                        border.color :"transparent"
+                        color:"transparent"
                         anchors.centerIn: parent
-                        overlayColor: isValid ? "#00FF00": "#000000"
-                        visible:checkVisibility
-                        hoverEnabled:false
-                        source:"qrc:///res/icons/ok.svg"
+                        Rectangle {
+                            border.color :Material.accentColor
+                            color:Material.foreground
+                            width: 50*UIUtils.UI.dp
+                            height: 50*UIUtils.UI.dp
+                        }
+                        ColoredImage {
+                            id:resultMark
+                            width: 40*UIUtils.UI.dp
+                            height: 40*UIUtils.UI.dp
+                            anchors.centerIn: parent
+                            overlayColor: isValid ? "#00FF00": "#000000"
+                            visible:checkVisibility
+                            hoverEnabled:false
+                            source:"qrc:///res/icons/ok.svg"
 
-                    }
-                    Image {
-                        id:errorMark
-                        width: 40*UIUtils.UI.dp
-                        height: 40*UIUtils.UI.dp
-                        anchors.centerIn: parent
-                        source:"qrc:///res/icons/wrong.svg"
-                        sourceSize: Qt.size(width, height)
-                        smooth: true
-                        visible: wrongResp
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onPressed:
-                        {
-                            clickResult(indexValue)
+                        }
+                        Image {
+                            id:errorMark
+                            width: 40*UIUtils.UI.dp
+                            height: 40*UIUtils.UI.dp
+                            anchors.centerIn: parent
+                            source:"qrc:///res/icons/wrong.svg"
+                            sourceSize: Qt.size(width, height)
+                            smooth: true
+                            visible: wrongResp
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed:
+                            {
+                                itemModel.clickResult(indexValue)
+                            }
                         }
                     }
                 }
             }
-        }
+            GridView {
+                id: response
+                cellWidth: 60*UIUtils.UI.dp
+                cellHeight: 60*UIUtils.UI.dp
 
+                anchors.margins: 10*UIUtils.UI.dp
+                anchors.top: img.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
 
-        GridView {
-            id: response
-            width:respGridWith
-            height:respGridheight
-            anchors.margins: 10*UIUtils.UI.dp
-            anchors.top: img.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            cellWidth: 60*UIUtils.UI.dp; cellHeight: 60*UIUtils.UI.dp
-            flow:GridView.FlowLeftToRight
-            model: responsesModel
-            delegate: responsesModelDelegate
-        }
-
-
-
-
-
-        ColoredImage {
-            id: check
-            width: 50*UIUtils.UI.dp
-            height: 50*UIUtils.UI.dp
-            anchors.top: response.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:///res/icons/eye.svg"
-            enabled: checkEnabled
-            onClicked:{
-                checkResult()
+                flow:GridView.FlowLeftToRight
+                model: itemModel.responsesModel
+                delegate: responsesModelDelegate
             }
-        }
-        ColoredImage {
-            id: star
-            width: 50*UIUtils.UI.dp
-            height: 50*UIUtils.UI.dp
-            x:check.x+check.width+10*UIUtils.UI.dp
-            y:check.y
-            visible: false
-            overlayColor: "#ED8A19"
-            hoverEnabled:false
-            source: "qrc:///res/icons/star.svg"
-            ParallelAnimation {
+            ColoredImage {
+                id: check
+                width: 50*UIUtils.UI.dp
+                height: 50*UIUtils.UI.dp
+                anchors.top: response.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "qrc:///res/icons/eye.svg"
+                enabled: itemModel.checkEnabled
+                onClicked:{
+                    itemModel.checkResult()
+                }
+            }
+            ColoredImage {
+                id: star
+                width: 50*UIUtils.UI.dp
+                height: 50*UIUtils.UI.dp
+                x:check.x+check.width+10*UIUtils.UI.dp
+                y:check.y
+                visible: itemModel.starVisibility
+                overlayColor: "#ED8A19"
+                hoverEnabled:false
+                source: "qrc:///res/icons/star.svg"
+                ParallelAnimation {
                     id: startAnim
                     NumberAnimation {
                         target: star
@@ -300,21 +304,15 @@ Item {
                     }
 
                     onStopped: {
-                        star.visible=false
+                        itemModel.starVisibility=false
                         star.x=check.x+check.width+10*UIUtils.UI.dp
                         star.y=check.y
-                        score++
-                        scorePercent=score*100/items.length
-                        gotToNextItem()
+                        itemModel.incrScore()
+                        itemModel.gotToNextItem()
                     }
                 }
-
-
+            }
         }
-
-
-
-    }
     }
 
     function startSound()
@@ -332,130 +330,8 @@ Item {
         }
     }
 
-
-    onCurrentItemChanged: {
-        img.source = Qt.resolvedUrl(Session.activityPath+currentItem.image)
-        img.sourceSize= Qt.size(img.width, img.height)
-        mediaPlayer.source =Qt.resolvedUrl(Session.activityPath+currentItem.sound)
-        helpComp.audioFile = Qt.resolvedUrl(Session.activityPath+currentItem.helpFile)
-        helpComp.play()
-
-    }
-
     Component.onCompleted:
     {
-        items = Session.getShuffleRandomItems()
-        changeIndex(0)
-    }
-
-    function changeIndex(index)
-    {
-        currentIndex = index
-        currentItem = items[currentIndex]
-        responsesModel.clear()
-        for (var i = 0; i < currentItem.max; i++)
-        {
-
-            responsesModel.append({
-                                      indexValue:i,
-                                      checkVisibility:false,
-                                      isValid:false,
-                                      wrongResp:false
-                                  })
-        }
-        respGridWith= currentItem.max*response.cellWidth
-        respGridheight= ((currentItem.max/(currentItem.max*response.cellWidth)) + 1 )*response.cellHeight
-
-    }
-
-    function clickResult(indexValue)
-    {
-        if(!itemDone)
-        {
-            responsesModel.get(indexValue).checkVisibility= ! responsesModel.get(indexValue).checkVisibility
-            var nothingChecked=true
-            for (var i = 0; i<responsesModel.count; i++)
-            {
-                if(responsesModel.get(i).checkVisibility===true)
-                {
-                    nothingChecked=false
-                    break
-                }
-            }
-
-            checkEnabled=!nothingChecked
-        }
-    }
-
-
-    function gotToNextItem()
-    {
-        if(currentIndex<(items.length-1))
-        {
-            changeIndex(currentIndex+1)
-        }
-        else
-        {
-            Session.addScore(scorePercent)
-            Session.exerciceScore=scorePercent
-            App.instance.getNavigator().gotToScreen(Screens.score)
-
-        }
-
-    }
-
-    function checkResult()
-    {
-        console.log("checkResult")
-        if(checkEnabled)
-        {
-
-            if(itemDone)
-            {
-                check.source="qrc:///res/icons/eye.svg"
-                itemDone=false
-                checkEnabled=false
-
-                if(star.visible===true)
-                {
-                    startAnim.restart()
-                } else {
-                    gotToNextItem()
-                }
-
-            }
-            else
-            {
-
-                itemDone=true
-                check.source="qrc:///res/icons/next.svg"
-                var atLeastOneError = false;
-                for (var i = 0; i<responsesModel.count; i++)
-                {
-                    if(responsesModel.get(i).checkVisibility)
-                    {
-                        if(currentItem.value.includes((i+1)))
-                        {
-                            responsesModel.get(i).isValid=true
-                        }
-                        else
-                        {
-                            responsesModel.get(i).checkVisibility=false
-                            responsesModel.get(i).wrongResp=true
-                            atLeastOneError=true
-                        }
-                    }
-                    else if(currentItem.value.includes((i+1)))
-                    {
-                        responsesModel.get(i).checkVisibility=true
-                        atLeastOneError=true
-                    }
-                }
-                if(!atLeastOneError)
-                {
-                    star.visible=true
-                }
-            }
-        }
+        itemModel.init()
     }
 }

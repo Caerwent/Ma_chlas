@@ -6,15 +6,13 @@ import "../../dataModels"
 Item {
     property int currentIndex
     property int currentLevelIndex: Session.activityIndex
-    property var syllabe
+    property var currentItem
 
-    property bool syllabeDone : false
+    property bool itemDone : false
     property bool checkEnabled : false
 
     property int score : 0
     property real scorePercent : 0
-
-    property var items
 
     property bool starVisibility:false
 
@@ -23,12 +21,25 @@ Item {
 
     property string imageSource
     property string audioSource
+    property string audioHelpCompSource
+    property string audioHelpSource:Session.activityAudioHelp
+
+    property var items
 
     property var responsesModel: _responsesModel
 
-    onSyllabeChanged: {
-        imageSource = Qt.resolvedUrl(Session.activityPath+items[currentIndex].image);
-        audioSource =Qt.resolvedUrl(Session.activityPath+items[currentIndex].sound);
+    onCurrentItemChanged: {
+        imageSource = Qt.resolvedUrl(Session.activityPath+currentItem.image)
+        audioSource =Qt.resolvedUrl(Session.activityPath+currentItem.sound)
+        var newAudioHelpCompFile =  Qt.resolvedUrl(Session.activityPath+currentItem.helpFile)
+        if(newAudioHelpCompFile.toString()===audioHelpCompSource)
+        {
+            // force signal to be emitted again
+            audioHelpCompSourceChanged()
+        }
+        else {
+             audioHelpCompSource = newAudioHelpCompFile
+        }
     }
 
     ListModel {
@@ -50,17 +61,13 @@ Item {
     function changeIndex(index)
     {
         currentIndex = index
-
-        syllabe = items[currentIndex]
-
+        currentItem = items[currentIndex]
         responsesModel.clear()
-        for (var i = 0; i < syllabe.max; i++)
+        for (var i = 0; i < currentItem.max; i++)
         {
-
             var modelItem = {
 
                 indexValue : i,
-                imgSrc : "qrc:///res/icons/count"+(i+1)+".svg",
                 checkVisibility : false,
                 isValid : false,
                 wrongResp : false
@@ -72,13 +79,20 @@ Item {
 
     function clickResult(indexValue)
     {
-        if(!syllabeDone)
+        if(!itemDone)
         {
+            responsesModel.get(indexValue).checkVisibility= ! responsesModel.get(indexValue).checkVisibility
+            var nothingChecked=true
             for (var i = 0; i<responsesModel.count; i++)
             {
-                responsesModel.get(i).checkVisibility=(i===indexValue)
+                if(responsesModel.get(i).checkVisibility===true)
+                {
+                    nothingChecked=false
+                    break
+                }
             }
-            checkEnabled=true
+
+            checkEnabled=!nothingChecked
         }
     }
 
@@ -93,8 +107,8 @@ Item {
         {
             Session.addScore(scorePercent)
             Session.exerciceScore=scorePercent
-            // App.instance.getNavigator().gotToScreen(Screens.score)
             ended()
+
         }
 
     }
@@ -104,10 +118,10 @@ Item {
         if(checkEnabled)
         {
 
-            if(syllabeDone)
+            if(itemDone)
             {
                 check.source="qrc:///res/icons/eye.svg"
-                syllabeDone=false
+                itemDone=false
                 checkEnabled=false
 
                 if(starVisibility===true)
@@ -116,32 +130,37 @@ Item {
                 } else {
                     gotToNextItem()
                 }
-
             }
             else
             {
 
-                syllabeDone=true
+                itemDone=true
                 check.source="qrc:///res/icons/next.svg"
+                var atLeastOneError = false;
                 for (var i = 0; i<responsesModel.count; i++)
                 {
                     if(responsesModel.get(i).checkVisibility)
                     {
-                        if((i+1)===syllabe.value)
+                        if(currentItem.value.includes((i+1)))
                         {
                             responsesModel.get(i).isValid=true
-                            starVisibility=true
                         }
                         else
                         {
                             responsesModel.get(i).checkVisibility=false
                             responsesModel.get(i).wrongResp=true
+                            atLeastOneError=true
                         }
                     }
-                    else if((i+1)===syllabe.value)
+                    else if(currentItem.value.includes((i+1)))
                     {
                         responsesModel.get(i).checkVisibility=true
+                        atLeastOneError=true
                     }
+                }
+                if(!atLeastOneError)
+                {
+                    starVisibility=true
                 }
             }
         }

@@ -62,7 +62,6 @@ Item {
                         overlayFullColor: "#ED8A19"
                         fillPercent:  levelScore
                         source: "qrc:///res/icons/starGauge.svg"
-                        hoverEnabled: false
 
                     }
                     Repeater {

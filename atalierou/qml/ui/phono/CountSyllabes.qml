@@ -16,12 +16,6 @@ Item {
             App.instance.getNavigator().gotToScreen(Screens.score)
         }
 
-        onImageSourceChanged:
-        {
-            img.source = imageSource
-
-        }
-
         onStartStarAnimation: {
             startAnim.restart()
         }
@@ -109,7 +103,6 @@ Item {
                 overlayFullColor: "#ED8A19"
                 fillPercent: itemModel.scorePercent
                 source: "qrc:///res/icons/starGauge.svg"
-                hoverEnabled: false
             }
 
         }
@@ -125,6 +118,7 @@ Item {
                 id: img
                 width: 250*UIUtils.UI.dp
                 height: 250*UIUtils.UI.dp
+                source: itemModel.imageSource
                 sourceSize: Qt.size(img.width, img.height)
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -276,7 +270,7 @@ Item {
                 height: 50*UIUtils.UI.dp
                 x:check.x+check.width+10*UIUtils.UI.dp
                 y:check.y
-                visible: itemModel.startVisibility
+                visible: itemModel.starVisibility
                 overlayColor: "#ED8A19"
                 hoverEnabled:false
                 source: "qrc:///res/icons/star.svg"
@@ -297,7 +291,7 @@ Item {
 
                     onStopped: {
                         //star.visible=false
-                        itemModel.startVisibility=false
+                        itemModel.starVisibility=false
                         star.x=check.x+check.width+10*UIUtils.UI.dp
                         star.y=check.y
                         itemModel.incrScore()

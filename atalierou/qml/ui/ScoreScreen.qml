@@ -93,7 +93,6 @@ Item {
             overlayFullColor: "#ED8A19"
             fillPercent: 0
             source: "qrc:///res/icons/starGauge.svg"
-            hoverEnabled: false
 
 
 
