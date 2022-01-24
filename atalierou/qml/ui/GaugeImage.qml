@@ -58,6 +58,13 @@ Item {
             property var colorSource: gaugeMask;
             fragmentShader: "qrc:/res/shaders/maskSourceFrag.qsb"
         }
+
     }
+
+    Component.onCompleted:
+    {
+        gaugeMask.requestPaint()
+    }
+
 
 }

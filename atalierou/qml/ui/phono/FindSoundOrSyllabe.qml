@@ -127,6 +127,7 @@ Item {
                 source: "qrc:///res/icons/starGauge.svg"
             }
 
+
         }
 
         Rectangle {
