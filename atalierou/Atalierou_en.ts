@@ -4,7 +4,7 @@
 <context>
     <name>ActivitiesGroupChoice</name>
     <message>
-        <location filename="ui/ActivitiesGroupChoice.qml" line="15"/>
+        <location filename="qml/ui/ActivitiesGroupChoice.qml" line="15"/>
         <source>Activities group choice</source>
         <translation>Activities group choice</translation>
     </message>
@@ -12,24 +12,24 @@
 <context>
     <name>ActivityChoice</name>
     <message>
-        <location filename="ui/ActivityChoice.qml" line="16"/>
+        <location filename="qml/ui/ActivityChoice.qml" line="16"/>
         <source>Activity choice</source>
         <translation>Activity choice</translation>
     </message>
     <message>
-        <location filename="ui/ActivityChoice.qml" line="114"/>
+        <location filename="qml/ui/ActivityChoice.qml" line="114"/>
         <source>Incompatible file format </source>
         <translation>Incompatible file format </translation>
     </message>
     <message>
-        <location filename="ui/ActivityChoice.qml" line="114"/>
+        <location filename="qml/ui/ActivityChoice.qml" line="114"/>
         <source>
 Should be between </source>
         <translation>
 Should be between </translation>
     </message>
     <message>
-        <location filename="ui/ActivityChoice.qml" line="114"/>
+        <location filename="qml/ui/ActivityChoice.qml" line="114"/>
         <source> and </source>
         <translation> and </translation>
     </message>
@@ -37,7 +37,7 @@ Should be between </translation>
 <context>
     <name>ActivityChoiceLevel</name>
     <message>
-        <location filename="ui/ActivityChoiceLevel.qml" line="16"/>
+        <location filename="qml/ui/ActivityChoiceLevel.qml" line="16"/>
         <source>Activity Level</source>
         <translation>Activity Level</translation>
     </message>
@@ -45,7 +45,7 @@ Should be between </translation>
 <context>
     <name>AppWindow</name>
     <message>
-        <location filename="ui/AppWindow.qml" line="12"/>
+        <location filename="qml/ui/AppWindow.qml" line="12"/>
         <source>Ma c&apos;hlass atalieroù</source>
         <translation>Ma c&apos;hlass atalieroù</translation>
     </message>
@@ -53,7 +53,7 @@ Should be between </translation>
 <context>
     <name>Children</name>
     <message>
-        <location filename="ui/Children.qml" line="16"/>
+        <location filename="qml/ui/Children.qml" line="16"/>
         <source>Children</source>
         <translation>Children</translation>
     </message>
@@ -61,17 +61,17 @@ Should be between </translation>
 <context>
     <name>ConfigDetails</name>
     <message>
-        <location filename="ui/ConfigDetails.qml" line="20"/>
+        <location filename="qml/ui/ConfigDetails.qml" line="20"/>
         <source>My classroom</source>
         <translation>My classroom</translation>
     </message>
     <message>
-        <location filename="ui/ConfigDetails.qml" line="93"/>
+        <location filename="qml/ui/ConfigDetails.qml" line="93"/>
         <source>Export CSV</source>
         <translation>Export CSV</translation>
     </message>
     <message>
-        <location filename="ui/ConfigDetails.qml" line="121"/>
+        <location filename="qml/ui/ConfigDetails.qml" line="121"/>
         <source>No score to display</source>
         <translation>No score to display</translation>
     </message>
@@ -79,7 +79,7 @@ Should be between </translation>
 <context>
     <name>CountSyllabes</name>
     <message>
-        <location filename="ui/phono/CountSyllabes.qml" line="31"/>
+        <location filename="qml/ui/phono/CountSyllabes.qml" line="35"/>
         <source>Count syllabes</source>
         <translation>Count syllabes</translation>
     </message>
@@ -87,7 +87,7 @@ Should be between </translation>
 <context>
     <name>FindSoundOrSyllabe</name>
     <message>
-        <location filename="ui/phono/FindSoundOrSyllabe.qml" line="31"/>
+        <location filename="qml/ui/phono/FindSoundOrSyllabe.qml" line="42"/>
         <source>Find sound or syllabe</source>
         <translation>Find sound or syllabe</translation>
     </message>
@@ -95,12 +95,12 @@ Should be between </translation>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
         <source>Incompatible file format </source>
         <translation>Incompatible file format </translation>
     </message>
     <message>
-        <location filename="dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
         <source>
 Should be 1.0</source>
         <translation>
@@ -110,7 +110,7 @@ Should be 1.0</translation>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="ui/Navigator.qml" line="72"/>
+        <location filename="qml/ui/Navigator.qml" line="72"/>
         <source>Error when displaying screen %1 : %2
 %3</source>
         <translation>Error when displaying screen %1 : %2
@@ -120,7 +120,7 @@ Should be 1.0</translation>
 <context>
     <name>ScoreScreen</name>
     <message>
-        <location filename="ui/ScoreScreen.qml" line="16"/>
+        <location filename="qml/ui/ScoreScreen.qml" line="16"/>
         <source>Score</source>
         <translation>Score</translation>
     </message>
@@ -128,12 +128,12 @@ Should be 1.0</translation>
 <context>
     <name>Session</name>
     <message>
-        <location filename="dataModels/Session.qml" line="59"/>
+        <location filename="qml/dataModels/Session.qml" line="59"/>
         <source>Error when adding score</source>
         <translation>Error when adding score</translation>
     </message>
     <message>
-        <location filename="dataModels/Session.qml" line="65"/>
+        <location filename="qml/dataModels/Session.qml" line="65"/>
         <source>Error when writing score</source>
         <translation>Error when writing score</translation>
     </message>
@@ -179,62 +179,62 @@ Should be 1.0</translation>
 <context>
     <name>config</name>
     <message>
-        <location filename="ui/config.qml" line="17"/>
+        <location filename="qml/ui/config.qml" line="17"/>
         <source>Choose a configuration file</source>
         <translation>Choose a configuration file</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="18"/>
+        <location filename="qml/ui/config.qml" line="18"/>
         <source>Json files (*.json)</source>
         <translation>Json files (*.json)</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="31"/>
+        <location filename="qml/ui/config.qml" line="31"/>
         <source>Configuration</source>
         <translation>Configuration</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="47"/>
+        <location filename="qml/ui/config.qml" line="47"/>
         <source>Use embedded configuration</source>
         <translation>Use embedded configuration</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="57"/>
+        <location filename="qml/ui/config.qml" line="57"/>
         <source>Use external configuration</source>
         <translation>Use external configuration</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="64"/>
+        <location filename="qml/ui/config.qml" line="64"/>
         <source>Enter a JSON configuration file</source>
         <translation>Enter a JSON configuration file</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="68"/>
+        <location filename="qml/ui/config.qml" line="68"/>
         <source>Open file...</source>
         <translation>Open file...</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="77"/>
+        <location filename="qml/ui/config.qml" line="77"/>
         <source>Choose language</source>
         <translation>Choose language</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="87"/>
+        <location filename="qml/ui/config.qml" line="87"/>
         <source>Apply</source>
         <translation>Apply</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="97"/>
+        <location filename="qml/ui/config.qml" line="97"/>
         <source>View class details</source>
         <translation>View class details</translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="106"/>
+        <location filename="qml/ui/config.qml" line="106"/>
         <source>Mentions: </source>
         <translation>Mentions: </translation>
     </message>
     <message>
-        <location filename="ui/config.qml" line="109"/>
+        <location filename="qml/ui/config.qml" line="109"/>
         <source>Icons mentions</source>
         <translation>Images by :
 - svgrepo.com (https://www.svgrepo.com)
@@ -244,9 +244,22 @@ Should be 1.0</translation>
 <context>
     <name>home</name>
     <message>
-        <location filename="ui/home.qml" line="16"/>
-        <source>My classroom</source>
-        <translation>My classroom</translation>
+        <location filename="qml/ui/home.qml" line="16"/>
+        <source>home_title</source>
+        <translatorcomment>Ma c&apos;hlass Atalierou %1</translatorcomment>
+        <translation>Ma c&apos;hlass Atalierou %1</translation>
+    </message>
+    <message>
+        <location filename="qml/ui/home.qml" line="40"/>
+        <source>Acessibility_config_name</source>
+        <translatorcomment>Parameters</translatorcomment>
+        <translation>Parameters</translation>
+    </message>
+    <message>
+        <location filename="qml/ui/home.qml" line="41"/>
+        <source>Acessibility_config_desc</source>
+        <translatorcomment>Parameters</translatorcomment>
+        <translation>Parameters</translation>
     </message>
 </context>
 </TS>

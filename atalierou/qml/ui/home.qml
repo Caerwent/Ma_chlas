@@ -4,6 +4,7 @@ import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
 import UserSession 1.0
+import GlobalConfigData 1.0
 Item {
     id:home
 
@@ -13,7 +14,7 @@ Item {
         anchors.top: parent.top
         horizontalAlignment: Text.AlignHCenter
         id: title
-        text: qsTr("My classroom")
+        text: qsTr("home_title").arg(GlobalConfigData.version)
         anchors.topMargin: 20*UIUtils.UI.dp
         anchors.leftMargin: 20*UIUtils.UI.dp
         anchors.rightMargin: 20*UIUtils.UI.dp
