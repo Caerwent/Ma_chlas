@@ -239,5 +239,6 @@
         <file>res/data/audio/help_phono_findSyllabes_ou.mp3</file>
         <file>qml/ui/phono/CountSyllabesModel.qml</file>
         <file>qml/ui/phono/FindSoundOrSyllabeModel.qml</file>
+        <file>qml/ui/ScreenTemplate.qml</file>
     </qresource>
 </RCC>

@@ -6,8 +6,14 @@ import "."
 import ".."
 import "../../dataModels"
 
-Item {
+ScreenTemplate {
     id:findSoundOrSyllabe
+
+    titleText: qsTr("Find sound or syllabe")
+
+    Item {
+        id:contentFrame
+        anchors.fill: parent
 
 
     FindSoundOrSyllabeModel {
@@ -32,32 +38,6 @@ Item {
         }
 
     }
-
-    Label {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        horizontalAlignment: Text.AlignHCenter
-        id: title
-        text: qsTr("Find sound or syllabe")
-        anchors.topMargin: 20*UIUtils.UI.dp
-        anchors.leftMargin: 20*UIUtils.UI.dp
-        anchors.rightMargin: 20*UIUtils.UI.dp
-        font.pointSize: 20
-    }
-    Rectangle {
-
-        id:contentFrame
-        anchors.top: title.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.leftMargin: 40*UIUtils.UI.dp
-        anchors.topMargin: 40*UIUtils.UI.dp
-        anchors.rightMargin: 40*UIUtils.UI.dp
-        anchors.bottomMargin: 40*UIUtils.UI.dp
-        border.color :"transparent"
-        color:Material.backgroundColor
 
 
         Rectangle {

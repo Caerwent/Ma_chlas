@@ -3,35 +3,16 @@ import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
-Item {
+
+ScreenTemplate {
     id:activities
 
-    Label {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        horizontalAlignment: Text.AlignHCenter
-        id: title
-        text: qsTr("Activities group choice")
-        anchors.topMargin: 20*UIUtils.UI.dp
-        anchors.leftMargin: 20*UIUtils.UI.dp
-        anchors.rightMargin: 20*UIUtils.UI.dp
-        font.pointSize: 20
-    }
+    titleText: qsTr("Activities group choice")
 
-    Rectangle {
-
+    Item {
         id:activityFrame
-        anchors.top: title.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.leftMargin: 40*UIUtils.UI.dp
-        anchors.topMargin: 40*UIUtils.UI.dp
-        anchors.rightMargin: 40*UIUtils.UI.dp
-        anchors.bottomMargin: 40*UIUtils.UI.dp
-        border.color :"transparent"
-        color:Material.backgroundColor
+        anchors.fill: parent
+
 
         ListModel {
             id: activityModel
