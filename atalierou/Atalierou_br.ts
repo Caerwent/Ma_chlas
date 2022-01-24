@@ -247,8 +247,8 @@ A rank bezañ 1.0</translation>
     <message>
         <location filename="qml/ui/home.qml" line="16"/>
         <source>home_title</source>
-        <translatorcomment>Ma c&apos;hlass Atalierou %1</translatorcomment>
-        <translation>Ma c&apos;hlass Atalierou %1</translation>
+        <translatorcomment>Atalierou</translatorcomment>
+        <translation>Atalierou</translation>
     </message>
     <message>
         <location filename="qml/ui/home.qml" line="40"/>

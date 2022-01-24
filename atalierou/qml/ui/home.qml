@@ -8,28 +8,15 @@ import GlobalConfigData 1.0
 Item {
     id:home
 
-    Label {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        horizontalAlignment: Text.AlignHCenter
-        id: title
-        text: qsTr("home_title").arg(GlobalConfigData.version)
-        anchors.topMargin: 20*UIUtils.UI.dp
-        anchors.leftMargin: 20*UIUtils.UI.dp
-        anchors.rightMargin: 20*UIUtils.UI.dp
-        font.pointSize: 20
-
-    }
-
     ColoredImage {
         id: configImg
         source: "qrc:///res/icons/gear.svg"
-        anchors.top: title.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.right: parent.right
         width: 40*UIUtils.UI.dp
         height: 40*UIUtils.UI.dp
         anchors.topMargin: 20*UIUtils.UI.dp
+        anchors.rightMargin: 20*UIUtils.UI.dp
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -44,10 +31,38 @@ Item {
                App.instance.getNavigator().gotToScreen(Screens.config)
            }
     }
+    Label {
+        anchors.left: parent.left
+        anchors.right: configImg.left
+        anchors.top: parent.top
+        horizontalAlignment: Text.AlignHCenter
+        id: title
+        text: qsTr("home_title")
+        anchors.topMargin: 20*UIUtils.UI.dp
+        anchors.leftMargin: 20*UIUtils.UI.dp
+        anchors.rightMargin: 20*UIUtils.UI.dp
+        font.pointSize: 40
+
+    }
+    Label {
+        anchors.left: parent.left
+        anchors.right: configImg.left
+        anchors.top: title.bottom
+        horizontalAlignment: Text.AlignHCenter
+        id: version
+        text: GlobalConfigData.version
+        anchors.topMargin: 10*UIUtils.UI.dp
+        anchors.leftMargin: 20*UIUtils.UI.dp
+        anchors.rightMargin: 20*UIUtils.UI.dp
+        font.pointSize: 20
+
+    }
+
+
 
     Rectangle {
         id: groupFrame
-        anchors.top: configImg.bottom
+        anchors.top: version.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
