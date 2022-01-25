@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
-
+import "../main"
 import "../dataModels"
 
 Component {

@@ -2,13 +2,13 @@
     "activities": [
         {
             "category": "phono",
-            "score": 25,
+            "score": 15,
             "types": [
                 {
                     "levels": [
                         {
                             "level": 1,
-                            "score": 25,
+                            "score": 30,
                             "scores": [
                                 {
                                     "date": "2021 12 30 - 16:29:53",
@@ -17,12 +17,40 @@
                                 {
                                     "date": "2021 12 30 - 16:30:09",
                                     "score": 50
+                                },
+                                {
+                                    "date": "2022 01 25 - 09:14:37",
+                                    "score": 50
+                                },
+                                {
+                                    "date": "2022 01 25 - 09:15:30",
+                                    "score": 0
+                                },
+                                {
+                                    "date": "2022 01 25 - 09:15:40",
+                                    "score": 50
                                 }
                             ]
                         }
                     ],
-                    "score": 25,
+                    "score": 30,
                     "type": "countSyllabes"
+                },
+                {
+                    "levels": [
+                        {
+                            "level": 1,
+                            "score": 0,
+                            "scores": [
+                                {
+                                    "date": "2022 01 25 - 09:15:51",
+                                    "score": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "score": 0,
+                    "type": "findSoundOrSyllabe"
                 }
             ]
         }

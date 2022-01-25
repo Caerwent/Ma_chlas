@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
 import "."
+import "../components"
 import "../dataModels"
 Flow {
 
@@ -112,7 +113,7 @@ Flow {
     ColoredImage {
         id: back
         visible: App.instance.getStack().depth>1
-        source: "qrc:///res/icons/back.svg"
+        source: "qrc:/res/icons/back.svg"
         width: 40*UIUtils.UI.dp
         height: 40*UIUtils.UI.dp
 
@@ -128,7 +129,7 @@ Flow {
 
     ColoredImage {
         id: exit
-        source: "qrc:///res/icons/exit.svg"
+        source: "qrc:/res/icons/exit.svg"
         width: 40*UIUtils.UI.dp
         height: 40*UIUtils.UI.dp
         visible: App.instance.getStack().depth<=1

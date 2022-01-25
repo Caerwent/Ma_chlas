@@ -3,41 +3,22 @@ import QtQuick.Controls
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "."
+import "../main"
 import "../dataModels"
+import "../components"
 import UserSession 1.0
 import ActivityTreeElements 1.0
 import TreeElements 1.0
-Item {
+
+ScreenTemplate {
     id:configDetails
 
+    titleText: qsTr("My classroom")
 
-    Label {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        horizontalAlignment: Text.AlignHCenter
-        id: title
-        text: qsTr("My classroom")
-        anchors.topMargin: 20*UIUtils.UI.dp
-        anchors.leftMargin: 20*UIUtils.UI.dp
-        anchors.rightMargin: 20*UIUtils.UI.dp
-        font.pointSize: 20
-    }
+    Item {
+        id:groupFrame
+        anchors.fill: parent
 
-    Rectangle {
-
-
-        id: groupFrame
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.leftMargin: 40*UIUtils.UI.dp
-        anchors.topMargin: 40*UIUtils.UI.dp
-        anchors.rightMargin: 40*UIUtils.UI.dp
-        anchors.bottomMargin: 40*UIUtils.UI.dp
-        border.color :"transparent"
-        color:Material.backgroundColor
         ListModel {
             id: groupModel
 

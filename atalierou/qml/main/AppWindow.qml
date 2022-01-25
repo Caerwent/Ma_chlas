@@ -4,6 +4,7 @@ import QtQuick.Window
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "."
+import "../components"
 import "../dataModels"
 Window {
     color: Material.background
@@ -134,7 +135,7 @@ Window {
 
         StackView {
             id: mainStack
-            initialItem: "qrc:/qml/ui/home.qml"
+            initialItem: "qrc:/qml/main/home.qml"
             anchors.right: parent.right
             anchors.bottom: navigator.bottom
 

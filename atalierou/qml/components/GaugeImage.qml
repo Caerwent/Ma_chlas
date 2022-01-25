@@ -8,25 +8,10 @@ Item {
     property color overlayFullColor: Material.foreground
     property real fillPercent: 0
     property alias source: img.source
-    property bool hoverEnabled: true
     property bool isAnimated:true
 
-    signal clicked
     signal fillAnimationEnded
 
-    onEnabledChanged:
-    {
-        if(enabled)
-        {
-            mouseArea.hoverEnabled = coloredImg.hoverEnabled
-            shader.overlayColor=coloredImg.overlayColor
-        }
-        else
-        {
-            mouseArea.hoverEnabled = false
-            shader.overlayColor=Material.buttonDisabledColor
-        }
-    }
 
     Canvas {
 
@@ -63,7 +48,6 @@ Item {
         id: img
         height: parent.height
         width: parent.width
-        enabled: coloredImg.enabled
         sourceSize: Qt.size(parent.width, parent.height)
         //antialiasing: true
         smooth: true
@@ -74,23 +58,13 @@ Item {
             property var colorSource: gaugeMask;
             fragmentShader: "qrc:/res/shaders/maskSourceFrag.qsb"
         }
+
     }
 
-    MouseArea {
-        id:mouseArea
-        enabled: coloredImg.enabled
-        anchors.fill: parent
-        hoverEnabled: coloredImg.hoverEnabled
-        onEntered:{
-            //shader.overlayColor = Material.accent
-        }
-
-        onExited :{
-            //shader.overlayColor=coloredImg.overlayColor
-        }
-
-        onClicked: {
-            coloredImg.clicked()
-        }
+    Component.onCompleted:
+    {
+        gaugeMask.requestPaint()
     }
+
+
 }

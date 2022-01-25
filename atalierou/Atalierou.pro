@@ -47,8 +47,10 @@ HEADERS += \
     src/ActivityCategoryScoreNode.h \
     src/ActivityLevelScoreNode.h \
     src/ActivityScoreNode.h \
+    src/VERSION.h \
     src/fileio.h \
     src/globalConfigData.h \
     src/user.h
 
 
+#include(version_from_git_tag.pri)

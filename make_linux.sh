@@ -65,7 +65,7 @@ $ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH
 echo "============================================="
 echo "            launch linuxdeploy qt"
 echo "============================================="
-export QML_SOURCES_PATHS=$PROJECT_PATH/qml/ui:$PROJECT_PATH/qml/ui/phono:$PROJECT_PATH/qml/dataModels
+export QML_SOURCES_PATHS=$PROJECT_PATH/qml
 echo "$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
 $ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 

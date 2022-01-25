@@ -10,6 +10,8 @@
 #include <QSettings>
 
 #include "user.h"
+#include "VERSION.h"
+
 
 class GlobalConfigData : public QObject
 {
@@ -17,6 +19,11 @@ class GlobalConfigData : public QObject
     Q_DISABLE_COPY(GlobalConfigData)
 
 public:
+
+    Q_PROPERTY(QString version
+               READ version
+               NOTIFY versionChanged)
+               
     Q_PROPERTY(QString externalConfigFile
                READ externalConfigFile
                WRITE setExternalConfigFile
@@ -41,6 +48,7 @@ public:
     QString externalConfigFile() { return mExternalFile; }
     bool isEmbedded() { return mIsEmbedded; }
     QString language() { return mLanguage; }
+    QString version() { return QString(VERSION); }
 
 
     static QObject *qmlInstance(QQmlEngine *engine, QJSEngine *scriptEngine)
@@ -85,6 +93,7 @@ signals:
     void externalConfigFileChanged(const QString& externalConfigFile);
     void languageChanged(const QString& language);
     void isEmbeddedChanged(const bool isEmbedded);
+    void versionChanged(const QString& version);
     void error(const QString& msg);
 
 public :
