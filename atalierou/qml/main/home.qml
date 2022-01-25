@@ -3,6 +3,7 @@ import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
 import "."
 import "../dataModels"
+import "../components"
 import UserSession 1.0
 import GlobalConfigData 1.0
 Item {

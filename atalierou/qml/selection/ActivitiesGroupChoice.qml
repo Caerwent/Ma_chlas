@@ -1,8 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
-import "."
+import "../main"
 import "../dataModels"
+import "../components"
 
 ScreenTemplate {
     id:activities

@@ -21,19 +21,32 @@ Item {
         anchors.rightMargin: 20*UIUtils.UI.dp
         font.pointSize: 20
     }
-    Rectangle {
-
-        id:objectContainer
+    Flickable {
+        id:flickable
         anchors.top: title.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        clip:true
+        ScrollBar.vertical: ScrollBar {
+              id:scrollBar
+                policy: ScrollBar.AsNeeded
+        }
+        Keys.onUpPressed: scrollBar.decrease()
+           Keys.onDownPressed: scrollBar.increase()
+
+    ScrollBar.horizontal: ScrollBar { policy: ScrollBar.AsNeeded}
+    Rectangle {
+
+        id:objectContainer
+        anchors.fill: parent
         anchors.leftMargin: 40*UIUtils.UI.dp
         anchors.topMargin: 40*UIUtils.UI.dp
         anchors.rightMargin: 40*UIUtils.UI.dp
         anchors.bottomMargin: 40*UIUtils.UI.dp
         border.color :"transparent"
         color:Material.backgroundColor
+    }
     }
 
 

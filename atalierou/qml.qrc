@@ -1,36 +1,6 @@
 <RCC>
-    <qresource prefix="/">
-        <file>qtquickcontrols2.conf</file>
-        <file>qml/ui/main.qml</file>
-        <file>qml/scripts/loadJson.js</file>
-        <file>qml/ui/Splash.qml</file>
-        <file>qml/ui/home.qml</file>
-        <file>qml/ui/config.qml</file>
-        <file>qml/ui/Screens.qml</file>
-        <file>qml/ui/qmldir</file>
-        <file>qml/dataModels/GlobalConfigModel.qml</file>
-        <file>qml/dataModels/qmldir</file>
-        <file>qml/ui/ColoredImage.qml</file>
-        <file>qml/ui/ActivitiesGroupChoice.qml</file>
-        <file>qml/ui/Children.qml</file>
-        <file>qml/ui/Navigator.qml</file>
-        <file>qml/ui/App.qml</file>
-        <file>qml/ui/AppWindow.qml</file>
-        <file>qml/dataModels/Session.qml</file>
-        <file>qml/ui/Avatar.qml</file>
-        <file>qml/ui/Card.qml</file>
-        <file>qml/dataModels/ActivityCategories.qml</file>
-        <file>qml/ui/ActivityChoice.qml</file>
-        <file>qml/ui/phono/CountSyllabes.qml</file>
-        <file>qml/ui/GaugeImage.qml</file>
-        <file>qml/ui/ActivityChoiceLevel.qml</file>
-        <file>qml/ui/ConfigDetails.qml</file>
-        <file>qml/ui/TreeItem.qml</file>
-        <file>qml/ui/AudioHelp.qml</file>
-        <file>qml/dataModels/FileFormatChecker.qml</file>
-        <file>qml/ui/phono/FindSoundOrSyllabe.qml</file>
-        <file>qml/ui/ScoreScreen.qml</file>
-        <file>res/shaders/colorizeFrag.qsb</file>
+	<qresource prefix="/">
+	 <file>res/shaders/colorizeFrag.qsb</file>
         <file>res/shaders/colorizeVert.qsb</file>
         <file>res/icons/gear.svg</file>
         <file>res/icons/back.svg</file>
@@ -237,8 +207,40 @@
         <file>res/data/fr/audio/escargot.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_o_ouvert.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_ou.mp3</file>
-        <file>qml/ui/phono/CountSyllabesModel.qml</file>
-        <file>qml/ui/phono/FindSoundOrSyllabeModel.qml</file>
-        <file>qml/ui/ScreenTemplate.qml</file>
+ 	</qresource>
+    <qresource prefix="/">
+        <file>qtquickcontrols2.conf</file>
+        <file>qml/main/main.qml</file>
+        <file>qml/scripts/loadJson.js</file>
+        <file>qml/main/Splash.qml</file>
+        <file>qml/main/home.qml</file>
+        <file>qml/config/config.qml</file>
+        <file>qml/main/Screens.qml</file>
+        <file>qml/main/qmldir</file>
+        <file>qml/dataModels/GlobalConfigModel.qml</file>
+        <file>qml/dataModels/qmldir</file>
+        <file>qml/components/ColoredImage.qml</file>
+        <file>qml/selection/ActivitiesGroupChoice.qml</file>
+        <file>qml/selection/Children.qml</file>
+        <file>qml/main/Navigator.qml</file>
+        <file>qml/main/App.qml</file>
+        <file>qml/main/AppWindow.qml</file>
+        <file>qml/dataModels/Session.qml</file>
+        <file>qml/components/Avatar.qml</file>
+        <file>qml/components/Card.qml</file>
+        <file>qml/dataModels/ActivityCategories.qml</file>
+        <file>qml/selection/ActivityChoice.qml</file>
+        <file>qml/phono/CountSyllabes.qml</file>
+        <file>qml/components/GaugeImage.qml</file>
+        <file>qml/selection/ActivityChoiceLevel.qml</file>
+        <file>qml/config/ConfigDetails.qml</file>
+        <file>qml/components/TreeItem.qml</file>
+        <file>qml/components/AudioHelp.qml</file>
+        <file>qml/dataModels/FileFormatChecker.qml</file>
+        <file>qml/phono/FindSoundOrSyllabe.qml</file>
+        <file>qml/main/ScoreScreen.qml</file>
+        <file>qml/phono/CountSyllabesModel.qml</file>
+        <file>qml/phono/FindSoundOrSyllabeModel.qml</file>
+        <file>qml/main/ScreenTemplate.qml</file>
     </qresource>
 </RCC>

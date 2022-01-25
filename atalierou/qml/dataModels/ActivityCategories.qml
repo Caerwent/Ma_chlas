@@ -1,6 +1,7 @@
 pragma Singleton
 import QtQuick
-import "../ui"
+import "../main"
+
 Item {
     function getIconFromCategory(category)
     {

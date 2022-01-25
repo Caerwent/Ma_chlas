@@ -3,7 +3,9 @@ import QtQuick.Controls
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "."
+import "../main"
 import "../dataModels"
+import "../components"
 import UserSession 1.0
 import ActivityTreeElements 1.0
 import TreeElements 1.0

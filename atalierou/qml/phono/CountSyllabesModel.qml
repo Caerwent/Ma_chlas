@@ -1,7 +1,6 @@
 import QtQuick
 import "."
-import ".."
-import "../../dataModels"
+import "../dataModels"
 
 Item {
     property int currentIndex

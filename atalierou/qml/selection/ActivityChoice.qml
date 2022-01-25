@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import UIUtils 1.0 as UIUtils
-import "."
+import "../main"
+import "../components"
 import "../dataModels"
 import "../scripts/loadJson.js" as JsonLoader
 
