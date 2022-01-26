@@ -23,11 +23,11 @@ Item {
     }
     Flickable {
         id:flickable
+        clip: true
         anchors.top: title.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        clip:true
         ScrollBar.vertical: ScrollBar {
               id:scrollBar
                 policy: ScrollBar.AsNeeded
@@ -44,7 +44,6 @@ Item {
         anchors.topMargin: 40*UIUtils.UI.dp
         anchors.rightMargin: 40*UIUtils.UI.dp
         anchors.bottomMargin: 40*UIUtils.UI.dp
-        border.color :"transparent"
         color:Material.backgroundColor
     }
     }

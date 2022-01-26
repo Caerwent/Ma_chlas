@@ -6,6 +6,7 @@ Item {
     property int currentIndex
     property int currentLevelIndex: Session.activityIndex
     property var currentItem
+    property var corpusItem;
 
     property bool itemDone : false
     property bool checkEnabled : false
@@ -28,8 +29,8 @@ Item {
     property var responsesModel: _responsesModel
 
     onCurrentItemChanged: {
-        imageSource = Qt.resolvedUrl(Session.activityPath+currentItem.image)
-        audioSource =Qt.resolvedUrl(Session.activityPath+currentItem.sound)
+        imageSource = Qt.resolvedUrl(Session.activityPath+corpusItem.image);
+        audioSource =Qt.resolvedUrl(Session.activityPath+corpusItem.sound);
         var newAudioHelpCompFile =  Qt.resolvedUrl(Session.activityPath+currentItem.helpFile)
         if(newAudioHelpCompFile.toString()===audioHelpCompSource)
         {
@@ -60,9 +61,10 @@ Item {
     function changeIndex(index)
     {
         currentIndex = index
+        corpusItem= Session.selectedCorpus.find(element => element.id === items[currentIndex].corpus);
         currentItem = items[currentIndex]
         responsesModel.clear()
-        for (var i = 0; i < currentItem.max; i++)
+        for (var i = 0; i < corpusItem.nbSyllabes; i++)
         {
             var modelItem = {
 

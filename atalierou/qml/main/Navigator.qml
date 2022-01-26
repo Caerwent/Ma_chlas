@@ -93,6 +93,7 @@ Flow {
         }
         else if(currentItem===Screens.activityChoice)
         {
+            Session.selectedCorpus=undefined
             Session.selectedActivities=undefined
             Session.activityPath=null
             Session.activityType=null

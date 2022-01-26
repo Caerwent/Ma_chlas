@@ -11,6 +11,7 @@ Item {
     property var group
     property var user
     property string activityCategory
+    property var selectedCorpus
     property var selectedActivities
     property string activityType
     property string activityPath

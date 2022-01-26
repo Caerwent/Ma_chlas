@@ -1,3 +1,4 @@
+
 import QtQuick
 import QtQuick.Controls
 import QtMultimedia
@@ -11,9 +12,7 @@ ScreenTemplate {
 
     titleText: qsTr("Find sound or syllabe")
 
-    Item {
-        id:contentFrame
-        anchors.fill: parent
+
 
 
     FindSoundOrSyllabeModel {
@@ -32,9 +31,9 @@ ScreenTemplate {
             helpComp.play()
         }
 
-        onCurrentItemChanged: {
-            response.width= itemModel.currentItem.max*response.cellWidth
-            response.height= ((itemModel.currentItem.max/(itemModel.currentItem.max*response.cellWidth)) + 1 )*response.cellHeight
+        onCorpusItemChanged: {
+            response.width= itemModel.corpusItem.nbSyllabes*response.cellWidth
+            response.height= ((itemModel.corpusItem.nbSyllabes/(itemModel.corpusItem.nbSyllabes*response.cellWidth)) + 1 )*response.cellHeight
         }
 
     }
@@ -236,13 +235,14 @@ ScreenTemplate {
             }
             GridView {
                 id: response
+                interactive: false
+                width:60*UIUtils.UI.dp
+                height:60*UIUtils.UI.dp
                 cellWidth: 60*UIUtils.UI.dp
                 cellHeight: 60*UIUtils.UI.dp
-
                 anchors.margins: 10*UIUtils.UI.dp
                 anchors.top: img.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-
                 flow:GridView.FlowLeftToRight
                 model: itemModel.responsesModel
                 delegate: responsesModelDelegate
@@ -294,7 +294,6 @@ ScreenTemplate {
                 }
             }
         }
-    }
 
     function startSound()
     {

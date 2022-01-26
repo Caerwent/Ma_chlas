@@ -10,11 +10,9 @@ ScreenTemplate {
 
     titleText: qsTr("Activities group choice")
 
+
     Item {
-        id:activityFrame
         anchors.fill: parent
-
-
         ListModel {
             id: activityModel
 
@@ -80,6 +78,6 @@ ScreenTemplate {
 
             updateFromSession()
         }
-
     }
+
 }

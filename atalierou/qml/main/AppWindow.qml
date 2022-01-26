@@ -137,7 +137,7 @@ Window {
             id: mainStack
             initialItem: "qrc:/qml/main/home.qml"
             anchors.right: parent.right
-            anchors.bottom: navigator.bottom
+            anchors.bottom: parent.bottom
 
         }
 

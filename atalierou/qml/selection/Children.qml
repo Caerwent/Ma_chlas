@@ -6,69 +6,59 @@ import "../components"
 import "../dataModels"
 
 ScreenTemplate {
-    id:childrenComponent
+    id: childrenComponent
 
     titleText: qsTr("Children")
 
     Item {
-        id:childrenFrame
+        id:screen
         anchors.fill: parent
 
-
-        ListModel {
-            id: childrenModel
-
-        }
-
-
+    ListModel {
+        id: childrenModel
+    }
 
     Component {
         id: childrenDelegate
         Avatar {
             width: childrenGrid.cellWidth
             height: childrenGrid.cellHeight
-            child:childRef
-            isSelectable:true
+            child: childRef
+            isSelectable: true
             onSelected: {
                 Session.loadUser(indexChild)
-                App.instance.getNavigator().gotToScreen(Screens.activitiesGroupChoice)
+                App.instance.getNavigator().gotToScreen(
+                            Screens.activitiesGroupChoice)
             }
         }
     }
 
     GridView {
         id: childrenGrid
-        anchors.fill:parent
-        cellWidth: 100*UIUtils.UI.dp; cellHeight: 100*UIUtils.UI.dp
-flow:GridView.FlowLeftToRight
+        interactive: false
+        anchors.fill: parent
+        cellWidth: 100 * UIUtils.UI.dp
+        cellHeight: 100 * UIUtils.UI.dp
+        flow: GridView.FlowLeftToRight
         model: childrenModel
         delegate: childrenDelegate
         focus: true
     }
 
-    function updateFromConfig()
-    {
-        childrenModel.clear();
+    function updateFromConfig() {
+        childrenModel.clear()
         console.log("children updateFromConfig")
-                    var childrenList = Session.group.children
-                        for (var i in childrenList) {
-                            childrenModel.append(
-                                        {
-                                            indexChild:i,
-                                            childRef: childrenList[i]
-                                        }
-                                                  );
-                        }
+        var childrenList = Session.group.children
+        for (var i in childrenList) {
+            childrenModel.append({
+                                     "indexChild": i,
+                                     "childRef": childrenList[i]
+                                 })
+        }
     }
-}
-
-
-
 
     Component.onCompleted: {
-        childrenFrame.updateFromConfig()
+        screen.updateFromConfig()
     }
-
-
+    }
 }
-

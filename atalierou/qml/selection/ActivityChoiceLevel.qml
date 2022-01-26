@@ -10,14 +10,11 @@ ScreenTemplate {
 
     titleText: qsTr("Activity Level")
 
-    Item {
-        id:activityFrame
-        anchors.fill: parent
 
         Column {
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.right: parent.right
+
             spacing: 10*UIUtils.UI.dp
             Repeater {
                 id: levelRepeater
@@ -30,7 +27,7 @@ ScreenTemplate {
                     property int levelScore
                     property bool isLocked
                     anchors.left: parent.left
-                    anchors.right: parent.right
+
                     GaugeImage {
                         width: 60*UIUtils.UI.dp
                         height: 120*UIUtils.UI.dp
@@ -165,7 +162,4 @@ ScreenTemplate {
 
         }
 
-
-
-    }
 }

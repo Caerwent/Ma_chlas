@@ -24,14 +24,12 @@ ScreenTemplate {
         }
 
         onSyllabeChanged: {
-            response.width=  syllabe.max*response.cellWidth
-            response.height=((syllabe.max/(syllabe.max*response.cellWidth)) + 1 )*response.cellHeight
+            response.width=  itemModel.maxResponses*response.cellWidth
+            response.height=((itemModel.maxResponses/(itemModel.maxResponses*response.cellWidth)) + 1 )*response.cellHeight
         }
     }
 
-    Item {
-        id:childrenFrame
-        anchors.fill: parent
+
 
 
         Rectangle {
@@ -218,6 +216,7 @@ ScreenTemplate {
 
             GridView {
                 id: response
+                interactive: false
                 width:60*UIUtils.UI.dp
                 height:60*UIUtils.UI.dp
                 anchors.margins: 10*UIUtils.UI.dp
@@ -286,7 +285,7 @@ ScreenTemplate {
 
 
         }
-    }
+
 
 
 

@@ -11,10 +11,10 @@ ScreenTemplate {
 
     titleText: qsTr("Activity choice")
 
-    Item {
-        id:activityFrame
-        anchors.fill: parent
 
+    Item {
+        id:screen
+        anchors.fill: parent
         ListModel {
             id: activityModel
 
@@ -31,7 +31,7 @@ ScreenTemplate {
                 imgSource:ActivityCategories.getIconFromType(type)
                 onSelected:
                 {
-                        activityFrame.loadActivities(configFile, type)
+                        screen.loadActivities(configFile, type)
 
                 }
 
@@ -45,6 +45,7 @@ ScreenTemplate {
         GridView {
             id: activityGrid
             anchors.fill: parent
+            interactive: false
             cellWidth: 150*UIUtils.UI.dp; cellHeight: 150*UIUtils.UI.dp
 flow:GridView.FlowLeftToRight
             model: activityModel
@@ -96,6 +97,7 @@ flow:GridView.FlowLeftToRight
                                     }
 
                                     Session.activityAudioHelp = resp.helpFile ? Qt.resolvedUrl(Session.activityPath+resp.helpFile) : "qrc:/res/data/sounds/help_"+Session.activityCategory+"_"+Session.activityType+".mp3"
+                                    Session.selectedCorpus = resp.corpus
                                     Session.selectedActivities = resp.levels ? resp.levels
                                                                .sort(function(a, b) {
                                                                    return a.level - b.level}) : []
@@ -105,6 +107,7 @@ flow:GridView.FlowLeftToRight
 
          );
         }
+        }
 
-    }
+
 }

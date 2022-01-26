@@ -6,6 +6,8 @@ Item {
     property int currentIndex
     property int currentLevelIndex: Session.activityIndex
     property var syllabe
+    property var corpusItem
+    property int maxResponses: 0
 
     property bool syllabeDone : false
     property bool checkEnabled : false
@@ -26,8 +28,10 @@ Item {
     property var responsesModel: _responsesModel
 
     onSyllabeChanged: {
-        imageSource = Qt.resolvedUrl(Session.activityPath+items[currentIndex].image);
-        audioSource =Qt.resolvedUrl(Session.activityPath+items[currentIndex].sound);
+
+        maxResponses= Session.selectedActivities[Session.activityIndex].max
+        imageSource = Qt.resolvedUrl(Session.activityPath+corpusItem.image);
+        audioSource =Qt.resolvedUrl(Session.activityPath+corpusItem.sound);
     }
 
     ListModel {
@@ -49,11 +53,11 @@ Item {
     function changeIndex(index)
     {
         currentIndex = index
-
+        corpusItem= Session.selectedCorpus.find(element => element.id === items[currentIndex]);
         syllabe = items[currentIndex]
 
         responsesModel.clear()
-        for (var i = 0; i < syllabe.max; i++)
+        for (var i = 0; i < maxResponses; i++)
         {
 
             var modelItem = {
@@ -126,7 +130,7 @@ Item {
                 {
                     if(responsesModel.get(i).checkVisibility)
                     {
-                        if((i+1)===syllabe.value)
+                        if((i+1)===corpusItem.nbSyllabes)
                         {
                             responsesModel.get(i).isValid=true
                             starVisibility=true
@@ -137,7 +141,7 @@ Item {
                             responsesModel.get(i).wrongResp=true
                         }
                     }
-                    else if((i+1)===syllabe.value)
+                    else if((i+1)===corpusItem.nbSyllabes)
                     {
                         responsesModel.get(i).checkVisibility=true
                     }
