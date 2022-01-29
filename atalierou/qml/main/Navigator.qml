@@ -125,6 +125,16 @@ Flow {
                 navigator.back()
             }
         }
+
+        Accessible {
+
+            role: Accessible.Button
+            name: qsTr("accessiblity.nav_back")
+            Accessible.onPressAction: {
+                navigator.back()
+            }
+
+        }
     }
 
 
@@ -140,6 +150,15 @@ Flow {
             onClicked: {
                 Qt.quit()
             }
+        }
+        Accessible {
+
+            role: Accessible.Button
+            name: qsTr("accessiblity.nav_exit")
+            Accessible.onPressAction: {
+                navigator.back()
+            }
+
         }
     }
 

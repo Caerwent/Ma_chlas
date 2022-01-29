@@ -22,6 +22,7 @@ ScreenTemplate {
         Component {
             id: activityDelegate
             Card {
+                id:activity
                 width: activityGrid.cellWidth;
                 height: activityGrid.cellHeight
                 selectable:true
@@ -32,7 +33,15 @@ ScreenTemplate {
                     App.instance.getNavigator().gotToScreen(Screens.activityChoice)
                 }
 
+                Accessible {
 
+                    role: Accessible.Button
+                    name: ActivityCategories.getAccessibleFromCategory(ActivityCategories)
+                    Accessible.onPressAction: {
+                        activity.selected()
+                    }
+
+                }
 
             }
 

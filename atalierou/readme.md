@@ -244,60 +244,72 @@ Comme le fichier de configuration principal, ce fichier indique sa version de fo
 
 Le champ **helpFile** indique le nom du fichier audio de consigne, s'il n'est pas présent, le fichier de consigne par défaut de l'activité sera utilisé.
 
+Le corpus est la liste des éléments utilisables pour l'activité. Il s'agit d'une liste où chaque élément est défini par :
+
+* **id** l'identifiant de l'élément
+* **image** contient le chemin vers l'image (chemin relatif au chemin de référence indiqué plus haut)
+* **sound** contient le chemin vers le fichier audio associé à l'image (chemin relatif au chemin de référence indiqué plus haut)
+* **nbSyllabes** indique le nombre de syllabes du mot
+
+
 Vient ensuite la liste des niveaux, chacun contenant les champs :
 
 * **level** indique le niveau (il commence à 1 et doit être incrémenté de 1).
+* **max** indique le nombre maximum de syllabes à proposer à l'élève
 * **nbItemsPerExercice** indique le nombre d'éléments à présenter par exercice. Chaque exercice prendra ce nombre d'éléments de façon aléatoire dans la liste des éléments pour les présenter à l'élève.
 * **exercices** contient la liste des exercices à présenter pour ce niveau. Chaque exercice utilisant le même nombre d'éléments choisis de façon aléatoires, ils ne servent qu'à aider à attribuer des objectifs.
 * **unlockScorePercent** indique le score à atteindre sur le niveau précédent pour débloquer ce niveau. Si rien n'est indiqué, la valeur par défaut de 80% est utilisée.
-* **items** contient la liste des éléments disponibles.
+* **items** contient la liste des éléments disponibles, il s'agit de la liste des identifiants des éléments du corpus à utiliser pour ce niveau.
 
-Chaque élément comporte l'emplacement du fichier image et du fichier audio, le champ **max** indique le nombre maximum de syllabes à proposer à l'élève et **value** indique le nombre de syllabes correct pour cet élément.
 
 ```
 {
 "fileFormatVersion":"1.0.0",
 "path":"./",
 "helpFile":"fr/audio/help_phono_countSyllabes.mp3",
+"corpus":[
+      {
+         "id":"bateau",
+         "image":"../images/bateau.png",
+         "sound":"fr/audio/bateau.mp3",
+         "nbSyllabes":2
+      },
+      {
+         "id":"bus",
+         "image":"../images/bus.png",
+         "sound":"fr/audio/bus.mp3",
+         "nbSyllabes":1
+      }
+      ...
+      {
+         "id":"velo",
+         "image":"../images/velo",
+         "sound":"fr/audio/velo",
+         "nbSyllabes":2
+      }
+]
 "levels":[
    {
             "level":1,
-
+			  "max":3,
             "items": [
-                {
-                    "image":"../images/abeille.png",
-                    "sound":"fr/audio/abeille.mp3",
-                    "max":3,
-                    "value":2
-                },
-                {
-                    "image":"../images/velo.jpg",
-                    "sound":"fr/audio/velo.mp3",
-                    "max":3,
-                    "value":2
-                }, 
+                "abeille",
+                "bus",
                 ...
-             ],
-             "nbItemsPerExercice":10,
-             "exercices":["exo1","exo2"]
+                "velo" 
+            ],
+            "nbItemsPerExercice":10,
+            "exercices":["exo1","exo2"]
     },
 
     {
             "level":2,
+            "max":5,
             "unlockScorePercent":80,
             "items": [
-                {
-                    "image":"../images/allumettes.jpg",
-                    "sound":"fr/audio/allumettes.mp3",
-                    "max":4,
-                    "value":3
-                },
-                {
-                    "image":"../images/voiture.jpg",
-                    "sound":"fr/audio/voiture.mp3",
-                    "max":4,
-                    "value":2
-                }
+                "allumettes",
+                ...
+                "voiture"
             ],
             "nbItemsPerExercice":10,
             "exercices":["exo1"]
@@ -315,23 +327,40 @@ Comme pour tous les autres fichiers de configuration, ce fichier indique sa vers
 "fileFormatVersion":"1.0.0",
 "path":"./",
 "helpFile":"fr/audio/help_phono_findSyllabe.mp3",
+"corpus":[
+      {
+         "id":"bateau",
+         "image":"../images/bateau.png",
+         "sound":"fr/audio/bateau.mp3",
+         "nbSyllabes":2
+      },
+      {
+         "id":"bus",
+         "image":"../images/bus.png",
+         "sound":"fr/audio/bus.mp3",
+         "nbSyllabes":1
+      }
+      ...
+      {
+         "id":"velo",
+         "image":"../images/velo",
+         "sound":"fr/audio/velo",
+         "nbSyllabes":2
+      }
+]
 "levels":[
    {
             "level":1,
 
             "items": [
                 {
-                    "image":"../images/abeille.png",
-                    "sound":"fr/audio/abeille.mp3",
+                    "corpus":"abeille",
                     "helpFile":"audio/help_phono_findSyllabes_a.mp3",
-                    "max":2,
                     "value":[1]
                 },
                 {
-                    "image":"../images/velo.jpg",
-                    "sound":"fr/audio/velo.mp3",
+                    "corpus":"velo",
                     "helpFile":"audio/help_phono_findSyllabes_o.mp3",
-                    "max":2,
                     "value":[2]
                 }, 
                 ...
@@ -345,17 +374,13 @@ Comme pour tous les autres fichiers de configuration, ce fichier indique sa vers
             "unlockScorePercent":80,
             "items": [
                 {
-                    "image":"../images/allumettes.jpg",
-                    "sound":"fr/audio/allumettes.mp3",
+                    "corpus":"allumettes",
                     "helpFile":"audio/help_phono_findSyllabes_a.mp3",
-                    "max":3,
                     "value":[1]
                 },
                 {
-                    "image":"../images/tobogan.jpg",
-                    "sound":"fr/audio/tobogan.mp3",
+                    "corpus":"tobogan",
                     "helpFile":"audio/help_phono_findSyllabes_o.mp3",
-                    "max":3,
                     "value":[1,2]
                 }
             ],
@@ -369,6 +394,8 @@ Ce fichier ressemble beaucoup à celui de l'activité de comptage de syllabes.
 
 On y retrouve le champ **helpFile** indiquant le nom du fichier audio de consigne, s'il n'est pas présent, le fichier de consigne par défaut de l'activité sera utilisé.
 
+Le corpus est la liste des éléments utilisables pour l'activité qui est construit de la même façon que pour le comptage de syllabes (un copier/coller peut être fait d'un fichier à l'autre si le corpus est le même).
+
 Vient ensuite la liste des niveaux, chacun contenant les champs :
 
 * **level** indique le niveau (il commence à 1 et doit être incrémenté de 1).
@@ -376,14 +403,12 @@ Vient ensuite la liste des niveaux, chacun contenant les champs :
 * **exercices** contient la liste des exercices à présenter pour ce niveau. Chaque exercice utilisant le même nombre d'éléments choisis de façon aléatoires, ils ne servent qu'à aider à attribuer des objectifs.
 * **unlockScorePercent** indique le score à atteindre sur le niveau précédent pour débloquer ce niveau. Si rien n'est indiqué, la valeur par défaut de 80% est utilisée.
 
-La différence vient des champs pour chaque élément. On y retrouve l'emplacement pour le fichier image et audio, mais également le fichier consigne pour l'élément. Il contient le son ou la syllabe recherché pour l'élément et sera jouer à la fin du fichier de consigne de l'activité.
+La plus grande différence vient des champs pour chaque élément. On y retrouve l'élément du corpus à utiliser, mais également le fichier consigne pour l'élément. Il contient le son ou la syllabe recherché pour l'élément et sera joué à la fin du fichier de consigne de l'activité.
 
 Par exemple, si le fichier de consigne pour l'activité contient la phrase :
 ***Regarde l'image et trouve la position des syllabes contenant le son***
 
 Et si le fichier de consigne pour l'élément contient le son ***o***, alors à chaque fois que la consigne sera jouée, l'élève entendra la phrase :
 ***Regarde l'image et trouve la position des syllabes contenant le son o***
-
-On retrouve ensuite le nombre maximum de choix à afficher à l'élève, ici il devra correspondre au nombre de syllabes dans le mot (si la consigne et de trouver les syllabes contenant un son donné).
 
 Le champ **value** contient la liste des positions correctes. S'il n'y a qu'une seule position correct, la liste ne contient que cette position, sinon elle contient la liste de toutes les positions attendues. Par exemple, si on cherche le son **o** dans le mot tobogan, la liste devra contenir les valeurs 1 et 2 séparées par une virgule.

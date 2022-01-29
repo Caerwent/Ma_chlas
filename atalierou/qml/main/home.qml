@@ -77,6 +77,7 @@ Item {
         Component {
             id: groupDelegate
             Card {
+                id:group
                 width: groupGrid.cellWidth
                 height: groupGrid.cellHeight
                 selectable: true
@@ -94,6 +95,16 @@ Item {
                                     Screens.activitiesGroupChoice)
                         Session.loadUser()
                     }
+                }
+
+                Accessible {
+
+                    role: Accessible.Button
+                    name: name
+                    Accessible.onPressAction: {
+                        group.selected()
+                    }
+
                 }
             }
         }

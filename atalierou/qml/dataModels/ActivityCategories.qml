@@ -12,12 +12,31 @@ Item {
         else return null
     }
 
+    function getAccessibleFromCategory(category)
+    {
+        if(category==="phono")
+            return qsTr("accessibility.category_phono")
+        else if(category==="numbers")
+            return qsTr("accessibility.category_numbers")
+        else return null
+    }
+
+
     function getIconFromType(type)
     {
         if(type==="countSyllabes")
             return "qrc:/res/icons/countSyllabes.svg"
         else if(type==="findSoundOrSyllabe")
             return "qrc:/res/icons/findSyllabes.svg"
+        else return null
+    }
+
+    function getAccessibleFromType(type)
+    {
+        if(type==="countSyllabes")
+            return qsTr("accessibility.countSyllabes")
+        else if(type==="findSoundOrSyllabe")
+            return qsTr("accessibility.findSoundOrSyllabe")
         else return null
     }
 

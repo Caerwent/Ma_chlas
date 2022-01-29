@@ -46,6 +46,7 @@ ScreenTemplate {
                         model: Session.selectedActivities ? Session.selectedActivities[levelRepeaterIndex].exercices.length : 0
 
                         Card {
+                            id:itemLevel
                             width: 150*UIUtils.UI.dp;
                             height: 150*UIUtils.UI.dp
                             selectable:true
@@ -73,6 +74,16 @@ ScreenTemplate {
                                 source: "qrc:///res/icons/locked.svg"
                                 width: 40*UIUtils.UI.dp
                                 height: 40*UIUtils.UI.dp
+                            }
+
+                            Accessible {
+
+                                role: Accessible.Button
+                                name: isLocked ? qsTr("accessible.level %1 exo %2 locked").arg(Session.selectedActivities[levelRepeaterIndex].level).arg(itemLevel.label) : qsTr("accessible.level %1 exo %2 unlocked")
+                                Accessible.onPressAction: {
+                                    itemLevel.selected()
+                                }
+
                             }
 
                         }
