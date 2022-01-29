@@ -26,12 +26,12 @@ Item {
             }
         }
 
-        Accessible.role: Accessible.Button
+      /*  Accessible.role: Accessible.Button
         Accessible.name: qsTr("Acessibility_config_name")
         Accessible.description: qsTr("Acessibility_config_desc")
         Accessible.onPressAction: {
             App.instance.getNavigator().gotToScreen(Screens.config)
-        }
+        }*/
     }
     Label {
         anchors.left: parent.left
@@ -97,15 +97,15 @@ Item {
                     }
                 }
 
-                Accessible {
 
-                    role: Accessible.Button
-                    name: name
+
+                    Accessible.role: Accessible.Button
+                    Accessible.name: name
                     Accessible.onPressAction: {
                         group.selected()
                     }
 
-                }
+
             }
         }
 

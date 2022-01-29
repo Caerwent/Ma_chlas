@@ -126,7 +126,7 @@ Flow {
             }
         }
 
-        Accessible {
+     /*   Accessible {
 
             role: Accessible.Button
             name: qsTr("accessiblity.nav_back")
@@ -134,7 +134,7 @@ Flow {
                 navigator.back()
             }
 
-        }
+        }*/
     }
 
 
@@ -151,15 +151,14 @@ Flow {
                 Qt.quit()
             }
         }
-        Accessible {
 
-            role: Accessible.Button
-            name: qsTr("accessiblity.nav_exit")
-            Accessible.onPressAction: {
+
+        Accessible.role: Accessible.Button
+        Accessible.name: qsTr("accessiblity.nav_exit")
+        Accessible.onPressAction: {
                 navigator.back()
             }
 
-        }
     }
 
     Avatar {

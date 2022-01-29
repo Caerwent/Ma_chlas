@@ -36,15 +36,14 @@ ScreenTemplate {
 
                 }
 
-                Accessible {
 
-                    role: Accessible.Button
-                    name: ActivityCategories.getAccessibleFromType(ActivityCategories)
-                    Accessible.onPressAction: {
+
+                 Accessible.role: Accessible.Button
+                 Accessible.name: ActivityCategories.getAccessibleFromType(ActivityCategories)
+                 Accessible.onPressAction: {
                         activity.selected()
                     }
 
-                }
 
             }
 

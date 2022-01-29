@@ -33,15 +33,12 @@ ScreenTemplate {
                     App.instance.getNavigator().gotToScreen(Screens.activityChoice)
                 }
 
-                Accessible {
 
-                    role: Accessible.Button
-                    name: ActivityCategories.getAccessibleFromCategory(ActivityCategories)
-                    Accessible.onPressAction: {
+                Accessible.role: Accessible.Button
+                Accessible.name: ActivityCategories.getAccessibleFromCategory(ActivityCategories)
+                Accessible.onPressAction: {
                         activity.selected()
                     }
-
-                }
 
             }
 

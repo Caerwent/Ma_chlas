@@ -76,17 +76,13 @@ ScreenTemplate {
                                 height: 40*UIUtils.UI.dp
                             }
 
-                            Accessible {
-
-                                role: Accessible.Button
-                                name: isLocked ? qsTr("accessible.level %1 exo %2 locked").arg(Session.selectedActivities[levelRepeaterIndex].level).arg(itemLevel.label) : qsTr("accessible.level %1 exo %2 unlocked")
-                                Accessible.onPressAction: {
+                          Accessible.role: Accessible.Button
+                          Accessible.name: isLocked ? qsTr("accessible.level %1 exo %2 locked").arg(Session.selectedActivities[levelRepeaterIndex].level).arg(itemLevel.label) : qsTr("accessible.level %1 exo %2 unlocked")
+                          Accessible.onPressAction: {
                                     itemLevel.selected()
                                 }
 
                             }
-
-                        }
                     }
                     Component.onCompleted: {
                         isLocked = levelRepeater.isLevelLocked(levelRepeaterIndex+1)
