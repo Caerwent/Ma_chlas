@@ -19,6 +19,10 @@ QtObject {
         } else if(activityCategory==="phono" && activityType==="findSoundOrSyllabe")
         {
             return ["1.0","1.0"]
+        } else if(activityCategory==="phono" && activityType==="findIntruder")
+        {
+            return ["1.0","1.0"]
         }
+
     }
 }

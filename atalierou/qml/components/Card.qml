@@ -13,6 +13,7 @@ Item {
         property var bkgColor:Material.primaryColor
 
         signal selected()
+
         Rectangle {
             width: (parent.width-padding*UIUtils.UI.dp)
             height: (parent.height-padding*UIUtils.UI.dp)

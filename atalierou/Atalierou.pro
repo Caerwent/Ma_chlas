@@ -8,6 +8,8 @@ CONFIG += c++11
 TARGET = Atalierou
 
 macx: ICON = icon.icns
+macx: QMAKE_INFO_PLIST = $$PWD/Info.plist
+
 win32:RC_ICONS += icon.ico
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -17,6 +19,7 @@ win32:RC_ICONS += icon.ico
 SOURCES += \
         src/TreeModel.cpp \
         src/TreeNode.cpp \
+        src/corpus/corpus.cpp \
         src/fileio.cpp \
         main.cpp \
         src/globalConfigData.cpp \
@@ -31,6 +34,7 @@ TRANSLATIONS += \
     Atalierou_br.ts
 CONFIG += lrelease
 CONFIG += embed_translations
+
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -48,9 +52,11 @@ HEADERS += \
     src/ActivityLevelScoreNode.h \
     src/ActivityScoreNode.h \
     src/VERSION.h \
+    src/corpus/CorpusItem.h \
+    src/corpus/corpus.h \
     src/fileio.h \
     src/globalConfigData.h \
     src/user.h
 
-
+#include(./mac.pri)
 #include(version_from_git_tag.pri)

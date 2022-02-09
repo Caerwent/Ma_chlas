@@ -91,7 +91,7 @@ flow:GridView.FlowLeftToRight
 
         function loadActivities(configFile, activityType)
         {
-            JsonLoader.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
+            Session.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
                                     Session.activityPath = resp.path
                                     if(resp.path.startsWith("."))
                                     {

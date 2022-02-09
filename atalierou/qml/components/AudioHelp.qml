@@ -19,8 +19,13 @@ Item {
     function play() {
         helpMediaPlayer.play()
     }
-
+    Accessible.role: Accessible.Button
+    Accessible.name: qsTr("accessible.help.clickToListen")
+    Accessible.onPressAction: {
+        play()
+    }
     ColoredImage {
+        Accessible.ignored: true
         anchors.fill: parent
         id: help
         source: "qrc:///res/icons/help.svg"

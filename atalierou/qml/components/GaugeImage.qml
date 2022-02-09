@@ -13,6 +13,7 @@ Item {
     signal fillAnimationEnded
 
 
+
     Canvas {
 
         id: gaugeMask
@@ -43,6 +44,8 @@ Item {
 
             }
         }
+
+        Accessible.ignored: true
     }
     Image {
         id: img
@@ -58,6 +61,7 @@ Item {
             property var colorSource: gaugeMask;
             fragmentShader: "qrc:/res/shaders/maskSourceFrag.qsb"
         }
+        Accessible.ignored: true
 
     }
 

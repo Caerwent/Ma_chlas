@@ -10,9 +10,9 @@ import "../dataModels"
 ScreenTemplate {
     id:countPhonems
 
-    titleText: qsTr("Count syllabes")
+    titleText: qsTr("FindIntruder.title")
 
-    CountSyllabesModel {
+    FindIntruderModel {
         id:itemModel
 
         onEnded: {
@@ -23,10 +23,17 @@ ScreenTemplate {
             startAnim.restart()
         }
 
-        onSyllabeChanged: {
-            response.width=  itemModel.maxResponses*response.cellWidth
-            response.height=((itemModel.maxResponses/(itemModel.maxResponses*response.cellWidth)) + 1 )*response.cellHeight
+        property int nbMediaPlaying:0
+
+        onNbMediaPlayingChanged:
+        {
+            if(nbMediaPlaying>0)
+                playSoundIndicator.opacity=1
+            else
+                playSoundIndicator.opacity=0
+
         }
+
     }
 
 
@@ -87,100 +94,94 @@ ScreenTemplate {
         }
 
         Rectangle {
+            id:responseFrame
             anchors.top: parent.top
             anchors.left: scoreBar.right
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             border.color :"transparent"
             color:Material.backgroundColor
-            Image {
-                id: img
-                width: 250*UIUtils.UI.dp
-                height: 250*UIUtils.UI.dp
-                source: itemModel.imageSource
-                sourceSize: Qt.size(img.width, img.height)
-                anchors.top: parent.top
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.topMargin: 30*UIUtils.UI.dp
-                anchors.leftMargin: 30*UIUtils.UI.dp
-                fillMode: Image.PreserveAspectFit
 
-                ColoredImage {
-                    id: listenOverlay
-                    anchors.fill: parent
-                    anchors.margins: 10*UIUtils.UI.dp
-                    source: "qrc:///res/icons/listen.svg"
-                    overlayColor: Material.accentColor
-                    visible:false
-
-                }
-                MediaPlayer {
-                    id: mediaPlayer
-
-                    source:itemModel.audioSource
-                    audioOutput: AudioOutput {
-
-                    }
-                    onPlaybackStateChanged: {
-                        var temp
-
-                        switch (playbackState)
-                        {
-                        case MediaPlayer.PlayingState:
-                            temp = "MediaPlayer.PlayingState"
-                            startSound()
-                            break;
-
-                        case MediaPlayer.PausedState:
-                            temp = "MediaPlayer.PausedState"
-                            break;
-
-                        case MediaPlayer.StoppedState:
-                            temp = "MediaPlayer.StoppedState"
-                            stopSound()
-                            break;
-                            //console.log(temp)
-                        }
-                    }
-
-                }
-
-                MouseArea {
-                    id: playArea
-                    anchors.fill: parent
-                    onPressed: mediaPlayer.play();
-                    hoverEnabled: true
-                    onEntered:{
-                        listenOverlay.visible=true
-                    }
-
-                    onExited :{
-                        listenOverlay.visible=false
-                    }
-                }
-            }
 
 
             Component {
                 id:responsesModelDelegate
-                Rectangle {
-                    width: 60*UIUtils.UI.dp
-                    height: 60*UIUtils.UI.dp
-                    border.color :"transparent"
-                    color:"transparent"
+                Column {
+                    spacing:10*UIUtils.UI.dp
+                    Image {
+                        id: img
+                        width: 100*UIUtils.UI.dp
+                        height: 100*UIUtils.UI.dp
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: image
+                        sourceSize: Qt.size(img.width, img.height)
+                        fillMode: Image.PreserveAspectFit
+
+                        ColoredImage {
+                            id: listenOverlay
+                            anchors.fill: parent
+                            anchors.margins: 10*UIUtils.UI.dp
+                            source: "qrc:///res/icons/listen.svg"
+                            overlayColor: Material.accentColor
+                            visible:false
+
+                        }
+                        MediaPlayer {
+                            id: mediaPlayer
+
+                            source:audio
+                            audioOutput: AudioOutput {
+
+                            }
+                            onPlaybackStateChanged: {
+                                var temp
+
+                                switch (playbackState)
+                                {
+                                case MediaPlayer.PlayingState:
+                                    temp = "MediaPlayer.PlayingState"
+                                    startSound()
+                                    break;
+
+                                case MediaPlayer.PausedState:
+                                    temp = "MediaPlayer.PausedState"
+                                    break;
+
+                                case MediaPlayer.StoppedState:
+                                    temp = "MediaPlayer.StoppedState"
+                                    stopSound()
+                                    break;
+                                    //console.log(temp)
+                                }
+                            }
+
+                        }
+
+                        MouseArea {
+                            id: playArea
+                            anchors.fill: parent
+                            onPressed: mediaPlayer.play();
+                            hoverEnabled: true
+                            onEntered:{
+                                listenOverlay.visible=true
+                            }
+
+                            onExited :{
+                                listenOverlay.visible=false
+                            }
+                        }
+                    }
                     Rectangle {
                         width: 50*UIUtils.UI.dp
                         height: 50*UIUtils.UI.dp
                         border.color :"transparent"
                         color:"transparent"
-                        anchors.centerIn: parent
-                        Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        Rectangle {
+                            border.color :Material.accentColor
+                            color:Material.foreground
                             width: 50*UIUtils.UI.dp
                             height: 50*UIUtils.UI.dp
-
-                            source:imgSrc
-                            sourceSize: Qt.size(width, height)
-
                         }
                         ColoredImage {
                             id:resultMark
@@ -215,20 +216,19 @@ ScreenTemplate {
             }
 
 
-            GridView {
-                id: response
-                interactive: false
-                width:60*UIUtils.UI.dp
-                height:60*UIUtils.UI.dp
-                anchors.margins: 10*UIUtils.UI.dp
-                anchors.top: img.bottom
+            Flow {
+                 id: response
                 anchors.horizontalCenter: parent.horizontalCenter
-                cellWidth: 60*UIUtils.UI.dp; cellHeight: 60*UIUtils.UI.dp
-                flow:GridView.FlowLeftToRight
-                model: itemModel.responsesModel
-                delegate: responsesModelDelegate
-            }
+                 anchors.margins: 10*UIUtils.UI.dp
+                 anchors.top: parent.top
+                 flow: Flow.LeftToRight
+                 spacing: 10*UIUtils.UI.dp
 
+                 Repeater {
+                     model:itemModel.responsesModel
+                      delegate: responsesModelDelegate
+                 }
+            }
 
 
 
@@ -238,6 +238,7 @@ ScreenTemplate {
                 width: 50*UIUtils.UI.dp
                 height: 50*UIUtils.UI.dp
                 anchors.top: response.bottom
+                anchors.topMargin: 20*UIUtils.UI.dp
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "qrc:///res/icons/eye.svg"
                 enabled: itemModel.checkEnabled
@@ -292,16 +293,14 @@ ScreenTemplate {
 
     function startSound()
     {
-        playSoundIndicator.opacity=1
+        itemModel.nbMediaPlaying++
+
     }
 
     function stopSound()
     {
-        if(mediaPlayer.playbackState!==MediaPlayer.PlayingState &&
-                help.playbackState!==MediaPlayer.PlayingState)
-        {
-            playSoundIndicator.opacity=0
-        }
+        itemModel.nbMediaPlaying--
+
     }
 
     Component.onCompleted:

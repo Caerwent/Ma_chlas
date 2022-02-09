@@ -30,6 +30,12 @@ ScreenTemplate {
                 App.instance.getNavigator().gotToScreen(
                             Screens.activitiesGroupChoice)
             }
+
+            Accessible.role: Accessible.Button
+            Accessible.name: child ? child.name : ""
+            Accessible.onPressAction: {
+                   selected()
+               }
         }
     }
 

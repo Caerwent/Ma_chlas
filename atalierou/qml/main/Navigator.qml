@@ -126,15 +126,14 @@ Flow {
             }
         }
 
-     /*   Accessible {
 
-            role: Accessible.Button
-            name: qsTr("accessiblity.nav_back")
+
+            Accessible.role: Accessible.Button
+            Accessible.name: qsTr("accessible.nav_back")
             Accessible.onPressAction: {
                 navigator.back()
             }
 
-        }*/
     }
 
 
@@ -154,7 +153,7 @@ Flow {
 
 
         Accessible.role: Accessible.Button
-        Accessible.name: qsTr("accessiblity.nav_exit")
+        Accessible.name: qsTr("accessible.nav_exit")
         Accessible.onPressAction: {
                 navigator.back()
             }
@@ -168,6 +167,7 @@ Flow {
         isSelectable:false
         visible:false
         isSmall:true
+        Accessible.ignored: true
     }
 
     Card {
@@ -177,6 +177,7 @@ Flow {
         labelSize:8
         visible:false
         selectable:false
+        Accessible.ignored: true
     }
 
     onChildChanged : {

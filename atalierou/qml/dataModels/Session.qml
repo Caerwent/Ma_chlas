@@ -22,15 +22,6 @@ Item {
     property var screens:[]
 
 
-    function getShuffleRandomItems()
-    {
-        // Shuffle array
-        var shuffled = Session.selectedActivities[Session.activityIndex].items.sort(() => 0.5 - Math.random());
-
-        // Get sub-array of first n elements after shuffled
-        var selected = shuffled.slice(0,Session.selectedActivities[Session.activityIndex].nbItemsPerExercice);
-        return selected
-    }
 
     function loadUser(indexChild=-1)
     {
@@ -145,5 +136,32 @@ Item {
             }
         }
     }
+
+    function loadJSON(file, callback) {
+        var xobj = new XMLHttpRequest();
+        //xobj.overrideMimeType("application/json");
+        xobj.open('GET', file, true);
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState === XMLHttpRequest.DONE) {
+                if (xobj.status === 200) {
+                    try{
+                        var response = JSON.parse(xobj.responseText);
+                        callback(response);
+                    }
+                    catch(e){
+                        console.log("Error", e.name+" "+e.message);
+
+                    }
+
+                } else {
+                    console.log("Error", xobj.statusText);
+                }
+
+            }
+        };
+        xobj.open("GET",file)
+        xobj.send(null);
+    }
+
 
 }

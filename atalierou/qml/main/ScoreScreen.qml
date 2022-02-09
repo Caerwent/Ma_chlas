@@ -76,7 +76,8 @@ ScreenTemplate {
             fillPercent: 0
             source: "qrc:///res/icons/starGauge.svg"
 
-
+            Accessible.role: Accessible.StaticText
+            Accessible.name: qsTr("accessible.score_%1").arg(fillPercent)
 
         }
 
@@ -90,6 +91,12 @@ ScreenTemplate {
             source: "qrc:///res/icons/next.svg"
             onClicked:{
 
+                App.instance.getNavigator().back()
+            }
+
+            Accessible.role: Accessible.Button
+            Accessible.name: qsTr("accessible.nav_back")
+            Accessible.onPressAction: {
                 App.instance.getNavigator().back()
             }
         }
