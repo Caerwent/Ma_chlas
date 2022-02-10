@@ -5,6 +5,7 @@ import UIUtils 1.0 as UIUtils
 import "."
 import "../components"
 import "../dataModels"
+import "../config/maker"
 Flow {
 
     id:navigator
@@ -106,6 +107,10 @@ Flow {
         else if(currentItem===Screens.score)
         {
             Session.activityScore=0
+        }
+        else if(currentItem===Screens.configMakerCorpus)
+        {
+            MakerSession.reset()
         }
 
     }

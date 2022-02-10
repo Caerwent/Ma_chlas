@@ -3,54 +3,43 @@
 
 #include <QObject>
 #include <QJsonObject>
+#include <QDir>
 #include "CorpusItem.h"
-class Corpus : public QObject
+#include "../configwithpath.h"
+class Corpus : public ConfigWithPath
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString filename
-               READ filename
-               WRITE setFilename
-               NOTIFY filenameChanged)
-    Q_PROPERTY(QString path
-               READ path
-               NOTIFY pathChanged)
+
 public:
-    explicit Corpus(QObject *parent = 0): QObject(parent) {}
+    explicit Corpus(QObject *parent = 0): ConfigWithPath(parent) {}
     ~Corpus(){
         mItems.clear();
     }
 
 
+    Q_INVOKABLE void reset() {
+        mItems.clear();
+        ConfigWithPath::reset();
+    }
 
-    Q_INVOKABLE bool read(const QString &filename);
-    Q_INVOKABLE bool save();
-    Q_INVOKABLE bool saveAs(const QString &filename, const QString &refPathToUse);
     Q_INVOKABLE QList<CorpusItem*> getItems() {return mItems;}
     Q_INVOKABLE bool removeItemAt(int idx);
     Q_INVOKABLE void addItem(CorpusItem* item);
-    Q_INVOKABLE const QString getFilenameRelativeToCorpus(const QString &filename);
-    Q_INVOKABLE const QString getPathAbsolute();
-    QString filename() { return mFileLocation; }
-    QString path() { return mCorpusPath; }
 
-
-public slots:
-    void setFilename(const QString& filename) {updateFileLocationInfo(filename, false);}
 
 signals:
-    void filenameChanged(const QString& filename);
-    void pathChanged(const QString& path);
     void itemsChanged();
-    void error(const QString& msg);
+
+protected:
+
+    bool writeContent(QJsonObject &json_obj,  QDir &path) Q_DECL_OVERRIDE;
+    bool readContent(QJsonObject &json_obj,  QDir &path) Q_DECL_OVERRIDE;
 
 private:
-    bool updateFileLocationInfo(const QString &filename, bool checkExists);
 
     QList<CorpusItem*> mItems;
-    QString mFileLocation;
-    QString mFilePath;
-    QString mCorpusPath;
+
 };
 
 #endif // CORPUS_H

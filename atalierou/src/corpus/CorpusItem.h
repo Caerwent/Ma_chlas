@@ -47,7 +47,7 @@ private:
     QString mCorpusId;
     QString mImage;
     QString mSound;
-    int mNbSyllabes;
+    int mNbSyllabes=1;
 
 };
 #endif // CORPUSITEM_H

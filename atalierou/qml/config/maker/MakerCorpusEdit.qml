@@ -12,6 +12,7 @@ Rectangle {
     color:Material.backgroundColor
 
     required property var selectedCorpusItem
+    required property var selectedCorpusIndex
 
     property alias needToBeSave :dataModel.needToBeSaved
 
@@ -24,27 +25,33 @@ Rectangle {
 
         onAccepted: {
             dataModel.soundFileToPlay = selectedFile
-            selectedCorpusItem.sound = MakerSession.corpus.getFilenameRelativeToCorpus(dataModel.soundFileToPlay)
-            dataModel.corpusSoundText=selectedCorpusItem.sound
+            dataModel.corpusSoundText = MakerSession.corpus.getFilenameRelativeToPath(dataModel.soundFileToPlay)
+
             dataModel.needToBeSaved = (dataModel.corpusSoundText!== (selectedCorpusItem?(selectedCorpusItem.sound?selectedCorpusItem.sound:""):""))
+            if(dataModel.needToBeSaved)
+            {
+                 selectedCorpusItem.sound=dataModel.corpusSoundText
+            }
+
             dataModel.playCorpusSoundEnabled = true
 
         }
     }
     onSelectedCorpusItemChanged:
     {
+        dataModel.needToBeSaved = false
         dataModel.corpusSoundText=selectedCorpusItem? (selectedCorpusItem.sound?selectedCorpusItem.sound:""):""
         dataModel.soundFileToPlay = selectedCorpusItem? (selectedCorpusItem.sound?("file://"+MakerSession.corpus.getPathAbsolute() + selectedCorpusItem.sound):""):""
         dataModel.playCorpusSoundEnabled=selectedCorpusItem? (selectedCorpusItem.sound?true:false):false
 
         dataModel.corpusIdText=selectedCorpusItem? (selectedCorpusItem.corpusId?selectedCorpusItem.corpusId:"") : ""
+        dataModel.checkCorpusIdIsValid(dataModel.corpusIdText)
 
         dataModel.corpusImageText = selectedCorpusItem? (selectedCorpusItem.image?selectedCorpusItem.image:""):""
         dataModel.imageToDisplay = selectedCorpusItem? (selectedCorpusItem.image?("file://"+MakerSession.corpus.getPathAbsolute() + selectedCorpusItem.image):""):""
         dataModel.imageToDisplayVisible = !isBlank(dataModel.imageToDisplay)
 
         nbSyllabesSpinBox.value = selectedCorpusItem? (selectedCorpusItem.nbSyllabes?selectedCorpusItem.nbSyllabes:1):1
-        dataModel.needToBeSaved = false
 
         fileOpenDialog.currentFolder = MakerSession.corpus? ("file://"+MakerSession.corpus.getPathAbsolute()):""
     }
@@ -71,16 +78,21 @@ Rectangle {
         {
             if(input>0 && input <=15)
             {
-                if(selectedCorpusItem!==undefined)
+                if(selectedCorpusItem!==undefined && selectedCorpusItem.nbSyllabes!==input)
+                {
                     selectedCorpusItem.nbSyllabes = input
-                needToBeSaved = true
+                    needToBeSaved = true
+                 }
+
+
+
             }
         }
 
         function checkCorpusIdIsValid(input){
 
-            if (input.isBlank) {
-                corpusIdErrorVisible= false
+            if (isBlank(input)) {
+                corpusIdErrorVisible= true
             }
             else {
 
@@ -88,13 +100,13 @@ Rectangle {
                 var idAlreadyUsed = false
                 for(var i=0;i<items.length;i++)
                 {
-                    if(MakerSession.corpusIndex!=i && items[i]===input)
+                    if(selectedCorpusIndex!==i && items[i].corpusId===input)
                     {
                         idAlreadyUsed=true
                         break
                     }
                 }
-                corpusIdErrorVisible= !idAlreadyUsed
+                corpusIdErrorVisible= idAlreadyUsed
                 if(!corpusIdErrorVisible)
                 {
                     if(input!== selectedCorpusItem.corpusId)
@@ -117,14 +129,7 @@ Rectangle {
             flow:Flow.TopToBottom
             spacing: 20*UIUtils.UI.dp
             anchors.margins: 10*UIUtils.UI.dp
-            ColoredImage {
-                id:modifiedIcon
-                source: "qrc:/res/icons/action_edit.svg"
-                width: 20*UIUtils.UI.dp
-                height: 20*UIUtils.UI.dp
-                opacity:dataModel.needToBeSaved ? 1 : 0
-                overlayColor: Material.accentColor
-            }
+
             Label {
                 text: qsTr("MakerCorpusEdit.corpusId.label")
                 font.pixelSize: 14
@@ -191,12 +196,13 @@ Rectangle {
                     Accessible.ignored: true
                     RotationAnimator {
                         id:rotatingPlay
-                            target: playIcon;
-                            from: 0;
-                            to: 360;
-                            loops: Animation.Infinite;
+                            target: playIcon
+                            from: 0
+                            to: 360
+                            loops: Animation.Infinite
                             duration: 1000
                             running: false
+                            alwaysRunToEnd:true
                         }
                     MouseArea {
                         anchors.fill: parent

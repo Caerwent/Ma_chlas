@@ -15,8 +15,8 @@
 #include "src/ActivityCategoryScoreNode.h"
 #include "src/ActivityScoreNode.h"
 
-#include "src/corpus/CorpusItem.h"
-#include "src/corpus/Corpus.h"
+#include "src/corpus/corpusItem.h"
+#include "src/corpus/corpus.h"
 
 int main(int argc, char *argv[])
 {

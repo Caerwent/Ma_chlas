@@ -71,6 +71,8 @@ ScreenTemplate {
 
             property int lastSelectedIndex:-1
 
+            property bool corpusNeedToBeSaved : false
+
             function doSave()
             {
                 dataModel.lastSelectedIndex = corpusList.currentIndex
@@ -79,6 +81,7 @@ ScreenTemplate {
                 else
                     MakerSession.corpus.save()
                 corpusEditor.needToBeSave = false
+                dataModel.corpusNeedToBeSaved = false
 
             }
 
@@ -88,7 +91,7 @@ ScreenTemplate {
                 {
 
                     var newItem = Qt.createQmlObject('import QtQuick; import Corpus 1.0; CorpusItem {}', parent);
-                    newItem.image = MakerSession.corpus.getFilenameRelativeToCorpus(imagesFiles[i])
+                    newItem.image = MakerSession.corpus.getFilenameRelativeToPath(imagesFiles[i])
                     newItem.corpusId = newItem.image.slice(newItem.image.lastIndexOf("/")+1)
                     newItem.corpusId = newItem.corpusId.substring(0, newItem.corpusId.lastIndexOf('.')) || newItem.corpusId
 
@@ -107,6 +110,7 @@ ScreenTemplate {
                     }
 
                     MakerSession.corpus.addItem(newItem)
+                    dataModel.corpusNeedToBeSaved=true
                 }
 
             }
@@ -150,7 +154,8 @@ ScreenTemplate {
                     {
                         corpusListModel.append({
                                                    idx:i,
-                                                   corpus:list[i]
+                                                   corpus:list[i],
+                                                   needToBeSave:false
                                                })
                     }
                 }
@@ -187,13 +192,30 @@ ScreenTemplate {
                 }
 
             }
-            Button {
-                anchors.leftMargin: 20*UIUtils.UI.dp
-                text: dataModel.newBtnText
+            Row {
                 visible: dataModel.newBtnTextVisibility
+                spacing: 10*UIUtils.UI.dp
+            Button {
+                id:saveBtn
+                bottomInset :0
+                topInset:0
+                text: dataModel.newBtnText
                 onClicked: {
                     dataModel.doSave()
                 }
+
+            }
+
+                ColoredImage {
+                    id:modifiedIcon
+                    source: "qrc:/res/icons/action_edit.svg"
+                    width: 30*UIUtils.UI.dp
+                    height: 30*UIUtils.UI.dp
+                    opacity:dataModel.corpusNeedToBeSaved ? 1 : 0
+                    overlayColor: Material.accentColor
+                }
+
+
 
             }
 
@@ -247,6 +269,7 @@ ScreenTemplate {
                     onClicked: {
                         MakerSession.corpus.removeItemAt(corpusList.currentIndex)
                         corpusList.currentIndex = -1
+                        dataModel.corpusNeedToBeSaved=true
                     }
                 }
                     Accessible.role: Accessible.Button
@@ -254,6 +277,7 @@ ScreenTemplate {
                     Accessible.onPressAction: {
                         MakerSession.corpus.removeItemAt(corpusList.currentIndex)
                         corpusList.currentIndex = -1
+                        dataModel.corpusNeedToBeSaved=true
                     }
 
             }
@@ -275,19 +299,34 @@ ScreenTemplate {
             width: parent.width/2
             height: parent.height
             model: corpusListModel
-            delegate: Text{
-                anchors.leftMargin: 12
+            delegate: Row {
+                property bool isCurrentItem : ListView.isCurrentItem
+                ColoredImage {
+                    id:modifiedIconItem
+                    source: "qrc:/res/icons/action_edit.svg"
+                    width: 10*UIUtils.UI.dp
+                    height: 10*UIUtils.UI.dp
+                    opacity:needToBeSave ? 1 : 0
+                    overlayColor: Material.accentColor
+                }
+                Text{
+                    id:eltText
                 text: corpus.corpusId
-                color: ListView.isCurrentItem ? Material.textSelectionColor : Material.primaryTextColor
+                color: isCurrentItem ? Material.textSelectionColor : Material.primaryTextColor
                 MouseArea {
                     anchors.fill: parent
                     onClicked: corpusList.currentIndex = index
                 }
+                }
+
+
             }
 
             onCurrentIndexChanged: {
                 dataModel.editOrRemoveCorpusEnabled = (currentItem!==undefined && dataModel.addCorpusEnabled)
+                corpusEditor.selectedCorpusIndex = currentIndex
                 corpusEditor.selectedCorpusItem = corpusListModel.get(currentIndex).corpus
+
             }
         }
 
@@ -298,6 +337,13 @@ ScreenTemplate {
                 height: parent.height
                 visible: dataModel.editOrRemoveCorpusEnabled
                 selectedCorpusItem: undefined
+                selectedCorpusIndex:-1
+                onNeedToBeSaveChanged: {
+                    if(corpusEditor.needToBeSave && corpusListModel.count>corpusEditor.selectedCorpusIndex && corpusEditor.selectedCorpusIndex>=0){
+                        corpusListModel.get(corpusEditor.selectedCorpusIndex).needToBeSave=true
+                        dataModel.corpusNeedToBeSaved=true
+                    }
+                }
             }
 
         }

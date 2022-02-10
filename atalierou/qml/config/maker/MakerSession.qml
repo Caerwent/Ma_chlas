@@ -22,6 +22,14 @@ Item {
 
 
 
+    function reset()
+    {
+        mode= MakerSession.Mode.NewGlobal
+        isCreateMode=true
+        config = undefined
+        corpus.reset()
+    }
+
     QtObject {
         id:sessionData
 
@@ -31,10 +39,7 @@ Item {
     Corpus {
         id:corpusData
     }
-    property var corpus: corpusData
-
-    property var corpusItem
-    property int corpusIndex:-1
+    property alias corpus: corpusData
 
     FileIO {
                id:externalConfigFile

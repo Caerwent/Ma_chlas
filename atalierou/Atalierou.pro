@@ -19,6 +19,7 @@ win32:RC_ICONS += icon.ico
 SOURCES += \
         src/TreeModel.cpp \
         src/TreeNode.cpp \
+        src/configWithPath.cpp \
         src/corpus/corpus.cpp \
         src/fileio.cpp \
         main.cpp \
@@ -52,6 +53,7 @@ HEADERS += \
     src/ActivityLevelScoreNode.h \
     src/ActivityScoreNode.h \
     src/VERSION.h \
+    src/configWithPath.h \
     src/corpus/CorpusItem.h \
     src/corpus/corpus.h \
     src/fileio.h \

@@ -17,5 +17,4 @@ QtObject {
 
     property string configMaker:"qrc:/qml/config/maker/MakerInitSession.qml"
     property string configMakerCorpus:"qrc:/qml/config/maker/MakerCorpus.qml"
-    property string configMakerCorpusEdit:"qrc:/qml/config/maker/MakerCorpusEdit.qml"
 }
