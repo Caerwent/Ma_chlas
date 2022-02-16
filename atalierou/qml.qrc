@@ -254,5 +254,6 @@
         <file>qml/config/maker/MakerCorpusEdit.qml</file>
         <file>res/icons/action_record.svg</file>
         <file>res/icons/action_play.svg</file>
+        <file>qml/components/ComboBoxEditableItem.qml</file>
     </qresource>
 </RCC>

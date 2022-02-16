@@ -26,39 +26,7 @@ ScreenTemplate {
             Label {
                 text: qsTr("MakerInitSession.choices_label")
             }
-            RadioButton {
-                checked: true
-                text: qsTr("MakerInitSession.choice_new_from_scratch")
-                ButtonGroup.group: radioGroup
-                onCheckedChanged:
-                {
-                    if(checked) MakerSession.mode = MakerSession.Mode.NewGlobal
-                }
-            }
-            RadioButton {
-                text: qsTr("MakerInitSession.choice_edit_global_config")
-                ButtonGroup.group: radioGroup
-                onCheckedChanged:
-                {
-                    if(checked) MakerSession.mode = MakerSession.Mode.EditGlobal
-                }
-            }
-            RadioButton {
-                text: qsTr("MakerInitSession.choice_new_activity")
-                ButtonGroup.group: radioGroup
-                onCheckedChanged:
-                {
-                    if(checked) MakerSession.mode = MakerSession.Mode.NewActivity
-                }
-            }
-            RadioButton {
-                text: qsTr("MakerInitSession.choice_edit_activity")
-                ButtonGroup.group: radioGroup
-                onCheckedChanged:
-                {
-                    if(checked) MakerSession.mode = MakerSession.Mode.EditActivity
-                }
-            }
+
             RadioButton {
                 text: qsTr("MakerInitSession.choice_new_corpus")
                 ButtonGroup.group: radioGroup
@@ -79,23 +47,7 @@ ScreenTemplate {
                 enabled: radioGroup.checkState!=Qt.Unchecked
                 text: qsTr("MakerInitSession.valid_btn")
                 onClicked: {
-                    if(MakerSession.mode===MakerSession.Mode.NewGlobal)
-                    {
-
-                    }
-                    else if(MakerSession.mode===MakerSession.Mode.EditGlobal)
-                    {
-
-                    }
-                    else if(MakerSession.mode===MakerSession.Mode.NewActivity)
-                    {
-
-                    }
-                    else if(MakerSession.mode===MakerSession.Mode.EditActivity)
-                    {
-
-                    }
-                    else if(MakerSession.mode===MakerSession.Mode.NewCorpus)
+                   if(MakerSession.mode===MakerSession.Mode.NewCorpus)
                     {
                         App.instance.getNavigator().gotToScreen(Screens.configMakerCorpus)
                     }

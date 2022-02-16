@@ -15,8 +15,9 @@
 #include "src/ActivityCategoryScoreNode.h"
 #include "src/ActivityScoreNode.h"
 
-#include "src/corpus/corpusItem.h"
+#include "src/corpus/corpusitem.h"
 #include "src/corpus/corpus.h"
+#include "src/genericconfigwithpath.h"
 
 int main(int argc, char *argv[])
 {
@@ -87,6 +88,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<CorpusItem,1>("Corpus",1,0,"CorpusItem");
     qmlRegisterType<Corpus,1>("Corpus",1,0,"Corpus");
+    qmlRegisterType<GenericConfigWithPath,1>("FileIO",1,0,"GenericConfigWithPath");
 
 
     const QUrl url(QStringLiteral("qrc:/qml/main/main.qml"));

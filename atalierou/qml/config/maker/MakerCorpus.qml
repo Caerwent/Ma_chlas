@@ -19,7 +19,7 @@ ScreenTemplate {
 
         onAccepted: {
             MakerSession.corpus.read(selectedFile)
-             corpusEditor.fileOpenDialog.currentFolder= MakerSession.corpus.path? MakerSession.corpus.getPathAbsolute():""
+            corpusEditor.fileOpenDialog.currentFolder= MakerSession.corpus.path? MakerSession.corpus.getPathAbsolute():""
             imageOpenDialog.currentFolder= MakerSession.corpus.path? MakerSession.corpus.getPathAbsolute():""
         }
     }
@@ -61,7 +61,7 @@ ScreenTemplate {
         anchors.fill: parent
         QtObject {
             id:dataModel
-            property string newBtnText: qsTr("MakerCorpus.corpusFile.new")
+            property string newBtnText: qsTr("Maker.File.new")
             property bool newBtnTextVisibility: MakerSession.mode===MakerSession.Mode.NewCorpus
             property string selectedFileTxt:""
 
@@ -122,13 +122,13 @@ ScreenTemplate {
                 //console.log("corpus: onFilenameChanged")
                 if(isBlank(MakerSession.corpus.filename))
                 {
-                    dataModel.newBtnText= qsTr("MakerCorpus.corpusFile.new")
+                    dataModel.newBtnText= qsTr("Maker.corpus.new")
                     dataModel.selectedFileTxt = ""
                     dataModel.addCorpusEnabled=false
                 }
                 else
                 {
-                    dataModel.newBtnText= qsTr("MakerCorpus.corpusFile.save")
+                    dataModel.newBtnText= qsTr("Maker.File.save")
                     dataModel.selectedFileTxt=MakerSession.corpus.filename
                     dataModel.addCorpusEnabled=true
 
@@ -146,7 +146,7 @@ ScreenTemplate {
 
             function onItemsChanged(){
                 corpusListModel.clear()
-               // console.log("corpus: onItemsChanged")
+                // console.log("corpus: onItemsChanged")
                 var list = MakerSession.corpus.getItems()
                 if(list!==undefined)
                 {
@@ -195,16 +195,16 @@ ScreenTemplate {
             Row {
                 visible: dataModel.newBtnTextVisibility
                 spacing: 10*UIUtils.UI.dp
-            Button {
-                id:saveBtn
-                bottomInset :0
-                topInset:0
-                text: dataModel.newBtnText
-                onClicked: {
-                    dataModel.doSave()
-                }
+                Button {
+                    id:saveBtn
+                    bottomInset :0
+                    topInset:0
+                    text: dataModel.newBtnText
+                    onClicked: {
+                        dataModel.doSave()
+                    }
 
-            }
+                }
 
                 ColoredImage {
                     id:modifiedIcon
@@ -251,11 +251,11 @@ ScreenTemplate {
                         imageOpenDialog.open()
                     }
                 }
-                    Accessible.role: Accessible.Button
-                    Accessible.name: qsTr("accessible.add")
-                    Accessible.onPressAction: {
-                        imageOpenDialog.open()
-                    }
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("accessible.add")
+                Accessible.onPressAction: {
+                    imageOpenDialog.open()
+                }
 
             }
             ColoredImage {
@@ -272,13 +272,13 @@ ScreenTemplate {
                         dataModel.corpusNeedToBeSaved=true
                     }
                 }
-                    Accessible.role: Accessible.Button
-                    Accessible.name: qsTr("accessible.remove")
-                    Accessible.onPressAction: {
-                        MakerSession.corpus.removeItemAt(corpusList.currentIndex)
-                        corpusList.currentIndex = -1
-                        dataModel.corpusNeedToBeSaved=true
-                    }
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("accessible.remove")
+                Accessible.onPressAction: {
+                    MakerSession.corpus.removeItemAt(corpusList.currentIndex)
+                    corpusList.currentIndex = -1
+                    dataModel.corpusNeedToBeSaved=true
+                }
 
             }
 
@@ -294,59 +294,82 @@ ScreenTemplate {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom:parent.bottom
-        ListView {
-            id:corpusList
-            width: parent.width/2
-            height: parent.height
-            model: corpusListModel
-            delegate: Row {
-                property bool isCurrentItem : ListView.isCurrentItem
-                ColoredImage {
-                    id:modifiedIconItem
-                    source: "qrc:/res/icons/action_edit.svg"
-                    width: 10*UIUtils.UI.dp
-                    height: 10*UIUtils.UI.dp
-                    opacity:needToBeSave ? 1 : 0
-                    overlayColor: Material.accentColor
-                }
-                Text{
-                    id:eltText
-                text: corpus.corpusId
-                color: isCurrentItem ? Material.textSelectionColor : Material.primaryTextColor
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: corpusList.currentIndex = index
-                }
-                }
+            ListView {
+                id:corpusList
+                width: parent.width/2
+                height: parent.height
+                model: corpusListModel
+                delegate: Row {
+                    property bool isCurrentItem : ListView.isCurrentItem
+                    ColoredImage {
+                        id:modifiedIconItem
+                        source: "qrc:/res/icons/action_edit.svg"
+                        width: 10*UIUtils.UI.dp
+                        height: 10*UIUtils.UI.dp
+                        opacity:needToBeSave ? 1 : 0
+                        overlayColor: Material.accentColor
+                    }
+                    Text{
+                        id:eltText
+                        text: corpus.corpusId
+                        color: isCurrentItem ? Material.textSelectionColor : Material.primaryTextColor
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: corpusList.currentIndex = index
+                        }
+                    }
 
 
+                }
+
+                onCurrentIndexChanged: {
+                    dataModel.editOrRemoveCorpusEnabled = (currentItem!==undefined && dataModel.addCorpusEnabled)
+                    corpusEditor.selectedCorpusIndex = currentIndex
+                    corpusEditor.selectedCorpusItem = corpusListModel.get(currentIndex).corpus
+
+                }
             }
 
-            onCurrentIndexChanged: {
-                dataModel.editOrRemoveCorpusEnabled = (currentItem!==undefined && dataModel.addCorpusEnabled)
-                corpusEditor.selectedCorpusIndex = currentIndex
-                corpusEditor.selectedCorpusItem = corpusListModel.get(currentIndex).corpus
-
-            }
-        }
-
-
-            MakerCorpusEdit {
-                id:corpusEditor
+            ScrollView {
+                id:scrollView
                 width: parent.width/2
                 height: parent.height
                 visible: dataModel.editOrRemoveCorpusEnabled
-                selectedCorpusItem: undefined
-                selectedCorpusIndex:-1
-                onNeedToBeSaveChanged: {
-                    if(corpusEditor.needToBeSave && corpusListModel.count>corpusEditor.selectedCorpusIndex && corpusEditor.selectedCorpusIndex>=0){
-                        corpusListModel.get(corpusEditor.selectedCorpusIndex).needToBeSave=true
-                        dataModel.corpusNeedToBeSaved=true
-                    }
-                }
-            }
+                clip: true
 
+
+                ScrollBar.vertical: ScrollBar {
+                    id:scrollBar
+                    policy: ScrollBar.AsNeeded
+                    height: scrollView.height
+                    width: 10*UIUtils.UI.dp
+                    x:scrollView.width-width
+
+                }
+                Keys.onUpPressed: scrollBar.decrease()
+                Keys.onDownPressed: scrollBar.increase()
+
+
+
+                MakerCorpusEdit {
+                    id:corpusEditor
+                    width: parent.width
+
+                    selectedCorpusItem: undefined
+                    selectedCorpusIndex:-1
+                    onNeedToBeSaveChanged: {
+                        if(corpusEditor.needToBeSave && corpusListModel.count>corpusEditor.selectedCorpusIndex && corpusEditor.selectedCorpusIndex>=0){
+                            corpusListModel.get(corpusEditor.selectedCorpusIndex).needToBeSave=true
+                            dataModel.corpusNeedToBeSaved=true
+                        }
+                    }
+
+                }
+
+            }
         }
+
+
 
     }
 }

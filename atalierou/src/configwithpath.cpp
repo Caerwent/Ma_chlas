@@ -5,6 +5,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QException>
+#include <QRegularExpression>
 #include <QtDebug>
 
 const QString ConfigWithPath::getPathAbsolute()
@@ -113,12 +114,29 @@ bool ConfigWithPath::read(const QString &filename)
                 emit error(tr("JSON object is empty."));
                 return false;
             }
+            if(!json_obj.contains("fileFormatVersion"))
+            {
+                emit error(tr("JSON object doesn't contain fileFormatVersion."));
+                return false;
+            }
+            auto charsMin = mRequieredMinVersion.split(QString("."));
+            auto charsMax = mRequieredMinVersion.split(QString("."));
+            QRegularExpression regexp("^(["+charsMin.at(0)+"-"+charsMax.at(0)+"])\\.(["+charsMin.at(1)+"-"+charsMax.at(1)+"])\\.(\\d+)");
+
+             QRegularExpressionMatch match = regexp.match(json_obj.value("fileFormatVersion").toString());
+            if(!match.hasMatch())
+            {
+                emit error(tr("Unsupported fileFormatVersion, should be between %1 and %2.").arg(mRequieredMinVersion, mRequieredMaxVersion));
+                return false;
+            }
+
 
             if(!json_obj.contains("path"))
             {
                 emit error(tr("JSON object doesn't contain path."));
                 return false;
             }
+
             //qDebug() << "path "<<json_obj.value("path").toString();
             mPath = json_obj.value("path").toString();
             if(mPath.isEmpty())
@@ -155,8 +173,10 @@ bool ConfigWithPath::save()
 
     try {
         QJsonObject json_obj;
+
+        json_obj["fileFormatVersion"] = this->getFileFormatVersion();
+
         json_obj["path"] = mPath;
-        QJsonArray jsonItems;
 
         QDir path=QDir(mPath);
         if(path.isRelative())

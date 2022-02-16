@@ -8,7 +8,9 @@ import "../components"
 import "../dataModels"
 Window {
     color: Material.background
-    visibility: "FullScreen"
+    //visibility: "FullScreen"
+    width:1145
+    height:845
     visible:true
     title: qsTr("Ma c'hlass atalieroù")
 

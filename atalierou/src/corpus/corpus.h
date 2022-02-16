@@ -33,6 +33,8 @@ signals:
 
 protected:
 
+    QString getFileFormatVersion() const Q_DECL_OVERRIDE { return "1.0.0";}
+
     bool writeContent(QJsonObject &json_obj,  QDir &path) Q_DECL_OVERRIDE;
     bool readContent(QJsonObject &json_obj,  QDir &path) Q_DECL_OVERRIDE;
 

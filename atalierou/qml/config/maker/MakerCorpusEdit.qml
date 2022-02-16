@@ -7,9 +7,12 @@ import "../../main"
 import "../../dataModels"
 import "../../components"
 
-Rectangle {
-    border.color :Material.dividerColor
-    color:Material.backgroundColor
+Flow {
+    id:corpusItem
+    flow:Flow.TopToBottom
+    spacing: 20*UIUtils.UI.dp
+    anchors.margins: 10*UIUtils.UI.dp
+
 
     required property var selectedCorpusItem
     required property var selectedCorpusIndex
@@ -123,12 +126,6 @@ Rectangle {
 
 
 
-        Flow {
-            id:corpusItem
-            anchors.fill: parent
-            flow:Flow.TopToBottom
-            spacing: 20*UIUtils.UI.dp
-            anchors.margins: 10*UIUtils.UI.dp
 
             Label {
                 text: qsTr("MakerCorpusEdit.corpusId.label")
@@ -285,4 +282,4 @@ Rectangle {
         }
 
 
-}
+

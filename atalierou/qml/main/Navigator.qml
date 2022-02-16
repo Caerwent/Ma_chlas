@@ -112,6 +112,10 @@ Flow {
         {
             MakerSession.reset()
         }
+        else if(currentItem===Screens.configMakerPhonoCountSyllabes)
+        {
+            MakerSession.reset()
+        }
 
     }
 

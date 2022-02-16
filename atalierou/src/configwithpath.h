@@ -45,6 +45,10 @@ protected:
 
     virtual bool writeContent(QJsonObject &json_obj,  QDir &path) = 0;
     virtual bool readContent(QJsonObject &json_obj,  QDir &path) = 0;
+
+    virtual QString getFileFormatVersion() const = 0;
+    QString mRequieredMinVersion = "1.0";
+    QString mRequieredMaxVersion = "1.0";
 private:
     bool updateFileLocationInfo(const QString &filename, bool checkExists);
 

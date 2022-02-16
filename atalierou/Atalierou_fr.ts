@@ -100,6 +100,10 @@ Doit être compris entre </translation>
         <source>accessible.help.clickToListen</source>
         <translation>consigne, cliquer pour écouter</translation>
     </message>
+    <message>
+        <source>accessible.clickToListen</source>
+        <translation type="vanished">Click to listen</translation>
+    </message>
 </context>
 <context>
     <name>Children</name>
@@ -235,37 +239,45 @@ Doit être 1.0</translation>
     </message>
     <message>
         <location filename="qml/config/maker/MakerCorpus.qml" line="64"/>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="103"/>
-        <source>MakerCorpus.corpusFile.new</source>
+        <source>Maker.File.new</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="109"/>
-        <source>MakerCorpus.corpusFile.save</source>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="125"/>
+        <source>Maker.corpus.new</source>
+        <translation>Nouveau</translation>
+    </message>
+    <message>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="131"/>
+        <source>Maker.File.save</source>
         <translation>Enregistrer</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="150"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="176"/>
         <source>MakerCorpus.corpusFile.label</source>
         <translation>Fichier de corpus</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="161"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="188"/>
         <source>MakerCorpus.corpusFile.open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="183"/>
+        <source>Maker.File.open</source>
+        <translation type="vanished">Ouvrir</translation>
+    </message>
+    <message>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="227"/>
         <source>MakerCorpus.corpusList.label</source>
         <translation>Liste des élements de corpus</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="208"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="255"/>
         <source>accessible.add</source>
         <translation>ajouter un élément</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="228"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="276"/>
         <source>accessible.remove</source>
         <translation>supprimer l&apos;élément sélectionné</translation>
     </message>
@@ -273,52 +285,57 @@ Doit être 1.0</translation>
 <context>
     <name>MakerCorpusEdit</name>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="20"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="23"/>
         <source>Choose audio file</source>
         <translation>Choix d&apos;un fichier audio</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="21"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>Audio files (*.mp3 *.ogg *.wav)</source>
         <translation>Fichier audio (*.mp3 *.ogg *.wav)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="21"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>All files (*)</source>
         <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="130"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="134"/>
         <source>MakerCorpusEdit.corpusId.label</source>
         <translation>Identifiant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="137"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="143"/>
         <source>MakerCorpusEdit.corpusId.hint</source>
         <translation>Entrez un identifiant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="145"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="151"/>
         <source>MakerCorpusEdit.corpusId.error</source>
         <translation>L&apos;identifiant ne doit pas être vide ou déjà utilisé</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="153"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="160"/>
         <source>MakerCorpusEdit.image.label</source>
         <translation>Fichier image</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="172"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="182"/>
         <source>MakerCorpusEdit.sound.label</source>
         <translation>Fichier audio</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="244"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="215"/>
+        <source>accessible.clickToListen</source>
+        <translation>cliquer pour écouter</translation>
+    </message>
+    <message>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="265"/>
         <source>MakerCorpusEdit.audioFile.open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="254"/>
+        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="272"/>
         <source>MakerCorpusEdit.nbSyllabes.label</source>
         <translation>Nombre de syllabes</translation>
     </message>
@@ -337,36 +354,16 @@ Doit être 1.0</translation>
     </message>
     <message>
         <location filename="qml/config/maker/MakerInitSession.qml" line="31"/>
-        <source>MakerInitSession.choice_new_from_scratch</source>
-        <translation>Créer une nouvelle configuration</translation>
+        <source>MakerInitSession.choice_new_corpus</source>
+        <translation>Créer un nouveau corpus</translation>
     </message>
     <message>
         <location filename="qml/config/maker/MakerInitSession.qml" line="39"/>
-        <source>MakerInitSession.choice_edit_global_config</source>
-        <translation>Éditer une configuration</translation>
-    </message>
-    <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="47"/>
-        <source>MakerInitSession.choice_new_activity</source>
-        <translation>Créer une nouvelle configuration d&apos;activité</translation>
-    </message>
-    <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="55"/>
-        <source>MakerInitSession.choice_edit_activity</source>
-        <translation>Éditer une configuration d&apos;activité</translation>
-    </message>
-    <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="63"/>
-        <source>MakerInitSession.choice_new_corpus</source>
-        <translation>Créer un corpus</translation>
-    </message>
-    <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="71"/>
         <source>MakerInitSession.choice_edit_corpus</source>
-        <translation>Éditer un corpus</translation>
+        <translation>Éditer un corpus existant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="80"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="48"/>
         <source>MakerInitSession.valid_btn</source>
         <translation>OK</translation>
     </message>
@@ -374,34 +371,32 @@ Doit être 1.0</translation>
 <context>
     <name>MakerSession</name>
     <message>
-        <location filename="qml/config/maker/MakerSession.qml" line="55"/>
         <source>Incompatible file format </source>
-        <translation>Format de fichier incompatible </translation>
+        <translation type="vanished">Format de fichier incompatible </translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerSession.qml" line="55"/>
         <source>
 Should be 1.0</source>
-        <translation>
+        <translation type="vanished">
 Doit être 1.0</translation>
     </message>
 </context>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="qml/main/Navigator.qml" line="73"/>
+        <location filename="qml/main/Navigator.qml" line="74"/>
         <source>Error when displaying screen %1 : %2
 %3</source>
         <translation>Erreur lors de l&apos;affichage de l&apos;écran %1 : %2
 %3</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="132"/>
+        <location filename="qml/main/Navigator.qml" line="141"/>
         <source>accessible.nav_back</source>
         <translation>retour</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="156"/>
+        <location filename="qml/main/Navigator.qml" line="165"/>
         <source>accessible.nav_exit</source>
         <translation>quitter</translation>
     </message>
@@ -469,62 +464,6 @@ Doit être 1.0</translation>
     </message>
 </context>
 <context>
-    <name>all</name>
-    <message>
-        <source>accessible.notSelected</source>
-        <translation type="vanished">non sélectionné</translation>
-    </message>
-    <message>
-        <source>accessible.selected</source>
-        <translation type="vanished">sélectionné</translation>
-    </message>
-    <message>
-        <source>accessible.correct</source>
-        <translation type="vanished">correct</translation>
-    </message>
-    <message>
-        <source>accessible.wrong</source>
-        <translation type="vanished">faux</translation>
-    </message>
-    <message>
-        <source>accessible.missing</source>
-        <translation type="vanished">oublié</translation>
-    </message>
-    <message>
-        <source>accessible.help.clickToListen</source>
-        <translation type="vanished">consigne, cliquer pour écouter</translation>
-    </message>
-    <message>
-        <source>accessible.clickToListen</source>
-        <translation type="vanished">cliquer pour écouter</translation>
-    </message>
-
-    <message>
-        <source>accessible.img.clickToListen</source>
-        <translation type="vanished">image, cliquer pour écouter</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.enable</source>
-        <translation type="vanished">cliquer pour vérifier la réponse</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.disable</source>
-        <translation type="vanished">pas de réponse à vérifier</translation>
-    </message>
-    <message>
-        <source>accessible.next</source>
-        <translation type="vanished">suivant</translation>
-    </message>
-    <message>
-        <source>accessible.nav_back</source>
-        <translation type="vanished">retour</translation>
-    </message>
-    <message>
-        <source>accessible.nav_exit</source>
-        <translation type="vanished">quitter</translation>
-    </message>
-</context>
-<context>
     <name>config</name>
     <message>
         <location filename="qml/config/config.qml" line="17"/>
@@ -574,7 +513,7 @@ Doit être 1.0</translation>
     <message>
         <location filename="qml/config/config.qml" line="98"/>
         <source>View class details</source>
-        <translation>Voir le détail pour le groupe</translation>
+        <translation>Voir les scores détaillés</translation>
     </message>
     <message>
         <location filename="qml/config/config.qml" line="108"/>
@@ -610,12 +549,67 @@ Doit être 1.0</translation>
         <location filename="qml/main/home.qml" line="42"/>
         <source>home_title</source>
         <translatorcomment>Atalierou</translatorcomment>
-        <translation>Atalierou</translation>
+        <translation>Atalieroù</translation>
     </message>
     <message>
         <source>Acessibility_config_name</source>
         <translatorcomment>Paramètres</translatorcomment>
         <translation type="vanished">Paramètres</translation>
+    </message>
+</context>
+<context>
+    <name>all</name>
+    <message>
+        <source>accessible.notSelected</source>
+        <translation type="vanished">non sélectionné</translation>
+    </message>
+    <message>
+        <source>accessible.selected</source>
+        <translation type="vanished">sélectionné</translation>
+    </message>
+    <message>
+        <source>accessible.correct</source>
+        <translation type="vanished">correct</translation>
+    </message>
+    <message>
+        <source>accessible.wrong</source>
+        <translation type="vanished">faux</translation>
+    </message>
+    <message>
+        <source>accessible.missing</source>
+        <translation type="vanished">oublié</translation>
+    </message>
+    <message>
+        <source>accessible.help.clickToListen</source>
+        <translation type="vanished">consigne, cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.clickToListen</source>
+        <translation type="vanished">cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.img.clickToListen</source>
+        <translation type="vanished">image, cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.enable</source>
+        <translation type="vanished">cliquer pour vérifier la réponse</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.disable</source>
+        <translation type="vanished">pas de réponse à vérifier</translation>
+    </message>
+    <message>
+        <source>accessible.next</source>
+        <translation type="vanished">suivant</translation>
+    </message>
+    <message>
+        <source>accessible.nav_back</source>
+        <translation type="vanished">retour</translation>
+    </message>
+    <message>
+        <source>accessible.nav_exit</source>
+        <translation type="vanished">quitter</translation>
     </message>
 </context>
 </TS>

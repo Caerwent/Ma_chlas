@@ -17,6 +17,7 @@ win32:RC_ICONS += icon.ico
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        src/GenericConfigWithPath.cpp \
         src/TreeModel.cpp \
         src/TreeNode.cpp \
         src/configWithPath.cpp \
@@ -46,6 +47,7 @@ QML_DESIGNER_IMPORT_PATH =
 
 HEADERS += \
     src/ActivityTypeScoreNode.h \
+    src/GenericConfigWithPath.h \
     src/ITreeNode.h \
     src/TreeModel.h \
     src/TreeNode.h \
