@@ -78,8 +78,8 @@ Item {
             id: groupDelegate
             Card {
                 id:group
-                width: groupGrid.cellWidth
-                height: groupGrid.cellHeight
+                width: groupGrid.cellWidth-10*UIUtils.UI.dp
+                height: groupGrid.cellHeight-10*UIUtils.UI.dp
                 selectable: true
                 padding: 10
                 label: name

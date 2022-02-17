@@ -18,7 +18,8 @@ Item {
     signal ended()
     signal startStarAnimation()
 
-    property string audioHelpSource:Session.activityAudioHelp
+    property string audioHelpSource:Session.activityIndex>=0? (Session.activityPath+Session.selectedActivities[Session.activityIndex].exercices[Session.exerciceIndex].helpFile) : ""
+
 
     property var responsesModel: _responsesModel
 

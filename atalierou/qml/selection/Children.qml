@@ -21,8 +21,8 @@ ScreenTemplate {
     Component {
         id: childrenDelegate
         Avatar {
-            width: childrenGrid.cellWidth
-            height: childrenGrid.cellHeight
+            width: childrenGrid.cellWidth- 10*UIUtils.UI.dp
+            height: childrenGrid.cellHeight- 10*UIUtils.UI.dp
             child: childRef
             isSelectable: true
             onSelected: {
@@ -30,7 +30,7 @@ ScreenTemplate {
                 App.instance.getNavigator().gotToScreen(
                             Screens.activitiesGroupChoice)
             }
-
+            padding:10*UIUtils.UI.dp
             Accessible.role: Accessible.Button
             Accessible.name: child ? child.name : ""
             Accessible.onPressAction: {

@@ -49,8 +49,8 @@ ScreenTemplate {
 
                         Card {
                             id:itemLevel
-                            width: 150*UIUtils.UI.dp;
-                            height: 150*UIUtils.UI.dp
+                            width: 140*UIUtils.UI.dp;
+                            height: 140*UIUtils.UI.dp
                             selectable:true
                             padding:10
                             label:Session.selectedActivities[levelRepeaterIndex].exercices[index].name

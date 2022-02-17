@@ -50,7 +50,7 @@ ScreenTemplate {
 
             AudioHelp {
                 id: help
-                audioFile:Session.activityAudioHelp
+                audioFile:itemModel.audioHelpSource
                 width: 60*UIUtils.UI.dp
                 height: 60*UIUtils.UI.dp
                 anchors.top: parent.top
@@ -107,7 +107,7 @@ ScreenTemplate {
             Component {
                 id:responsesModelDelegate
                 Column {
-                    spacing:10*UIUtils.UI.dp
+                    spacing:20*UIUtils.UI.dp
                     Image {
                         id: img
                         width: 100*UIUtils.UI.dp

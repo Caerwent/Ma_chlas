@@ -21,10 +21,11 @@ ScreenTemplate {
 
         Component {
             id: activityDelegate
+
             Card {
                 id:activity
-                width: activityGrid.cellWidth;
-                height: activityGrid.cellHeight
+                width: activityGrid.cellWidth-10*UIUtils.UI.dp;
+                height: activityGrid.cellHeight-10*UIUtils.UI.dp
                 selectable:true
                 padding:10
                 imgSource:ActivityCategories.getIconFromCategory(category)
@@ -39,6 +40,7 @@ ScreenTemplate {
                 Accessible.onPressAction: {
                         activity.selected()
                     }
+
 
             }
 

@@ -28,14 +28,14 @@ void Corpus::addItem(CorpusItem* item) {
 bool Corpus::readContent(QJsonObject &json_obj,  QDir &path)
 {
 
-    if(!json_obj.contains("items"))
+    if(!json_obj.contains("corpus"))
     {
         emit error(tr("JSON object doesn't contain items."));
         return false;
     }
     try {
 
-        QJsonArray items = json_obj["items"].toArray();
+        QJsonArray items = json_obj["corpus"].toArray();
         for ( const auto &item : items)
         {
             QJsonObject currItem = item.toObject();
@@ -95,7 +95,7 @@ bool Corpus::writeContent(QJsonObject &json_obj,  QDir &path)
             jsonItems.append(json_item);
 
         }
-        json_obj["items"] = jsonItems;
+        json_obj["corpus"] = jsonItems;
         QJsonDocument json_doc(json_obj);
         QString json_string = json_doc.toJson();
 

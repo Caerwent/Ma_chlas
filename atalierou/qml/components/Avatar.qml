@@ -11,6 +11,7 @@ import UserSession 1.0
         property var child
         property alias isSelectable:card.selectable
         property bool isSmall:false
+        property alias padding : card.padding
 
         onIsSmallChanged: {
             card.padding = isSmall ? 2 : 10

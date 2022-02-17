@@ -6,10 +6,11 @@
 
 Il s'agit d'un logiciel éducatif visant plutôt la maternelle avec comme objectif d'être facile à personnaliser et de facilement pouvoir ajouter de nouvelles activités par la suite.
 
-Il n'y a pour le moment que deux types d'activités gérés :
+Il n'y a pour le moment que trois types d'activités gérés :
 
 * le comptage de syllabes d'un mot
 * le positionnement de sons ou de syllabes dans un mot
+* la recherche d'un intrus (mot qui ne commence ou ne termine pas par la même son ou la même syllabe que les autres)
 
 L'essentiel de l'application tient dans ses données. Un jeu minimum de données est embarqué de façon à pouvoir lancer et utiliser l'application immédiatement mais son principal intérêt réside en la création de jeux de données personnalisés.
 Un jeu de données consiste en une arborescence de fichiers image et audio ainsi que de fichiers de description au format JSON qui définissent les activités. Les activités sont regroupées par catégorie et sont divisées en niveaux de difficultés.
@@ -28,7 +29,7 @@ Il n'y a pour le moment que la phonologie, d'autres catégories viendront s'ajou
 ### Écran de sélection du type d'activité
 ![Écran de sélection du type d'activité](doc/screen_select_activity_type.png)
 Une fois la catégorie choisie, l'écran suivant permet de choisir le type d'activité.
-En phonologie, l'application propose pour le moment le comptage de syllabes dans un mot ou la recherche d'un son ou d'une syllabe dans un mot.
+En phonologie, l'application propose pour le moment le comptage de syllabes dans un mot, la recherche d'un son ou d'une syllabe dans un mot ou la recherche d'un intrus dans une liste de mots (mot qui ne commence ou termine pas par le même son ou la même syllabe que les autres).
 
 ### Écran de sélection du niveau de difficulté
 ![Écran de sélection du niveau de difficulté](doc/screen_select_activity_level.png)
@@ -57,11 +58,21 @@ La recherche de son ou de syllabe dans un mot est assez similiare au comptage de
 Il peut y avoir plusieurs choix à saisir comme sur l'exemple ci-dessus ou le son ***"o"*** est à chercher dans les syllabes du mot tobogan.
 Sur cet exemple, l'élève a choisi la première et la troisième syllabe. La première syllabe est marquée en vert car ce choix est correct, la troisième syllabe est marqué par une croix rouge car ce choix est incorrect, la deuxième syllabe est marqué en noire car c'est une réponse non trouvée.
 
+### Phonologie : recherche de l'intrus
+![Phonologie : recherche de son ou de syllabe](doc/screen_find_intruder.png)
+La recherche de l'intrus conciste à trouver dans une liste de mots celui qui ne commence ou ne termine pas par le même son ou syllabe que les autres.
+Cet écran est similaire aux autres activités de phonologie. Sous chaque mot de la liste, une case à cocher permet de désigner l'intrus. Le bouton de consigne permet à chaque instant de savoir ce qui est demandé : savoir si les mots doivent commencer ou se terminer par un son ou une syllabe. Il n'y a qu'un seul intrus à trouver à chaque fois. 
+Le nombre maximum de mots à afficher, La position et le type de discriminant (son ou syllabe) sont fixés pour chaque exercice du niveau.
+La correction est affichée de la même façon que les autres activités, une croix rouge si le choix est faux, une coche verte si le choix est correct et une coche noire sur le résultat correct qui n'a pas été trouvé.
+
 ### Écran de configuration
 ![Écran de configuration](doc/config.png)
 L'écran de configuration permet de choisir l'une des 3 langues d'interface disponibles (français, anglais ou breton). Ce choix n'a que peu d'impact car l'essentiel de l'application est visuel.
 Il permet également de ne pas utiliser le jeu de données embarqué et de choisir un jeu de données personnalisé spécifié par un fichier au format JSON.
+Il est possible d'ouvrir un écran de gestion de configurations qui permet de créer ou éditer un ensemble de mots réutilisables pour les activités de phonologie.
 Toute modification n'est prise en compte qu'une fois validée par le bouton "appliquer".
+Lorsqu'une liste d'élèves est spécifiée par un jeu de données personnalisé, un nouveau bouton apparaît et permet d'accéder à l'écran de suivi des scores par élève.
+
 
 
 ## Jeu de données personnalisé
@@ -412,3 +423,197 @@ Et si le fichier de consigne pour l'élément contient le son ***o***, alors à 
 ***Regarde l'image et trouve la position des syllabes contenant le son o***
 
 Le champ **value** contient la liste des positions correctes. S'il n'y a qu'une seule position correct, la liste ne contient que cette position, sinon elle contient la liste de toutes les positions attendues. Par exemple, si on cherche le son **o** dans le mot tobogan, la liste devra contenir les valeurs 1 et 2 séparées par une virgule.
+
+## Fichier de configuration pour l'activité de recherche de l'intrus
+
+Comme pour tous les autres fichiers de configuration, ce fichier indique sa version de format (actuellement 1.0.0) et le chemin où trouver les différents fichiers référencés (attention, il doit se terminer par **/**). Cette fois-ci il n'y a pas de fichier de consigne au niveau de l'activité car elle peut changer d'un exercice à l'autre.
+
+Le corpus est la liste des éléments utilisables pour l'activité qui est construit de la même façon que pour le comptage de syllabes (un copier/coller peut être fait d'un fichier à l'autre si le corpus est le même).
+
+Vient ensuite la liste des niveaux, chacun contenant les champs :
+
+* **level** indique le niveau (il commence à 1 et doit être incrémenté de 1).
+* **nbItemsPerExercice** indique le nombre d'éléments à présenter par exercice. Pour chaque exercice, une série aléatoire sera créée à partir de la liste des éléments pour les présenter à l'élève.
+* **exercices** contient la liste des exercices à présenter pour ce niveau. À la différence des autres activités, chaque exercice peut être différent des autres et avoir son intérêt propre. Il est possible par exemple pour le premier exercice de cherche l'intrus en fonction de sa première syllabe alors que pour un second exercice ce sera en fonction de sa dernère syllabe.
+* **unlockScorePercent** indique le score à atteindre sur le niveau précédent pour débloquer ce niveau. Si rien n'est indiqué, la valeur par défaut de 80% est utilisée.
+
+
+
+```
+{
+"fileFormatVersion":"1.0.0",
+"path":"./",
+"corpus":[
+      {
+         "id":"bateau",
+         "image":"../images/bateau.png",
+         "sound":"fr/audio/bateau.mp3",
+         "nbSyllabes":2
+      },
+      {
+         "id":"bus",
+         "image":"../images/bus.png",
+         "sound":"fr/audio/bus.mp3",
+         "nbSyllabes":1
+      }
+      ...
+      {
+         "id":"velo",
+         "image":"../images/velo",
+         "sound":"fr/audio/velo",
+         "nbSyllabes":2
+      }
+],
+"levels":[
+    {
+        "level":1,
+        "nbItemsPerExercice":10,
+        "exercices":[
+            {
+                "name":"syllabe de début",
+                "max":3,
+                "helpFile":"audio/help_phono_start_same_syllable.mp3",
+                "items":[
+                    {
+                        "corpus":[
+                            "bateau",
+                            "ballon",
+                            ...
+                        ],
+                        "intruders":[
+                            "bus",
+                            "marteau",
+                            ...
+                        ]
+                    },
+                    {
+                        "corpus":[
+                            "moulin",
+                            "mouton",
+                            "mouche",
+                            ...
+                        ],
+                        "intruders":[
+                            "poussin",
+                            "marteau",
+                            "moto",
+                            ...
+                        ]
+                    }
+                ]
+            },
+            {
+                "name":"syllabe de fin",
+                "max":3,
+                "helpFile":"audio/help_phono_intruder_end_syllable.mp3",
+                "items":[
+                    {
+                        "corpus":[
+                            "bateau",
+                            "marteau",
+                            "moto",
+                            ...
+                        ],
+                        "intruders":[
+                            "tobogan",
+                            "ballon",
+                            ...
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level":2,
+        "unlockScorePercent":80,
+        "exercices":[
+            {
+                "name":"son de début",
+                "max":3,
+                "helpFile":"audio/help_phono_start_same_sound.mp3",
+                "items":[
+                    {
+                        "corpus":[
+                            "bateau",
+                            "ballon",
+                            "bus",
+                            ...
+                        ],
+                        "intruders":[
+                            "marteau",
+                            "puce",
+                            ...
+                        ]
+                    },
+                    {
+                        "corpus":[
+                            "moulin",
+                            "mouton",
+                            "mouche",
+                            "marteau",
+                            "moto",
+                            ...
+                        ],
+                        "intruders":[
+                            "poussin",
+                            "ballon",
+                            ...
+                        ]
+                    }
+                ]
+            }
+         ]
+      }
+   ]
+}
+```
+Chaque exercice est composé de la façon suivante :
+
+* **name** contient le nom de l'exercice qui sera présenté dans la liste des exercices.
+* **max** contient le nombre de mots de la liste, intrus compris.
+* **helpFile** indique le nom du fichier audio de consigne, il est obligatoire car il ne peut pas y avoir de consigne par défaut pour cette activité.
+* **items** contient la liste des éléments possible pour cet exercice.
+
+Chaque élément de la liste **items** est composé de deux listes de mots :
+
+* **corpus** la liste des mots qui ne sont pas des intrus,
+* **intruders** la liste des mots qui sont des intrus.
+
+Pour chaque exercice, l'application va créer une série dont le nombre d'éléments correspondra à la valeur de **nbItemsPerExercice** et qui seront construit par tirage aléatoire dans la liste **items** puis à nouveau par tirage aléatoire d'un intrus dans la liste **intruders** et du nombre de mots nécessaires dans la liste **corpus** pour arriver au nombre de mots à proposer.  
+Chaque élément de la liste **items** pouvant désigner des mots qui commencent ou terminent pars des syllabes ou sons différents, il est possible de varier dans la même série.
+
+## Editeur graphique pour les corpus
+L'écriture de fichier JSON pouvant être fastidieuse, l'application propose de gérer les corpus au moyen d'un éditeur graphique.
+Il est accessible depuis l'écran de configuration, en appuyant sur le bouton "Ouvrir" associé à "Gestion des configurations". 
+![Gestion des corpus](doc/config_editor.png)
+Deux choix sont possibles : la création d'un nouveau fichier de corpus ou la modification d'un corpus existant.
+La différence entre les deux choix tient au fait que la création va demander à choisir un nouveau fichier, si un fichier existant est choisi, il sera écrasé. L'édition va charger un fichier existant pour modification.
+
+Un fichier de corpus est un fichier JSON dans lequel se trouve les éléments :
+
+* **fileFormatVersion** contenant la version format du fichier, attention ici il s'agit du format pour le coprus, la version du format pour un fichier de configuration d'une activité peut varier.
+* **path** le chemin de référence qui doit se terminer par **/**. La majorité du temps, il contiendra le répertoire courant : **"./"**
+* **corpus** qui contient la liste des mots du corpus.
+
+
+Que ce soit pour la création ou l'édition, un écran du type suivant est affiché.
+![Gestion des corpus](doc/config_editor_corpus.png)
+La liste des éléments du corpus, à gauche, affiche la liste des identifiants des éléments du corpus.
+En sélectionnant l'un des éléments de cette liste, la partie à droite se met à jour et affiche pour l'élément sélectionné avec :
+
+* Son identifiant, il ne doit pas être vide et ne doit pas déjà être utilisé dans la liste.
+* Le nom du fichier image ainsi qu'une visualisation de cette image. Il ne peut pas être changé.
+* Le nom du fichier audio associé. Il peut être changé (bouton "ouvrir" puis choix d'un fichier audio). Lorsqu'un fichier audio est associé à l'élément, le bouton devant le nom du fichier permet de l'écouter.
+* Le nombre de syllabes du mot
+
+Un symbole de crayon s'affiche à côté du bouton d'enregistrement à chaque modification. Un autre, plus petit, s'affiche également en face de chaque élément modifié de la liste. Ces crayons disparaissent suite après enregistrement.
+
+Au dessus de la liste, un bouton "**-**" permet de supprimer l'élément sélectionné et un bouton "**+**" permet d'ajouter un nouvel élément. Cela ouvre une boîte de dialogue permettant de choisir un fichier image. Le nom du fichier image servira d'identifiant par défaut pour le nouvel élément. Le fichier audio associé est initialisé vide et le nombre de syllabe est initialisé à 1.
+
+**_Remarque_** : Les fichiers image et audio peuvent être choisis n'importe où sur le disque, l'éditeur graphique cherchera à trouver leur chemin relatif au chemin de référence **path**. Si ce dernier est lui-même relatif, il sera considéré comme relatif à l'emplacement du fichier de corpus en cours d'édition.
+Lors de la création d'un nouveau fichier de corpus par l'éditeur, le chemin de référence sera "./" et désignera donc le dossier dans lequel se trouve le fichier.
+
+L'éditeur n'est qu'une aide à la création de configuration. Chaque fichier de configuration d'activité embarque son propre corpus de façon à le rendre le plus indépendant possible.
+Il est cependant facile d'en créer un en copiant un fichier de corpus et en y ajoutant la partie spécifique à l'activité (et en adaptant si besoin la version du format de fichier) ou en copiant telle quelle la liste **corpus** d'un fichier de corpus.
+Il faudra également veiller à ce que le chemin de référence du fichier de configuration d'activité reste valable si sa localisation sur le disque n'est pas la même que le fichier de corpus ayant été utilisé.

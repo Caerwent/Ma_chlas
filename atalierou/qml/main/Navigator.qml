@@ -112,10 +112,7 @@ Flow {
         {
             MakerSession.reset()
         }
-        else if(currentItem===Screens.configMakerPhonoCountSyllabes)
-        {
-            MakerSession.reset()
-        }
+
 
     }
 
@@ -176,6 +173,7 @@ Flow {
         isSelectable:false
         visible:false
         isSmall:true
+        padding:3*UIUtils.UI.dp
         Accessible.ignored: true
     }
 
@@ -183,6 +181,7 @@ Flow {
         id:activity
         width: 60*UIUtils.UI.dp
         height: 60*UIUtils.UI.dp
+        padding:3*UIUtils.UI.dp
         labelSize:8
         visible:false
         selectable:false

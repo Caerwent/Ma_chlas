@@ -1,7 +1,6 @@
 {
    "fileFormatVersion":"1.0.0",
    "path":"qrc:/res/data/br/",
-   "helpFile":"audio/help_phono_findSyllabe.mp3",
    "corpus":[
       {
          "id":"bateau",
@@ -343,7 +342,7 @@
             {
                "name":"syllabeStart",
                "max":3,
-               "helpFile":"../audio/help_phono_intruder_start_syllable.mp3",
+               "helpFile":"audio/help_phono_start_same_syllable.mp3",
                "items":[
                   {
                      "corpus":[
@@ -372,7 +371,7 @@
             {
                "name":"syllabeEnd",
                "max":3,
-               "helpFile":"../audio/help_phono_intruder_end_syllable.mp3",
+               "helpFile":"audio/help_phono_intruder_end_syllable.mp3",
                "items":[
                   {
                      "corpus":[
@@ -388,12 +387,13 @@
       },
       {
          "level":2,
+         "nbItemsPerExercice":10,
          "unlockScorePercent":80,
          "exercices":[
             {
                "name":"soundStart",
                "max":3,
-               "helpFile":"../audio/help_phono_intruder_start_sound.mp3",
+               "helpFile":"audio/help_phono_start_same_sound.mp3",
                "items":[
                   {
                      "corpus":[
@@ -416,7 +416,7 @@
             {
                "name":"SoundEnd",
                "max":3,
-               "helpFile":"../audio/help_phono_intruder_end_sound.mp3",
+               "helpFile":"audio/help_phono_intruder_end_sound.mp3",
                "items":[
                   {
                      "corpus":[
