@@ -12,5 +12,10 @@ QtObject {
     property string activityChoiceLevel:"qrc:/qml/selection/ActivityChoiceLevel.qml"
     property string countSyllabes:"qrc:/qml/phono/CountSyllabes.qml"
     property string findSoundOrSyllabe:"qrc:/qml/phono/FindSoundOrSyllabe.qml"
+    property string findIntruder:"qrc:/qml/phono/FindIntruder.qml"
     property string score:"qrc:/qml/main/ScoreScreen.qml"
+
+    property string configMaker:"qrc:/qml/config/maker/MakerInitSession.qml"
+    property string configMakerCorpus:"qrc:/qml/config/maker/MakerCorpus.qml"
+    property string configMakerPhonoCountSyllabes:"qrc:/qml/config/maker/phono/MakerCountSyllabes.qml"
 }

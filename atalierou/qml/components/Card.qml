@@ -4,7 +4,8 @@ import UIUtils 1.0 as UIUtils
 import "."
 
 
-Item {
+Rectangle {
+    id:root
         property string label
         property int labelSize :16
         property string imgSource
@@ -13,15 +14,13 @@ Item {
         property var bkgColor:Material.primaryColor
 
         signal selected()
-        Rectangle {
-            width: (parent.width-padding*UIUtils.UI.dp)
-            height: (parent.height-padding*UIUtils.UI.dp)
-            anchors.horizontalCenter: parent.horizontalCenter
-             anchors.verticalCenter: parent.verticalCenter
-            border.color:Material.primary
-            border.width: 2*UIUtils.UI.dp
-            radius: 10*UIUtils.UI.dp
-            color:bkgColor
+
+    border.color:Material.primary
+    border.width: 2*UIUtils.UI.dp
+    radius: 10*UIUtils.UI.dp
+    color:bkgColor
+
+
             MouseArea {
                    anchors.fill: parent
                    hoverEnabled: selectable
@@ -39,36 +38,42 @@ Item {
                        }
                    }
                }
-        Column {
-            width: (parent.width-padding*UIUtils.UI.dp)
-            height: (parent.height-padding*UIUtils.UI.dp)
-            anchors.horizontalCenter: parent.horizontalCenter
-             anchors.verticalCenter: parent.verticalCenter
-            spacing: 2*UIUtils.UI.dp
+
             Label {
+                id:cardLabel
                 text: label ? label : ""
                 color:Material.primaryTextColor
-                width: (parent.width-padding*UIUtils.UI.dp)
+                width: Math.min(implicitWidth, (parent.width-2*padding*UIUtils.UI.dp - 2*root.border.width))
+                anchors.top: parent.top
+                anchors.topMargin: padding*UIUtils.UI.dp+2*root.border.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pointSize: labelSize
                 horizontalAlignment: Text.AlignHCenter
+                rightInset: 3*UIUtils.UI.dp
+                leftInset: 3*UIUtils.UI.dp
                 wrapMode: Text.Wrap
+                background: Rectangle {
+                    anchors.fill: cardLabel
+                    color:Material.backgroundColor
+                    radius: 3*UIUtils.UI.dp
+                }
             }
             Image {
-
+                width: (parent.width-2*padding*UIUtils.UI.dp-2*root.border.width)
+                height:(parent.height-2*padding*UIUtils.UI.dp-labelSize*UIUtils.UI.dp-root.border.width)
                 source: imgSource ? imgSource : ""
+                anchors.top: parent.top
 
-                width: (parent.width-padding*UIUtils.UI.dp)
-             //   height: (childrenGrid.cellWidth-20*UIUtils.UI.dp)
+                fillMode: Image.PreserveAspectFit
+                anchors.topMargin: padding*UIUtils.UI.dp+labelSize*UIUtils.UI.dp+root.border.width
                 anchors.horizontalCenter: parent.horizontalCenter
-
                 sourceSize: Qt.size(width, height)
             }
 
 
 
-           }
-        }
+
+
 
     }
 

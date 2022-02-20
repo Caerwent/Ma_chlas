@@ -29,8 +29,8 @@ Item {
     property var responsesModel: _responsesModel
 
     onCurrentItemChanged: {
-        imageSource = Qt.resolvedUrl(Session.activityPath+corpusItem.image);
-        audioSource =Qt.resolvedUrl(Session.activityPath+corpusItem.sound);
+        imageSource = Qt.resolvedUrl(Session.activityPath+corpusItem.image)
+        audioSource =Qt.resolvedUrl(Session.activityPath+corpusItem.sound)
         var newAudioHelpCompFile =  Qt.resolvedUrl(Session.activityPath+currentItem.helpFile)
         if(newAudioHelpCompFile.toString()===audioHelpCompSource)
         {
@@ -47,8 +47,19 @@ Item {
     }
 
 
+    function getShuffleRandomItems()
+    {
+        // Shuffle array
+        var shuffled = Session.selectedActivities[Session.activityIndex].items.sort(() => 0.5 - Math.random());
+
+        // Get sub-array of first n elements after shuffled
+        var selected = shuffled.slice(0,Session.selectedActivities[Session.activityIndex].nbItemsPerExercice);
+        return selected
+    }
+
+
     function init() {
-        items = Session.getShuffleRandomItems()
+        items = getShuffleRandomItems()
         changeIndex(0)
     }
 

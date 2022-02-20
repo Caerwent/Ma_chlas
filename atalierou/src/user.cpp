@@ -151,15 +151,15 @@ bool User::addScore(const QString& activityCategory, const QString& activityType
 bool User::read(const QString &path)
 {
     if (path.isEmpty()){
-        emit error("source is empty");
+        emit error(tr("source file is empty"));
         return false;
     }
     if (mGroup.isEmpty()){
-        emit error("group is empty");
+        emit error(tr("group is empty"));
         return false;
     }
     if (mName.isEmpty()){
-        emit error("name is empty");
+        emit error(tr("name is empty"));
         return false;
     }
 
@@ -221,7 +221,7 @@ bool User::readInternal()
 
         if (json_doc.isNull()) {
             qDebug() << "Parse failed " << errorPtr.errorString();
-            emit error("Failed to create JSON doc.");
+            emit error(tr("Failed to create JSON doc."));
             return false;
         }
         else if (!json_doc.isObject()) {
@@ -232,7 +232,7 @@ bool User::readInternal()
         {
             QJsonObject json_obj = json_doc.object();
             if (json_obj.isEmpty()) {
-                emit error("JSON object is empty.");
+                emit error(tr("JSON object is empty."));
                 return false;
             }
             else
@@ -338,7 +338,7 @@ bool User::readInternal()
     {
         QFileInfo fileInfo(file);
         QString filename(fileInfo.absoluteFilePath());
-        emit error("Unable to open the file "+ filename);
+        emit error(tr("Unable to open file %1").arg(filename));
         return false;
     }
 }
@@ -351,7 +351,7 @@ bool User::write()
     QFile file(mFilename);
     qDebug() << "write user session file " << mFilename;
     if(!file.open(QIODevice::WriteOnly|QFile::Truncate)){
-        emit error("failed to open save file");
+        emit error(tr("failed to write file %1").arg(mFilename));
         return false;
     }
     else
@@ -447,7 +447,7 @@ bool User::exportCSV(QUrl& csvFilename)
 
 
     if(!file.open(QIODevice::WriteOnly|QFile::Truncate)){
-        emit error("failed to open save file");
+        emit error(tr("failed to write file %1").arg(file.fileName()));
         return false;
     }
     else

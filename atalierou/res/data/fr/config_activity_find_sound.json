@@ -434,8 +434,8 @@
          ],
          "nbItemsPerExercice":10,
          "exercices":[
-            "exo1",
-            "exo2"
+            {"name":"exo1"},
+            {"name":"exo2"}
          ]
       },
       {
@@ -522,8 +522,8 @@
          ],
          "nbItemsPerExercice":10,
          "exercices":[
-            "exo1",
-            "exo2"
+            {"name":"exo1"},
+            {"name":"exo2"}
          ]
       }
    ]

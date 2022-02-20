@@ -5,6 +5,7 @@ import UIUtils 1.0 as UIUtils
 import "."
 import "../components"
 import "../dataModels"
+import "../config/maker"
 Flow {
 
     id:navigator
@@ -107,6 +108,11 @@ Flow {
         {
             Session.activityScore=0
         }
+        else if(currentItem===Screens.configMakerCorpus)
+        {
+            MakerSession.reset()
+        }
+
 
     }
 
@@ -126,15 +132,14 @@ Flow {
             }
         }
 
-     /*   Accessible {
 
-            role: Accessible.Button
-            name: qsTr("accessiblity.nav_back")
+
+            Accessible.role: Accessible.Button
+            Accessible.name: qsTr("accessible.nav_back")
             Accessible.onPressAction: {
                 navigator.back()
             }
 
-        }*/
     }
 
 
@@ -154,7 +159,7 @@ Flow {
 
 
         Accessible.role: Accessible.Button
-        Accessible.name: qsTr("accessiblity.nav_exit")
+        Accessible.name: qsTr("accessible.nav_exit")
         Accessible.onPressAction: {
                 navigator.back()
             }
@@ -168,15 +173,19 @@ Flow {
         isSelectable:false
         visible:false
         isSmall:true
+        padding:3*UIUtils.UI.dp
+        Accessible.ignored: true
     }
 
     Card {
         id:activity
         width: 60*UIUtils.UI.dp
         height: 60*UIUtils.UI.dp
+        padding:3*UIUtils.UI.dp
         labelSize:8
         visible:false
         selectable:false
+        Accessible.ignored: true
     }
 
     onChildChanged : {

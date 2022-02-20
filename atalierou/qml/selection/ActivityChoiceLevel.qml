@@ -10,23 +10,27 @@ ScreenTemplate {
 
     titleText: qsTr("Activity Level")
 
-
+    AppScrollView {
+        id:screen
         Column {
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.right: parent.right
 
             spacing: 10*UIUtils.UI.dp
             Repeater {
                 id: levelRepeater
                 model: Session.selectedActivities? Session.selectedActivities.length:0
 
-                Row {
+                Flow {
                     id:levelRow
                     spacing: 5*UIUtils.UI.dp
                     property int levelRepeaterIndex :index
                     property int levelScore
                     property bool isLocked
                     anchors.left: parent.left
+                    anchors.right: parent.right
+                    flow:Flow.LeftToRight
 
                     GaugeImage {
                         width: 60*UIUtils.UI.dp
@@ -39,6 +43,8 @@ ScreenTemplate {
                         overlayFullColor: "#ED8A19"
                         fillPercent:  levelScore
                         source: "qrc:///res/icons/starGauge.svg"
+                        Accessible.role: Accessible.StaticText
+                        Accessible.name: qsTr("accessible.score_%1").arg(levelScore)
 
                     }
                     Repeater {
@@ -47,11 +53,11 @@ ScreenTemplate {
 
                         Card {
                             id:itemLevel
-                            width: 150*UIUtils.UI.dp;
-                            height: 150*UIUtils.UI.dp
+                            width: 140*UIUtils.UI.dp;
+                            height: 140*UIUtils.UI.dp
                             selectable:true
                             padding:10
-                            label:Session.selectedActivities[levelRepeaterIndex].exercices[index]
+                            label:Session.selectedActivities[levelRepeaterIndex].exercices[index].name
                             imgSource:ActivityCategories.getIconFromType(Session.activityType)
                             bkgColor : ActivityCategories.getColorStringFromLevel(Session.selectedActivities[levelRepeaterIndex].level)
                             enabled: !isLocked
@@ -168,5 +174,6 @@ ScreenTemplate {
 
 
         }
+    }
 
 }

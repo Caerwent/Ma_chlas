@@ -26,12 +26,12 @@ Item {
             }
         }
 
-      /*  Accessible.role: Accessible.Button
-        Accessible.name: qsTr("Acessibility_config_name")
-        Accessible.description: qsTr("Acessibility_config_desc")
+        Accessible.role: Accessible.Button
+        Accessible.name: qsTr("accessible.config")
         Accessible.onPressAction: {
             App.instance.getNavigator().gotToScreen(Screens.config)
-        }*/
+        }
+
     }
     Label {
         anchors.left: parent.left
@@ -78,8 +78,8 @@ Item {
             id: groupDelegate
             Card {
                 id:group
-                width: groupGrid.cellWidth
-                height: groupGrid.cellHeight
+                width: groupGrid.cellWidth-10*UIUtils.UI.dp
+                height: groupGrid.cellHeight-10*UIUtils.UI.dp
                 selectable: true
                 padding: 10
                 label: name

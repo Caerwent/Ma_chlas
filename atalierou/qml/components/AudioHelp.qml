@@ -19,8 +19,13 @@ Item {
     function play() {
         helpMediaPlayer.play()
     }
-
+    Accessible.role: Accessible.Button
+    Accessible.name: qsTr("accessible.help.clickToListen")
+    Accessible.onPressAction: {
+        play()
+    }
     ColoredImage {
+        Accessible.ignored: true
         anchors.fill: parent
         id: help
         source: "qrc:///res/icons/help.svg"
@@ -30,7 +35,7 @@ Item {
             anchors.fill: parent
             enabled:audioHelp.clickable
             onClicked: {
-                helpMediaPlayer.play()
+                play()
             }
         }
     }
@@ -42,24 +47,67 @@ Item {
 
         }
         onPlaybackStateChanged: {
-            var temp
 
             switch (playbackState)
             {
             case MediaPlayer.PlayingState:
-                temp = "MediaPlayer.PlayingState"
+                //console.log("MediaPlayer.PlayingState")
                 audioStart()
                 break;
 
             case MediaPlayer.PausedState:
-                temp = "MediaPlayer.PausedState"
+                //console.log("MediaPlayer.PausedState")
                 break;
 
             case MediaPlayer.StoppedState:
-                temp = "MediaPlayer.StoppedState"
+                //console.log("MediaPlayer.StoppedState")
                  audioEnded()
                 break;
-            //console.log(temp)
+
+            }
+        }
+        onMediaStatusChanged: {
+            switch (mediaStatus)
+            {
+            case MediaPlayer.NoMedia:
+                console.log("MediaPlayer.NoMedia")
+                audioStart()
+                break;
+
+
+            case MediaPlayer.LoadingMedia:
+                console.log("MediaPlayer.LoadingMedia")
+                break;
+
+            case MediaPlayer.LoadedMedia:
+                console.log("MediaPlayer.LoadedMedia")
+                break;
+
+            case MediaPlayer.BufferingMedia:
+                console.log("MediaPlayer.BufferingMedia")
+
+                break;
+            case MediaPlayer.BufferingMedia:
+                console.log("MediaPlayer.BufferingMedia")
+                break;
+
+            case MediaPlayer.StalledMedia:
+                console.log("MediaPlayer.StalledMedia")
+                break;
+
+            case MediaPlayer.BufferingMedia:
+                //console.log("MediaPlayer.BufferingMedia")
+                break;
+
+            case MediaPlayer.BufferedMedia:
+                console.log("MediaPlayer.BufferedMedia")
+                break;
+            case MediaPlayer.EndOfMedia:
+                console.log("MediaPlayer.EndOfMedia")
+                break;
+            case MediaPlayer.InvalidMedia:
+                console.log("MediaPlayer.InvalidMedia")
+                break;
             }
         }
 

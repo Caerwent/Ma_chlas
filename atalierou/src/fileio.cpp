@@ -13,7 +13,7 @@ FileIO::FileIO(QObject *parent) :
 QString FileIO::getPath()
 {
     if (mSource.isEmpty()){
-        emit error("source is empty");
+        emit error(tr("file name is empty"));
         return QString();
     }
     QString src;
@@ -34,7 +34,7 @@ QString FileIO::getPath()
 QString FileIO::read()
 {
     if (mSource.isEmpty()){
-        emit error("source is empty");
+        emit error(tr("file name is empty"));
         return QString();
     }
     QString src;
@@ -61,7 +61,7 @@ QString FileIO::read()
     } else {
         QFileInfo fileInfo(file);
         QString filename(fileInfo.absoluteFilePath());
-        emit error("Unable to open the file "+ filename);
+        emit error(tr("Unable to open file %1").arg(filename));
                 return QString();
             }
             return fileContent;
@@ -70,7 +70,7 @@ QString FileIO::read()
 int FileIO::getNumberOfLines(){
 
     if (mSource.isEmpty()){
-        emit error("source is empty");
+        emit error(tr("file name is empty"));
         return -1;
     }
 
@@ -87,7 +87,7 @@ int FileIO::getNumberOfLines(){
 
         file.close();
     } else {
-        emit error("Unable to open the file");
+        emit error(tr("Unable to open file %1").arg(mSource));
                 return -1;
             }
             return numberOfLines-1;
@@ -101,7 +101,10 @@ bool FileIO::write(const QString& data)
     QFile file(mSource);
     //"append" allows adding a new line instead of rewriting the file
      if (!file.open(QFile::WriteOnly | QIODevice::Text | QFile::Append))
+     {
+         emit error(tr("Unable to write file %1").arg(mSource));
           return false;
+     }
 
     QTextStream out(&file);
        out << data <<"\n";

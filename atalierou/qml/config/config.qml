@@ -69,6 +69,7 @@ Component {
                     onClicked: {
                         fileOpenDialog.open()
                     }
+
                 }
             }
             Flow {
@@ -100,6 +101,19 @@ Component {
                     App.instance.getNavigator().gotToScreen(Screens.configDetails)
                 }
 
+            }
+            Flow {
+                spacing: 20*UIUtils.UI.dp
+                Label {
+                    text: qsTr("Config edition")
+                }
+                Button {
+                    text: qsTr("Editor")
+                    onClicked: {
+                        App.instance.getNavigator().gotToScreen(Screens.configMaker)
+                    }
+
+                }
             }
 
             Label {

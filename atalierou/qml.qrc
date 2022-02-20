@@ -1,6 +1,6 @@
 <RCC>
-	<qresource prefix="/">
-	 <file>res/shaders/colorizeFrag.qsb</file>
+    <qresource prefix="/">
+        <file>res/shaders/colorizeFrag.qsb</file>
         <file>res/shaders/colorizeVert.qsb</file>
         <file>res/icons/gear.svg</file>
         <file>res/icons/back.svg</file>
@@ -148,7 +148,7 @@
         <file>res/data/audio/help_phono_findSyllabes_o.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_oi.mp3</file>
         <file>res/data/br/audio/abeille.mp3</file>
-        <file>res/data/br/audio/allumette.mp3</file>
+        <file>res/data/br/audio/allumettes.mp3</file>
         <file>res/data/br/audio/arbre.mp3</file>
         <file>res/data/br/audio/ballon.mp3</file>
         <file>res/data/br/audio/bateau.mp3</file>
@@ -207,12 +207,9 @@
         <file>res/data/fr/audio/escargot.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_o_ouvert.mp3</file>
         <file>res/data/audio/help_phono_findSyllabes_ou.mp3</file>
- 	</qresource>
-    <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>qml/main/main.qml</file>
         <file>qml/scripts/loadJson.js</file>
-        <file>qml/main/Splash.qml</file>
         <file>qml/main/home.qml</file>
         <file>qml/config/config.qml</file>
         <file>qml/main/Screens.qml</file>
@@ -242,5 +239,26 @@
         <file>qml/phono/CountSyllabesModel.qml</file>
         <file>qml/phono/FindSoundOrSyllabeModel.qml</file>
         <file>qml/main/ScreenTemplate.qml</file>
+        <file>res/data/fr/config_activity_find_intruder.json</file>
+        <file>res/data/br/config_activity_find_intruder.json</file>
+        <file>res/icons/findIntruder.svg</file>
+        <file>qml/phono/FindIntruder.qml</file>
+        <file>qml/phono/FindIntruderModel.qml</file>
+        <file>qml/config/maker/MakerInitSession.qml</file>
+        <file>qml/config/maker/MakerSession.qml</file>
+        <file>qml/config/maker/qmldir</file>
+        <file>qml/config/maker/MakerCorpus.qml</file>
+        <file>res/icons/action_edit.svg</file>
+        <file>res/icons/action_remove.svg</file>
+        <file>res/icons/action_add.svg</file>
+        <file>qml/config/maker/MakerCorpusEdit.qml</file>
+        <file>res/icons/action_record.svg</file>
+        <file>res/icons/action_play.svg</file>
+        <file>qml/components/ComboBoxEditableItem.qml</file>
+        <file>res/data/fr/audio/help_phono_start_same_sound.mp3</file>
+        <file>res/data/fr/audio/help_phono_start_same_syllabe.mp3</file>
+        <file>res/data/br/audio/help_phono_start_same_sound.mp3</file>
+        <file>res/data/br/audio/help_phono_start_same_syllabe.mp3</file>
+        <file>qml/components/AppScrollView.qml</file>
     </qresource>
 </RCC>

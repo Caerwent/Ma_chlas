@@ -11,7 +11,8 @@ ScreenTemplate {
     id:countPhonems
 
     titleText: qsTr("Count syllabes")
-
+    AppScrollView {
+        id:screen
     CountSyllabesModel {
         id:itemModel
 
@@ -111,6 +112,7 @@ ScreenTemplate {
                     anchors.margins: 10*UIUtils.UI.dp
                     source: "qrc:///res/icons/listen.svg"
                     overlayColor: Material.accentColor
+                    visible:false
 
                 }
                 MediaPlayer {
@@ -289,6 +291,9 @@ ScreenTemplate {
 
 
 
+
+    }
+
     function startSound()
     {
         playSoundIndicator.opacity=1
@@ -307,7 +312,5 @@ ScreenTemplate {
     {
         itemModel.init()
     }
-
-
 
 }

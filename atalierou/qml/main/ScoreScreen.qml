@@ -10,7 +10,8 @@ ScreenTemplate {
     id:childrenComponent
 
     titleText: qsTr("Score")
-
+    AppScrollView {
+        id:screen
     Item {
         id:childrenFrame
         anchors.fill: parent
@@ -76,7 +77,8 @@ ScreenTemplate {
             fillPercent: 0
             source: "qrc:///res/icons/starGauge.svg"
 
-
+            Accessible.role: Accessible.StaticText
+            Accessible.name: qsTr("accessible.score_%1").arg(fillPercent)
 
         }
 
@@ -92,10 +94,16 @@ ScreenTemplate {
 
                 App.instance.getNavigator().back()
             }
+
+            Accessible.role: Accessible.Button
+            Accessible.name: qsTr("accessible.nav_back")
+            Accessible.onPressAction: {
+                App.instance.getNavigator().back()
+            }
         }
         }
 
-
+}
 
 
 

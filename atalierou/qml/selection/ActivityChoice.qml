@@ -11,55 +11,57 @@ ScreenTemplate {
 
     titleText: qsTr("Activity choice")
 
-
-    Item {
+    AppScrollView {
         id:screen
-        anchors.fill: parent
-        ListModel {
-            id: activityModel
 
 
-        }
+        Flow {
+            id: activityGrid
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            flow:Flow.LeftToRight
+            spacing: 10*UIUtils.UI.dp
 
-        Component {
-            id: activityDelegate
-            Card {
-                id:activity
-                width: activityGrid.cellWidth;
-                height: activityGrid.cellHeight
-                selectable:true
-                padding:10
-                imgSource:ActivityCategories.getIconFromType(type)
-                onSelected:
-                {
-                        screen.loadActivities(configFile, type)
+            Repeater {
+                model: ListModel {
+                    id: activityModel
+
 
                 }
 
+                delegate: Component {
+                    id: activityDelegate
+                    Card {
+                        id:activity
+                        width: 150*UIUtils.UI.dp-10*UIUtils.UI.dp
+                        height: 150*UIUtils.UI.dp-10*UIUtils.UI.dp
+                        selectable:true
+                        padding:10
+                        imgSource:ActivityCategories.getIconFromType(type)
+                        onSelected:
+                        {
+                                screen.loadActivities(configFile, type)
+
+                        }
 
 
-                 Accessible.role: Accessible.Button
-                 Accessible.name: ActivityCategories.getAccessibleFromType(ActivityCategories)
-                 Accessible.onPressAction: {
-                        activity.selected()
+
+                         Accessible.role: Accessible.Button
+                         Accessible.name: ActivityCategories.getAccessibleFromType(ActivityCategories)
+                         Accessible.onPressAction: {
+                                activity.selected()
+                            }
+
+
                     }
 
 
+                }
             }
-
-
         }
 
-        GridView {
-            id: activityGrid
-            anchors.fill: parent
-            interactive: false
-            cellWidth: 150*UIUtils.UI.dp; cellHeight: 150*UIUtils.UI.dp
-flow:GridView.FlowLeftToRight
-            model: activityModel
-            delegate: activityDelegate
-            focus: true
-        }
+
 
         function updateFromSession()
         {
@@ -91,7 +93,7 @@ flow:GridView.FlowLeftToRight
 
         function loadActivities(configFile, activityType)
         {
-            JsonLoader.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
+            Session.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
                                     Session.activityPath = resp.path
                                     if(resp.path.startsWith("."))
                                     {
@@ -115,7 +117,7 @@ flow:GridView.FlowLeftToRight
 
          );
         }
-        }
 
+}
 
 }

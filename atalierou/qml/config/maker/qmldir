@@ -1,0 +1,3 @@
+module ConfigMaker
+singleton MakerSession 1.0 MakerSession.qml
+

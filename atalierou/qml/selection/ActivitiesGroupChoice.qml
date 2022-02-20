@@ -11,47 +11,53 @@ ScreenTemplate {
     titleText: qsTr("Activities group choice")
 
 
-    Item {
-        anchors.fill: parent
-        ListModel {
-            id: activityModel
+    AppScrollView {
+        id:screen
 
 
-        }
-
-        Component {
-            id: activityDelegate
-            Card {
-                id:activity
-                width: activityGrid.cellWidth;
-                height: activityGrid.cellHeight
-                selectable:true
-                padding:10
-                imgSource:ActivityCategories.getIconFromCategory(category)
-                onSelected: {
-                    Session.activityCategory = category
-                    App.instance.getNavigator().gotToScreen(Screens.activityChoice)
-                }
 
 
-                Accessible.role: Accessible.Button
-                Accessible.name: ActivityCategories.getAccessibleFromCategory(ActivityCategories)
-                Accessible.onPressAction: {
-                        activity.selected()
-                    }
-
-            }
-
-
-        }
 
         GridView {
             id: activityGrid
-            anchors.fill: parent
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
             cellWidth: 150*UIUtils.UI.dp; cellHeight: 150*UIUtils.UI.dp
             flow:GridView.FlowLeftToRight
-            model: activityModel
-            delegate: activityDelegate
+            model: ListModel {
+                id: activityModel
+
+
+            }
+            delegate: Component {
+                id: activityDelegate
+
+                Card {
+                    id:activity
+                    width: activityGrid.cellWidth-10*UIUtils.UI.dp;
+                    height: activityGrid.cellHeight-10*UIUtils.UI.dp
+                    selectable:true
+                    padding:10
+                    imgSource:ActivityCategories.getIconFromCategory(category)
+                    onSelected: {
+                        Session.activityCategory = category
+                        App.instance.getNavigator().gotToScreen(Screens.activityChoice)
+                    }
+
+
+                    Accessible.role: Accessible.Button
+                    Accessible.name: ActivityCategories.getAccessibleFromCategory(ActivityCategories)
+                    Accessible.onPressAction: {
+                            activity.selected()
+                        }
+
+
+                }
+
+
+            }
+            interactive: false
             focus: true
         }
 

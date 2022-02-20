@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   width="16"
+   height="16"
+   fill="#FFFFFF"
+   viewBox="0 0 16 16"
+   id="svg827"
+   sodipodi:docname="action_play.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs831" />
+  <sodipodi:namedview
+     id="namedview829"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="47.0625"
+     inkscape:cx="6.247012"
+     inkscape:cy="8.2549801"
+     inkscape:window-width="1815"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg827" />
+  <path
+     d="M 8,0 C 3.589,0 0,3.589 0,8 c 0,4.411 3.589,8 8,8 4.411,0 8,-3.589 8,-8 C 16,3.589 12.411,0 8,0 Z M 8,14 C 4.691,14 2,11.309 2,8 2,4.691 4.691,2 8,2 c 3.309,0 6,2.691 6,6 0,3.309 -2.691,6 -6,6 z"
+     id="path824" />
+  <path
+     sodipodi:type="star"
+     style="fill:#ffffff;stroke:#ffffff;stroke-width:2.13543"
+     id="path1121"
+     inkscape:flatsided="true"
+     sodipodi:sides="3"
+     sodipodi:cx="7.5856575"
+     sodipodi:cy="7.8831343"
+     sodipodi:r1="2.868526"
+     sodipodi:r2="1.3852223"
+     sodipodi:arg1="1.1531332e-08"
+     sodipodi:arg2="1.0471976"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 10.454184,7.8831344 -4.3027894,2.4842166 0,-4.968433 z"
+     inkscape:transform-center-x="0.27068457"
+     inkscape:transform-center-y="-0.4448392" />
+</svg>

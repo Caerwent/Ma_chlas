@@ -17,6 +17,11 @@
            "config":"fr/config_activity_find_sound.json",
            "category":"phono",
            "type":"findSoundOrSyllabe"
+        },
+        {
+           "config":"fr/config_activity_find_intruder.json",
+           "category":"phono",
+           "type":"findIntruder"
         }
      ]
     },
@@ -35,6 +40,11 @@
            "config":"br/config_activity_find_sound.json",
            "category":"phono",
            "type":"findSoundOrSyllabe"
+        },
+        {
+           "config":"br/config_activity_find_intruder.json",
+           "category":"phono",
+           "type":"findIntruder"
         }
      ]
     }

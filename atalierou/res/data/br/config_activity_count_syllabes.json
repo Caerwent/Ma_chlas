@@ -221,7 +221,7 @@
          "nbSyllabes":1
       },
       {
-         "id":"",
+         "id":"souris",
          "image":"../images/souris.png",
          "sound":"audio/souris.mp3",
          "nbSyllabes":3
@@ -379,8 +379,8 @@
          ],
          "nbItemsPerExercice":10,
          "exercices":[
-            "exo1",
-            "exo2"
+            {"name":"exo1"},
+            {"name":"exo2"}
          ]
       },
       {
@@ -410,8 +410,8 @@
          ],
          "nbItemsPerExercice":10,
          "exercices":[
-            "exo1",
-            "exo2"
+            {"name":"exo1"},
+            {"name":"exo2"}
          ]
       }
    ]

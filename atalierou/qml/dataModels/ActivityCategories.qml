@@ -28,6 +28,8 @@ Item {
             return "qrc:/res/icons/countSyllabes.svg"
         else if(type==="findSoundOrSyllabe")
             return "qrc:/res/icons/findSyllabes.svg"
+        else if(type==="findIntruder")
+            return "qrc:/res/icons/findIntruder.svg"
         else return null
     }
 
@@ -37,6 +39,8 @@ Item {
             return qsTr("accessibility.countSyllabes")
         else if(type==="findSoundOrSyllabe")
             return qsTr("accessibility.findSoundOrSyllabe")
+        else if(type==="findIntruder")
+            return qsTr("accessibility.findIntruder")
         else return null
     }
 
@@ -46,6 +50,8 @@ Item {
             return Screens.countSyllabes
         else if(type==="findSoundOrSyllabe")
             return Screens.findSoundOrSyllabe
+        else if(type==="findIntruder")
+            return Screens.findIntruder
         else return null
     }
 
