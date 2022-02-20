@@ -11,7 +11,8 @@ ScreenTemplate {
     id:countPhonems
 
     titleText: qsTr("Count syllabes")
-
+    AppScrollView {
+        id:screen
     CountSyllabesModel {
         id:itemModel
 
@@ -290,6 +291,9 @@ ScreenTemplate {
 
 
 
+
+    }
+
     function startSound()
     {
         playSoundIndicator.opacity=1
@@ -308,7 +312,5 @@ ScreenTemplate {
     {
         itemModel.init()
     }
-
-
 
 }

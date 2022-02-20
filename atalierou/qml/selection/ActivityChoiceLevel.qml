@@ -10,23 +10,27 @@ ScreenTemplate {
 
     titleText: qsTr("Activity Level")
 
-
+    AppScrollView {
+        id:screen
         Column {
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.right: parent.right
 
             spacing: 10*UIUtils.UI.dp
             Repeater {
                 id: levelRepeater
                 model: Session.selectedActivities? Session.selectedActivities.length:0
 
-                Row {
+                Flow {
                     id:levelRow
                     spacing: 5*UIUtils.UI.dp
                     property int levelRepeaterIndex :index
                     property int levelScore
                     property bool isLocked
                     anchors.left: parent.left
+                    anchors.right: parent.right
+                    flow:Flow.LeftToRight
 
                     GaugeImage {
                         width: 60*UIUtils.UI.dp
@@ -170,5 +174,6 @@ ScreenTemplate {
 
 
         }
+    }
 
 }

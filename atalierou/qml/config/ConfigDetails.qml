@@ -14,7 +14,8 @@ ScreenTemplate {
     id:configDetails
 
     titleText: qsTr("My classroom")
-
+    AppScrollView {
+        id:screen
     Item {
         id:groupFrame
         anchors.fill: parent
@@ -195,7 +196,7 @@ ScreenTemplate {
 
     }
 
-
+}
 
 
 }

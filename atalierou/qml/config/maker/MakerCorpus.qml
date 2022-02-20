@@ -53,7 +53,8 @@ ScreenTemplate {
     function isBlank(str) {
         return (!str || /^\s*$/.test(str));
     }
-
+    AppScrollView {
+        id:screen
     Rectangle {
         id:screenContent
         border.color :"transparent"
@@ -369,7 +370,7 @@ ScreenTemplate {
             }
         }
 
-
+}
 
     }
 }

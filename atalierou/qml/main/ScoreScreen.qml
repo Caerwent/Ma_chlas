@@ -10,7 +10,8 @@ ScreenTemplate {
     id:childrenComponent
 
     titleText: qsTr("Score")
-
+    AppScrollView {
+        id:screen
     Item {
         id:childrenFrame
         anchors.fill: parent
@@ -102,7 +103,7 @@ ScreenTemplate {
         }
         }
 
-
+}
 
 
 

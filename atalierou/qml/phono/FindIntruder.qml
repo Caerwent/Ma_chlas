@@ -46,7 +46,7 @@ ScreenTemplate {
             width: 100*UIUtils.UI.dp
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.bottom: parent.bottom
+            anchors.right: parent.right
 
             AudioHelp {
                 id: help

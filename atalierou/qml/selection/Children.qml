@@ -10,44 +10,45 @@ ScreenTemplate {
 
     titleText: qsTr("Children")
 
-    Item {
+    AppScrollView {
         id:screen
-        anchors.fill: parent
 
-    ListModel {
-        id: childrenModel
-    }
 
-    Component {
-        id: childrenDelegate
-        Avatar {
-            width: childrenGrid.cellWidth- 10*UIUtils.UI.dp
-            height: childrenGrid.cellHeight- 10*UIUtils.UI.dp
-            child: childRef
-            isSelectable: true
-            onSelected: {
-                Session.loadUser(indexChild)
-                App.instance.getNavigator().gotToScreen(
-                            Screens.activitiesGroupChoice)
-            }
-            padding:10*UIUtils.UI.dp
-            Accessible.role: Accessible.Button
-            Accessible.name: child ? child.name : ""
-            Accessible.onPressAction: {
-                   selected()
-               }
-        }
-    }
+
+
 
     GridView {
         id: childrenGrid
         interactive: false
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
         cellWidth: 100 * UIUtils.UI.dp
         cellHeight: 100 * UIUtils.UI.dp
         flow: GridView.FlowLeftToRight
-        model: childrenModel
-        delegate: childrenDelegate
+        model: ListModel {
+            id: childrenModel
+        }
+        delegate: Component {
+            id: childrenDelegate
+            Avatar {
+                width: childrenGrid.cellWidth- 10*UIUtils.UI.dp
+                height: childrenGrid.cellHeight- 10*UIUtils.UI.dp
+                child: childRef
+                isSelectable: true
+                onSelected: {
+                    Session.loadUser(indexChild)
+                    App.instance.getNavigator().gotToScreen(
+                                Screens.activitiesGroupChoice)
+                }
+                padding:10*UIUtils.UI.dp
+                Accessible.role: Accessible.Button
+                Accessible.name: child ? child.name : ""
+                Accessible.onPressAction: {
+                       selected()
+                   }
+            }
+        }
         focus: true
     }
 

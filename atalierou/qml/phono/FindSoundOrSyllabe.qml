@@ -113,7 +113,6 @@ ScreenTemplate {
             anchors.top: parent.top
             anchors.left: scoreBar.right
             anchors.right: parent.right
-            anchors.bottom: parent.bottom
             border.color :"transparent"
             color:Material.backgroundColor
             Image {

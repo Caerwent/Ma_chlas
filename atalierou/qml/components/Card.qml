@@ -5,6 +5,7 @@ import "."
 
 
 Rectangle {
+    id:root
         property string label
         property int labelSize :16
         property string imgSource
@@ -42,14 +43,14 @@ Rectangle {
                 id:cardLabel
                 text: label ? label : ""
                 color:Material.primaryTextColor
-                width: Math.min(implicitWidth, (parent.width-2*padding*UIUtils.UI.dp))
+                width: Math.min(implicitWidth, (parent.width-2*padding*UIUtils.UI.dp - 2*root.border.width))
                 anchors.top: parent.top
-                anchors.topMargin: padding*UIUtils.UI.dp
-                //width: (parent.width-padding*UIUtils.UI.dp)
+                anchors.topMargin: padding*UIUtils.UI.dp+2*root.border.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pointSize: labelSize
                 horizontalAlignment: Text.AlignHCenter
-                anchors.margins: 6*UIUtils.UI.dp
+                rightInset: 3*UIUtils.UI.dp
+                leftInset: 3*UIUtils.UI.dp
                 wrapMode: Text.Wrap
                 background: Rectangle {
                     anchors.fill: cardLabel
@@ -58,14 +59,13 @@ Rectangle {
                 }
             }
             Image {
-                width: (parent.width-2*padding*UIUtils.UI.dp)
-                height:(parent.height-2*padding*UIUtils.UI.dp-labelSize*UIUtils.UI.dp)
+                width: (parent.width-2*padding*UIUtils.UI.dp-2*root.border.width)
+                height:(parent.height-2*padding*UIUtils.UI.dp-labelSize*UIUtils.UI.dp-root.border.width)
                 source: imgSource ? imgSource : ""
                 anchors.top: parent.top
 
                 fillMode: Image.PreserveAspectFit
-                anchors.topMargin: padding*UIUtils.UI.dp+labelSize*UIUtils.UI.dp
-             //   height: (childrenGrid.cellWidth-20*UIUtils.UI.dp)
+                anchors.topMargin: padding*UIUtils.UI.dp+labelSize*UIUtils.UI.dp+root.border.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 sourceSize: Qt.size(width, height)
             }
