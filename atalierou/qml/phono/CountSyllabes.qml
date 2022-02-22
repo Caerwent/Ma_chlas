@@ -13,6 +13,8 @@ ScreenTemplate {
     titleText: qsTr("Count syllabes")
     AppScrollView {
         id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
     CountSyllabesModel {
         id:itemModel
 
@@ -31,8 +33,10 @@ ScreenTemplate {
     }
 
 
-
-
+Rectangle {
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
         Rectangle {
             id:scoreBar
             border.color :"transparent"
@@ -40,7 +44,7 @@ ScreenTemplate {
             width: 100*UIUtils.UI.dp
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.bottom: parent.bottom
+          //  anchors.bottom: parent.bottom
 
             AudioHelp {
                 id: help
@@ -91,7 +95,7 @@ ScreenTemplate {
             anchors.top: parent.top
             anchors.left: scoreBar.right
             anchors.right: parent.right
-            anchors.bottom: parent.bottom
+         //   anchors.bottom: parent.bottom
             border.color :"transparent"
             color:Material.backgroundColor
             Image {
@@ -290,7 +294,7 @@ ScreenTemplate {
 
 
 
-
+}
 
     }
 

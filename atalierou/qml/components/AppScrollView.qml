@@ -4,8 +4,8 @@ import UIUtils 1.0 as UIUtils
 
 ScrollView {
     id:root
-    anchors.fill: parent
-    anchors.topMargin: 20*UIUtils.UI.dp
+    //anchors.fill: parent
+    //anchors.topMargin: 20*UIUtils.UI.dp
     clip: true
     contentWidth:width
 

@@ -16,6 +16,8 @@ ScreenTemplate {
     titleText: qsTr("My classroom")
     AppScrollView {
         id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
     Item {
         id:groupFrame
         anchors.fill: parent

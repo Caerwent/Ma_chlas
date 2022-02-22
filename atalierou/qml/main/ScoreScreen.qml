@@ -12,6 +12,8 @@ ScreenTemplate {
     titleText: qsTr("Score")
     AppScrollView {
         id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
     Item {
         id:childrenFrame
         anchors.fill: parent

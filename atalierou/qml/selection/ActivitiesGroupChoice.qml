@@ -13,6 +13,8 @@ ScreenTemplate {
 
     AppScrollView {
         id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
 
 
 

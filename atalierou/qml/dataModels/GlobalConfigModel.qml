@@ -61,7 +61,7 @@ Item {
             var response = externalConfigFile.read();
             var newConfig= JSON.parse(response);
 
-            if(! FileFormatChecker.checkFileVersion(response.fileFormatVersion, "1.0","1.0"))
+            if(! FileFormatChecker.checkFileVersion(newConfig.fileFormatVersion, "1.0","1.0"))
             {
                 console.error(qsTr("Incompatible file format ")+externalConfigFile.source+qsTr("\nShould be 1.0"))
 
