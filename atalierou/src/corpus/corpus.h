@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QJsonObject>
 #include <QDir>
-#include "CorpusItem.h"
+#include "corpusitem.h"
 #include "../configwithpath.h"
 class Corpus : public ConfigWithPath
 {

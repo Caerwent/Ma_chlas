@@ -1,4 +1,4 @@
-#include "GenericConfigWithPath.h"
+#include "genericconfigwithpath.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
