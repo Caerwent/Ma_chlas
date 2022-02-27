@@ -50,28 +50,37 @@ Component {
                     externalConfig.enabled=!checked
                 }
             }
-            Flow {
+            Column {
                 id:externalConfig
-                spacing: 20*UIUtils.UI.dp
+                width:parent.width
+
                 Label {
                     text: qsTr("Use external configuration")
-                    anchors.leftMargin: 20*UIUtils.UI.dp
                 }
-                TextField {
-                    anchors.leftMargin: 20*UIUtils.UI.dp
-                    id: configFileTxtField
+                Flow {
 
-                    placeholderText: qsTr("Enter a JSON configuration file")
-                }
-                Button {
-                    anchors.leftMargin: 20*UIUtils.UI.dp
-                    text: qsTr("Open file...")
-                    onClicked: {
-                        fileOpenDialog.open()
+                    spacing: 20*UIUtils.UI.dp
+                    width:parent.width
+
+                    Button {
+                        id: configFileBtn
+                        anchors.leftMargin: 20*UIUtils.UI.dp
+                        text: qsTr("Open file...")
+                        onClicked: {
+                            fileOpenDialog.open()
+                        }
+
+                    }
+                    TextField {
+                        anchors.leftMargin: 20*UIUtils.UI.dp
+                        width:parent.width-configFileBtn.width-40*UIUtils.UI.dp
+                        id: configFileTxtField
+                        placeholderText: qsTr("Enter a JSON configuration file")
                     }
 
                 }
             }
+
             Flow {
                 spacing: 20*UIUtils.UI.dp
                 Label {
