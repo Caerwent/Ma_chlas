@@ -1,0 +1,540 @@
+{
+    "corpus": [
+        {
+            "id": "bateau",
+            "image": "../images/bateau.png",
+            "nbSyllabes": 1,
+            "sound": "audio/bateau.mp3"
+        },
+        {
+            "id": "chat",
+            "image": "../images/chat.png",
+            "nbSyllabes": 1,
+            "sound": "audio/chat.mp3"
+        },
+        {
+            "id": "cochon",
+            "image": "../images/cochon.png",
+            "nbSyllabes": 2,
+            "sound": "audio/cochon.mp3"
+        },
+        {
+            "id": "couteau",
+            "image": "../images/couteau.png",
+            "nbSyllabes": 2,
+            "sound": "audio/couteau.mp3"
+        },
+        {
+            "id": "lapin",
+            "image": "../images/lapin.png",
+            "nbSyllabes": 2,
+            "sound": "audio/lapin.mp3"
+        },
+        {
+            "id": "lit",
+            "image": "../images/lit.png",
+            "nbSyllabes": 2,
+            "sound": "audio/lit.mp3"
+        },
+        {
+            "id": "maison",
+            "image": "../images/maison.png",
+            "nbSyllabes": 1,
+            "sound": "audio/maison.mp3"
+        },
+        {
+            "id": "poisson",
+            "image": "../images/poisson.png",
+            "nbSyllabes": 1,
+            "sound": "audio/poisson.mp3"
+        },
+        {
+            "id": "poussin",
+            "image": "../images/poussin.png",
+            "nbSyllabes": 2,
+            "sound": "audio/poussin.mp3"
+        },
+        {
+            "id": "moulin",
+            "image": "../images/moulin.jpg",
+            "nbSyllabes": 2,
+            "sound": "audio/moulin.mp3"
+        },
+        {
+            "id": "mouton",
+            "image": "../images/mouton.png",
+            "nbSyllabes": 2,
+            "sound": "audio/mouton.mp3"
+        },
+        {
+            "id": "poubelle",
+            "image": "../images/poubelle.png",
+            "nbSyllabes": 3,
+            "sound": "audio/poubelle.mp3"
+        },
+        {
+            "id": "roi",
+            "image": "../images/roi.png",
+            "nbSyllabes": 2,
+            "sound": "audio/roi.mp3"
+        },
+        {
+            "id": "poule",
+            "image": "../images/poule.png",
+            "nbSyllabes": 1,
+            "sound": "audio/poule.mp3"
+        },
+        {
+            "id": "seau",
+            "image": "../images/seau.png",
+            "nbSyllabes": 1,
+            "sound": "audio/seau.mp3"
+        },
+        {
+            "id": "tobogan",
+            "image": "../images/tobogan.png",
+            "nbSyllabes": 2,
+            "sound": "audio/tobogan.mp3"
+        },
+        {
+            "id": "serpent",
+            "image": "../images/serpent.png",
+            "nbSyllabes": 2,
+            "sound": "audio/serpent.mp3"
+        },
+        {
+            "id": "moto",
+            "image": "../images/moto.png",
+            "nbSyllabes": 2,
+            "sound": "audio/moto.mp3"
+        },
+        {
+            "id": "crayon",
+            "image": "../images/crayon.png",
+            "nbSyllabes": 2,
+            "sound": "audio/crayon.mp3"
+        },
+        {
+            "id": "clef",
+            "image": "../images/clef.png",
+            "nbSyllabes": 2,
+            "sound": "audio/clef.mp3"
+        },
+        {
+            "id": "train",
+            "image": "../images/train.png",
+            "nbSyllabes": 1,
+            "sound": "audio/train.mp3"
+        },
+        {
+            "id": "voiture",
+            "image": "../images/voiture.png",
+            "nbSyllabes": 2,
+            "sound": "audio/voiture.mp3"
+        },
+        {
+            "id": "arbre",
+            "image": "../images/arbre.png",
+            "nbSyllabes": 2,
+            "sound": "audio/arbre.mp3"
+        },
+        {
+            "id": "avion",
+            "image": "../images/avion.png",
+            "nbSyllabes": 2,
+            "sound": "audio/avion.mp3"
+        },
+        {
+            "id": "camion",
+            "image": "../images/camion.png",
+            "nbSyllabes": 2,
+            "sound": "audio/camion.mp3"
+        },
+        {
+            "id": "canard",
+            "image": "../images/canard.png",
+            "nbSyllabes": 1,
+            "sound": "audio/canard.mp3"
+        },
+        {
+            "id": "chaise",
+            "image": "../images/chaise.png",
+            "nbSyllabes": 2,
+            "sound": "audio/chaise.mp3"
+        },
+        {
+            "id": "cheval",
+            "image": "../images/cheval.png",
+            "nbSyllabes": 1,
+            "sound": "audio/cheval.mp3"
+        },
+        {
+            "id": "chien",
+            "image": "../images/chien.png",
+            "nbSyllabes": 1,
+            "sound": "audio/chien.mp3"
+        },
+        {
+            "id": "coquillage",
+            "image": "../images/coquillage.png",
+            "nbSyllabes": 2,
+            "sound": "audio/coquillage.mp3"
+        },
+        {
+            "id": "corbeau",
+            "image": "../images/corbeau.png",
+            "nbSyllabes": 1,
+            "sound": "audio/corbeau.mp3"
+        },
+        {
+            "id": "fantome",
+            "image": "../images/fantome.png",
+            "nbSyllabes": 2,
+            "sound": "audio/fantome.mp3"
+        },
+        {
+            "id": "feuille",
+            "image": "../images/feuille.png",
+            "nbSyllabes": 2,
+            "sound": "audio/feuille.mp3"
+        },
+        {
+            "id": "marteau",
+            "image": "../images/marteau.png",
+            "nbSyllabes": 2,
+            "sound": "audio/marteau.mp3"
+        },
+        {
+            "id": "mouche",
+            "image": "../images/mouche.png",
+            "nbSyllabes": 3,
+            "sound": "audio/mouche.mp3"
+        },
+        {
+            "id": "table",
+            "image": "../images/table.png",
+            "nbSyllabes": 1,
+            "sound": "audio/table.mp3"
+        },
+        {
+            "id": "souris",
+            "image": "../images/souris.png",
+            "nbSyllabes": 3,
+            "sound": "audio/souris.mp3"
+        },
+        {
+            "id": "reine",
+            "image": "../images/reine.png",
+            "nbSyllabes": 3,
+            "sound": "audio/reine.mp3"
+        },
+        {
+            "id": "dragon",
+            "image": "../images/dragon.png",
+            "nbSyllabes": 2,
+            "sound": "audio/dragon.mp3"
+        },
+        {
+            "id": "fusee",
+            "image": "../images/fusee.png",
+            "nbSyllabes": 3,
+            "sound": "audio/fusee.mp3"
+        },
+        {
+            "id": "herisson",
+            "image": "../images/herisson.png",
+            "nbSyllabes": 3,
+            "sound": "audio/herisson.mp3"
+        },
+        {
+            "id": "bus",
+            "image": "../images/bus.png",
+            "nbSyllabes": 3,
+            "sound": "audio/bus.mp3"
+        },
+        {
+            "id": "velo",
+            "image": "../images/velo.png",
+            "nbSyllabes": 2,
+            "sound": "audio/velo.mp3"
+        },
+        {
+            "id": "abeille",
+            "image": "../images/abeille.png",
+            "nbSyllabes": 3,
+            "sound": "audio/abeille.mp3"
+        },
+        {
+            "id": "allumettes",
+            "image": "../images/allumettes.png",
+            "nbSyllabes": 5,
+            "sound": "audio/allumettes.mp3"
+        },
+        {
+            "id": "escargot",
+            "image": "../images/escargot.png",
+            "nbSyllabes": 3,
+            "sound": "audio/escargot.mp3"
+        },
+        {
+            "id": "grenouille",
+            "image": "../images/grenouille.png",
+            "nbSyllabes": 1,
+            "sound": "audio/grenouille.mp3"
+        },
+        {
+            "id": "licorne",
+            "image": "../images/licorne.png",
+            "nbSyllabes": 3,
+            "sound": "audio/licorne.mp3"
+        },
+        {
+            "id": "pirate",
+            "image": "../images/pirate.png",
+            "nbSyllabes": 2,
+            "sound": "audio/pirate.mp3"
+        },
+        {
+            "id": "sorciere",
+            "image": "../images/sorciere.png",
+            "nbSyllabes": 3,
+            "sound": "audio/sorciere.mp3"
+        },
+        {
+            "id": "thermometre",
+            "image": "../images/thermometre.png",
+            "nbSyllabes": 3,
+            "sound": "audio/thermometre.mp3"
+        },
+        {
+            "id": "toilettes",
+            "image": "../images/toilettes.png",
+            "nbSyllabes": 3,
+            "sound": "audio/toilettes.mp3"
+        },
+        {
+            "id": "vache",
+            "image": "../images/vache.png",
+            "nbSyllabes": 2,
+            "sound": "audio/vache.mp3"
+        },
+        {
+            "id": "ballon",
+            "image": "../images/ballon.png",
+            "nbSyllabes": 3,
+            "sound": "audio/ballon.mp3"
+        },
+        {
+            "id": "ciseaux",
+            "image": "../images/ciseaux.png",
+            "nbSyllabes": 3,
+            "sound": "audio/ciseaux.mp3"
+        },
+        {
+            "id": "accordeon",
+            "image": "../images/accordeon.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "artichaut",
+            "image": "../images/artichaut.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "assiette",
+            "image": "../images/assiette.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "banane",
+            "image": "../images/banane.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "bol",
+            "image": "../images/bol.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "bouteille",
+            "image": "../images/bouteille.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "carotte",
+            "image": "../images/carotte.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "crepes",
+            "image": "../images/crepes.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "cuillere",
+            "image": "../images/cuillere.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "flute",
+            "image": "../images/flute.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "fraise",
+            "image": "../images/fraise.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "glace",
+            "image": "../images/glace.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "guitare",
+            "image": "../images/guitare.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "melon",
+            "image": "../images/melon.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "ordinateur",
+            "image": "../images/ordinateur.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "piano",
+            "image": "../images/piano.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "poireau",
+            "image": "../images/poireau.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "pomme",
+            "image": "../images/pomme.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "radis",
+            "image": "../images/radis.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "raisin",
+            "image": "../images/raisin.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "rateau",
+            "image": "../images/rateau.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "telephone",
+            "image": "../images/telephone.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "tomate",
+            "image": "../images/tomate.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "violon",
+            "image": "../images/violon.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "casquette",
+            "image": "../images/casquette.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "cerise",
+            "image": "../images/cerise.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "chaussettes",
+            "image": "../images/chaussettes.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "chaussures",
+            "image": "../images/chaussures.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "gants",
+            "image": "../images/gants.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "lunettes",
+            "image": "../images/lunettes.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "parapluie",
+            "image": "../images/parapluie.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "peinture",
+            "image": "../images/peinture.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "sifflet",
+            "image": "../images/sifflet.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        },
+        {
+            "id": "tracteur",
+            "image": "../images/tracteur.png",
+            "nbSyllabes": 1,
+            "sound": ""
+        }
+    ],
+    "fileFormatVersion": "1.0.0",
+    "path": "./"
+}
