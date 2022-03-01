@@ -40,11 +40,10 @@ Rectangle {
         Rectangle {
             id:scoreBar
             border.color :"transparent"
+            anchors.top:parent.top
+            anchors.left:parent.left
             color:Material.backgroundColor
             width: 100*UIUtils.UI.dp
-            anchors.top: parent.top
-            anchors.left: parent.left
-          //  anchors.bottom: parent.bottom
 
             AudioHelp {
                 id: help
@@ -92,12 +91,14 @@ Rectangle {
         }
 
         Rectangle {
-            anchors.top: parent.top
-            anchors.left: scoreBar.right
-            anchors.right: parent.right
-         //   anchors.bottom: parent.bottom
+
             border.color :"transparent"
             color:Material.backgroundColor
+            anchors.top:parent.top
+            anchors.left: scoreBar.right
+            anchors.right:parent.right
+
+
             Image {
                 id: img
                 width: 250*UIUtils.UI.dp

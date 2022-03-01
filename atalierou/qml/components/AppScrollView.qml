@@ -9,6 +9,7 @@ ScrollView {
     clip: true
     contentWidth:width
 
+
     ScrollBar.vertical: ScrollBar {
         id:scrollBar
         policy: ScrollBar.AsNeeded

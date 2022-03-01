@@ -40,12 +40,20 @@ ScreenTemplate {
         id:screen
         anchors.fill: parent
         anchors.topMargin: 20*UIUtils.UI.dp
+        ScrollBar.horizontal :  ScrollBar {
 
+                                   policy: ScrollBar.AlwaysOff
+
+
+                               }
 
         Rectangle {
-            anchors.top: parent.top
+            id:scrollContent
+            /*anchors.top: parent.top
             anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.right: parent.right*/
+            width:parent.width
+
             Rectangle {
                 id:scoreBar
                 border.color :"transparent"
@@ -104,21 +112,73 @@ ScreenTemplate {
                 anchors.top: parent.top
                 anchors.left: scoreBar.right
                 anchors.right: parent.right
-                anchors.bottom: parent.bottom
                 border.color :"transparent"
                 color:Material.backgroundColor
 
 
+                state : App.instance.state
+                states: [
+                    State {
+                        name: "landscape"
+                        PropertyChanges {
+                            target: response
+                             flow: Flow.LeftToRight
+                        }
+                    },
+                    State {
+                        name: "portrait"
+                        PropertyChanges {
+                            target: response
+                             flow: Flow.TopToBottom
+                        }
+                    }
+                ]
 
                 Component {
                     id:responsesModelDelegate
-                    Column {
-                        spacing:20*UIUtils.UI.dp
+                    Rectangle {
+                        id:item
+                        border.color :"transparent"
+                        color:"transparent"
+                        state : App.instance.state
+                        states: [
+                            State {
+                                name: "landscape"
+                                PropertyChanges {
+                                    target: item
+                                    width: 100*UIUtils.UI.dp
+                                    height: 160*UIUtils.UI.dp
+                                }
+                                AnchorChanges {
+                                    target: coche
+                                     anchors.top:img.bottom
+                                     anchors.left: undefined
+                                     anchors.horizontalCenter: parent.horizontalCenter
+                                     anchors.verticalCenter: undefined
+                                }
+                            },
+                            State {
+                                name: "portrait"
+                                PropertyChanges {
+                                    target: item
+                                    width: 160*UIUtils.UI.dp
+                                    height: 100*UIUtils.UI.dp
+                                }
+                                AnchorChanges {
+                                    target: coche
+                                    anchors.top:undefined
+                                    anchors.left: img.right
+                                    anchors.horizontalCenter: undefined
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+                        ]
                         Image {
                             id: img
                             width: 100*UIUtils.UI.dp
                             height: 100*UIUtils.UI.dp
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.top:parent.top
+                            anchors.left:parent.left
                             source: image
                             sourceSize: Qt.size(img.width, img.height)
                             fillMode: Image.PreserveAspectFit
@@ -178,11 +238,13 @@ ScreenTemplate {
                             }
                         }
                         Rectangle {
+                            id:coche
                             width: 50*UIUtils.UI.dp
                             height: 50*UIUtils.UI.dp
+                            anchors.margins: 10*UIUtils.UI.dp
                             border.color :"transparent"
                             color:"transparent"
-                            anchors.horizontalCenter: parent.horizontalCenter
+
                             Rectangle {
                                 border.color :Material.accentColor
                                 color:Material.foreground
@@ -227,8 +289,12 @@ ScreenTemplate {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.margins: 10*UIUtils.UI.dp
                     anchors.top: parent.top
-                    flow: Flow.LeftToRight
-                    spacing: 10*UIUtils.UI.dp
+
+                    spacing: 20*UIUtils.UI.dp
+
+                    onHeightChanged: {
+                        screen.contentHeight = Math.max(height+check.height+check.anchors.topMargin, scoreBar.height)
+                    }
 
                     Repeater {
                         model:itemModel.responsesModel
@@ -267,13 +333,13 @@ ScreenTemplate {
                         NumberAnimation {
                             target: star
                             properties: "y"
-                            to: gauge.y
+                            to: gauge.y-responseFrame.y
                             duration: 400
                         }
                         NumberAnimation {
                             target: star
                             properties: "x"
-                            to: gauge.x+gauge.width/2
+                            to: gauge.x+gauge.width/2 -responseFrame.x
                             duration: 400
                         }
 
@@ -295,6 +361,8 @@ ScreenTemplate {
             }
 
         }
+
+
     }
     function startSound()
     {

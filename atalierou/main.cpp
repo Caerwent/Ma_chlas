@@ -55,14 +55,14 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("GlobalConfigData",1,0,"GlobalConfigData", instance.get());
 
     static qreal ldp = 1.0;
-    static qreal  lpt = ldp / 72.0;;
-        QScreen *screen = QApplication::primaryScreen();
+    static qreal  lpt = ldp / 72.0;
+       /* QScreen *screen = QApplication::primaryScreen();
         if (screen) {
            ldp = screen->devicePixelRatio();
            lpt = ldp / 72.0;
         } else {
             qWarning() << "QScreen required for ptToPx";
-        }
+        }*/
 
     qmlRegisterType<TreeModel>("TreeElements", 1, 0, "TreeModel");
     qmlRegisterType<TreeNode>("TreeElements", 1, 0, "TreeNode");

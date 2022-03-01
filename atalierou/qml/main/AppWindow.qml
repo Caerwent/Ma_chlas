@@ -8,11 +8,13 @@ import "../components"
 import "../dataModels"
 Window {
     color: Material.background
-    visibility: "FullScreen"
-    //width:1145
-    //height:845
+   // visibility: "FullScreen"
+    width:1145
+    height:845
     visible:true
     title: qsTr("Ma c'hlass atalieroù")
+
+    property alias state : windowContent.state
 
 
     Dialog {
@@ -68,6 +70,7 @@ Window {
     }
 
     Item{
+        id:windowContent
         anchors.fill: parent
         state: "landscape"
         states: [

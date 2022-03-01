@@ -8,21 +8,26 @@ import "../../components"
 
 ScreenTemplate {
 
-    titleText: qsTr("MakerInitSession.title")
-    Item {
-        id:childrenFrame
-        anchors.fill: parent
-    ButtonGroup {
-        id: radioGroup
+     titleText: qsTr("MakerInitSession.title")
 
-    }
+    AppScrollView {
+        id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
+
+
 
         Flow {
             id:choicesList
             anchors.margins: 20*UIUtils.UI.dp
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
             spacing: 20*UIUtils.UI.dp
             flow: Flow.TopToBottom
+            ButtonGroup {
+                id: radioGroup
+
+            }
             Label {
                 text: qsTr("MakerInitSession.choices_label")
             }
@@ -61,5 +66,4 @@ ScreenTemplate {
             }
         }
     }
-
 }

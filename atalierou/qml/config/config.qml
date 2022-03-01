@@ -3,13 +3,18 @@ import QtQuick.Controls
 import QtQuick.Dialogs
 import UIUtils 1.0 as UIUtils
 import "../main"
+import "../components"
 import "../dataModels"
 
-Component {
+ScreenTemplate {
     id:configurationComponent
-    Frame {
 
-        id:configurationScreen
+    titleText: qsTr("Configuration")
+
+    AppScrollView {
+        id:screen
+        anchors.fill: parent
+        anchors.topMargin: 20*UIUtils.UI.dp
 
         property var fileOpenDialog: FileDialog {
 
@@ -22,25 +27,11 @@ Component {
                 configFileTxtField.text=selectedFile
             }
         }
-        Label {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            horizontalAlignment: Text.AlignHCenter
-            id: title
-            text: qsTr("Configuration")
-            anchors.topMargin: 20*UIUtils.UI.dp
-            anchors.leftMargin: 20*UIUtils.UI.dp
-            anchors.rightMargin: 20*UIUtils.UI.dp
-            font.pointSize: 20
-        }
+
+
         Column {
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.top: title.bottom
-            anchors.topMargin: 20*UIUtils.UI.dp
-            anchors.leftMargin: 20*UIUtils.UI.dp
-            anchors.rightMargin: 20*UIUtils.UI.dp
             spacing: 20*UIUtils.UI.dp
             CheckBox {
                 id: checkBox
