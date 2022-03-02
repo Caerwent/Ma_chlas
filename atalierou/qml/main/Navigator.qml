@@ -94,7 +94,7 @@ Flow {
         }
         else if(currentItem===Screens.activityChoice)
         {
-            Session.selectedCorpus=undefined
+            Session.activitySessionData.destroy()
             Session.selectedActivities=undefined
             Session.activityPath=null
             Session.activityType=null

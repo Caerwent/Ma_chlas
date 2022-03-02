@@ -260,5 +260,6 @@
         <file>res/data/br/audio/help_phono_start_same_sound.mp3</file>
         <file>res/data/br/audio/help_phono_start_same_syllabe.mp3</file>
         <file>qml/components/AppScrollView.qml</file>
+        <file>qml/phono/PhonoSessionData.qml</file>
     </qresource>
 </RCC>

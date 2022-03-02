@@ -103,7 +103,7 @@ Item {
         responsesModel.clear()
         for (var i = 0; i < currentItem.length; i++)
         {
-            var corpus = Session.selectedCorpus.find(element => element.id === currentItem[i].corpus);
+            var corpus = Session.activitySessionData.selectedCorpus.find(element => element.id === currentItem[i].corpus);
             var corpusImage = Qt.resolvedUrl(Session.activityPath+corpus.image)
             var corpusAudio = Qt.resolvedUrl(Session.activityPath+corpus.sound)
             console.log("image=",corpusImage, " audio=", corpusAudio)

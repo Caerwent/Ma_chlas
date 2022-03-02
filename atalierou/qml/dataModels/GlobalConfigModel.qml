@@ -111,7 +111,7 @@ Item {
                 }
                 else
                 {
-                    if(!checkActivity(aConfig.groups[idxGpr]))
+                    if(!checkActivityConfig(aConfig.groups[idxGpr]))
                         return false
                 }
             }
@@ -123,7 +123,7 @@ Item {
         return (!str || /^\s*$/.test(str));
     }
 
-    function checkActivity(aActivity)
+    function checkActivityConfig(aActivity)
     {
         if(aActivity.config===undefine || isBlank(aActivity.config))
         {
@@ -158,6 +158,58 @@ Item {
             }
             return false
         }
+    }
+
+    function loadActivities(configFile, activityCategory, activityType, callback)
+    {
+        Session.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
+                             Session.activityPath = resp.path
+                             if(resp.path.startsWith("."))
+                             {
+                                 Session.activityPath=GlobalConfigModel.config.path+resp.path.substring(2)
+                             }
+
+                             var supportedFileFormat = FileFormatChecker.getSupportedActivityFileFormatMinMaxArray(Session.activityCategory, activityType)
+                             if(!FileFormatChecker.checkFileVersion(resp.fileFormatVersion, supportedFileFormat[0],supportedFileFormat[1]))
+                             {
+                                 App.instance.showError(qsTr("Incompatible file format ")+GlobalConfigModel.config.path + configFile+qsTr("\nShould be between ")+supportedFileFormat[0]+qsTr(" and ")+supportedFileFormat[1])
+                             }
+                             else {
+
+
+                                 Session.selectedActivities = resp.levels ? resp.levels
+                                                                            .sort(function(a, b) {
+                                                                                return a.level - b.level}) : []
+                                 Session.activityType = activityType
+
+                                 if(activityCategory==="phono")
+                                 {
+                                     var component = Qt.createComponent("../phono/PhonoSessionData.qml")
+
+                                     if(component.status===Component.Error )
+                                     {
+                                         console.log ("Component creation error :", component.errorString() )
+                                         App.instance.showError("Component creation error :", component.errorString())
+                                     }
+                                     else
+                                     {
+                                         var object = component.createObject(globalConfig)
+                                         Session.activitySessionData = object
+                                         if(object.loadFromJson(activityType, resp))
+                                         {
+                                             callback()
+                                         }
+                                     }
+                                 }
+                                 else
+                                 {
+                                     App.instance.showError(qsTr("Unknown activity category %1",activityCategory))
+                                 }
+
+                             }
+                         }
+
+                         );
     }
 
 

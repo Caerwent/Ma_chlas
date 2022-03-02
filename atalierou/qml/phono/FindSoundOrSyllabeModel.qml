@@ -22,7 +22,7 @@ Item {
     property string imageSource
     property string audioSource
     property string audioHelpCompSource
-    property string audioHelpSource:Session.activityAudioHelp
+    property string audioHelpSource:Session.activitySessionData ? Session.activitySessionData.activityAudioHelp :""
 
     property var items
 
@@ -72,7 +72,7 @@ Item {
     function changeIndex(index)
     {
         currentIndex = index
-        corpusItem= Session.selectedCorpus.find(element => element.id === items[currentIndex].corpus);
+        corpusItem= Session.activitySessionData.selectedCorpus.find(element => element.id === items[currentIndex].corpus);
         currentItem = items[currentIndex]
         responsesModel.clear()
         for (var i = 0; i < corpusItem.nbSyllabes; i++)

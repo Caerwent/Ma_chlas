@@ -62,7 +62,9 @@ ScreenTemplate {
             interactive: false
             focus: true
         }
-
+        function isBlank(str) {
+            return (!str || /^\s*$/.test(str));
+        }
         function updateFromSession()
         {
             activityModel.clear();
@@ -76,7 +78,6 @@ ScreenTemplate {
                     if(!categoriesList.find(element =>
                                       element===listData[i]["category"]))
                     {
-
                         categoriesList.push(listData[i]["category"])
                         activityModel.append(
                                     {

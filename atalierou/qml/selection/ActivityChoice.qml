@@ -4,7 +4,6 @@ import UIUtils 1.0 as UIUtils
 import "../main"
 import "../components"
 import "../dataModels"
-import "../scripts/loadJson.js" as JsonLoader
 
 ScreenTemplate {
     id:activities
@@ -42,17 +41,22 @@ ScreenTemplate {
                         imgSource:ActivityCategories.getIconFromType(type)
                         onSelected:
                         {
-                                screen.loadActivities(configFile, type)
+                            GlobalConfigModel.loadActivities(configFile,
+                                                             Session.activityCategory,
+                                                             type,
+                                                             cbResp =>{
+                                                                 App.instance.getNavigator().gotToScreen(Screens.activityChoiceLevel)
+                                                             })
 
                         }
 
 
 
-                         Accessible.role: Accessible.Button
-                         Accessible.name: ActivityCategories.getAccessibleFromType(ActivityCategories)
-                         Accessible.onPressAction: {
-                                activity.selected()
-                            }
+                        Accessible.role: Accessible.Button
+                        Accessible.name: ActivityCategories.getAccessibleFromType(Session.activityCategory)
+                        Accessible.onPressAction: {
+                            activity.selected()
+                        }
 
 
                     }
@@ -71,19 +75,19 @@ ScreenTemplate {
             var listData = Session.group.activities
             if(listData!==undefined)
             {
-                            for (var i in listData) {
-                                if(listData[i]["category"]===Session.activityCategory)
-                                {
-                                activityModel.append(
-                                            {
-                                                activityIndex: i,
-                                                configFile:listData[i]["config"],
-                                                type:listData[i]["type"],
+                for (var i in listData) {
+                    if(listData[i]["category"]===Session.activityCategory)
+                    {
+                        activityModel.append(
+                                    {
+                                        activityIndex: i,
+                                        configFile:listData[i]["config"],
+                                        type:listData[i]["type"],
 
-                                            }
-                                                      )
-                                }
-                            }
+                                    }
+                                    )
+                    }
+                }
             }
         }
 
@@ -92,33 +96,8 @@ ScreenTemplate {
             updateFromSession()
         }
 
-        function loadActivities(configFile, activityType)
-        {
-            Session.loadJSON(GlobalConfigModel.config.path + configFile, resp=>{
-                                    Session.activityPath = resp.path
-                                    if(resp.path.startsWith("."))
-                                    {
-                                        Session.activityPath=GlobalConfigModel.config.path+resp.path.substring(2)
-                                    }
+    }
 
-                                    var supportedFileFormat = FileFormatChecker.getSupportedActivityFileFormatMinMaxArray(Session.activityCategory, activityType)
-                                    if(!FileFormatChecker.checkFileVersion(resp.fileFormatVersion, supportedFileFormat[0],supportedFileFormat[1]))
-                                    {
-                                        App.instance.showError(qsTr("Incompatible file format ")+GlobalConfigModel.config.path + configFile+qsTr("\nShould be between ")+supportedFileFormat[0]+qsTr(" and ")+supportedFileFormat[1])
-                                    }
 
-                                    Session.activityAudioHelp = resp.helpFile ? Qt.resolvedUrl(Session.activityPath+resp.helpFile) : "qrc:/res/data/sounds/help_"+Session.activityCategory+"_"+Session.activityType+".mp3"
-                                    Session.selectedCorpus = resp.corpus
-                                    Session.selectedActivities = resp.levels ? resp.levels
-                                                               .sort(function(a, b) {
-                                                                   return a.level - b.level}) : []
-                                    Session.activityType = activityType
-                                    App.instance.getNavigator().gotToScreen(Screens.activityChoiceLevel)
-                                }
-
-         );
-        }
-
-}
 
 }

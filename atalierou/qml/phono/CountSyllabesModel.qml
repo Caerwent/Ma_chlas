@@ -64,7 +64,7 @@ Item {
     function changeIndex(index)
     {
         currentIndex = index
-        corpusItem= Session.selectedCorpus.find(element => element.id === items[currentIndex]);
+        corpusItem= Session.activitySessionData.selectedCorpus.find(element => element.id === items[currentIndex]);
         syllabe = items[currentIndex]
 
         responsesModel.clear()

@@ -47,7 +47,7 @@ Rectangle {
 
             AudioHelp {
                 id: help
-                audioFile:Session.activityAudioHelp
+                audioFile:Session.activitySessionData? Session.activitySessionData?.activityAudioHelp : ""
                 width: 60*UIUtils.UI.dp
                 height: 60*UIUtils.UI.dp
                 anchors.top: parent.top
