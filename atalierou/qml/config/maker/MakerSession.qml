@@ -27,6 +27,9 @@ Item {
 
     Corpus {
         id:corpusData
+        onError: {
+            App.instance.showError(errorMsg)
+        }
     }
 
     property alias corpus: corpusData

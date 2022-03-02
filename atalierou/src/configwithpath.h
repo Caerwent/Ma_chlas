@@ -39,7 +39,7 @@ public slots:
 signals:
     void filenameChanged(const QString& filename);
     void pathChanged(const QString& path);
-    void error(const QString& msg);
+    void error(const QString& errorMsg);
 
 protected:
 

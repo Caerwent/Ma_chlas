@@ -44,6 +44,31 @@ Window {
     }
 
     Dialog {
+        id:warning
+
+        Label {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            horizontalAlignment: "AlignHCenter"
+            id:warningMessage
+
+        }
+        standardButtons: Dialog.Ok
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        onAccepted: {
+        }
+
+        function showWarning(amsg)
+        {
+            warningMessage.text = amsg
+            visible = true
+        }
+    }
+
+    Dialog {
         id:info
 
         Label {
@@ -161,6 +186,11 @@ Window {
     function showError(amsg)
     {
         error.showError(amsg)
+    }
+
+    function showWarning(amsg)
+    {
+        warning.showWarning(amsg)
     }
 
     function showMessage(amsg)

@@ -63,11 +63,12 @@ ScreenTemplate {
             focus: true
         }
 
-        function updateFromSession(inputConfig)
+        function updateFromSession()
         {
             activityModel.clear();
 
             var listData = Session.group.activities
+
             var categoriesList = []
             if(listData!==undefined)
             {

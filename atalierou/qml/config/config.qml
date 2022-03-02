@@ -11,22 +11,22 @@ ScreenTemplate {
 
     titleText: qsTr("Configuration")
 
+    property var fileOpenDialog: FileDialog {
+
+        modality: Qt.WindowModal
+        title: qsTr("Choose a configuration file")
+        nameFilters: [ qsTr("Json files (*.json)")]
+
+        onAccepted: {
+            console.log("selected: " + selectedFile)
+            configFileTxtField.text=selectedFile
+        }
+    }
+
     AppScrollView {
         id:screen
         anchors.fill: parent
         anchors.topMargin: 20*UIUtils.UI.dp
-
-        property var fileOpenDialog: FileDialog {
-
-            modality: Qt.WindowModal
-            title: qsTr("Choose a configuration file")
-            nameFilters: [ qsTr("Json files (*.json)")]
-
-            onAccepted: {
-                console.log("selected: " + selectedFile)
-                configFileTxtField.text=selectedFile
-            }
-        }
 
 
         Column {
