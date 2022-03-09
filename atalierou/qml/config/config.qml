@@ -5,6 +5,7 @@ import UIUtils 1.0 as UIUtils
 import "../main"
 import "../components"
 import "../dataModels"
+import Qt.labs.folderlistmodel
 
 ScreenTemplate {
     id:configurationComponent

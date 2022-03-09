@@ -2,7 +2,7 @@
 
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
-  export QT_DIR=$(realpath ../Qt/6.2.2/gcc_64)
+  export QT_DIR=$(realpath ../Qt/6.2.3/gcc_64)
 fi
 echo "QT_DIR: $QT_DIR"
 
@@ -54,7 +54,7 @@ cd $ROOT_PATH
 export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
-export EXTRA_QT_PLUGINS="quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa"
+export EXTRA_QT_PLUGINS="quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
 
 echo "============================================="
 echo "            launch linuxdeploy"
