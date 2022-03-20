@@ -12,54 +12,61 @@
 <context>
     <name>ActivityCategories</name>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="18"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="20"/>
         <source>accessibility.category_phono</source>
         <translation>Phonologie</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="20"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="22"/>
         <source>accessibility.category_numbers</source>
         <translation>Nombres</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="39"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="24"/>
+        <source>accessibility.category_puzzle</source>
+        <translation>Puzzles</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="45"/>
         <source>accessibility.countSyllabes</source>
         <translation>Compter les syllabes</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="41"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="47"/>
         <source>accessibility.findSoundOrSyllabe</source>
         <translation>Trouver un son ou une syllabe</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="43"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="49"/>
         <source>accessibility.findIntruder</source>
         <translation>Trouver l&apos;intrus</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="51"/>
+        <source>accessibility.slidingPuzzle</source>
+        <translation>Taquin</translation>
     </message>
 </context>
 <context>
     <name>ActivityChoice</name>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="12"/>
+        <location filename="qml/selection/ActivityChoice.qml" line="11"/>
         <source>Activity choice</source>
         <translation>Choix de l&apos;activité</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source>Incompatible file format </source>
-        <translation>Format de fichier incompatible </translation>
+        <translation type="vanished">Format de fichier incompatible </translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source>
 Should be between </source>
-        <translation>
+        <translation type="vanished">
 Doit être compris entre </translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source> and </source>
-        <translation> et </translation>
+        <translation type="vanished"> et </translation>
     </message>
 </context>
 <context>
@@ -70,17 +77,17 @@ Doit être compris entre </translation>
         <translation>Choix du niveau</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="43"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="49"/>
         <source>accessible.score_%1</source>
         <translation>score %1 pourcent</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="82"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="88"/>
         <source>accessible.level %1 exo %2 locked</source>
         <translation>niveau %1 exercice %2</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="82"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="88"/>
         <source>accessible.level %1 exo %2 unlocked</source>
         <translation>niveau %1 exercice %2 verrouillé</translation>
     </message>
@@ -88,7 +95,7 @@ Doit être compris entre </translation>
 <context>
     <name>AppWindow</name>
     <message>
-        <location filename="qml/main/AppWindow.qml" line="13"/>
+        <location filename="qml/main/AppWindow.qml" line="15"/>
         <source>Ma c&apos;hlass atalieroù</source>
         <translation>Ma c&apos;hlass atalieroù</translation>
     </message>
@@ -121,12 +128,12 @@ Doit être compris entre </translation>
         <translation>Ma classe</translation>
     </message>
     <message>
-        <location filename="qml/config/ConfigDetails.qml" line="74"/>
+        <location filename="qml/config/ConfigDetails.qml" line="77"/>
         <source>Export CSV</source>
         <translation>Exporter en CSV</translation>
     </message>
     <message>
-        <location filename="qml/config/ConfigDetails.qml" line="102"/>
+        <location filename="qml/config/ConfigDetails.qml" line="105"/>
         <source>No score to display</source>
         <translation>Aucun score à afficher</translation>
     </message>
@@ -134,9 +141,8 @@ Doit être compris entre </translation>
 <context>
     <name>CountSyllabes</name>
     <message>
-        <location filename="qml/phono/CountSyllabes.qml" line="13"/>
         <source>Count syllabes</source>
-        <translation>Compter les syllabes</translation>
+        <translation type="vanished">Compter les syllabes</translation>
     </message>
 </context>
 <context>
@@ -150,28 +156,28 @@ Doit être compris entre </translation>
 <context>
     <name>FindIntruderModel</name>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="118"/>
-        <location filename="qml/phono/FindIntruderModel.qml" line="132"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="119"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="133"/>
         <source>accessible.notSelected</source>
         <translation>non sélectionné</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="132"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="133"/>
         <source>accessible.selected</source>
         <translation>sélectionné</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="186"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="187"/>
         <source>accessible.correct</source>
         <translation>correct</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="192"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="193"/>
         <source>accessible.wrong</source>
         <translation>faux</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="198"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="199"/>
         <source>accessible.missing</source>
         <translation>oublié</translation>
     </message>
@@ -187,16 +193,66 @@ Doit être compris entre </translation>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="68"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="71"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
         <source>Incompatible file format </source>
         <translation>Format de fichier incompatible </translation>
     </message>
     <message>
-        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="68"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="71"/>
         <source>
 Should be 1.0</source>
         <translation>
 Doit être 1.0</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="91"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="94"/>
+        <source>Config: no groups defined</source>
+        <translation>Aucun groupe n&apos;est défini</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="105"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="108"/>
+        <source>Config: group %1 has no activity</source>
+        <translation>Le groupe %1 n&apos;a pas d&apos;activité</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="132"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="135"/>
+        <source>Config: an activity hasn&apos;t config</source>
+        <translation>Une activité n&apos;a pas de fichier de configuration</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="143"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="146"/>
+        <source>Config: an activity hasn&apos;t category</source>
+        <translation>Une activité n&apos;a pas de catégorie</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="154"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="157"/>
+        <source>Config: an activity hasn&apos;t type</source>
+        <translation>Une activité n&apos;a pas de type</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
+        <source>
+Should be between </source>
+        <translation>
+Doit être compris entre </translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
+        <source> and </source>
+        <translation> et </translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="210"/>
+        <source>Unknown activity category %1</source>
+        <translation>Activité inconnue %1</translation>
     </message>
 </context>
 <context>
@@ -238,27 +294,27 @@ Doit être 1.0</translation>
         <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="64"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="67"/>
         <source>Maker.File.new</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="125"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="128"/>
         <source>Maker.corpus.new</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="131"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="134"/>
         <source>Maker.File.save</source>
         <translation>Enregistrer</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="176"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="179"/>
         <source>MakerCorpus.corpusFile.label</source>
         <translation>Fichier de corpus</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="188"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="191"/>
         <source>MakerCorpus.corpusFile.open</source>
         <translation>Ouvrir</translation>
     </message>
@@ -267,17 +323,17 @@ Doit être 1.0</translation>
         <translation type="vanished">Ouvrir</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="227"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="230"/>
         <source>MakerCorpus.corpusList.label</source>
         <translation>Liste des élements de corpus</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="255"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="258"/>
         <source>accessible.add</source>
         <translation>ajouter un élément</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="276"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="279"/>
         <source>accessible.remove</source>
         <translation>supprimer l&apos;élément sélectionné</translation>
     </message>
@@ -285,59 +341,48 @@ Doit être 1.0</translation>
 <context>
     <name>MakerCorpusEdit</name>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="23"/>
         <source>Choose audio file</source>
-        <translation>Choix d&apos;un fichier audio</translation>
+        <translation type="vanished">Choix d&apos;un fichier audio</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>Audio files (*.mp3 *.ogg *.wav)</source>
-        <translation>Fichier audio (*.mp3 *.ogg *.wav)</translation>
+        <translation type="vanished">Fichier audio (*.mp3 *.ogg *.wav)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>All files (*)</source>
-        <translation>Tous les fichiers (*)</translation>
+        <translation type="vanished">Tous les fichiers (*)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="134"/>
         <source>MakerCorpusEdit.corpusId.label</source>
-        <translation>Identifiant</translation>
+        <translation type="vanished">Identifiant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="143"/>
         <source>MakerCorpusEdit.corpusId.hint</source>
-        <translation>Entrez un identifiant</translation>
+        <translation type="vanished">Entrez un identifiant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="151"/>
         <source>MakerCorpusEdit.corpusId.error</source>
-        <translation>L&apos;identifiant ne doit pas être vide ou déjà utilisé</translation>
+        <translation type="vanished">L&apos;identifiant ne doit pas être vide ou déjà utilisé</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="160"/>
         <source>MakerCorpusEdit.image.label</source>
-        <translation>Fichier image</translation>
+        <translation type="vanished">Fichier image</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="182"/>
         <source>MakerCorpusEdit.sound.label</source>
-        <translation>Fichier audio</translation>
+        <translation type="vanished">Fichier audio</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="215"/>
         <source>accessible.clickToListen</source>
-        <translation>cliquer pour écouter</translation>
+        <translation type="vanished">cliquer pour écouter</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="265"/>
         <source>MakerCorpusEdit.audioFile.open</source>
-        <translation>Ouvrir</translation>
+        <translation type="vanished">Ouvrir</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="272"/>
         <source>MakerCorpusEdit.nbSyllabes.label</source>
-        <translation>Nombre de syllabes</translation>
+        <translation type="vanished">Nombre de syllabes</translation>
     </message>
 </context>
 <context>
@@ -348,22 +393,22 @@ Doit être 1.0</translation>
         <translation>Gestion des configurations</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="27"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="32"/>
         <source>MakerInitSession.choices_label</source>
         <translation>Que voulez vous faire ?</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="31"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="36"/>
         <source>MakerInitSession.choice_new_corpus</source>
         <translation>Créer un nouveau corpus</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="39"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="44"/>
         <source>MakerInitSession.choice_edit_corpus</source>
         <translation>Éditer un corpus existant</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="48"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="53"/>
         <source>MakerInitSession.valid_btn</source>
         <translation>OK</translation>
     </message>
@@ -391,12 +436,12 @@ Doit être 1.0</translation>
 %3</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="141"/>
+        <location filename="qml/main/Navigator.qml" line="138"/>
         <source>accessible.nav_back</source>
         <translation>retour</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="165"/>
+        <location filename="qml/main/Navigator.qml" line="162"/>
         <source>accessible.nav_exit</source>
         <translation>quitter</translation>
     </message>
@@ -409,12 +454,12 @@ Doit être 1.0</translation>
         <translation>Score</translation>
     </message>
     <message>
-        <location filename="qml/main/ScoreScreen.qml" line="80"/>
+        <location filename="qml/main/ScoreScreen.qml" line="82"/>
         <source>accessible.score_%1</source>
         <translation>score %1 pourcent</translation>
     </message>
     <message>
-        <location filename="qml/main/ScoreScreen.qml" line="98"/>
+        <location filename="qml/main/ScoreScreen.qml" line="100"/>
         <source>accessible.nav_back</source>
         <translation>retour</translation>
     </message>
@@ -422,14 +467,27 @@ Doit être 1.0</translation>
 <context>
     <name>Session</name>
     <message>
-        <location filename="qml/dataModels/Session.qml" line="51"/>
+        <location filename="qml/dataModels/Session.qml" line="50"/>
         <source>Error when adding score</source>
         <translation>Erreur lors de l&apos;ajout du score</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/Session.qml" line="57"/>
+        <location filename="qml/dataModels/Session.qml" line="56"/>
         <source>Error when writing score</source>
         <translation>Erreur lors de la sauvegarde du score</translation>
+    </message>
+</context>
+<context>
+    <name>SlidingPuzzle</name>
+    <message>
+        <location filename="qml/games/puzzle/SlidingPuzzle.qml" line="14"/>
+        <source>SlidingPuzzle.title</source>
+        <translation>Taquin</translation>
+    </message>
+    <message>
+        <location filename="qml/games/puzzle/SlidingPuzzle.qml" line="222"/>
+        <source>accessible.next</source>
+        <translation>suivant</translation>
     </message>
 </context>
 <context>
@@ -464,6 +522,61 @@ Doit être 1.0</translation>
     </message>
 </context>
 <context>
+    <name>all</name>
+    <message>
+        <source>accessible.notSelected</source>
+        <translation type="vanished">non sélectionné</translation>
+    </message>
+    <message>
+        <source>accessible.selected</source>
+        <translation type="vanished">sélectionné</translation>
+    </message>
+    <message>
+        <source>accessible.correct</source>
+        <translation type="vanished">correct</translation>
+    </message>
+    <message>
+        <source>accessible.wrong</source>
+        <translation type="vanished">faux</translation>
+    </message>
+    <message>
+        <source>accessible.missing</source>
+        <translation type="vanished">oublié</translation>
+    </message>
+    <message>
+        <source>accessible.help.clickToListen</source>
+        <translation type="vanished">consigne, cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.clickToListen</source>
+        <translation type="vanished">cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.img.clickToListen</source>
+        <translation type="vanished">image, cliquer pour écouter</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.enable</source>
+        <translation type="vanished">cliquer pour vérifier la réponse</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.disable</source>
+        <translation type="vanished">pas de réponse à vérifier</translation>
+    </message>
+    <message>
+        <source>accessible.next</source>
+        <translation type="vanished">suivant</translation>
+    </message>
+    <message>
+        <source>accessible.nav_back</source>
+        <translation type="vanished">retour</translation>
+    </message>
+    <message>
+        <source>accessible.nav_exit</source>
+        <translation type="vanished">quitter</translation>
+    </message>
+</context>
+<context>
     <name>config</name>
     <message>
         <location filename="qml/config/config.qml" line="17"/>
@@ -476,27 +589,27 @@ Doit être 1.0</translation>
         <translation>Fichier JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="31"/>
+        <location filename="qml/config/config.qml" line="12"/>
         <source>Configuration</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="47"/>
+        <location filename="qml/config/config.qml" line="38"/>
         <source>Use embedded configuration</source>
         <translation>Utiliser les paramètres embarqués</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="57"/>
+        <location filename="qml/config/config.qml" line="49"/>
         <source>Use external configuration</source>
         <translation>Choisir un fichier de paramètres externe</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="64"/>
+        <location filename="qml/config/config.qml" line="69"/>
         <source>Enter a JSON configuration file</source>
         <translation>Saisir un fichier de configuration au format JSON</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="68"/>
+        <location filename="qml/config/config.qml" line="59"/>
         <source>Open file...</source>
         <translation>Choisir un fichier...</translation>
     </message>
@@ -555,61 +668,6 @@ Doit être 1.0</translation>
         <source>Acessibility_config_name</source>
         <translatorcomment>Paramètres</translatorcomment>
         <translation type="vanished">Paramètres</translation>
-    </message>
-</context>
-<context>
-    <name>all</name>
-    <message>
-        <source>accessible.notSelected</source>
-        <translation type="vanished">non sélectionné</translation>
-    </message>
-    <message>
-        <source>accessible.selected</source>
-        <translation type="vanished">sélectionné</translation>
-    </message>
-    <message>
-        <source>accessible.correct</source>
-        <translation type="vanished">correct</translation>
-    </message>
-    <message>
-        <source>accessible.wrong</source>
-        <translation type="vanished">faux</translation>
-    </message>
-    <message>
-        <source>accessible.missing</source>
-        <translation type="vanished">oublié</translation>
-    </message>
-    <message>
-        <source>accessible.help.clickToListen</source>
-        <translation type="vanished">consigne, cliquer pour écouter</translation>
-    </message>
-    <message>
-        <source>accessible.clickToListen</source>
-        <translation type="vanished">cliquer pour écouter</translation>
-    </message>
-    <message>
-        <source>accessible.img.clickToListen</source>
-        <translation type="vanished">image, cliquer pour écouter</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.enable</source>
-        <translation type="vanished">cliquer pour vérifier la réponse</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.disable</source>
-        <translation type="vanished">pas de réponse à vérifier</translation>
-    </message>
-    <message>
-        <source>accessible.next</source>
-        <translation type="vanished">suivant</translation>
-    </message>
-    <message>
-        <source>accessible.nav_back</source>
-        <translation type="vanished">retour</translation>
-    </message>
-    <message>
-        <source>accessible.nav_exit</source>
-        <translation type="vanished">quitter</translation>
     </message>
 </context>
 </TS>

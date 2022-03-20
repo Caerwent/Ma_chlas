@@ -18,17 +18,22 @@ L'application ayant été pensée pour avoir un minimum de texte avec dans tous 
 
 ### Écran d'accueil
 ![home](doc/screen_home.png)
-L'écran d'accueil permet d'aller dans l'écran de configuration ou de choisir un groupe. Deux groupes par défaut sont affichés sans configuration personnalisée. Le premier propose des activités en utilisant le jeu de données intégré en français, le second utilise le jeu de données intégré en breton.
+L'écran d'accueil permet d'aller dans l'écran de configuration ou de choisir un groupe. 
+
+Deux groupes par défaut sont affichés sans configuration personnalisée. Le premier propose des activités en utilisant le jeu de données intégré en français, le second utilise le jeu de données intégré en breton.
 L'icône en haut à gauche est la fonction de navigation, elle permet de sortir de l'application sur cet écran ou de revenir à l'écran précédent dans les autres cas.
 
 ### Écran de sélection de la catégorie d'activité
 ![Écran de sélection de la catégorie d'activité](doc/screen_select_activity_category.png)
 Une fois le groupe choisi, l'écran suivant permet de choisir la catégorie d'activité.
-Il n'y a pour le moment que la phonologie, d'autres catégories viendront s'ajouter (dénombrement par exemple)
+Il n'y a pour le moment que la phonologie et les puzzles, d'autres catégories viendront s'ajouter (dénombrement par exemple)
 
 ### Écran de sélection du type d'activité
 ![Écran de sélection du type d'activité](doc/screen_select_activity_type.png)
 Une fois la catégorie choisie, l'écran suivant permet de choisir le type d'activité.
+
+Un seul type de puzzle n'est disponible pour le moment : le taquin.
+
 En phonologie, l'application propose pour le moment le comptage de syllabes dans un mot, la recherche d'un son ou d'une syllabe dans un mot ou la recherche d'un intrus dans une liste de mots (mot qui ne commence ou ne termine pas par le même son ou la même syllabe que les autres).
 
 ### Écran de sélection du niveau de difficulté
@@ -64,6 +69,15 @@ La recherche de l'intrus conciste à trouver dans une liste de mots celui qui ne
 Cet écran est similaire aux autres activités de phonologie. Sous chaque mot de la liste, une case à cocher permet de désigner l'intrus. Le bouton de consigne permet à chaque instant de savoir ce qui est demandé : savoir si les mots doivent commencer ou se terminer par un son ou une syllabe. Il n'y a qu'un seul intrus à trouver à chaque fois. 
 Le nombre maximum de mots à afficher, la position et le type de discriminant (son ou syllabe) sont fixés pour chaque exercice du niveau.
 La correction est affichée de la même façon que les autres activités, une croix rouge si le choix est faux, une coche verte si le choix est correct et une coche noire sur le résultat correct qui n'a pas été trouvé.
+
+### Phonologie : taquin
+![Phonologie : recherche de son ou de syllabe](doc/screen_sliding_puzzle.png)
+Le taquin est un jeu de puzzle qui consiste à reconstituer une image découpée en morceaux mélangés.
+Un morceau vide permet de déplacer les morceaux adjacents jusqu'à ce que l'image soit reconstituée. Il suffit de cliquer sur l'un des morceaux pour le déplacer dans l'espace vide. CEt espace vide est matérialisé par un cercle de façon à le répérer plus facilement.
+
+L'icône en forme d'oeil permet de voir l'image non mélangée. L'icône de flèche en bas permet de passer à l'image suivante. Lorsque l'image est reconstituée, une étoile apparaît à côté et sera ajoutée à la barre de score.
+
+Il est possible de passer à l'image suivante sans avoir reconstituée l'image mais dans ce cas le score n'est pas augmenté.
 
 ### Écran de configuration
 ![Écran de configuration](doc/config.png)
@@ -139,7 +153,7 @@ Le fichier de configuration principal indique sa version de format (actuellement
 
 Vient ensuite la liste des groupes. Chaque groupe défini un nom et une image qui seront présentés sur l'écran d'accueil de l'application. Vient ensuite une liste d'élèves, chaque élève ayant un nom et une image.
 
-Et enfin, une liste des activités proposées pour ce groupe. Une activité est définie par un fichier de configuration, une catégorie (actuellement seule la catégorie **phono** est supportée) et un type d'activité (actuellement **countSyllabes**, **findSoundOrSyllabe** et **findIntruder**). Attention à bien respecter la syntaxe, majuscules comprises.
+Et enfin, une liste des activités proposées pour ce groupe. Une activité est définie par un fichier de configuration, une catégorie (actuellement seule les catégories **phono** et **puzzle** est supportée) et un type d'activité (actuellement **countSyllabes**, **findSoundOrSyllabe** et **findIntruder** pour la phono et **slidingPuzzle** pour les puzzles). Attention à bien respecter la syntaxe, majuscules comprises.
 
 Les images peuvent être au format JPG, PNG ou encore SVG.
 
@@ -176,6 +190,11 @@ Les images peuvent être au format JPG, PNG ou encore SVG.
                  "config":"config_GS_find_intruder.json",
                   "category":"phono",
                   "type":"findIntruder"
+             },
+             {
+                 "config":"config_activity_sliding_puzzle.json",
+                 "category":"puzzle",
+                 "type":"slidingPuzzle"
              }
         ]
     },
@@ -212,6 +231,11 @@ Les images peuvent être au format JPG, PNG ou encore SVG.
                  "config":"config_MS_find_intruder.json",
                   "category":"phono",
                   "type":"findIntruder"
+             },
+             {
+                 "config":"config_activity_sliding_puzzle.json",
+                 "category":"puzzle",
+                 "type":"slidingPuzzle"
              }
         ]
     }
@@ -591,6 +615,114 @@ Chaque élément de la liste **items** est composé de deux listes de mots :
 
 Pour chaque exercice, l'application va créer une série dont le nombre d'éléments correspondra à la valeur de **nbItemsPerExercice** et qui seront construits par tirage aléatoire dans la liste **items** puis à nouveau par tirage aléatoire d'un intrus dans la liste **intruders** et du nombre de mots nécessaires dans la liste **corpus** pour arriver au nombre de mots à proposer.  
 Chaque élément de la liste **items** pouvant désigner des mots qui commencent ou terminent par des syllabes ou des sons différents, il est possible de varier dans la même série.
+
+## Fichier de configuration pour l'activité Taquin
+Comme pour tous les autres fichiers de configuration, ce fichier indique sa version de format (actuellement 1.0.0) et le chemin où trouver les différents fichiers référencés (attention, il doit se terminer par **/**). Cette fois-ci il n'y a pas de fichier de consigne au niveau de l'activité.
+
+Le corpus est la liste des mots utilisables pour l'activité qui est construit de la même façon que pour la phonologie même si les fichiers audio ne sont pas utilisés (un copier/coller peut être fait d'un fichier à l'autre si le corpus est le même).
+
+Vient ensuite la liste des niveaux, chacun contenant les champs :
+
+* **level** indique le niveau (il commence à 1 et doit être incrémenté de 1).
+* **nbItemsPerExercice** indique le nombre d'éléments à présenter par exercice. Pour chaque exercice, une série aléatoire sera créée à partir de la liste des éléments pour les présenter à l'élève.
+* **exercices** contient la liste des exercices à présenter pour ce niveau. Chaque exercice peut avoir son intérêt propre (thème des images par exemples).
+* **unlockScorePercent** indique le score à atteindre sur le niveau précédent pour débloquer ce niveau. Si rien n'est indiqué, la valeur par défaut de 80% est utilisée.
+
+
+
+```
+{
+"fileFormatVersion":"1.0.0",
+"path":"./",
+"corpus":[
+      {
+         "id":"bateau",
+         "image":"../images/bateau.png",
+         "sound":"fr/audio/bateau.mp3",
+         "nbSyllabes":2
+      },
+      {
+         "id":"bus",
+         "image":"../images/bus.png",
+         "sound":"fr/audio/bus.mp3",
+         "nbSyllabes":1
+      }
+      ...
+      {
+         "id":"velo",
+         "image":"../images/velo.png",
+         "sound":"fr/audio/velo.mp3",
+         "nbSyllabes":2
+      }
+],
+"levels": [{
+        "level": 1,
+        "nbItemsPerExercice": 2,
+        "exercices": [
+            {
+                "name": "theme1",
+                "items": [
+                    {
+                        "blankRow": 0,
+                        "blankCol": 2,
+                        "corpus": [
+                            "abeille",
+                            "canard"
+                         ]
+                     },
+                     {
+                        "blankRow": 0,
+                        "blankCol": 0,
+                        "corpus": [
+                            "cheval",
+                            "corbeau"
+                         ]
+                     }
+                ]
+	
+             },
+             {
+                 "name": "theme2",
+                 "items": [
+                     {
+                          "blankRow": 0,
+                          "blankCol": 0,
+                          "corpus": [
+                              "bus",
+                              "bateau"
+                          ]
+                      },
+                      {
+                          "blankRow": 0,
+                          "blankCol": 2,
+                          "corpus": [
+                              "avion",
+                               "camion"
+                           ]
+                      }
+                 ]
+             }
+          ]
+       }
+    ]
+}
+```
+Chaque exercice est composé de la façon suivante :
+
+* **name** contient le nom de l'exercice qui sera présenté dans la liste des exercices.
+* **items** contient la liste des éléments possibles pour cet exercice.
+
+Chaque élément de la liste **items** est composé de :
+
+* **corpus** la liste des éléments du corpus à utiliser,
+* **blankRow** l'index de la ligne à laisser vide (de 0 à 2, 0 étant la première ligne, en haut),
+* **blankCol** l'index de la colonne à laisser vide (de 0 à 2, 0 étant la première colonne, à gauche).
+
+Pour chaque exercice, l'application va créer une série dont le nombre d'éléments correspondra à la valeur de **nbItemsPerExercice** et qui seront construits par tirage aléatoire dans la liste **items**.
+
+Le positionnement de la case vide permet de laisser l'image la plus complète possible. En effet, pour certaines images, laisser la case en haut à gauche comme case vide risquerait de masquer un élément important de l'image alors que mettre la case vide ailleurs pourra être moins génant.
+L'idal étant donc de positionner la cellule vide à l'endroit le plus adaptée de l'image sachant qu'elle sera découpée en 9 cases.
+
 
 ## Editeur graphique pour les corpus
 L'écriture de fichier JSON pouvant être fastidieuse, l'application propose de gérer les corpus au moyen d'un éditeur graphique.

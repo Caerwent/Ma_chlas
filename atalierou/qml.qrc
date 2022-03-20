@@ -261,5 +261,12 @@
         <file>res/data/br/audio/help_phono_start_same_syllabe.mp3</file>
         <file>qml/components/AppScrollView.qml</file>
         <file>qml/phono/PhonoSessionData.qml</file>
+        <file>qml/games/puzzle/SlidingPuzzle.qml</file>
+        <file>res/icons/puzzle.svg</file>
+        <file>res/icons/puzzle_sliding.svg</file>
+        <file>res/data/puzzles/config_activity_sliding_puzzle.json</file>
+        <file>qml/games/puzzle/PuzzleSessionData.qml</file>
+        <file>qml/games/puzzle/SlidingPuzzleModel.qml</file>
+        <file>res/icons/anchor.svg</file>
     </qresource>
 </RCC>

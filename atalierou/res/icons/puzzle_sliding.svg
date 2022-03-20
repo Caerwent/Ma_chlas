@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   x="0px"
+   y="0px"
+   width="427.827"
+   height="428.47968"
+   viewBox="0 0 427.82699 428.47967"
+   id="svg828"
+   sodipodi:docname="puzzle_sliding.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+ 
+  <g
+     id="g826"
+     transform="translate(-57.417,-55.57331)">
+    <path
+       fill="#333333" d="M 467.826,56.232 H 74.091 L 57.423,55.57331 57.417,74.517 v 392.868 16.668 h 16.668 393.74 17.12314 L 485.244,467.385 V 74.517 l -0.29586,-18.488552 z m 0.378,284.296 V 467.385 H 340.413 V 340.528 Z m -133.347,0 V 467.385 H 207.436 V 340.528 Z m -133.353,0 V 467.385 H 74.091 V 340.528 Z m 266.7,-133.356 v 127.8 H 340.413 v -127.8 z m -133.347,0 v 127.8 H 207.436 v -127.8 z m -133.353,0 v 127.8 H 74.091 v -127.8 z M 468.204,73.829 V 201.617 H 340.413 V 73.829 Z m -133.347,0 V 201.617 H 207.436 V 73.829 Z m -133.353,0 V 201.617 H 74.091 V 73.829 Z m 256.58,10.056 V 188.79 H 353.18 V 83.885 Z"
+       id="path824"/>
+  </g>
+</svg>

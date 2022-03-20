@@ -182,9 +182,13 @@ Item {
                                                                                 return a.level - b.level}) : []
                                  Session.activityType = activityType
 
-                                 if(activityCategory==="phono")
+                                 if(activityCategory==="phono" || activityCategory==="puzzle")
                                  {
-                                     var component = Qt.createComponent("../phono/PhonoSessionData.qml")
+                                     var component = null
+                                     if(activityCategory==="phono")
+                                        component= Qt.createComponent("../phono/PhonoSessionData.qml")
+                                     else if(activityCategory==="puzzle")
+                                        component= Qt.createComponent("../games/puzzle/PuzzleSessionData.qml")
 
                                      if(component.status===Component.Error )
                                      {
