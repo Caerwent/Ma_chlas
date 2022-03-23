@@ -40,8 +40,8 @@ $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\
 
 # echo PATH $env:PATH
 Get-ChildItem -Path "$env:QT_DIR\Tools\"
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
 echo "            launch qmake"
@@ -53,8 +53,8 @@ echo "============================================="
 echo "            launch make"
 echo "============================================="
 # Start-Process -FilePath "nmake.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\Tools\mingw900_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\Tools\mingw900_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\Tools\mingw1120_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "$env:QT_DIR\Tools\mingw1120_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
 
 
 Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination $env:DISTRIB_PATH
