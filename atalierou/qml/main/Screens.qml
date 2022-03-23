@@ -13,6 +13,7 @@ QtObject {
     property string countSyllabes:"qrc:/qml/phono/CountSyllabes.qml"
     property string findSoundOrSyllabe:"qrc:/qml/phono/FindSoundOrSyllabe.qml"
     property string findIntruder:"qrc:/qml/phono/FindIntruder.qml"
+    property string slidingPuzzle:"qrc:/qml/games/puzzle/SlidingPuzzle.qml"
     property string score:"qrc:/qml/main/ScoreScreen.qml"
 
     property string configMaker:"qrc:/qml/config/maker/MakerInitSession.qml"

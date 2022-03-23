@@ -8,9 +8,9 @@ import "../components"
 import "../dataModels"
 Window {
     color: Material.background
-   // visibility: "FullScreen"
-    width:1145
-    height:845
+    visibility: "FullScreen"
+   // width:1145
+   // height:845
     visible:true
     title: qsTr("Ma c'hlass atalieroù")
 
@@ -165,10 +165,20 @@ Window {
 
         StackView {
             id: mainStack
+            focus: true // important - otherwise we'll get no key events
             initialItem: "qrc:/qml/main/home.qml"
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-
+            Keys.onBackPressed: {
+                if(depth<=1)
+                {
+                    Qt.quit()
+                }
+                else
+                {
+                    navigator.back()
+                }
+            }
         }
 
     }

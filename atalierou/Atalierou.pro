@@ -24,6 +24,7 @@ SOURCES += \
         src/fileio.cpp \
         main.cpp \
         src/globalConfigData.cpp \
+        src/puzzle/slidingpuzzle.cpp \
         src/user.cpp \
         src/ActivityLevelScoreNode.cpp
 
@@ -59,6 +60,7 @@ HEADERS += \
     src/corpus/corpus.h \
     src/fileio.h \
     src/globalConfigData.h \
+    src/puzzle/slidingpuzzle.h \
     src/user.h
 
 #include(./mac.pri)

@@ -22,6 +22,11 @@
            "config":"fr/config_activity_find_intruder.json",
            "category":"phono",
            "type":"findIntruder"
+        },
+        {
+           "config":"puzzles/config_activity_sliding_puzzle.json",
+           "category":"puzzle",
+           "type":"slidingPuzzle"
         }
      ]
     },
@@ -45,6 +50,11 @@
            "config":"br/config_activity_find_intruder.json",
            "category":"phono",
            "type":"findIntruder"
+        },
+        {
+           "config":"puzzles/config_activity_sliding_puzzle.json",
+           "category":"puzzle",
+           "type":"slidingPuzzle"
         }
      ]
     }

@@ -161,7 +161,7 @@ Flow {
         Accessible.role: Accessible.Button
         Accessible.name: qsTr("accessible.nav_exit")
         Accessible.onPressAction: {
-                navigator.back()
+                Qt.quit()
             }
 
     }

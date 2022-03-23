@@ -12,54 +12,61 @@
 <context>
     <name>ActivityCategories</name>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="18"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="20"/>
         <source>accessibility.category_phono</source>
         <translation>fonologiezh</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="20"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="22"/>
         <source>accessibility.category_numbers</source>
         <translation>an niveroù</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="39"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="24"/>
+        <source>accessibility.category_puzzle</source>
+        <translation>Mildamm</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="45"/>
         <source>accessibility.countSyllabes</source>
         <translation>kontañ ar silabennoù</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="41"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="47"/>
         <source>accessibility.findSoundOrSyllabe</source>
         <translation>kavout ur son pe ur silabenn</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/ActivityCategories.qml" line="43"/>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="49"/>
         <source>accessibility.findIntruder</source>
         <translation>kavout an ostant</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/ActivityCategories.qml" line="51"/>
+        <source>accessibility.slidingPuzzle</source>
+        <translation>Mildamm</translation>
     </message>
 </context>
 <context>
     <name>ActivityChoice</name>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="12"/>
+        <location filename="qml/selection/ActivityChoice.qml" line="11"/>
         <source>Activity choice</source>
         <translation>Dibab an obererezh</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source>Incompatible file format </source>
-        <translation>Stumm fichennaoueg fall </translation>
+        <translation type="vanished">Stumm fichennaoueg fall </translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source>
 Should be between </source>
-        <translation>
+        <translation type="vanished">
 A rank bezañ etre </translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoice.qml" line="104"/>
         <source> and </source>
-        <translation> ha(g) </translation>
+        <translation type="vanished"> ha(g) </translation>
     </message>
 </context>
 <context>
@@ -70,17 +77,17 @@ A rank bezañ etre </translation>
         <translation>Dibab al live</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="43"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="49"/>
         <source>accessible.score_%1</source>
         <translation>merk %1 dregant</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="82"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="88"/>
         <source>accessible.level %1 exo %2 locked</source>
         <translation>live %1 poelladenn %2</translation>
     </message>
     <message>
-        <location filename="qml/selection/ActivityChoiceLevel.qml" line="82"/>
+        <location filename="qml/selection/ActivityChoiceLevel.qml" line="88"/>
         <source>accessible.level %1 exo %2 unlocked</source>
         <translation>live %1 poelladenn %2 prennet</translation>
     </message>
@@ -88,7 +95,7 @@ A rank bezañ etre </translation>
 <context>
     <name>AppWindow</name>
     <message>
-        <location filename="qml/main/AppWindow.qml" line="13"/>
+        <location filename="qml/main/AppWindow.qml" line="15"/>
         <source>Ma c&apos;hlass atalieroù</source>
         <translation>Ma c&apos;hlass atalieroù</translation>
     </message>
@@ -117,12 +124,12 @@ A rank bezañ etre </translation>
         <translation>Ma c&apos;hlass</translation>
     </message>
     <message>
-        <location filename="qml/config/ConfigDetails.qml" line="74"/>
+        <location filename="qml/config/ConfigDetails.qml" line="77"/>
         <source>Export CSV</source>
         <translation>Ezporzhiañ e CSV</translation>
     </message>
     <message>
-        <location filename="qml/config/ConfigDetails.qml" line="102"/>
+        <location filename="qml/config/ConfigDetails.qml" line="105"/>
         <source>No score to display</source>
         <translation>Hollad ebet da lakaat war well</translation>
     </message>
@@ -130,9 +137,8 @@ A rank bezañ etre </translation>
 <context>
     <name>CountSyllabes</name>
     <message>
-        <location filename="qml/phono/CountSyllabes.qml" line="13"/>
         <source>Count syllabes</source>
-        <translation>Kontañ ar sillabennoù</translation>
+        <translation type="vanished">Kontañ ar sillabennoù</translation>
     </message>
 </context>
 <context>
@@ -146,28 +152,28 @@ A rank bezañ etre </translation>
 <context>
     <name>FindIntruderModel</name>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="118"/>
-        <location filename="qml/phono/FindIntruderModel.qml" line="132"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="119"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="133"/>
         <source>accessible.notSelected</source>
         <translation>nanndibabet</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="132"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="133"/>
         <source>accessible.selected</source>
         <translation>dibabet</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="186"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="187"/>
         <source>accessible.correct</source>
         <translation>mat</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="192"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="193"/>
         <source>accessible.wrong</source>
         <translation>fall</translation>
     </message>
     <message>
-        <location filename="qml/phono/FindIntruderModel.qml" line="198"/>
+        <location filename="qml/phono/FindIntruderModel.qml" line="199"/>
         <source>accessible.missing</source>
         <translation>diank</translation>
     </message>
@@ -183,16 +189,66 @@ A rank bezañ etre </translation>
 <context>
     <name>GlobalConfigModel</name>
     <message>
-        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="68"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="71"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
         <source>Incompatible file format </source>
         <translation>Stumm fichennaoueg fall </translation>
     </message>
     <message>
-        <location filename="qml/dataModels/GlobalConfigModel.qml" line="66"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="68"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="71"/>
         <source>
 Should be 1.0</source>
         <translation>
 A rank bezañ 1.0</translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="91"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="94"/>
+        <source>Config: no groups defined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="105"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="108"/>
+        <source>Config: group %1 has no activity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="132"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="135"/>
+        <source>Config: an activity hasn&apos;t config</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="143"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="146"/>
+        <source>Config: an activity hasn&apos;t category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="154"/>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="157"/>
+        <source>Config: an activity hasn&apos;t type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
+        <source>
+Should be between </source>
+        <translation type="unfinished">
+A rank bezañ etre </translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="175"/>
+        <source> and </source>
+        <translation type="unfinished"> ha(g) </translation>
+    </message>
+    <message>
+        <location filename="qml/dataModels/GlobalConfigModel.qml" line="210"/>
+        <source>Unknown activity category %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -234,27 +290,27 @@ A rank bezañ 1.0</translation>
         <translation>An holl restroù (*)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="64"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="67"/>
         <source>Maker.File.new</source>
         <translation>Krouiñ</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="125"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="128"/>
         <source>Maker.corpus.new</source>
         <translation>Krouiñ</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="131"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="134"/>
         <source>Maker.File.save</source>
         <translation>Enrollañ</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="176"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="179"/>
         <source>MakerCorpus.corpusFile.label</source>
         <translation>Restr al listennad gerioù</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="188"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="191"/>
         <source>MakerCorpus.corpusFile.open</source>
         <translation>Digeriñ</translation>
     </message>
@@ -263,17 +319,17 @@ A rank bezañ 1.0</translation>
         <translation type="vanished">Ouvrir</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="227"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="230"/>
         <source>MakerCorpus.corpusList.label</source>
         <translation>Listennad ar gerioù</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="255"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="258"/>
         <source>accessible.add</source>
         <translation>ouzhpennañ ur ger</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpus.qml" line="276"/>
+        <location filename="qml/config/maker/MakerCorpus.qml" line="279"/>
         <source>accessible.remove</source>
         <translation>tennañ ar ger dibabet</translation>
     </message>
@@ -281,59 +337,48 @@ A rank bezañ 1.0</translation>
 <context>
     <name>MakerCorpusEdit</name>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="23"/>
         <source>Choose audio file</source>
-        <translation>Choaz ur restr son</translation>
+        <translation type="vanished">Choaz ur restr son</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>Audio files (*.mp3 *.ogg *.wav)</source>
-        <translation>Restr son (*.mp3 *.ogg *.wav)</translation>
+        <translation type="vanished">Restr son (*.mp3 *.ogg *.wav)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="24"/>
         <source>All files (*)</source>
-        <translation>An holl restroù (*)</translation>
+        <translation type="vanished">An holl restroù (*)</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="134"/>
         <source>MakerCorpusEdit.corpusId.label</source>
-        <translation>anv</translation>
+        <translation type="vanished">anv</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="143"/>
         <source>MakerCorpusEdit.corpusId.hint</source>
-        <translation>Bizskrivañ un anv</translation>
+        <translation type="vanished">Bizskrivañ un anv</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="151"/>
         <source>MakerCorpusEdit.corpusId.error</source>
-        <translation>Arabat e vefe an anv goullo pe implijet dija</translation>
+        <translation type="vanished">Arabat e vefe an anv goullo pe implijet dija</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="160"/>
         <source>MakerCorpusEdit.image.label</source>
-        <translation>Skeudenn</translation>
+        <translation type="vanished">Skeudenn</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="182"/>
         <source>MakerCorpusEdit.sound.label</source>
-        <translation>Son</translation>
+        <translation type="vanished">Son</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="215"/>
         <source>accessible.clickToListen</source>
-        <translation>Klikañ evit selaou</translation>
+        <translation type="vanished">Klikañ evit selaou</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="265"/>
         <source>MakerCorpusEdit.audioFile.open</source>
-        <translation>Digeriñ</translation>
+        <translation type="vanished">Digeriñ</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerCorpusEdit.qml" line="272"/>
         <source>MakerCorpusEdit.nbSyllabes.label</source>
-        <translation>Niver a silabennoù</translation>
+        <translation type="vanished">Niver a silabennoù</translation>
     </message>
 </context>
 <context>
@@ -344,22 +389,22 @@ A rank bezañ 1.0</translation>
         <translation>Merañ ar restroù gerioù</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="27"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="32"/>
         <source>MakerInitSession.choices_label</source>
         <translation>Petra a fell deoc&apos;h ober ?</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="31"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="36"/>
         <source>MakerInitSession.choice_new_corpus</source>
         <translation>Krouiñ ul listennad gerioù nevez</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="39"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="44"/>
         <source>MakerInitSession.choice_edit_corpus</source>
         <translation>Kemmañ ul listennad gerioù</translation>
     </message>
     <message>
-        <location filename="qml/config/maker/MakerInitSession.qml" line="48"/>
+        <location filename="qml/config/maker/MakerInitSession.qml" line="53"/>
         <source>MakerInitSession.valid_btn</source>
         <translation>Mat</translation>
     </message>
@@ -387,12 +432,12 @@ A rank bezañ 1.0</translation>
 %3</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="141"/>
+        <location filename="qml/main/Navigator.qml" line="138"/>
         <source>accessible.nav_back</source>
         <translation>Distreiñ</translation>
     </message>
     <message>
-        <location filename="qml/main/Navigator.qml" line="165"/>
+        <location filename="qml/main/Navigator.qml" line="162"/>
         <source>accessible.nav_exit</source>
         <translation>Serriñ</translation>
     </message>
@@ -405,12 +450,12 @@ A rank bezañ 1.0</translation>
         <translation>Hollad</translation>
     </message>
     <message>
-        <location filename="qml/main/ScoreScreen.qml" line="80"/>
+        <location filename="qml/main/ScoreScreen.qml" line="82"/>
         <source>accessible.score_%1</source>
         <translation>Merk %1 dregant</translation>
     </message>
     <message>
-        <location filename="qml/main/ScoreScreen.qml" line="98"/>
+        <location filename="qml/main/ScoreScreen.qml" line="100"/>
         <source>accessible.nav_back</source>
         <translation>Distreiñ</translation>
     </message>
@@ -418,14 +463,27 @@ A rank bezañ 1.0</translation>
 <context>
     <name>Session</name>
     <message>
-        <location filename="qml/dataModels/Session.qml" line="51"/>
+        <location filename="qml/dataModels/Session.qml" line="50"/>
         <source>Error when adding score</source>
         <translation>Fazi e-pad ouzhpennadur an hollad</translation>
     </message>
     <message>
-        <location filename="qml/dataModels/Session.qml" line="57"/>
+        <location filename="qml/dataModels/Session.qml" line="56"/>
         <source>Error when writing score</source>
         <translation>Fazi e-pad savadenn an hollad</translation>
+    </message>
+</context>
+<context>
+    <name>SlidingPuzzle</name>
+    <message>
+        <location filename="qml/games/puzzle/SlidingPuzzle.qml" line="14"/>
+        <source>SlidingPuzzle.title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/games/puzzle/SlidingPuzzle.qml" line="222"/>
+        <source>accessible.next</source>
+        <translation type="unfinished">war-lerc&apos;h</translation>
     </message>
 </context>
 <context>
@@ -460,6 +518,61 @@ A rank bezañ 1.0</translation>
     </message>
 </context>
 <context>
+    <name>all</name>
+    <message>
+        <source>accessible.notSelected</source>
+        <translation type="vanished">nanndibabet</translation>
+    </message>
+    <message>
+        <source>accessible.selected</source>
+        <translation type="vanished">dibabet</translation>
+    </message>
+    <message>
+        <source>accessible.correct</source>
+        <translation type="vanished">mat</translation>
+    </message>
+    <message>
+        <source>accessible.wrong</source>
+        <translation type="vanished">fall</translation>
+    </message>
+    <message>
+        <source>accessible.missing</source>
+        <translation type="vanished">diank</translation>
+    </message>
+    <message>
+        <source>accessible.help.clickToListen</source>
+        <translation type="vanished">lavarenn, klikañ evit selaou</translation>
+    </message>
+    <message>
+        <source>accessible.clickToListen</source>
+        <translation type="vanished">klikañ evit selaou</translation>
+    </message>
+    <message>
+        <source>accessible.img.clickToListen</source>
+        <translation type="vanished">skeudenn, klikañ evit selaou</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.enable</source>
+        <translation type="vanished">klikañ evit gwiriañ ar respont</translation>
+    </message>
+    <message>
+        <source>accessible.clickToVerify.disable</source>
+        <translation type="vanished">respont ebet da wiriañ</translation>
+    </message>
+    <message>
+        <source>accessible.next</source>
+        <translation type="vanished">war-lerc&apos;h</translation>
+    </message>
+    <message>
+        <source>accessible.nav_back</source>
+        <translation type="vanished">distreiñ</translation>
+    </message>
+    <message>
+        <source>accessible.nav_exit</source>
+        <translation type="vanished">serriñ</translation>
+    </message>
+</context>
+<context>
     <name>config</name>
     <message>
         <location filename="qml/config/config.qml" line="17"/>
@@ -472,27 +585,27 @@ A rank bezañ 1.0</translation>
         <translation>Restr JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="31"/>
+        <location filename="qml/config/config.qml" line="12"/>
         <source>Configuration</source>
         <translation>Kefluniadur</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="47"/>
+        <location filename="qml/config/config.qml" line="38"/>
         <source>Use embedded configuration</source>
         <translation>Implijout ar restr dre ziouer</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="57"/>
+        <location filename="qml/config/config.qml" line="49"/>
         <source>Use external configuration</source>
         <translation>Implijour ur fichennaoueg diavez</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="64"/>
+        <location filename="qml/config/config.qml" line="69"/>
         <source>Enter a JSON configuration file</source>
         <translation>Dizskrivañ ur restr gefluniañ JSON</translation>
     </message>
     <message>
-        <location filename="qml/config/config.qml" line="68"/>
+        <location filename="qml/config/config.qml" line="59"/>
         <source>Open file...</source>
         <translation>Dibab ur restr...</translation>
     </message>
@@ -556,61 +669,6 @@ A rank bezañ 1.0</translation>
         <source>Acessibility_config_desc</source>
         <translatorcomment>Kefluniadur</translatorcomment>
         <translation type="vanished">Kefluniadur</translation>
-    </message>
-</context>
-<context>
-    <name>all</name>
-    <message>
-        <source>accessible.notSelected</source>
-        <translation type="vanished">nanndibabet</translation>
-    </message>
-    <message>
-        <source>accessible.selected</source>
-        <translation type="vanished">dibabet</translation>
-    </message>
-    <message>
-        <source>accessible.correct</source>
-        <translation type="vanished">mat</translation>
-    </message>
-    <message>
-        <source>accessible.wrong</source>
-        <translation type="vanished">fall</translation>
-    </message>
-    <message>
-        <source>accessible.missing</source>
-        <translation type="vanished">diank</translation>
-    </message>
-    <message>
-        <source>accessible.help.clickToListen</source>
-        <translation type="vanished">lavarenn, klikañ evit selaou</translation>
-    </message>
-    <message>
-        <source>accessible.clickToListen</source>
-        <translation type="vanished">klikañ evit selaou</translation>
-    </message>
-    <message>
-        <source>accessible.img.clickToListen</source>
-        <translation type="vanished">skeudenn, klikañ evit selaou</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.enable</source>
-        <translation type="vanished">klikañ evit gwiriañ ar respont</translation>
-    </message>
-    <message>
-        <source>accessible.clickToVerify.disable</source>
-        <translation type="vanished">respont ebet da wiriañ</translation>
-    </message>
-    <message>
-        <source>accessible.next</source>
-        <translation type="vanished">war-lerc'h</translation>
-    </message>
-    <message>
-        <source>accessible.nav_back</source>
-        <translation type="vanished">distreiñ</translation>
-    </message>
-    <message>
-        <source>accessible.nav_exit</source>
-        <translation type="vanished">serriñ</translation>
     </message>
 </context>
 </TS>

@@ -23,6 +23,10 @@ QtObject {
         {
             return ["1.0","1.0"]
         }
+        else if(activityCategory==="puzzle" && activityType==="slidingPuzzle")
+        {
+           return ["1.0","1.0"]
+        }
 
     }
 }

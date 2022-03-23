@@ -14,22 +14,23 @@ ScreenTemplate {
         id:screen
         anchors.fill: parent
         anchors.topMargin: 20*UIUtils.UI.dp
-    Item {
+    Column {
         id:childrenFrame
-        anchors.fill: parent
+        anchors.top:parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
 
         Component.onCompleted: {
             scorePanel.fillPercent=Session.exerciceScore
         }
 
-        Rectangle {
-            border.color :"transparent"
-            color:Material.backgroundColor
+        Column {
+            //border.color :"transparent"
+            //color:Material.backgroundColor
 
             width: 160*UIUtils.UI.dp
-            anchors.top:parent.top
-            anchors.bottom:parent.bottom
-             anchors.horizontalCenter: parent.horizontalCenter
+           // anchors.top:parent.top
+             anchors.horizontalCenter: childrenFrame.horizontalCenter
 
              //https://qmlbook.github.io/ch10-particles/particles.html
              Rectangle {
@@ -70,7 +71,7 @@ ScreenTemplate {
         GaugeImage {
             width: 160*UIUtils.UI.dp
             height: 320*UIUtils.UI.dp
-            anchors.top:particules.bottom
+            //anchors.top:particules.bottom
             anchors.horizontalCenter: parent.horizontalCenter
             id:scorePanel
             isAnimated:false
@@ -89,7 +90,7 @@ ScreenTemplate {
             width: 50*UIUtils.UI.dp
             height: 50*UIUtils.UI.dp
             anchors.topMargin: 30*UIUtils.UI.dp
-            anchors.top: scorePanel.bottom
+           // anchors.top: scorePanel.bottom
             anchors.horizontalCenter: parent.horizontalCenter
             source: "qrc:///res/icons/next.svg"
             onClicked:{
