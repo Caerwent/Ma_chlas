@@ -370,7 +370,7 @@
             {
                "name":"syllabeEnd",
                "max":3,
-               "helpFile":"audio/help_phono_intruder_end_syllable.mp3",
+               "helpFile":"audio/help_phono_end_same_syllable.mp3",
                "items":[
                   {
                      "corpus":[
@@ -425,7 +425,7 @@
             {
                "name":"SoundEnd",
                "max":3,
-               "helpFile":"audio/help_phono_intruder_end_sound.mp3",
+               "helpFile":"audio/help_phono_end_same_sound.mp3",
                "items":[
                   {
                      "corpus":[
