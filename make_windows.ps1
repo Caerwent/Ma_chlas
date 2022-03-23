@@ -39,7 +39,8 @@ Set-Location -Path $env:BUILD_PATH -PassThru
 $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw900_64\bin;$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin;$env:PATH"
 
 # echo PATH $env:PATH
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
+Get-ChildItem -Path "$env:QT_DIR\Tools\
+Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\bin"
 # Get-ChildItem -Path "$env:QT_DIR\Tools\mingw900_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
