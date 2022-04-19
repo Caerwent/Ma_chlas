@@ -20,6 +20,7 @@ else
   export ARCH_NAME=i386
 fi
   
+export PATH=.:$PATH
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
 
