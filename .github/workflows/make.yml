@@ -47,16 +47,19 @@ jobs:
              qtInstallHost: 'linux'
              artifact_ext: AppImage 
              qtModules: 'all'
+             qtArch: 'gcc_64'
            - os: macos-latest
              build_script: ./make_macos.sh
              qtInstallHost: 'mac'
              artifact_ext: dmg 
              qtModules: 'all'
+             qtArch: 'clang_64'
            - os: windows-latest
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: zip 
              qtModules: 'qtshadertools qtmultimedia qtimageformats'
+             qtArch: 'win64_mingw'
     runs-on: ${{ matrix.os }}       
     steps:
     - uses: actions/checkout@v2
@@ -75,15 +78,10 @@ jobs:
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
         version: '6.2.4'
-        arch: 'win64_mingw'
+        arch: ${{matrix.qtArch}}
         setup-python: 'false'
         aqtversion: '==2.1.*'
-        modules: ${{matrix.qtModules}} 
-        
-    - name: "check mingw tools"
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: |
-        python3 -m aqt list-qt linux desktop --arch 6.2.4
+        modules: ${{matrix.qtModules}}
         
     - name: "Install mingw tools if Windows"
       if: ${{ matrix.os == 'windows-latest' }}
