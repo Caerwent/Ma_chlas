@@ -74,11 +74,16 @@ jobs:
  #       cached: ${{ steps.cache-qt.outputs.cache-hit }}
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        version: '6.2.3'
+        version: '6.2.4'
         arch: 'win64_mingw'
         setup-python: 'false'
         aqtversion: '==2.1.*'
         modules: ${{matrix.qtModules}} 
+        
+    - name: "check mingw tools"
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: |
+        python3 -m aqt list-qt linux desktop --arch 6.2.4
         
     - name: "Install mingw tools if Windows"
       if: ${{ matrix.os == 'windows-latest' }}
