@@ -58,7 +58,7 @@ jobs:
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: zip 
-             qtModules: 'qtshadertools qtmultimedia qtimageformats qtmultimediaquick'
+             qtModules: 'qtshadertools qtmultimedia qtimageformats'
              qtArch: 'win64_mingw'
     runs-on: ${{ matrix.os }}       
     steps:
