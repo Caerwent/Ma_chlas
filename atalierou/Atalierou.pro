@@ -3,9 +3,11 @@ QT += multimedia
 QT += svg
 QT += quickcontrols2
 QT += core
+QT += widgets
+QT += gui
 CONFIG += c++11
 QT_FOR_CONFIG += multimedia-private
-QT_FOR_CONFIG += gui
+
 
 TARGET = Atalierou
 
