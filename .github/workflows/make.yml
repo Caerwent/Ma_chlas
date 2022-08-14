@@ -58,7 +58,7 @@ jobs:
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: zip 
-             qtModules: 'qtshadertools qtmultimedia qtimageformats'
+             qtModules: 'qtshadertools qtmultimedia qtimageformats qtmultimediaquick'
              qtArch: 'win64_mingw'
     runs-on: ${{ matrix.os }}       
     steps:
@@ -70,14 +70,15 @@ jobs:
  #     with:
  #       path: ../Qt
  #       key: ${{ runner.os }}-$${{secrets.USE_NEW_CACHE}}-QtCache
-        
+
+ # https://ddalcino.github.io/aqt-list-server/        
     - name: "Install Qt"
       uses: jurplel/install-qt-action@v3
       with:
  #       cached: ${{ steps.cache-qt.outputs.cache-hit }}
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        version: '6.2.3'
+        version: '6.2.4'
         arch: ${{matrix.qtArch}}
         setup-python: 'false'
         aqtversion: '==2.1.*'
