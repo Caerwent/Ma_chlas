@@ -78,7 +78,7 @@ jobs:
  #       cached: ${{ steps.cache-qt.outputs.cache-hit }}
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        version: '6.3.1'
+        version: '6.2.2'
         arch: ${{matrix.qtArch}}
         setup-python: 'false'
         aqtversion: '==2.1.*'
