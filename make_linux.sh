@@ -41,7 +41,7 @@ echo "============================================="
 echo "            DEBUG QT CONTENT"
 echo "============================================="
 echo "$(ls $QT_DIR)"
-echo "$(ls $QT_DIR/linux)"
+echo "$(ls $QT_DIR/plugins)"
 
 echo "============================================="
 echo "            launch qmake"
@@ -62,19 +62,30 @@ export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
 export EXTRA_QT_PLUGINS="mediaservice;multimedia;quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
+echo "============================================="
+echo "            get qtdeploy tools"
+echo "============================================="
+mkdir -p ./qtdeploytools
+wget -P "./qtdeploytools" https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-$ARCH_NAME.AppImage
+chmod +x "./qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage"
+
+wget -P "./qtdeploytools" https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage
+chmod +x "./qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage"
+export PATH=./qtdeploytools:$PATH
+
 
 echo "============================================="
 echo "            launch linuxdeploy"
 echo "============================================="
-echo "$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
-$ROOT_PATH/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png 
+echo "$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
+$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png 
 
 echo "============================================="
 echo "            launch linuxdeploy qt"
 echo "============================================="
 export QML_SOURCES_PATHS=$PROJECT_PATH/qml
-echo "$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-$ROOT_PATH/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
+echo "$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 
 
 echo "============================================="
@@ -83,7 +94,7 @@ echo "============================================="
 export VERSION=$CURRENT_VERSION
 echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
 export OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
-echo "launch $ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
 echo "OUTPUT: $OUTPUT"
-$ROOT_PATH/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
+$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 
