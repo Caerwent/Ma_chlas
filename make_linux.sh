@@ -38,12 +38,6 @@ cd $BUILD_PATH
 
 
 echo "============================================="
-echo "            DEBUG QT CONTENT"
-echo "============================================="
-echo "$(ls $QT_DIR)"
-echo "$(ls $QT_DIR/plugins)"
-
-echo "============================================="
 echo "            launch qmake"
 echo "============================================="
 $QT_DIR/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
@@ -77,7 +71,11 @@ wget -P "./qtdeploytools" https://github.com/linuxdeploy/linuxdeploy-plugin-appi
 chmod +x "./qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage"
 export PATH=./qtdeploytools:$PATH
 
-
+echo "============================================="
+echo "            fix temporay missing directories"
+echo "============================================="
+mkdir -p $QT_DIR/plugins/mediaservice
+mkdir -p $QT_DIR/plugins/audio
 
 echo "============================================="
 echo "            launch linuxdeploy"
