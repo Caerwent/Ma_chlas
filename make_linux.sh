@@ -40,8 +40,8 @@ cd $BUILD_PATH
 echo "============================================="
 echo "            DEBUG QT CONTENT"
 echo "============================================="
-echo ${ls $QT_DIR}
-echo ${ls $QT_DIR/linux}
+echo "$(ls $QT_DIR)"
+echo "$(ls $QT_DIR/linux)"
 
 echo "============================================="
 echo "            launch qmake"
