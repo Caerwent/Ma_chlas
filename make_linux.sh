@@ -24,12 +24,6 @@ export PATH=.:$PATH
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
 
-echo "============================================="
-echo "            DEBUG QT CONTENT"
-echo "============================================="
-ls $QT_DIR
-ls $QT_DIR/linux
-
 export BUILD_PATH=./build-Atalierou-linux_$ARCH_NAME-Release
 rm -rf $BUILD_PATH
 mkdir -p $BUILD_PATH
@@ -41,6 +35,13 @@ mkdir -p $DISTRIB_PATH
 export DISTRIB_PATH=$(realpath ./distrib/linux_$ARCH_NAME)
 
 cd $BUILD_PATH
+
+
+echo "============================================="
+echo "            DEBUG QT CONTENT"
+echo "============================================="
+echo ${ls $QT_DIR}
+echo ${ls $QT_DIR/linux}
 
 echo "============================================="
 echo "            launch qmake"
