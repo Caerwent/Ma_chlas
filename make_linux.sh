@@ -61,7 +61,7 @@ cd $ROOT_PATH
 export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
-export EXTRA_QT_PLUGINS="mediaservice;multimedia;quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
+export EXTRA_QT_PLUGINS="multimedia;quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
 echo "============================================="
 echo "            get qtdeploy tools"
 echo "============================================="
@@ -72,6 +72,11 @@ chmod +x "./qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage"
 wget -P "./qtdeploytools" https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage
 chmod +x "./qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage"
 export PATH=./qtdeploytools:$PATH
+
+wget -P "./qtdeploytools" https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage
+chmod +x "./qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage"
+export PATH=./qtdeploytools:$PATH
+
 
 
 echo "============================================="
