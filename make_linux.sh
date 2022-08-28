@@ -24,6 +24,11 @@ export PATH=.:$PATH
 export ROOT_PATH=$(realpath .)
 export PROJECT_PATH=$(realpath ./atalierou)
 
+echo "============================================="
+echo "            DEBUG QT CONTENT"
+echo "============================================="
+ls $QT_DIR
+ls $QT_DIR/linux
 
 export BUILD_PATH=./build-Atalierou-linux_$ARCH_NAME-Release
 rm -rf $BUILD_PATH
