@@ -62,7 +62,7 @@ jobs:
              qtArch: 'win64_mingw'
     runs-on: ${{ matrix.os }}       
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
  #   - name: "Cache Qt"
  #     id: cache-qt
@@ -73,31 +73,31 @@ jobs:
 
  # https://ddalcino.github.io/aqt-list-server/        
     - name: "Install Qt"
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
  #       cached: ${{ steps.cache-qt.outputs.cache-hit }}
         host: ${{matrix.qtInstallHost}} 
         target: 'desktop'
-        version: '6.2.4'
+        version: '6.7.1'
         arch: ${{matrix.qtArch}}
         setup-python: 'false'
-        aqtversion: '==2.1.*'
+        aqtversion: '==3.1.*'
         modules: ${{matrix.qtModules}}
         
     - name: "Install mingw tools if Windows"
       if: ${{ matrix.os == 'windows-latest' }}
       run: |
-        python3 -m aqt install-tool windows desktop tools_mingw90 -O ${{env.Qt6_DIR}}
+        python3 -m aqt install-tool windows desktop tools_mingw90 -O ${{env.QT_ROOT_DIR}}
         
     - name: "launch make script"
       working-directory: .
       env:
-        QT_DIR: ${{env.Qt6_DIR}}
+        QT_DIR: ${{env.QT_ROOT_DIR}}
         ARCH_NAME: ${{matrix.ARCH}}
       run: ${{matrix.build_script}}
     
     - name: "Archive artifacts"
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}} 
         path: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}} 
