@@ -78,6 +78,7 @@ jobs:
 
  # https://ddalcino.github.io/aqt-list-server/        
     - name: "Install Qt"
+      run: source ~/.venv/bin/activate
       uses: jurplel/install-qt-action@v4
       with:
  #       cached: ${{ steps.cache-qt.outputs.cache-hit }}
