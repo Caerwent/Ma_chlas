@@ -63,7 +63,12 @@ jobs:
     runs-on: ${{ matrix.os }}       
     steps:
     - uses: actions/checkout@v4
-    
+    - name: "Install venv"
+      if: ${{ matrix.os != 'windows-latest' }}
+      run: |
+        mkdir ~/.venv
+        python3 -m venv ~/.venv
+        source ~/.venv/bin/activate
  #   - name: "Cache Qt"
  #     id: cache-qt
  #     uses: actions/cache@v1  # not v2!
