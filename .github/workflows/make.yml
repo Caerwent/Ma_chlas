@@ -34,7 +34,7 @@ jobs:
     needs: version
 
     env:
-      CURRENT_VERSION: ${{ needs.version.outputs.version }}
+      CURRENT_VERSION: "$version"
       
     strategy:
       matrix:
