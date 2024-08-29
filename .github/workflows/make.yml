@@ -80,7 +80,7 @@ jobs:
       if: ${{ matrix.os == 'ubuntu-22.04' }}
       run: |
         sudo add-apt-repository universe
-        sudo apt install libfuse2t64
+        sudo apt install libfuse2
 
     - name: "Install FUSE2 on ubuntu-24.04"
       if: ${{ matrix.os == 'ubuntu-24.04' }}
