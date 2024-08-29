@@ -71,7 +71,7 @@ jobs:
         source ~/.venv/bin/activate
 
     - name: "Install FUSE2 on Linux"
-      if: ${{ matrix.os == 'ubuntu-latest,' }}
+      if: ${{ matrix.os == 'ubuntu-latest' }}
       run: |
         sudo add-apt-repository universe
         sudo apt install libfuse2t64
