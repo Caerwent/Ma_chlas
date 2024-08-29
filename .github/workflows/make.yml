@@ -86,7 +86,6 @@ jobs:
         version: '6.7.1'
         arch: ${{matrix.qtArch}}
         set-env: 'true'
-        setup-python: 'false'
         aqtversion: '==3.1.*'
         modules: ${{matrix.qtModules}}
         
