@@ -35,7 +35,7 @@ jobs:
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     needs: version
     env:
-        CURRENT_VERSION: ${{ needs.version.outputs.CURRENT_VERSION }}
+        CURRENT_VERSION: ${{ needs.version.outputs.version }}
         CURRENT_IS_RELEASE: ${{ needs.version.outputs.release }}
 
     strategy:
