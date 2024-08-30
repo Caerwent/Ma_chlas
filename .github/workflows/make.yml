@@ -11,15 +11,30 @@ on:
 env:
   IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/v') }}
   IS_SNAPSHOT: ${{ !startsWith(github.ref, 'refs/tags/v') }}
-  
-jobs:
 
+jobs:
+  version:
+    name: "Determine version"
+    runs-on: ubuntu-latest
+    outputs:
+      CURRENT_VERSION: ${{ steps.get-version.outputs.CURRENT_VERSION }}
+
+    steps:
+    - name: "Get version"
+      id: get-version
+      run: |
+
+        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} ">> "$GITHUB_OUTPUT" ; fi
+        if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date '+%Y.%m.%d')" >> "$GITHUB_OUTPUT" ; fi
         
   build:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    needs: version
 
+    env:
+      CURRENT_VERSION: ${{ needs.version.outputs.CURRENT_VERSION }}
 
     strategy:
       matrix:
@@ -47,12 +62,6 @@ jobs:
              qtArch: 'win64_mingw'
     runs-on: ${{ matrix.os }}       
     steps:
-    - name: "Get version"
-      id: getversion
-      run: |
-        echo "IS_RELEASE=${{ startsWith(github.ref, 'refs/tags/v') }}" >> "$GITHUB_OUTPUT"
-        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} ">> "$GITHUB_OUTPUT" ; fi
-        if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date '+%Y.%m.%d')" >> "$GITHUB_OUTPUT" ; fi
 
     - uses: actions/checkout@v4
     - name: "Install venv"
@@ -103,17 +112,17 @@ jobs:
       env:
         QT_DIR: ${{env.QT_ROOT_DIR}}
         ARCH_NAME: ${{matrix.ARCH}}
-        CURRENT_VERSION: ${{steps.getversion.outputs.CURRENT_VERSION}}
+        CURRENT_VERSION: ${{env.CURRENT_VERSION}}
       run: ${{matrix.build_script}}
     
     - name: "Archive artifacts"
       uses: actions/upload-artifact@v4
       with:
-        name: Atalierou_${{steps.getversion.outputs.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
-        path: Atalierou_${{steps.getversion.outputs.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
+        name: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
+        path: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
         
     - name: "Release"
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/v')
       with:
-        files: Atalierou_${{steps.getversion.outputs.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
+        files: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
