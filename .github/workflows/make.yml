@@ -24,7 +24,7 @@ jobs:
       id: get-version
       run: |
 
-        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} ">> "$GITHUB_OUTPUT" ; fi
+        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }}">> "$GITHUB_OUTPUT" ; fi
         if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date '+%Y.%m.%d')" >> "$GITHUB_OUTPUT" ; fi
         
   build:
