@@ -122,6 +122,6 @@ jobs:
         
     - name: "Release"
       uses: softprops/action-gh-release@v2
-      if: ${{env.CURRENT_IS_RELEASE}}
+      if: startsWith(github.ref, 'refs/tags/v')
       with:
         files: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}} 
