@@ -17,14 +17,14 @@ jobs:
     name: "Determine version"
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.get-version.outputs.version }}
+      version: ${{ steps.get-version.outputs.CURRENT_VERSION }}
       release: ${{ steps.get-version.outputs.release }}
 
     steps:
     - name: "Get version"
       id: get-version
       run: |
-        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${GITHUB_REF:11} >> $GITHUB_OUTPUT" ; fi
+        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} >> $GITHUB_OUTPUT" ; fi
         if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date "+%Y.%m.%d") >> $GITHUB_OUTPUT" ; fi
         echo "release=${IS_RELEASE} >> $GITHUB_OUTPUT"
         
@@ -35,8 +35,8 @@ jobs:
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     needs: version
     env:
-        CURRENT_VERSION: ${{ steps.get-version.outputs.CURRENT_VERSION }}
-        CURRENT_IS_RELEASE: ${{ steps.get-version.outputs.release }}
+        CURRENT_VERSION: ${{ needs.version.outputs.CURRENT_VERSION }}
+        CURRENT_IS_RELEASE: ${{ needs.version.outputs.release }}
 
     strategy:
       matrix:
