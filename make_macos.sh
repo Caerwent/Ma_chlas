@@ -4,7 +4,7 @@ brew list coreutils || brew install coreutils
 
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
-  export QT_DIR=$(realpath ../Qt/6.2.4/gcc_64)
+  export QT_DIR=$(realpath ../../Tools/6.7.2/macos)
 fi
 echo "QT_DIR: $QT_DIR"
 
