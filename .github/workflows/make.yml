@@ -50,9 +50,9 @@ jobs:
     - name: "Get version"
       id: getversion
       run: |
-        echo "IS_RELEASE=${{ startsWith(github.ref, 'refs/tags/v') }} >> $GITHUB_OUTPUT"
-        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} >> $GITHUB_OUTPUT" ; fi
-        if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date "+%Y.%m.%d") >> $GITHUB_OUTPUT" ; fi
+        echo "IS_RELEASE=${{ startsWith(github.ref, 'refs/tags/v') }}" >> ""$GITHUB_OUTPUT""
+        if [[ "$IS_RELEASE" == 'true' ]]; then echo "CURRENT_VERSION=${{ github.head_ref || github.ref_name }} ">> ""$GITHUB_OUTPUT"" ; fi
+        if [[ "$IS_RELEASE" != 'true' ]]; then echo "CURRENT_VERSION=$(date '+%Y.%m.%d')" >> ""$GITHUB_OUTPUT"" ; fi
 
     - uses: actions/checkout@v4
     - name: "Install venv"
