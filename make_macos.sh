@@ -54,5 +54,6 @@ echo "            launch macdeployqt"
 echo "============================================="
 $QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 cd $ROOT_PATH
+echo "mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg"
 mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg
 
