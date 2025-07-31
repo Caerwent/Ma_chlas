@@ -6,7 +6,7 @@ if ($null -eq $env:QT_DIR) {
 }
 $env:QT_DIR=[System.IO.Path]::GetFullPath($env:QT_DIR)
 echo QT_DIR $Env:QT_DIR
-
+$env:Qt6_DIR=$Env:QT_DIR
 
 if ($null -eq $env:CURRENT_VERSION) {
     echo CURRENT_VERSION is NOT defined, used default value
@@ -34,27 +34,26 @@ New-Item -Force -Path $env:BUILD_PATH -ItemType Directory
 $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
 New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
-Set-Location -Path $env:BUILD_PATH -PassThru
+Set-Location -Path $env:PROJECT_PATH -PassThru
 
 $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw1120_64\bin;$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin;$env:PATH"
 
 # echo PATH $env:PATH
+echo "============================================="
+echo "           display path"
+echo "============================================="
 Get-ChildItem -Path "$env:QT_DIR\Tools\"
+Get-ChildItem -Path "$env:QT_DIR\Tools\CMake"
 # Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
 # Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
-echo "            launch qmake"
+echo "            launch cmake"
 echo "============================================="
-# Start-Process -FilePath "qmake.exe" -ArgumentList "-d -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-msvc CONFIG+=qtquickcompile  -tp vcr" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\bin\qmake.exe" -ArgumentList "-makefile -o Makefile $env:PROJECT_PATH\Atalierou.pro -spec win32-g++ 'CONFIG+=qtquickcompile'" -Verbose -NoNewWindow -Wait
 
-echo "============================================="
-echo "            launch make"
-echo "============================================="
-# Start-Process -FilePath "nmake.exe" -ArgumentList "-f Makefile" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\Tools\mingw1120_64\bin\mingw32-make.exe" -ArgumentList "-f Makefile qmake_all" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "$env:QT_DIR\Tools\mingw1120_64\bin\mingw32-make.exe" -ArgumentList "-j4" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake.exe" -ArgumentList "-S . -B $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake.exe" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
+
 
 
 Copy-Item "$env:BUILD_PATH\release\Atalierou.exe" -Destination $env:DISTRIB_PATH
