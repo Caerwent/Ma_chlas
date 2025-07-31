@@ -43,15 +43,15 @@ echo "============================================="
 echo "           display path"
 echo "============================================="
 Get-ChildItem -Path "$env:QT_DIR\Tools\"
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
+Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
+Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
 
-Start-Process -FilePath "qt-cmake.exe" -ArgumentList "-S . -B $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "qt-cmake.exe" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S . -B $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
 
 
 
