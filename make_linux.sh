@@ -2,9 +2,10 @@
 
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
-  export QT_DIR=$(realpath ../Qt/6.7.1/gcc_64)
+  export QT_DIR=$(realpath ../Qt/6.9.1/gcc_64)
 fi
 echo "QT_DIR: $QT_DIR"
+export Qt6_DIR=$QT_DIR
 
 if [ -z "${CURRENT_VERSION}" ]; then
   echo "No CURRENT_VERSION defined, used default value"
@@ -34,18 +35,15 @@ rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
 export DISTRIB_PATH=$(realpath ./distrib/linux_$ARCH_NAME)
 
-cd $BUILD_PATH
 
-
+cd $PROJECT_PATH
 echo "============================================="
 echo "            launch qmake"
 echo "============================================="
-$QT_DIR/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
+qt-cmake -S . -B $BUILD_PATH
+qt-cmake --build $BUILD_PATH
 
-echo "============================================="
-echo "            launch make"
-echo "============================================="
-make -f Makefile -j6
+
 
 
 cd $ROOT_PATH
