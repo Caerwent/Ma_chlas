@@ -2,7 +2,7 @@
 if ($null -eq $env:QT_DIR) {
     echo QT_DIR is NOT defined, used default value
     
-    $env:QT_DIR = ..\Qt\6.2.4\gcc_64 
+    $env:QT_DIR = ..\Qt\6.9.1\gcc_64
 }
 $env:QT_DIR=[System.IO.Path]::GetFullPath($env:QT_DIR)
 echo QT_DIR $Env:QT_DIR

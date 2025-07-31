@@ -1,20 +1,100 @@
-# built application files
+### built application files
+*~
+*.autosave
+*.a
+*.core
+*.moc
 *.o
+*.obj
+*.orig
+*.rej
+*.so
+*.so.*
+*_pch.h.cpp
+*_resource.rc
+*.qm
+.#*
+*.*#
+core
+!core/
+tags
+.DS_Store
+.directory
+*.debug
+Makefile*
+*.prl
+*.app
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+Thumbs.db
+*.res
+*.rc
+/.qmake.cache
+/.qmake.stash
 
 
-# generated files
+# Python byte code
+*.pyc
+
+# Binaries
+# --------
+*.dll
+*.exe
+*.AppImage
+*.dmg
+
+# generated folders
 bin/
 gen/
 out/
 build/
 build*/
 distrib/
+.moc/
+.obj/
+.pch/
+.rcc/
+.uic/
+
+# MinGW generated files
+*.Debug
+*.Release
 
 # Local configuration file (sdk path, etc)
 local.properties
 
-# IDE project files
+### IDE project files
+
+# qtcreator generated files
+*.pro.user*
+*.qbs.user*
+CMakeLists.txt.user*
 *.pro.user
+
+# xemacs temporary files
+*.flc
+
+# Vim temporary files
+.*.swp
+# KAte temporary files
+.*.kate-swp
+
+# Visual Studio generated files
+*.ib_pdb_index
+*.idb
+*.ilk
+*.pdb
+*.sln
+*.suo
+*.vcproj
+*vcproj.*.*.user
+*.ncb
+*.sdf
+*.opensdf
+*.vcxproj
+*vcxproj.*
+
 
 # Windows thumbnail db
 .DS_Store

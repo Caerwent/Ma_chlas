@@ -4,9 +4,10 @@ brew list coreutils || brew install coreutils
 
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
-  export QT_DIR=$(realpath ../../Tools/6.7.2/macos)
+  export QT_DIR=$(realpath ../../Tools/6.9.1/macos)
 fi
 echo "QT_DIR: $QT_DIR"
+export Qt6_DIR=$QT_DIR
 
 if [ -z "${CURRENT_VERSION}" ]; then
   echo "No CURRENT_VERSION defined, used default value"
@@ -36,23 +37,20 @@ rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
 export DISTRIB_PATH=$(realpath ./distrib/macos_$ARCH_NAME)
 
-cd $BUILD_PATH
+cd $PROJECT_PATH
 
 echo "============================================="
-echo "            launch qmake"
+echo "            launch cmake"
 echo "============================================="
-$QT_DIR/bin/qmake -o Makefile $PROJECT_PATH/Atalierou.pro -spec macx-clang CONFIG+=qtquickcompiler
+$QT_DIR/../../Tools/CMake/CMake.app/Contents/bin/cmake -S . -B $BUILD_PATH
+$QT_DIR/../../Tools/CMake/CMake.app/Contents/bin/cmake --build $BUILD_PATH
 
-echo "============================================="
-echo "            launch make"
-echo "============================================="
-make -f Makefile qmake_all
-make -f Makefile -j8
 
 echo "============================================="
 echo "            launch macdeployqt"
 echo "============================================="
-$QT_DIR/bin/macdeployqt Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
+cd $BUILD_PATH
+$QT_DIR/bin/macdeployqt6 Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 cd $ROOT_PATH
 echo "move file $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg"
 mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg
