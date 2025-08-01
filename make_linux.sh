@@ -35,7 +35,7 @@ rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
 export DISTRIB_PATH=$(realpath ./distrib/linux_$ARCH_NAME)
 
-
+set -x
 cd $PROJECT_PATH
 echo "============================================="
 echo "            launch qmake"
@@ -43,7 +43,7 @@ echo "============================================="
 qt-cmake -S . -B $BUILD_PATH
 qt-cmake --build $BUILD_PATH
 
-
+tree -d $BUILD_PATH
 
 
 cd $ROOT_PATH
