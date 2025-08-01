@@ -40,10 +40,10 @@ cd $PROJECT_PATH
 echo "============================================="
 echo "            launch qmake"
 echo "============================================="
-qt-cmake -S . -B $BUILD_PATH
-qt-cmake --build $BUILD_PATH
+qt-cmake -DCMAKE_BUILD_TYPE=Release
+cmake --build
 
-tree -d $BUILD_PATH
+tree -d $ROOT_PATH
 
 
 cd $ROOT_PATH
