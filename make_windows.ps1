@@ -42,7 +42,7 @@ echo PATH $env:PATH
 echo "============================================="
 echo "           display path"
 echo "============================================="
-Get-ChildItem -Path "$env:QT_DIR\Tools\"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\"
 # Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
 # Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
 
