@@ -34,24 +34,20 @@ New-Item -Force -Path $env:BUILD_PATH -ItemType Directory
 $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
 New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
-Set-Location -Path $env:PROJECT_PATH -PassThru
+# Set-Location -Path $env:PROJECT_PATH -PassThru
 
-# $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw1120_64\bin;$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin;$env:PATH"
 $env:PATH="$env:QT_DIR\bin\;$env:PATH"
-echo PATH $env:PATH
+
 echo "============================================="
 echo "           display path"
 echo "============================================="
-# Get-ChildItem -Path "$env:QT_DIR\Tools\"
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
-# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
+echo PATH $env:PATH
 
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-
-Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S . -B $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "qt-cmake.bat" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-DCMAKE_BUILD_TYPE Release -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
 
 
 
