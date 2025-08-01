@@ -78,28 +78,29 @@ mkdir -p $QT_DIR/plugins/audio
 echo "============================================="
 echo "            launch linuxdeploy"
 echo "============================================="
-echo "$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
-$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png 
-
-echo "============================================="
-echo "            launch linuxdeploy qt"
-echo "============================================="
 export QML_SOURCES_PATHS=$PROJECT_PATH/qml
-echo "$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
+echo "$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
+$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png --plugin qt --output Atalierou_${VERSION}_${ARCH_NAME}.AppImage
+
+#echo "============================================="
+#echo "            launch linuxdeploy qt"
+#echo "============================================="
+#export QML_SOURCES_PATHS=$PROJECT_PATH/qml
+#echo "$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+#$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 
 
-echo "============================================="
-echo "            launch linuxdeploy appimage"
-echo "============================================="
-export LINUXDEPLOY_OUTPUT_VERSION=$CURRENT_VERSION
-echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
-export LDAI_OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
-echo "LDAI_OUTPUT=$LDAI_OUTPUT"
-echo "launch $PROJECT_PATH/Atalierou.desktop  $DISTRIB_PATH/usr/share/applications/"
-set -x
-tree $DISTRIB_PATH/usr/share/
-cp $PROJECT_PATH/Atalierou.desktop  $DISTRIB_PATH/usr/share/applications/
-echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
+#echo "============================================="
+#echo "            launch linuxdeploy appimage"
+#echo "============================================="
+#export LINUXDEPLOY_OUTPUT_VERSION=$CURRENT_VERSION
+#echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
+#export LDAI_OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
+#echo "LDAI_OUTPUT=$LDAI_OUTPUT"
+#set -x
+
+#cp $PROJECT_PATH/Atalierou.desktop  $DISTRIB_PATH/usr/share/applications/
+#tree $DISTRIB_PATH/usr/share/
+#echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
+#$ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH
 
