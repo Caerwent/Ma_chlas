@@ -35,7 +35,6 @@ rm -rf $DISTRIB_PATH
 mkdir -p $DISTRIB_PATH
 export DISTRIB_PATH=$(realpath ./distrib/linux_$ARCH_NAME)
 
-set -x
 cd $PROJECT_PATH
 echo "============================================="
 echo "            launch qmake"
@@ -79,8 +78,9 @@ echo "============================================="
 echo "            launch linuxdeploy"
 echo "============================================="
 export QML_SOURCES_PATHS=$PROJECT_PATH/qml
+export LDAI_OUTPUT=Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.AppImage
 echo "$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png "
-$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png --plugin qt --output Atalierou_${VERSION}_${ARCH_NAME}.AppImage
+$ROOT_PATH/qtdeploytools/linuxdeploy-$ARCH_NAME.AppImage --appdir $DISTRIB_PATH -e $BUILD_PATH/Atalierou -d $PROJECT_PATH/Atalierou.desktop -i $PROJECT_PATH/icon.png --plugin qt --output appimage
 
 #echo "============================================="
 #echo "            launch linuxdeploy qt"
