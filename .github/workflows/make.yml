@@ -48,7 +48,7 @@ jobs:
              artifact_ext: AppImage 
              qtModules: 'all'
              qtArch: 'gcc_64'
-             qtTools: 'qt.tools.cmake'
+             qtTools: 'tools_cmake'
            - os: macos-latest
              build_script: ./make_macos.sh
              qtInstallHost: 'mac'
