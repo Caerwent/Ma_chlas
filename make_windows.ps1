@@ -46,7 +46,7 @@ echo PATH $env:PATH
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-DCMAKE_BUILD_TYPE Release -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH'" -Verbose -NoNewWindow -Wait
 
 
