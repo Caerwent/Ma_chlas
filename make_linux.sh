@@ -97,7 +97,8 @@ echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
 export LDAI_OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
 echo "LDAI_OUTPUT=$LDAI_OUTPUT"
 echo "launch $PROJECT_PATH/Atalierou.desktop  $DISTRIB_PATH/usr/share/applications/"
-echo "${tree $DISTRIB_PATH/usr/share/}"
+set -x
+tree $DISTRIB_PATH/usr/share/
 cp $PROJECT_PATH/Atalierou.desktop  $DISTRIB_PATH/usr/share/applications/
 echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
 $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
