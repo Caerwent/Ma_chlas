@@ -48,18 +48,21 @@ jobs:
              artifact_ext: AppImage 
              qtModules: 'all'
              qtArch: 'gcc_64'
+             qtTools: 'qt.tools.cmake'
            - os: macos-latest
              build_script: ./make_macos.sh
              qtInstallHost: 'mac'
              artifact_ext: dmg 
              qtModules: 'all'
              qtArch: 'clang_64'
+             qtTools: 'qt.tools.cmake'
            - os: windows-latest
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
              artifact_ext: zip 
              qtModules: 'qtshadertools qtmultimedia qtimageformats'
              qtArch: 'win64_mingw'
+             qtTools: 'tools_mingw90 tools_cmake'
     runs-on: ${{ matrix.os }}       
     steps:
 
@@ -99,13 +102,15 @@ jobs:
         version: '6.9.1'
         arch: ${{matrix.qtArch}}
         set-env: 'true'
+        tools: ${{matrix.qtTools}}
+        add-tools-to-path: 'true'
         aqtversion: '==3.1.*'
         modules: ${{matrix.qtModules}}
         
-    - name: "Install mingw tools if Windows"
-      if: ${{ matrix.os == 'windows-latest' }}
-      run: |
-        python3 -m aqt install-tool windows desktop tools_mingw90 -O ${{env.QT_ROOT_DIR}}
+#    - name: "Install mingw tools if Windows"
+#      if: ${{ matrix.os == 'windows-latest' }}
+#      run: |
+#        python3 -m aqt install-tool windows desktop tools_mingw90 -O ${{env.QT_ROOT_DIR}}
         
     - name: "launch make script"
       working-directory: .

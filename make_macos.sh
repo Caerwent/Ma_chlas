@@ -42,15 +42,15 @@ cd $PROJECT_PATH
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-$QT_DIR/../../Tools/CMake/CMake.app/Contents/bin/cmake -S . -B $BUILD_PATH
-$QT_DIR/../../Tools/CMake/CMake.app/Contents/bin/cmake --build $BUILD_PATH
+cmake -S . -B $BUILD_PATH
+cmake --build $BUILD_PATH
 
 
 echo "============================================="
 echo "            launch macdeployqt"
 echo "============================================="
 cd $BUILD_PATH
-$QT_DIR/bin/macdeployqt6 Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
+macdeployqt6 Atalierou.app -qmldir=$PROJECT_PATH/qml -dmg
 cd $ROOT_PATH
 echo "move file $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg"
 mv $BUILD_PATH/Atalierou.dmg Atalierou_${CURRENT_VERSION}_${ARCH_NAME}.dmg

@@ -50,7 +50,7 @@ cd $ROOT_PATH
 
 #https://opensourcelibs.com/lib/linuxdeploy-plugin-qt
 #https://github.com/linuxdeploy
-export QMAKE=$QT_DIR/bin/qmake
+#export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
 export EXTRA_QT_PLUGINS="multimedia;quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
@@ -92,10 +92,10 @@ $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-qt-$ARCH_NAME.AppImage --appdir=$DIS
 echo "============================================="
 echo "            launch linuxdeploy appimage"
 echo "============================================="
-export VERSION=$CURRENT_VERSION
+export LINUXDEPLOY_OUTPUT_VERSION=$CURRENT_VERSION
 echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
 export OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
 echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-echo "OUTPUT: $OUTPUT"
+echo "LDAI_OUTPUT: $OUTPUT"
 $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 

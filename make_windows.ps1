@@ -36,15 +36,15 @@ New-Item -Force -Path $env:DISTRIB_PATH -ItemType Directory
 
 Set-Location -Path $env:PROJECT_PATH -PassThru
 
-$env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw1120_64\bin;$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin;$env:PATH"
-
-# echo PATH $env:PATH
+# $env:PATH="$env:QT_DIR\bin\;$env:QT_DIR\Tools\mingw1120_64\bin;$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin;$env:PATH"
+$env:PATH="$env:QT_DIR\bin\;$env:PATH"
+echo PATH $env:PATH
 echo "============================================="
 echo "           display path"
 echo "============================================="
 Get-ChildItem -Path "$env:QT_DIR\Tools\"
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
-Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\bin"
+# Get-ChildItem -Path "$env:QT_DIR\Tools\mingw1120_64\x86_64-w64-mingw32\bin"
 
 echo "============================================="
 echo "            launch cmake"
@@ -61,7 +61,7 @@ echo "============================================="
 echo "            launch windeployqt"
 echo "============================================="
 echo launch windeployqt
-Start-Process -FilePath "$env:QT_DIR\bin\windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:DISTRIB_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:DISTRIB_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 Get-ChildItem -Path "$env:DISTRIB_PATH"
