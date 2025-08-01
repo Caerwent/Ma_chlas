@@ -94,8 +94,8 @@ echo "            launch linuxdeploy appimage"
 echo "============================================="
 export LINUXDEPLOY_OUTPUT_VERSION=$CURRENT_VERSION
 echo "CURRENT_VERSION: $CURRENT_VERSION -> VERSION: $VERSION"
-export OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
+export LDAI_OUTPUT=Atalierou_${VERSION}_${ARCH_NAME}.AppImage
+echo "LDAI_OUTPUT=$LDAI_OUTPUT"
 echo "launch $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH"
-echo "LDAI_OUTPUT: $OUTPUT"
 $ROOT_PATH/qtdeploytools/linuxdeploy-plugin-appimage-$ARCH_NAME.AppImage --appdir=$DISTRIB_PATH 
 
