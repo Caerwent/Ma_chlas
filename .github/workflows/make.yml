@@ -55,7 +55,7 @@ jobs:
              artifact_ext: dmg 
              qtModules: 'all'
              qtArch: 'clang_64'
-             qtTools: 'qt.tools.cmake'
+             qtTools: 'tools_cmake'
            - os: windows-latest
              build_script: .\make_windows.ps1
              qtInstallHost: 'windows'
