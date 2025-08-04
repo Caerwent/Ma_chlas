@@ -39,8 +39,8 @@ cd $PROJECT_PATH
 echo "============================================="
 echo "            launch qmake"
 echo "============================================="
-export CMAKE_BUILD_TYPE="Release"
-qt-cmake -S $PROJECT_PATH -B $BUILD_PATH
+
+qt-cmake -D CMAKE_BUILD_TYPE="Release",CMAKE_CONFIGURATION_TYPES="Release" -S $PROJECT_PATH -B $BUILD_PATH
 cmake --build $BUILD_PATH
 
 tree -d $ROOT_PATH
