@@ -47,7 +47,7 @@ echo "============================================="
 echo "            launch cmake"
 echo "============================================="
 Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake" -ArgumentList "-DCMAKE_BUILD_TYPE=Release --build $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 
 
 Get-ChildItem -Path "$env:BUILD_PATH\x64"

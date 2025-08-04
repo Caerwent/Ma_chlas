@@ -49,7 +49,6 @@ cd $ROOT_PATH
 
 #https://opensourcelibs.com/lib/linuxdeploy-plugin-qt
 #https://github.com/linuxdeploy
-#export QMAKE=$QT_DIR/bin/qmake
 export DEBUG=1
 
 export EXTRA_QT_PLUGINS="multimedia;quick;quickcontrols2;qmlworkerscript;quickcontrols2impl;quickparticules;quicktemplates2;shadertools;svg;xcbqpa;LabsFolderListModel;LabsQmlModels;LabsSettings"
