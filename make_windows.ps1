@@ -52,7 +52,8 @@ Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH" -Verbose
 
 
 Get-ChildItem -Path "$env:BUILD_PATH"
-Get-ChildItem -Path "$env:BUILD_PATH\Release"
+Get-ChildItem -Path "$env:BUILD_PATH\Debug"
+Get-ChildItem -Path "$env:BUILD_PATH\x64"
 Copy-Item "$env:BUILD_PATH\Release\Atalierou.exe" -Destination $env:DISTRIB_PATH
 
 echo "============================================="
