@@ -76,7 +76,7 @@ echo "============================================="
 Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-D CMAKE_BUILD_TYPE='Release',CMAKE_CONFIGURATION_TYPES='Release' -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH --config Release" -Verbose -NoNewWindow -Wait
 
-Get-FolderTreeWithSizes "$env:BUILD_PATH"
+Get-FolderTreeWithSizes "$env:ROOT_PATH"
 Get-ChildItem -Path "$env:BUILD_PATH\Release"
 Get-ChildItem -Path "$env:BUILD_PATH\x64"
 Get-ChildItem -Path "$env:BUILD_PATH\x64\Release"
