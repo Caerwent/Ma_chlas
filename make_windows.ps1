@@ -23,6 +23,33 @@ if ($null -eq $env:ARCH_NAME) {
     $env:ARCH_NAME=x86_64
 }
 
+function Get-FolderTreeWithSizes {
+    param (
+        [string]$Path = ".",
+        [int]$Indent = 0
+    )
+
+    $items = Get-ChildItem -Path $Path -Force
+    $folderSize = 0
+
+    foreach ($item in $items) {
+        if ($item.PSIsContainer) {
+            $subFolderSize = (Get-ChildItem -Path $item.FullName -Recurse -Force | Measure-Object -Property Length -Sum).Sum
+            $subFolderSizeKB = "{0:N2} KB" -f ($subFolderSize / 1KB)
+            Write-Host (" " * $Indent + "+-- " + $item.Name + " [Folder] (" + $subFolderSizeKB + ")") -ForegroundColor Green
+            Get-FolderTreeWithSizes -Path $item.FullName -Indent ($Indent + 4)
+        } else {
+            $fileSizeKB = "{0:N2} KB" -f ($item.Length / 1KB)
+            Write-Host (" " * $Indent + "+-- " + $item.Name + " (" + $fileSizeKB + ")") -ForegroundColor Yellow
+            $folderSize += $item.Length
+        }
+    }
+
+    if ($Indent -eq 0) {
+        Write-Host ("Total Size of '$Path': {0:N2} KB" -f ($folderSize / 1KB)) -ForegroundColor Cyan
+    }
+}
+
 $env:ROOT_PATH=[System.IO.Path]::GetFullPath(".")
 
 $env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
@@ -46,14 +73,11 @@ echo PATH $env:PATH
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-$env:CMAKE_BUILD_TYPE="Release"
-Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-D CMAKE_BUILD_TYPE='Release' -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 
-
+Get-FolderTreeWithSizes "$env:BUILD_PATH"
 Get-ChildItem -Path "$env:BUILD_PATH"
-Get-ChildItem -Path "$env:BUILD_PATH\Debug"
-Get-ChildItem -Path "$env:BUILD_PATH\x64"
 Copy-Item "$env:BUILD_PATH\Release\Atalierou.exe" -Destination $env:DISTRIB_PATH
 
 echo "============================================="

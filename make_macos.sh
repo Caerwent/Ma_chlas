@@ -5,6 +5,7 @@ brew list coreutils || brew install coreutils
 if [ -z "${QT_DIR}" ]; then
   echo "No QT_DIR defined, used default value"
   export QT_DIR=$(realpath ../../Tools/6.9.1/macos)
+  export PATH="$QT_DIR/bin:$QT_DIR/../../Tools/CMake/CMake.app/Contents/bin:$PATH"
 fi
 echo "QT_DIR: $QT_DIR"
 export Qt6_DIR=$QT_DIR
@@ -42,7 +43,8 @@ cd $PROJECT_PATH
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-cmake -S . -B $BUILD_PATH
+
+qt-cmake -D CMAKE_BUILD_TYPE="Release" -S . -B $BUILD_PATH
 cmake --build $BUILD_PATH
 
 
