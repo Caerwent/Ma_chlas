@@ -40,7 +40,6 @@ target_link_libraries(Atalierou PRIVATE
 
 # Resources:
 set(qml_resource_files
-    "qml/Test.qml"
     "qml/components/AppScrollView.qml"
     "qml/components/AudioHelp.qml"
     "qml/components/Avatar.qml"

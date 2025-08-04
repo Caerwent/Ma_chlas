@@ -50,8 +50,9 @@ Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-S $env:PROJECT_PATH -B $e
 Start-Process -FilePath "cmake" -ArgumentList "-DCMAKE_BUILD_TYPE=Release --build $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
 
 
-Get-ChildItem -Path "$env:BUILD_PATH\x64"
-Copy-Item "$env:BUILD_PATH\x64\Atalierou.exe" -Destination $env:DISTRIB_PATH
+Get-ChildItem -Path "$env:BUILD_PATH"
+Get-ChildItem -Path "$env:BUILD_PATH\Release"
+Copy-Item "$env:BUILD_PATH\Release\Atalierou.exe" -Destination $env:DISTRIB_PATH
 
 echo "============================================="
 echo "            launch windeployqt"
