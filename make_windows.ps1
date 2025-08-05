@@ -55,7 +55,7 @@ $env:ROOT_PATH=[System.IO.Path]::GetFullPath(".")
 $env:PROJECT_PATH=[System.IO.Path]::GetFullPath(".\atalierou")
 
 
-$env:BUILD_PATH=[System.IO.Path]::GetFullPath(".\build-Atalierou-windows_$env:ARCH_NAME")
+$env:BUILD_PATH=[System.IO.Path]::GetFullPath(".\build-Atalierou-windows_$env:ARCH_NAME-Release")
 New-Item -Force -Path $env:BUILD_PATH -ItemType Directory
 
 $env:DISTRIB_PATH=[System.IO.Path]::GetFullPath(".\distrib\windows_$env:ARCH_NAME")
@@ -73,21 +73,18 @@ echo PATH $env:PATH
 echo "============================================="
 echo "            launch cmake"
 echo "============================================="
-Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-DCMAKE_CONFIGURATION_TYPES=Release -DCMAKE_BUILD_TYPE=Release -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
-Start-Process -FilePath "cmake" -ArgumentList "--install $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "qt-cmake.bat" -ArgumentList "-D CMAKE_BUILD_TYPE='Release',CMAKE_CONFIGURATION_TYPES='Release' -S $env:PROJECT_PATH -B $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake" -ArgumentList "--build $env:BUILD_PATH --config Release" -Verbose -NoNewWindow -Wait
 
 Get-FolderTreeWithSizes "$env:ROOT_PATH"
-Get-ChildItem -Path "$env:BUILD_PATH"
 Get-ChildItem -Path "$env:BUILD_PATH\Release"
-#Copy-Item "$env:BUILD_PATH\Release\Atalierou.exe" -Destination $env:DISTRIB_PATH
+Copy-Item "$env:BUILD_PATH\Release\Atalierou.exe" -Destination $env:DISTRIB_PATH
 
 echo "============================================="
 echo "            launch windeployqt"
 echo "============================================="
-
-
-Start-Process -FilePath "windeployqt" -ArgumentList "--release --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:BUILD_PATH\Release\Atalierou.exe" -Verbose -NoNewWindow -Wait
+echo launch windeployqt
+Start-Process -FilePath "windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:DISTRIB_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 Get-ChildItem -Path "$env:DISTRIB_PATH"

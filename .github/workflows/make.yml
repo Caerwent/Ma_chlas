@@ -61,8 +61,8 @@ jobs:
              qtInstallHost: 'windows'
              artifact_ext: zip 
              qtModules: 'qtshadertools qtmultimedia qtimageformats'
-             qtArch: 'win64_mingw'
-             qtTools: 'tools_mingw90 tools_cmake'
+             qtArch: 'win64_msvc2022_64'
+             qtTools: 'tools_cmake'
     runs-on: ${{ matrix.os }}       
     steps:
 
