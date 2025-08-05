@@ -123,6 +123,7 @@ jobs:
     - name: "Archive artifacts"
       uses: actions/upload-artifact@v4
       with:
+        compression-level: 0 # target files are already compressed
         name: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
         path: Atalierou_${{env.CURRENT_VERSION}}_${{matrix.ARCH}}.${{matrix.artifact_ext}}
         
