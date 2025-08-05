@@ -85,8 +85,9 @@ Copy-Item "$env:BUILD_PATH\x64\Release\Atalierou.exe" -Destination $env:DISTRIB_
 echo "============================================="
 echo "            launch windeployqt"
 echo "============================================="
-echo launch windeployqt
-Start-Process -FilePath "windeployqt" -ArgumentList "--release --qmake $env:QT_DIR\bin\qmake.exe --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:DISTRIB_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
+Start-Process -FilePath "cmake" -ArgumentList "--install $env:BUILD_PATH" -Verbose -NoNewWindow -Wait
+
+Start-Process -FilePath "windeployqt" -ArgumentList "--release --qmldir $env:PROJECT_PATH\qml --verbose 2 $env:BUILD_PATH\Atalierou.exe" -Verbose -NoNewWindow -Wait
 
 Set-Location -Path $env:ROOT_PATH -PassThru
 Get-ChildItem -Path "$env:DISTRIB_PATH"

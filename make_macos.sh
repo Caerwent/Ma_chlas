@@ -44,7 +44,7 @@ echo "============================================="
 echo "            launch cmake"
 echo "============================================="
 
-qt-cmake -D CMAKE_BUILD_TYPE="Release" -S . -B $BUILD_PATH
+qt-cmake -D CMAKE_BUILD_TYPE="Release",CMAKE_CONFIGURATION_TYPES="Release" -S . -B $BUILD_PATH
 cmake --build $BUILD_PATH
 
 
