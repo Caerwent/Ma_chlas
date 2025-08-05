@@ -5,6 +5,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui Multimedia Quick QuickControls2 Svg Widgets)
+find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 
 qt_standard_project_setup()
 
@@ -27,6 +28,8 @@ qt_add_executable(Atalierou WIN32 MACOSX_BUNDLE
     src/puzzle/slidingpuzzle.cpp src/puzzle/slidingpuzzle.h
     src/user.cpp src/user.h
 )
+
+qt_add_translations(Atalierou TS_FILES Atalierou_br.ts Atalierou_en.ts Atalierou_fr.ts)
 target_link_libraries(Atalierou PRIVATE
     Qt::Core
     Qt::Gui
